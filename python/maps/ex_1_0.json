@@ -1,0 +1,36 @@
+{
+    "level": [{
+        "map": [
+            "2222222222",
+            "2311111112",
+            "2111111112",
+            "2262226222",
+            "2111111112",
+            "2222922222",
+            "2111111112",
+            "2222722222",
+            "2114111112",
+            "2222222222"
+        ],
+        "random_doors": {
+            "1": {
+                "doors": [[2, 3], [6, 3]],
+                "fg_color": "33DEB1"
+            }
+        },
+        "riddles": {
+            "(4, 5)": {
+                "outputs": "1",
+                "expected_input": 1,
+                "random": false
+            }
+        },
+        "max_lines": 0,
+        "broken_door_proba": 0.01,
+        "max_cols": 0,
+        "notes": [
+            "Hello"
+        ],
+        "character": "not_a_sphinx.txt"
+    }]
+}

@@ -1,0 +1,47 @@
+{
+    "sprites": {
+        "OBJECTS":{
+            "player": ["3", "Archimede."],
+            "exit": ["4", "The exit."],
+            "door": ["5", "A door."],
+            "broken_door": ["7", "A damaged door. Might open if you try to break it enough times."],
+            "random_door": ["6", "A door that opens randomly. The 'c' shows which set the door belongs to. The 'n' is the number of the door in the set."],
+            "riddle": ["9", "A strange toast who wants you to solve their riddle."]
+    }
+    },
+    "functions": {
+        "INSTRUCTION FUNCTIONS": {
+            "walk": ["walk(direction)", "Makes Archimede walk one step into the chosen direction."],
+            "open_door": ["open_door(direction)", "Makes Archimede open the door in the chosen direction."],
+            "fortune": ["fortune_teller(set) -> int", "Asks the fortune teller which door will open in a set of random doors. The answer is the number of the door."],
+            "break_door": ["break_door(direction) -> bool", "Makes Archimede try to break a damaged door in the chosen direction. The result is the success or failure."],
+            "get_riddle": ["get_riddle(direction) -> any", "Gets the riddle the toast wants you to solve in the chosen direction."],
+            "solve_riddle": ["solve_riddle(direction)", "Gives your solution to the sphinx in the chosen direction."],
+            "print": ["print(string)", "Prints the string."]
+        },
+        "INSTRUCTION PARAMETERS": {
+            "direction": ["direction", "UP | DOWN | LEFT | RIGHT"],
+            "set": ["set", "any character"]
+        }
+    },
+    "code": {
+        "PYTHON SYNTAX": {
+            "comments": ["COMMENTS", [
+                "\"\"\" MULTILINE/BLOCK comment \"\"\"",
+                "# SINGLE LINE comment"
+            ]],
+            "if": ["CONDITIONS", [
+                "if [condiiton]",
+                "   [code to execute]"
+            ]],
+            "while": ["WHILE LOOPS", [
+                "while [condition]:",
+                "   [code to execute]"
+            ]],
+            "for": ["FOR LOOPS", [
+                "for i in range(start; end; step):",
+                "   [code to execute]"
+            ]]
+        }
+    }
+}

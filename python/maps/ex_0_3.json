@@ -1,0 +1,28 @@
+{
+    "level": [{
+        "map": [
+            "2222",
+            "2432",
+            "2222"
+        ],
+        "notes": [
+            "One last time to see if you got used to how this game works.",
+            "",
+            "I'm sure by now you know what to do."
+        ]
+    }],
+    "help": {
+        "door": false,
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "open_door": false,
+        "fortune": false,
+        "break_door": false,
+        "print": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "code": false
+    }
+}

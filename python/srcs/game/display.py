@@ -1,0 +1,121 @@
+import curses
+import atexit
+from srcs.shared import configs
+
+
+class Display:
+
+    def __new__(cls, game):
+        if not hasattr(cls, 'instance'):
+            cls.instance = super(Display, cls).__new__(cls)
+            self = cls.instance
+            self.game = game
+            self.win = curses.initscr()
+            mx = configs.cell_width * configs.map_width + configs.left_margin
+            my = configs.cell_height * configs.map_height + configs.top_margin
+            if not (curses.COLS > mx and curses.LINES > my):
+                self.win.addstr(2, 0, "Screen not big enough.")
+                self.win.getch()
+                self.clean()
+                exit()
+
+            log_x = mx + configs.left_margin + configs.log_width
+            log_y = configs.top_margin + configs.log_height
+            if log_x < curses.COLS and log_y < curses.LINES:
+                self.logs = curses.newwin(configs.log_height, configs.log_width, configs.top_margin, mx + configs.left_margin)
+                self.logs.box()
+            else:
+                self.logs = None
+
+            self.win.nodelay(True)
+            curses.start_color()
+            self.init_colors(configs.colors)
+            curses.noecho()
+            curses.curs_set(0)
+            atexit.register(self.clean)
+            atexit.register(self.leave_game)
+            return cls.instance
+
+    def clean(self):
+        curses.echo()
+        curses.endwin()
+
+    def to_rgb(self, color: str):
+        r = int((int(color[0:2], 16) / 255) * 1000)
+        g = int((int(color[2:4], 16) / 255) * 1000)
+        b = int((int(color[4:6], 16) / 255) * 1000)
+        return (r, g, b)
+
+    def init_colors(self, colors: dict):
+        for i, color in colors.items():
+            rgb = self.to_rgb(color)
+            curses.init_color(i.value, *rgb)
+
+    def init_pair(self, elem: configs.MapElem):
+        curses.init_pair(elem.id, elem.fg_color.value, elem.bg_color.value)
+
+    def print_map(self):
+        if configs.top_margin >= 1:
+            self.win.addstr(0, configs.left_margin, "Press Q or ESC to leave")
+        for y in range(configs.map_height):
+            for x in range(configs.map_width):
+                self.print_cell(x, y)
+
+    def print_cell(self, x: int, y: int):
+        level = self.game.curr_map
+        val = level.map[y][x]
+        player = False
+        if self.game.player.x == x and self.game.player.y == y:
+            elem = self.game.elems[configs.MapVal.PLAYER.value]
+            player = True
+        else:
+            elem = self.game.elems[val]
+
+        for i, line in enumerate(elem.sprite):
+            if val == configs.MapVal.RAND_DOOR.value:
+                key, idx = self.game.curr_map.find_random_key(x, y)
+                if line.find("n") != -1:
+                    line = line.replace("n", str(idx))
+                if line.find("c") != -1:
+                    line = line.replace("c", key)
+            height = configs.top_margin + configs.cell_height * y + i
+            width = configs.left_margin + configs.cell_width * x
+            if len(self.game.maps) > 1 and not player:
+                self.win.addstr(height, width, " " * len(line))
+            else:
+                self.win.addstr(height, width, line, curses.color_pair(elem.id))
+
+        self.win.refresh()
+
+    def get_input(self):
+        input = self.win.getch()
+        if input == curses.KEY_RESIZE:
+            h, w = self.win.getmaxyx()
+            if h < configs.screen_min_height or w < configs.screen_min_width:
+                atexit.unregister(self.leave_game)
+                exit()
+        if input == ord('q') or input == 27:
+            atexit.unregister(self.leave_game)
+            exit()
+
+    def leave_game(self):
+        if configs.top_margin >= 1:
+            self.win.addstr(0, configs.left_margin, "Game ended. Press any key to leave")
+        self.win.nodelay(False)
+        self.win.getch()
+
+    def print_log(self, msg: str):
+        if self.logs is None:
+            return
+        self.logs.clear()
+        self.logs.addstr(msg)
+        self.logs.refresh()
+
+    def print_error(self, err: str, color: int = None):
+        self.win.nodelay(False)
+        atexit.unregister(self.leave_game)
+        if color is not None:
+            self.win.addstr("Error: " + err, color)
+        else:
+            self.win.addstr("Error: " + err)
+        self.win.getch()

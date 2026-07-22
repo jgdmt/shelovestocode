@@ -1,0 +1,34 @@
+{
+    "level": [{
+        "map": [
+            "22222222",
+            "21113112",
+            "21111112",
+            "21111412",
+            "22222222"
+        ],
+        "notes": [
+            "It seems I messed up! Not only did I forget my flashlight, but I also took the wrong map with me! What should we do?",
+            "Perhaps the right map ended up with your neighbour instead... Why not ask?"
+        ],
+        "character": "thief.txt"
+    },
+    {
+        "map": [
+            "22222222",
+            "23111412",
+            "21111112",
+            "21111112",
+            "22222222"
+        ],
+        "notes": [
+            "It seems I messed up! Not only did I forget my flashlight, but I also took the wrong map with me! What should we do?",
+            "Perhaps the right map ended up with one of your neighbours instead... Why not ask?"
+        ],
+        "character": "thief.txt"
+    }]
+}
+
+
+
+                

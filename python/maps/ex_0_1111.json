@@ -1,0 +1,31 @@
+{
+    "level": [{
+        "map": [
+            "2222222",
+            "2111112",
+            "2131142",
+            "2111112",
+            "2222222"
+        ],
+        "notes": [
+            "It seems I messed up! Not only did I forget my flashlight, but I also took the wrong map with me!",
+            "This time, I will have to follow your instructions in the dark. I trust you to bring me to the end.",
+            "Perhaps the right map ended up with your neighbour instead... Why not ask? After all, peer-to-peer is the key!"
+        ]
+    },
+    {
+        "map": [
+            "2222222",
+            "2111112",
+            "2411312",
+            "2111112",
+            "2222222"
+        ],
+        "notes": [
+            "It seems I messed up! Not only did I forget my flashlight, but I also took the wrong map with me!",
+            "This time, I will have to follow your instructions in the dark. I trust you to bring me to the end.",
+            "Perhaps the right map ended up with your neighbour instead... Why not ask? After all, peer-to-peer is the key!"
+        ]
+    }
+]
+}

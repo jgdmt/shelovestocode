@@ -1,0 +1,26 @@
+{
+    "level": [{
+        "map": [
+            "22222",
+            "23222",
+            "21222",
+            "21242",
+            "21112",
+            "22222"
+        ]
+    }],
+    "help": {
+        "door": false,
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "open_door": false,
+        "fortune": false,
+        "break_door": false,
+        "print": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "code": false
+    }
+}

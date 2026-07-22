@@ -1,0 +1,111 @@
+{
+    "cmd": ["python3", "-m", "srcs.menu.setup"],
+    "cwd": "../python",
+    "modules": [
+        {
+            "project_id": 1,
+            "exercises": [
+                {
+                    "value": 10
+                },
+                {
+                    "value":15
+                },
+                {
+                    "value":20
+                },
+                {
+                    "value": 20
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                },
+                {
+                    "value": 10
+                }
+            ]
+        },
+        {
+            "project_id": 2,
+            "exercises": [
+                {
+                    "value": 10
+                }
+            ]
+        },
+        {
+            "project_id": 3,
+            "exercises": [
+                {
+                    "value": 10
+                }
+            ]
+        }
+    ]
+}

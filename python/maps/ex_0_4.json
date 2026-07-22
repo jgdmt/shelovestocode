@@ -1,0 +1,29 @@
+{
+    "level": [{
+        "map": [
+            "222",
+            "232",
+            "212",
+            "212",
+            "242",
+            "222"
+        ],
+        "notes": [
+            "Let's make it a little bit harder. How about finding out how to tell me to move multiple times?"
+        ]
+    }],
+    "help": {
+        "door": false,
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "open_door": false,
+        "fortune": false,
+        "break_door": false,
+        "get_riddle": false,
+        "print": false,
+        "solve_riddle": false,
+        "set": false,
+        "code": false
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "level": [{
+        "map": [
+            "222",
+            "232",
+            "242",
+            "222"
+        ],
+        "notes": [
+            "Here comes the second exercise. Same as the last one, give me the instructions so I reach the exit!",
+            "",
+            "Once again, why don't you try replacing LEFT by the right direction in the file work.py?"
+        ]
+    }],
+    "help": {
+        "door": false,
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "functions": false,
+        "code": false
+    }
+}

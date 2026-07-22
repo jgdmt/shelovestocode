@@ -1,0 +1,50 @@
+{
+    "level": [{
+        "map": [
+            "222222",
+            "231112",
+            "211112",
+            "214112",
+            "222222"
+        ],
+        "character": "thief.txt",
+        "notes": [
+            "Hohoho... Nice to meet you! I'm a little thief... And I stole your map and flashlight!",
+            "You will have to solve this level without knowing what the map looks like...",
+            "",
+            "Don't worry, I'm not that mean. I have exchanged your map with someone else's... Why don't you ask around?",
+            "Perhaps you can start with your neighbour..."
+        ]
+    },
+    {
+        "map": [
+            "222222",
+            "211112",
+            "241112",
+            "211132",
+            "222222"
+        ],
+        "character": "thief.txt",
+        "notes": [
+            "Hohoho... Nice to meet you! I'm a little thief... And I stole your map and flashlight!",
+            "You will have to solve this level without knowing what the map looks like...",
+            "",
+            "Don't worry, I'm not that mean. I have exchanged your map with someone else's... Why don't you ask around?",
+            "Perhaps you can start with your neighbour..."
+        ]
+    }],
+    "help": {
+        "door": false,
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "open_door": false,
+        "fortune": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "print": false,
+        "set": false,
+        "code": false
+    }
+}
