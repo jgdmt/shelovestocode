@@ -178,6 +178,10 @@ def resize_windows(wins):
     wins.info_win.resize(lines - top_margin, info_width)
     wins.owl_win.resize(lines - top_margin, owl_w)
     wins.win.addstr(1, 0, f"{map_width} + {info_width} + 59 = {map_width + info_width + owl_w}")
+    wins.menu_win.refresh()
+    wins.map_win.refresh()
+    wins.owl_win.refresh()
+    wins.info_win.refresh()
 
 
 def main():
@@ -186,8 +190,7 @@ def main():
     # exit()
     # win.clear()
     curses_setup()
-    lines = win.getmaxyx()[0]
-    cols = win.getmaxyx()[1]
+    lines, cols = win.getmaxyx()
     menu_win = curses.newwin(8, cols, 0, 0)
     map_width = configs.map_width * configs.cell_width
     info_width = cols - map_width - 3 * configs.left_margin - 59
