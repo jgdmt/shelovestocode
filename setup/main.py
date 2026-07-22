@@ -127,13 +127,14 @@ def check_resize(win):
     while h < screen_min_height or w < screen_min_width:
         win.clear()
         win.addstr(f"{h} - {screen_min_height}, {w} - {screen_min_width}")
-        win.addstr("Windows too small.")
+        text = "Windows too small."
+        win.addstr(int(h / 2), int((w - len(text)) / 2), text)
         win.refresh()
         input = win.getch()
-        if h < 1 or w < len("Windows too small."):
-            exit()
         if input == curses.KEY_RESIZE:
             h, w = win.getmaxyx()
+        if h < 1 or w < len("Windows too small."):
+            exit()
         elif input == Keys.QUIT or input == Keys.ESC:
             curses.endwin()
             exit()
@@ -145,6 +146,7 @@ def setup():
     curses.curs_set(0)
     curses.start_color()
     curses.use_default_colors()
+    curses.set_escdelay(1)
     curses.init_pair(1, curses.COLOR_WHITE, -1)
     curses.init_pair(2, curses.COLOR_BLACK, curses.COLOR_CYAN)
     curses.init_pair(3, curses.COLOR_GREEN, -1)
@@ -165,6 +167,7 @@ def main():
     menu = Menu()
     menu.parse()
     menu.parse_ex_status()
+
     # menu = Menu()
     # menu.parse()
     # menu.parse_ex_status()

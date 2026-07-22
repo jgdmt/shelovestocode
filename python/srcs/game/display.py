@@ -29,6 +29,7 @@ class Display:
 
             self.win.nodelay(True)
             curses.start_color()
+            curses.set_escdelay(1)
             self.init_colors(configs.colors)
             curses.noecho()
             curses.curs_set(0)

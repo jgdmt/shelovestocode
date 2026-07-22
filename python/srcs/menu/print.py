@@ -1,14 +1,12 @@
 import curses
 from srcs.shared import configs
-from .text import play, quit, load, save, help
+from .text import play, quit, help
 from enum import Enum
 
 class Menu(Enum):
     PLAY = 0
-    SAVE = 1
-    LOAD = 2
-    HELP = 3
-    QUIT = 4
+    HELP = 1
+    QUIT = 2
 
 def print_error(win, err: str, clear: bool = False, pair: int = None):
     if clear:
@@ -100,7 +98,7 @@ def print_menu(wins, index):
     win.clear()
 
     # space = (curses.COLS - 1) / 5
-    space = wins.win.getmaxyx()[1] / 6
+    space = wins.win.getmaxyx()[1] / 4
     for i in range(5):
         if i == index:
             color = curses.color_pair(2)
@@ -118,12 +116,4 @@ def print_menu(wins, index):
             help_split = help.split("\n")
             for j in range(len(help_split)):
                 win.addstr(j, int((i + 1) * space), help_split[j], color)
-        elif i == Menu.SAVE.value:
-            save_split = save.split("\n")
-            for j in range(len(save_split)):
-                win.addstr(j, int((i + 1) * space), save_split[j], color)
-        elif i == Menu.LOAD.value:
-            load_split = load.split("\n")
-            for j in range(len(load_split)):
-                win.addstr(j, int((i + 1) * space), load_split[j], color)
     win.refresh()

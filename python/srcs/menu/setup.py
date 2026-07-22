@@ -66,6 +66,7 @@ def init_elems(win, elems: dict):
 def curses_setup():
     curses.noecho()
     curses.curs_set(0)
+    curses.set_escdelay(1)
     curses.cbreak()
     curses.start_color()
     curses.use_default_colors()
@@ -148,79 +149,114 @@ def init_door_colors(game_info):
         else:
             curses.init_pair(pair+idx, configs.Color.CUSTOM_FG.value+idx+1, elem.bg_color.value)
         idx += 1
-    
-def check_resize(wins):
+
+def print_too_small(wins):
     win = wins.win
     h, w = win.getmaxyx()
-    while h < configs.screen_min_height or w < configs.screen_min_width:
-        if h < 1 or w < len("Windows is too small."):
-            exit(1)
-        win.clear()
-        win.addstr(f"{h} - {configs.screen_min_height}, {w} - {configs.screen_min_width}")
-        win.addstr("Windows is too small.")
-        win.refresh()
+    text = f"Windows is too small: expected {configs.screen_min_width} x {configs.screen_min_height} but got {w} x {h}."
+    if h < 1 or w < len(text):
+        curses.endwin()
+        exit(1)
+    win.clear()
+    win.addstr(int(h / 2), int((w - len(text)) / 2), text)
+    win.refresh()
+
+def load_menu(win, index):
+    h, w = win.getmaxyx()
+    win.clear()
+    h_mid = int((h - 3) / 2)
+    title = "Do you want to restore your progress?"
+    win.addstr(h_mid, int((w - len(title)) / 2), title)
+    if index == 0:
+        win.addstr(h_mid + 1, int((w - 8) / 2), "Yes", curses.color_pair(2))
+        win.addstr(" - ")
+        win.addstr("No", curses.color_pair(1))
+    else:
+        win.addstr(h_mid + 1, int((w - 8) / 2), "Yes", curses.color_pair(1))
+        win.addstr(" - ")
+        win.addstr("No", curses.color_pair(2))
+    win.refresh()
+
+def load(win):
+    idx = 0
+    while True:
+        load_menu(win, idx)
         input = win.getch()
-        if input == curses.KEY_RESIZE:
-            h, w = win.getmaxyx()
+        if input == Keys.LEFT:
+            idx = (idx - 1) % 2
+        elif input == Keys.RIGHT:
+            idx = (idx + 1) % 2
         elif input == Keys.QUIT or input == Keys.ESC:
-            curses.endwin()
+            clean()
             exit(1)
-    resize_windows(wins)
+        elif input == Keys.CONFIRM:
+            win.clear()
+            if idx == 0:
+                return True
+            else:
+                return False
 
 def resize_windows(wins):
+    wins.win.clear()
     lines, cols = wins.win.getmaxyx()
     owl_w = 59
     map_width = configs.map_width * configs.cell_width
     info_width = cols - map_width - 3 * configs.left_margin - owl_w
     top_margin = configs.top_margin + 8
     wins.menu_win.resize(8, cols)
+    wins.menu_win.mvwin(0, 0)
     wins.map_win.resize(lines - top_margin, map_width)
+    wins.map_win.mvwin(top_margin, configs.left_margin)
     wins.info_win.resize(lines - top_margin, info_width)
+    wins.info_win.mvwin(top_margin, 2 * configs.left_margin + map_width + 59)
     wins.owl_win.resize(lines - top_margin, owl_w)
+    wins.owl_win.mvwin(top_margin, 2 * configs.left_margin + map_width)
     wins.win.addstr(1, 0, f"{map_width} + {info_width} + 59 = {map_width + info_width + owl_w}")
-    wins.menu_win.refresh()
-    wins.map_win.refresh()
-    wins.owl_win.refresh()
-    wins.info_win.refresh()
-
+    wins.win.refresh()
+    wins.menu_win.clear()
+    wins.map_win.clear()
+    wins.owl_win.clear()
+    wins.info_win.clear()
 
 def main():
     win = curses.initscr()
+    win.keypad(True)
     # print(win.getmaxyx())
     # exit()
     # win.clear()
     curses_setup()
-    lines, cols = win.getmaxyx()
-    menu_win = curses.newwin(8, cols, 0, 0)
-    map_width = configs.map_width * configs.cell_width
-    info_width = cols - map_width - 3 * configs.left_margin - 59
-    top_margin = configs.top_margin + 8
-
-    win.refresh()
-    map_win = curses.newwin(lines - top_margin, map_width, top_margin, configs.left_margin)
-    info_win = curses.newwin(lines - top_margin, info_width, top_margin, 2*configs.left_margin + map_width+59)
-    owl_win = curses.newwin(lines - top_margin, 59, top_margin, 2*configs.left_margin + map_width)
-    wins = Windows(win, map_win, info_win, owl_win, menu_win)
-
-
-    win.keypad(True)
     if len(sys.argv) != 3:
         win.addstr("Error: Missing arguments")
         win.getch()
     mod = sys.argv[1]
     ex = sys.argv[2]
     level_file = Path(f"{configs.levels_dir}/ex_{mod}_{ex}.py")
+    saved_file = Path(f"{configs.save_dir}/ex_{mod}_{ex}.py")
     subprocess.run(["mkdir", "-p", configs.work_dir])
-    if level_file.exists():
+    if saved_file.exists() and load(win):
+        subprocess.run(["cp", f"{configs.save_dir}/ex_{mod}_{ex}.py", f"{configs.work_dir}/work.py"])
+    elif level_file.exists():
         subprocess.run(["cp", f"{configs.levels_dir}/ex_{mod}_{ex}.py", f"{configs.work_dir}/work.py"])
     else:
         level_file = Path(f"{configs.levels_dir}/template.py")
-        if not level_file.exists:
+        if not level_file.exists():
             win.addstr("Error: Missing template python file.")
             win.getch()
             exit(1)
         subprocess.run(["cp", f"{configs.levels_dir}/template.py", f"{configs.work_dir}/work.py"])
     # subprocess.run(["code", f"{configs.work_dir}/work.py"])
+
+    lines, cols = win.getmaxyx()
+    menu_win = curses.newwin(8, cols, 0, 0)
+    map_width = configs.map_width * configs.cell_width
+    info_width = cols - map_width - 3 * configs.left_margin - 59
+    top_margin = configs.top_margin + 8
+    win.refresh()
+
+    map_win = curses.newwin(lines - top_margin, map_width, top_margin, configs.left_margin)
+    info_win = curses.newwin(lines - top_margin, info_width, top_margin, 2*configs.left_margin + map_width+59)
+    owl_win = curses.newwin(lines - top_margin, 59, top_margin, 2*configs.left_margin + map_width)
+    wins = Windows(win, map_win, info_win, owl_win, menu_win)
 
     game_info = parse_file(win, mod, ex)
     init_door_colors(game_info)
@@ -229,23 +265,33 @@ def main():
     res = 1
     while True:
         #TODO: save, load 
-        print_menu(wins, idx)
         h, w = win.getmaxyx()
-        win.addstr(0, 0, f"{h} - {configs.screen_min_height}, {w} - {configs.screen_min_width}")
+        # win.addstr(0, 0, f"{h} - {configs.screen_min_height}, {w} - {configs.screen_min_width}")
+        # win.refresh()
+        if h < configs.screen_min_height or w < configs.screen_min_width:
+            print_too_small(wins)
+        else:
+            # check_resize(wins, game_info)
+            print_menu(wins, idx)
         input = win.getch()
         if input == curses.KEY_RESIZE:
-            check_resize(wins)
+            curses.update_lines_cols()
+            resize_windows(wins)
             print_game_info(wins, game_info)
+            continue
+            # check_resize(wins, game_info)
         if input == Keys.QUIT or input == Keys.ESC:
             clean()
+            subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.save_dir}/ex_{mod}_{ex}.py"])
             exit(res)
         elif input == Keys.LEFT: #UP
-            idx = (idx - 1) % 5
+            idx = (idx - 1) % 3
         elif input == Keys.RIGHT: #DOWN
-            idx = (idx + 1) % 5
+            idx = (idx + 1) % 3
         elif input == Keys.CONFIRM:
             if idx == Menu.QUIT.value:
                 clean()
+                subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.save_dir}/ex_{mod}_{ex}.py"])
                 exit(res)
             elif idx == Menu.PLAY.value:
                 curses.def_prog_mode()
@@ -260,7 +306,6 @@ def main():
                     res = 1
                 except ValueError:
                     res = 1
-                check_resize(wins)
                 curses.flushinp()
                 # print(str(ret.stdout), str(res))
                 # if res != 0:
@@ -270,18 +315,6 @@ def main():
                 # win.addstr(str(d))
                 # win.refresh()
                 # exit(res)
-            elif idx == Menu.SAVE.value:
-                subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.save_dir}/ex_{mod}_{ex}.py"])
-                print_menu_message(win, "Progress saved.")
-                print_game_info(wins, game_info)
-            elif idx == Menu.LOAD.value:
-                load_file = Path(f"{configs.save_dir}/ex_{mod}_{ex}.py")
-                if not load_file.exists():
-                    print_menu_message(win, "No save yet.")
-                else:
-                    subprocess.run(["cp", f"{configs.save_dir}/ex_{mod}_{ex}.py", f"{configs.work_dir}/work.py"]) 
-                    print_menu_message(win, "Progress restored.")
-                print_game_info(wins, game_info)
             elif idx == Menu.HELP.value:
                 help_page(wins.win, game_info)
                 print_game_info(wins, game_info)
