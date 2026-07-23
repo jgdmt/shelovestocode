@@ -49,7 +49,7 @@ class Player:
         y = self.y + direction[1]
         case = self.game.curr_map.map[y][x]
         if case == MapVal.BROKEN_DOOR.value:
-            check = random.randint(0, int(1 / self.game.curr_map.broken_door_proba))
+            check = random.randint(0, 1 // self.game.curr_map.broken_door_proba)
             if check != 1:
                 self.game.display.print_log("You tried to break the door but you failed...")
                 return False

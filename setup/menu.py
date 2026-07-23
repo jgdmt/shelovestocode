@@ -1,10 +1,9 @@
-from enum import Enum, auto
 import curses
 import json
 import atexit
+from enum import Enum, auto
 
 #TODO: Handle error better
-
 
 class Order(int, Enum):
     PYTHON = 0
@@ -62,7 +61,6 @@ class Menu:
     def get(self, configs: dict, key: str, mandatory: bool = True, ret: any = None):
         res = configs.get(key)
         if res is None and mandatory:
-            #TODO: raise error and exit
             print(f"Error: Missing key {key} in Python configs.")
             exit(1)
         if res is None and ret is not None:
@@ -159,71 +157,3 @@ class Menu:
 
         with open(save_file, "w") as f:
             json.dump(dico, f)
-        
-
-
-    
-    # def calculate_value(self, module: int, ex: int, nb_ex: int, values: dict) -> int:
-    #     """
-    #     Default: 100 / [nb of exercises in module]
-    #     A list of values can be given in the configs file. All values must be given.
-    #     """
-    #     if values is None:
-    #         return round(100 / nb_ex)
-
-    #     mod_val = values.get(str(module))
-    #     if mod_val is None:
-    #         return round(100 / nb_ex)
-    #     if len(mod_val) != nb_ex:
-    #         print(f"Error: Missing values for module {module}")
-    #         exit(1)
-        
-    #     return mod_val[ex]
-
-    # def parse(self, config_file: str = "configs.json"):
-    #     with open(config_file, "r") as f:
-    #         configs = json.load(f)
-
-    #     python_config = self.parse_configs(self.get(configs, "python"))
-    #     c_config = self.parse_configs(self.get(configs, "c"))
-    #     shell_config = self.parse_configs(self.get(configs, "shell"))
-    #     web_config = self.parse_configs(self.get(configs, "c"))
-    #     self.summary.append(python_config)
-    #     self.summary.append(c_config)
-    #     self.summary.append(shell_config)
-    #     self.summary.append(web_config)
-    #     # print(self.summary)
-
-    # def parse_configs(self, config):
-    #     branch = []
-    #     modules = self.get(config, "modules")
-    #     ex = self.get(config, "exercises")
-    #     projects = self.get(config, "projects_ids")
-    #     setup = self.get(config, "setup")
-    #     modules_values = self.get(config, "modules_values", False)
-
-    #     if modules == 0:
-    #         return branch
-    #     if modules != len(ex) or modules != len(projects):
-    #         print(f"Error: Number of modules do not match with exercices or projects: modules: {modules} | {len(ex)} | {len(projects)}")
-    #         exit(1)
-    #     for i in range(modules):
-    #         modules_ex = []
-    #         cmd = self.get(setup, "cmd")
-    #         cwd = self.get(setup, "cwd", False, ".")
-    #         module_setup = self.get(setup, "module_setup", False)
-    #         if module_setup is not None:
-    #             mod = self.get(module_setup, str(i), False)
-    #             if mod is not None:
-    #                 cmd = self.get(mod, "cmd")
-    #                 cwd = self.get(mod, "cwd", False, ".")
-
-    #         for j in range(ex[i]):
-    #             val = self.calculate_value(i, j, ex[i], modules_values)
-    #             exe = Exercise(val)
-    #             modules_ex.append(exe)
-
-    #         branch.append(Module(modules_ex, projects[i], Command(cmd, cwd)))
-
-    #     return branch
-

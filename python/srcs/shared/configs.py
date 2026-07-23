@@ -22,13 +22,13 @@ left_margin = 2
 cell_width = 7
 cell_height = 4
 map_width = 19
-map_height = 19
+map_height = 16
 log_height = 5
 log_width = 25
 min_info_height = 5
 min_info_width = 25
 screen_min_width = 165 #293
-screen_min_height = 80 #85
+screen_min_height = 75
 
 class MapVal(str, Enum):
     VOID = "0"
@@ -93,5 +93,6 @@ elems = {
     MapVal.BROKEN_DOOR: MapElem(10, "door_broken", Color.OCRE, Color.LIGHTBLACK),
     MapVal.OPEN_DOOR: MapElem(11, "door_open", Color.OCRE, Color.LIGHTBLACK, False),
     MapVal.RIDDLE: MapElem(12, "door_riddle", Color.OCRE, Color.LIGHTBLACK),
+    #MapVal.CLOSED_EXIT: MapElem(12, "exit", Color.RED, Color.LIGHTBLACK),
     MapVal.LAST: MapElem(13, "void", Color.WHITE, Color.WHITE)
 }

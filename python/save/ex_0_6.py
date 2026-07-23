@@ -1,3 +1,4 @@
 from .game import player, LEFT, RIGHT, UP, DOWN
 
-player.walk(LEFT)
+direction = LEFT
+player.walk(direction)

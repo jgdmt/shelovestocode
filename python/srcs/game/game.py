@@ -1,11 +1,10 @@
-import curses
 import json
 import sys
 import subprocess
-from srcs.shared import configs
 from .level import Level
 from .player import Player, LEFT, RIGHT, UP, DOWN
 from .display import Display
+from srcs.shared import configs
 
 
 class Game:
@@ -43,7 +42,6 @@ class Game:
                         self.curr_map.map[y][x] = configs.MapVal.PATH
             self.display.print_map()
 
-            #TODO get argv to get the module and exercise to do them
             return cls.instance
         
     def find_map_index(self):
@@ -77,8 +75,8 @@ class Game:
             self.display.print_error("No work.py file found to check lines and columns size.")
     
     def fill_with_zeros(self, map, height: int, width: int):
-        height_start = int((configs.map_height - height) / 2)
-        width_start = int((configs.map_width - width) / 2)
+        height_start = (configs.map_height - height) // 2
+        width_start = (configs.map_width - width) // 2
 
         for i in range(configs.map_height):
             if i < height_start or i >= height_start + height:

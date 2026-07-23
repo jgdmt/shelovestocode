@@ -6,16 +6,19 @@
             "2222"
         ],
         "notes": [
-            "Welcome to the first python exercise!",
+            "Welcome to the first python exercise! I'm Archimede.",
             "Your goal is to bring me to the exit.",
-            "You can see the map of the level right next to me. The exit is the star, give me the right instructions to reach this point!",
+            "",
+            "You can see the map of the level on the left.",
+            "",
             "All the instructions you want to give me must be written in the file 'work.py' that I opened for you.",
             "Don't edit or remove the first line of the file! It's very important to keep it!",
-            "When you are done, don't forget to save your file then come back to this windows and start the level by pressing Enter.",
-            "Use the Left Arrow key and Right Arrow key to move in the menu. Press Enter to confirm.",
-            "You can save your code at any time with the 'Save' option. In the same way, the 'Load' option lets you load a previous save. ",
+            "",
+            "When you are done, come back to this window and start the level with the option 'Play'.",
+            "To move around the menu use the Left Arrow and Right Arrow. Press Enter to confirm. You can also use Q or Esc to quit.",
             "",
             "Why don't you start by replacing LEFT by RIGHT in the file work.py?"
+
         ]
     }],
     "help": {

@@ -1,5 +1,4 @@
 import random
-import curses
 from srcs.shared.configs import MapVal
 
 class Riddle:

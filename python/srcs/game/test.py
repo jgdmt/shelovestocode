@@ -1,23 +1,7 @@
-# import json
-# from map import Map
-
-# with open("../maps/ex_0_0.json") as f:
-#     level = json.load(f)
-#     levelinfo = Map()
-#     levelinfo.random_doors = level["level"][0]["random_doors"]
-#     levelinfo.riddles = level["level"][0]["riddles"]
-#     # print(level)
-#     # print(levelinfo.random_doors)
-#     # print(levelinfo.riddles)
-#     for map in level["level"]:
-#         print(map)
-
-from srcs.game.game import player, LEFT, RIGHT, UP, DOWN
-import curses
 from time import sleep
+from srcs.game.game import player, LEFT, RIGHT, UP, DOWN
 
-# for i in range(10000):
-#     player.walk(LEFT)
+
 player.walk(RIGHT)
 coord = player.fortune_teller("1")
 if coord[0] == 6:

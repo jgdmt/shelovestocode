@@ -1,17 +1,17 @@
 import curses
-import text as text
-from menu import Order, Status
+import text
+from menu import Order, Status, Menu
 
-def print_empty_menu(win, msg):
+def print_empty_menu(win: curses.window, msg: str):
     win.clear()
-    print_line(win, msg, 0, int(curses.LINES / 2))
+    print_line(win, msg, 0, curses.LINES // 2)
 
 
-def print_exercises(win, menu, index):
+def print_exercises(win: curses.window, menu: Menu, index: int):
     win.clear()
     ex_nb = len(menu.branches[menu.curr_branch].mod[menu.curr_mod].ex)
-    height_mid = int((win.getmaxyx()[0] - ex_nb) / 2) + 1
-    width_mid = int((win.getmaxyx()[1] - len("Exercise i")) / 2)
+    height_mid = (win.getmaxyx()[0] - ex_nb) // 2 + 1
+    width_mid = (win.getmaxyx()[1] - len("Exercise i")) // 2
     print_line(win, "Choose your exercise:", 0, height_mid - 5)
     print_instructions(win, height_mid - 2)
 
@@ -27,13 +27,13 @@ def print_exercises(win, menu, index):
         print_line(win, "Exercise " + str(i), pair, height_mid + i, width_mid)
 
 
-def print_modules(win, menu, index):
+def print_modules(win: curses.window, menu: Menu, index: int):
     win.clear()
     modules_nb = 0
     if menu.branches[menu.curr_branch].mod is not None:
         modules_nb = len(menu.branches[menu.curr_branch].mod)
-    height_mid = int((win.getmaxyx()[0] - modules_nb) / 2) + 1
-    width_mid = int((win.getmaxyx()[1] - len("Module i")) / 2)
+    height_mid = (win.getmaxyx()[0] - modules_nb) // 2 + 1
+    width_mid = (win.getmaxyx()[1] - len("Module i")) // 2
     print_line(win, "Choose your module:", 0, height_mid - 5)
     print_instructions(win, height_mid - 2)
 
@@ -50,12 +50,12 @@ def print_modules(win, menu, index):
         print_line(win, "Module " + str(i), pair, height_mid + i, width_mid)
 
 
-def print_menu(win, index):
+def print_menu(win: curses.window, index: int):
     win.clear()
     
     pairs = [1, 1, 1, 1]
     pairs[index] = 2
-    height_mid = int((win.getmaxyx()[0] - 4) / 2)
+    height_mid = (win.getmaxyx()[0] - 4) // 2
     print_title(win, height_mid - 5)
     print_line(win, "Choose your branch:", curses.color_pair(1), height_mid - 4)
     print_instructions(win, height_mid - 1, False)
@@ -65,14 +65,14 @@ def print_menu(win, index):
     print_line(win, "Web", curses.color_pair(pairs[Order.WEB]), height_mid + 4)
 
 
-def print_title(win, end_height):
+def print_title(win: curses.window, end_height: int):
     text_split = text.welcome_title.split("\n")
     start_height = end_height - len(text_split)
     text_width = len(text_split[0])
     for i in range(len(text_split)):
         print_line(win, text_split[i], 0, start_height + i)
 
-def print_instructions(win, end_height: int, left_arrow: bool = True):
+def print_instructions(win: curses.window, end_height: int, left_arrow: bool = True):
     print_line(win, "Use the Up and Down Arrows to move", curses.color_pair(5), end_height - 2)
     print_line(win, "Enter or Right Arrow to confirm", curses.color_pair(5), end_height - 1)
     if left_arrow:
@@ -80,7 +80,7 @@ def print_instructions(win, end_height: int, left_arrow: bool = True):
     else:
         print_line(win, "Q or Esc to leave", curses.color_pair(5), end_height)
 
-def print_line(win, text: str, pair: int, height: int, width: int = -1):
+def print_line(win: curses.window, text: str, pair: int, height: int, width: int = -1):
     if width == -1:
-        width = int((win.getmaxyx()[1] - len(text)) / 2)
+        width = (win.getmaxyx()[1] - len(text)) // 2
     win.addstr(height, width, text, pair)

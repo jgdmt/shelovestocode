@@ -29,20 +29,20 @@ class Menu(Enum):
 def print_menu(win, index):
     win.clear()
 
-    space = (curses.COLS - 1) / 5 
+    space = (curses.COLS - 1) // 5 
     for i in range(4):
         if i == index:
             color = curses.color_pair(2)
         else:
             color = curses.color_pair(1)
         if i == Menu.PLAY.value:
-            win.addstr(1, int((i + 1) * space), "Play\n", color)
+            win.addstr(1, (i + 1) * space, "Play\n", color)
         elif i == Menu.QUIT.value:
-            win.addstr(1, int((i + 1) * space), "Quit\n", color)
+            win.addstr(1, (i + 1) * space, "Quit\n", color)
         elif i == Menu.SAVE.value:
-            win.addstr(1, int((i + 1) * space), "Save progress\n", color)
+            win.addstr(1, (i + 1) * space, "Save progress\n", color)
         elif i == Menu.LOAD.value:
-            win.addstr(1, int((i + 1) * space), "Load progress\n", color)
+            win.addstr(1, (i + 1) * space, "Load progress\n", color)
 
 def curses_setup():
     curses.noecho()

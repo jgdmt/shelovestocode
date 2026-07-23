@@ -1,7 +1,7 @@
 import curses
-from print import print_exercises, print_menu, print_modules, print_empty_menu
-from menu import Order, Menu, Keys, Status
 import subprocess
+from menu import Order, Menu, Keys, Status
+from print import print_exercises, print_menu, print_modules, print_empty_menu
 
 # NOTE: this is part 1, the general setup. each will call a part 2 that will 
 # have to change exitcode to 1 (for failure/unfinish/etc) or 0 (for success). 
@@ -11,11 +11,11 @@ screen_min_height = 40
 screen_min_width = 80
 
 
-def validate_exercise(menu):
+def validate_exercise(menu: Menu):
     #TODO: connect with intra api and validate
     i = 0
 
-def check_return(menu, code):
+def check_return(menu: Menu, code: int):
     curr_module = menu.branches[menu.curr_branch].mod[menu.curr_mod]
     if code == 0:
         curr_module.ex[menu.curr_ex].status = Status.FINISHED
@@ -23,7 +23,7 @@ def check_return(menu, code):
         curr_module.ex[menu.curr_ex].status = Status.STARTED
     menu.update_mod_status(menu.curr_branch, menu.curr_mod)
 
-def copy_cmd(cmd, module, ex):
+def copy_cmd(cmd: list, module: str, ex: str):
     cmd_cpy = []
     for command in cmd:
         cmd_cpy.append(command)
@@ -31,7 +31,7 @@ def copy_cmd(cmd, module, ex):
     cmd_cpy.append(ex)
     return cmd_cpy
 
-def load_exercise(win, menu):
+def load_exercise(win: curses.window, menu: Menu):
     curses.def_prog_mode()
     curses.endwin()
     mod = menu.branches[menu.curr_branch].mod[menu.curr_mod]
@@ -53,7 +53,7 @@ def load_exercise(win, menu):
     # win.getch()
 
 
-def choose_exercise(win, menu):
+def choose_exercise(win: curses.window, menu: Menu):
     check_resize(win)
     ex_nb = len(menu.branches[menu.curr_branch].mod[menu.curr_mod].ex)
     index = 0
@@ -74,7 +74,7 @@ def choose_exercise(win, menu):
             load_exercise(win, menu)
 
 
-def choose_module(win, menu):
+def choose_module(win: curses.window, menu: Menu):
     check_resize(win)
     if menu.branches[menu.curr_branch].mod is None or \
             len(menu.branches[menu.curr_branch].mod) < 1:
@@ -101,7 +101,7 @@ def choose_module(win, menu):
             choose_exercise(win, menu)
 
 
-def choose_branch(win, menu):
+def choose_branch(win: curses.window, menu: Menu):
     check_resize(win)
     index = 0
     while True:
@@ -110,29 +110,27 @@ def choose_branch(win, menu):
 
         if input == curses.KEY_RESIZE:
             check_resize(win)
-        if input == Keys.QUIT or input == Keys.ESC:
+        if input == Keys.QUIT or input == Keys.ESC or input == Keys.LEFT:
             return
         elif input == Keys.UP:
             index = (index - 1) % 4
         elif input == Keys.DOWN:
             index = (index + 1) % 4
         elif input == Keys.CONFIRM or input == Keys.RIGHT:
-            if Order.PYTHON <= index <= Order.WEB:
-                menu.curr_branch = index
-                choose_module(win, menu)
+            menu.curr_branch = index
+            choose_module(win, menu)
 
-def check_resize(win):
+def check_resize(win: curses.window):
     h, w = win.getmaxyx()
     
     while h < screen_min_height or w < screen_min_width:
+        h, w = win.getmaxyx()
         win.clear()
         win.addstr(f"{h} - {screen_min_height}, {w} - {screen_min_width}")
         text = "Windows too small."
-        win.addstr(int(h / 2), int((w - len(text)) / 2), text)
+        win.addstr(h // 2, (w - len(text)) // 2, text)
         win.refresh()
         input = win.getch()
-        if input == curses.KEY_RESIZE:
-            h, w = win.getmaxyx()
         if h < 1 or w < len("Windows too small."):
             exit()
         elif input == Keys.QUIT or input == Keys.ESC:
@@ -156,10 +154,10 @@ def setup():
 
 
 def main():
-    #login if needed
+    #TODO: login if needed
     #choose language if needed
 
-    #intra
+    #TODO: intra
     #request.get()
 
     win = curses.initscr()
@@ -167,15 +165,11 @@ def main():
     menu = Menu()
     menu.parse()
     menu.parse_ex_status()
-
-    # menu = Menu()
-    # menu.parse()
-    # menu.parse_ex_status()
     win.keypad(True)
     check_resize(win)
     choose_branch(win, menu)
     curses.endwin()
-    # subprocess.run("clear")
+    subprocess.run("clear")
     
 
 if __name__ == "__main__":
