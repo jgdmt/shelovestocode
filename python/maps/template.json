@@ -1,0 +1,34 @@
+{
+    "level": [{
+        "map": [],
+        "random_doors": {
+            "c": {
+                "doors": [[1, 1], [2, 2]],
+                "fg_color": "33DEB1",
+                "bg_color": "FFFFFF"
+            }
+        },
+        "riddles": {
+            "(x, y)": {
+                "outputs": ["1", "2", 3],
+                "expected_input": 1,
+                "random": false
+            }
+        },
+        "max_lines": 0,
+        "max_cols": 0,
+        "broken_door_proba": 0.01,
+        "print": [
+            "hello",
+            "Hello"
+        ],
+        "character": "owl.txt",
+        "notes": {
+            "en": [],
+            "fr": []
+        }
+    },
+    {
+        "map": []
+    }]
+}

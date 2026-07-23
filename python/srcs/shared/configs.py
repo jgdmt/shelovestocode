@@ -96,6 +96,6 @@ elems = {
     MapVal.BROKEN_DOOR: MapElem(10, "door_broken", Color.OCRE, Color.LIGHTBLACK),
     MapVal.OPEN_DOOR: MapElem(11, "door_open", Color.OCRE, Color.LIGHTBLACK, False),
     MapVal.RIDDLE: MapElem(12, "door_riddle", Color.OCRE, Color.LIGHTBLACK),
-    MapVal.CLOSED_EXIT: MapElem(12, "exit", Color.RED, Color.LIGHTBLACK, False),
-    MapVal.LAST: MapElem(13, "void", Color.WHITE, Color.WHITE)
+    MapVal.CLOSED_EXIT: MapElem(13, "exit", Color.RED, Color.LIGHTBLACK, False),
+    MapVal.LAST: MapElem(14, "void", Color.WHITE, Color.WHITE)
 }

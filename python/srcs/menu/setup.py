@@ -281,7 +281,8 @@ def main():
                 curses.def_prog_mode()
                 curses.endwin()
                 subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.game_dir}/"])
-                subprocess.run(["python3", "-m", configs.work_path_cmd, mod, ex, lan])
+                result = subprocess.run(["python3", "-m", configs.work_path_cmd, mod, ex, lan],
+                                        stderr=subprocess.PIPE, stdout=None, text=True)
                 try:
                     with open(configs.results, 'r') as f:
                         status = f.read().strip()
@@ -292,6 +293,13 @@ def main():
                     res = 1
                 curses.flushinp()
                 curses.reset_prog_mode()
+                if result.returncode != 0 and result.stderr != "":
+                    win.clear()
+                    win.addstr(result.stderr)
+                    win.getch()
+                    win.clear()
+                    win.refresh()
+                    print_game_info(wins, game_info)
                 curses_setup()
             elif idx == Menu.HELP.value:
                 help_page(wins.win, game_info)

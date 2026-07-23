@@ -8,6 +8,11 @@ from .utils import get_text
 from .text import max_cols_msg, max_lines_msg, win_msg
 from srcs.shared import configs
 
+# def hook(exctype, excmsg, traceback):
+#     msg = f"error line {traceback.tb_frame.f_lineno}\n{excmsg}"
+#     player.game.display.print_log(msg, True)
+
+    # sleep(0.5)
 
 class Game:
 
@@ -44,6 +49,8 @@ class Game:
                         self.player.y = y
                         self.curr_map.map[y][x] = configs.MapVal.PATH
             self.display.print_map()
+            # sys.excepthook = hook
+
 
             return cls.instance
         

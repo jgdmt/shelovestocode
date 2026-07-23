@@ -8,13 +8,15 @@
             "222222"
         ],
         "character": "thief.txt",
-        "notes": [
-            "Hohoho... Nice to meet you! I'm a little thief... And I stole your map and flashlight!",
-            "You will have to solve this level without knowing what the map looks like...",
-            "",
-            "Don't worry, I'm not that mean. I have exchanged your map with someone else's... Why don't you ask around?",
-            "Perhaps you can start with your neighbour..."
-        ]
+        "notes": {
+            "en": [
+                "Hohoho... Nice to meet you! I'm a little thief... And I stole your map and flashlight!",
+                "You will have to solve this level without seeing what the map looks like...",
+                "",
+                "Don't worry, I'm not that mean. I have exchanged your map with someone else's... Why don't you ask around?",
+                "Perhaps you can start with your neighbour..."
+            ]
+        }
     },
     {
         "map": [
@@ -25,13 +27,15 @@
             "222222"
         ],
         "character": "thief.txt",
-        "notes": [
-            "Hohoho... Nice to meet you! I'm a little thief... And I stole your map and flashlight!",
-            "You will have to solve this level without knowing what the map looks like...",
-            "",
-            "Don't worry, I'm not that mean. I have exchanged your map with someone else's... Why don't you ask around?",
-            "Perhaps you can start with your neighbour..."
-        ]
+        "notes": {
+            "en": [
+                "Hohoho... Nice to meet you! I'm a little thief... And I stole your map and flashlight!",
+                "You will have to solve this level without seeing what the map looks like...",
+                "",
+                "Don't worry, I'm not that mean. I have exchanged your map with someone else's... Why don't you ask around?",
+                "Perhaps you can start with your neighbour..."
+            ]
+        }
     }],
     "help": {
         "door": false,

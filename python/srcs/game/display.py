@@ -11,7 +11,6 @@ class Display:
         if not hasattr(cls, 'instance'):
             cls.instance = super(Display, cls).__new__(cls)
             self = cls.instance
-            self.game = game
             self.win = curses.initscr()
             mx = configs.cell_width * configs.map_width + configs.left_margin
             my = configs.cell_height * configs.map_height + configs.top_margin
@@ -28,14 +27,15 @@ class Display:
             self.win.refresh()
             self.logs.box()
             self.logs.refresh()
-            
             self.history = []
             self.win.nodelay(True)
             curses.start_color()
+            curses.use_default_colors()
             curses.set_escdelay(1)
             self.init_colors(configs.colors)
             curses.noecho()
             curses.curs_set(0)
+            self.game = game
             atexit.register(self.clean)
             atexit.register(self.leave_game)
             return cls.instance
@@ -108,7 +108,7 @@ class Display:
         self.win.nodelay(False)
         self.win.getch()
 
-    def print_log(self, msg: str):
+    def print_log(self, msg: str, leave: bool = False):
         if self.logs is None:
             return
         msg_split = msg.split("\n")
@@ -130,10 +130,12 @@ class Display:
                     curr_w = 1
                 if curr_h >= h - 1:
                     break
-                self.logs.addstr(curr_h, curr_w, words[j] + " ")
+                self.logs.addstr(curr_h, curr_w, words[j] + " ", curses.color_pair(0))
                 curr_w += len(words[j]) + 1
             curr_h += 1
         self.logs.refresh()
+        # if leave:
+        #     exit(0)
 
     def print_error(self, err: str, color: int = None):
         self.win.nodelay(False)
