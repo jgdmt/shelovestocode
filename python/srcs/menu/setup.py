@@ -108,8 +108,6 @@ def parse_file(win: curses.window, mod: str, ex: str, lan: str = 'en'):
     return GameInfo(notes, str_map, doors, init_elems(win, configs.elems), char, help, lan)
 
 
-
-
 def init_door_colors(game_info: GameInfo):
     idx = 0
     elem = game_info.elems[configs.MapVal.RAND_DOOR]
@@ -237,7 +235,7 @@ def work_setup(win: curses.window) -> tuple:
             win.getch()
             exit(1)
         subprocess.run(["cp", f"{configs.levels_dir}/template.py", f"{configs.work_dir}/work.py"])
-    # subprocess.run(["code", f"{configs.work_dir}/work.py"])
+    subprocess.run(["code", f"{configs.work_dir}/work.py"])
     return (mod, ex, lan)
 
 def main():
