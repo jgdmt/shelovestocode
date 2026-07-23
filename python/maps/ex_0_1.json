@@ -26,6 +26,7 @@
         "random_door": false,
         "riddle": false,
         "functions": false,
-        "code": false
+        "code": false,
+        "closed_exit": false
     }
 }

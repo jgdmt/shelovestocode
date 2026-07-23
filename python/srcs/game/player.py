@@ -1,7 +1,7 @@
 import random
 from time import sleep
 from .utils import get_text
-from.text import wall, break_result, fortune_teller, riddle_result
+from.text import wall, break_result, fortune_teller, riddle_result, closed_exit, open_exit
 from srcs.shared.configs import elems, MapVal
 
 LEFT = (-1, 0)
@@ -29,6 +29,8 @@ class Player:
             return
         elif case == MapVal.EXIT.value:
             self.game.victory()
+        elif case == MapVal.CLOSED_EXIT.value:
+            self.display.print_log(get_text(closed_exit, self.game.lan))
 
         self.x = x
         self.y = y
@@ -118,3 +120,10 @@ class Player:
 
     def print(self, string: str):
         self.display.print_log(string)
+        if string.strip() in self.game.curr_map.prints:
+            case = self.game.curr_map.map[self.y][self.x]
+            if case == MapVal.CLOSED_EXIT.value:
+                self.display.print_log(get_text(open_exit, self.game.lan))
+                self.game.victory()
+
+

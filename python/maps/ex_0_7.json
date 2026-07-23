@@ -45,6 +45,7 @@
         "solve_riddle": false,
         "print": false,
         "set": false,
-        "code": false
+        "code": false,
+        "closed_exit": false
     }
 }

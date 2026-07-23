@@ -40,6 +40,11 @@ wall = {
     "nl": "Er staat een muur...",
 }
 
+closed_exit = {
+    "en": "The exit seems to be inactive...",
+    "fr": "La sortie semble ne pas avoir été activée..."
+}
+
 break_result = {
     "en": [
         "You tried to break the door but you failed...",
@@ -89,4 +94,9 @@ riddle_result = {
         "Je hebt het raadsel opgelost!",
         "Het lijkt erop dat de oplossing niet juist is..."
     ]
+}
+
+open_exit = {
+    "en": "You hear some weird noises... Something seems to have been activated?",
+    "fr": "Tu entends des bruits étranges... Quelque chose semble s'être activé ?"
 }

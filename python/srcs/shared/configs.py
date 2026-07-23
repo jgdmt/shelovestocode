@@ -41,6 +41,7 @@ class MapVal(str, Enum):
     BROKEN_DOOR = "7"
     OPEN_DOOR = "8"
     RIDDLE = "9"
+    CLOSED_EXIT = 'c'
     LAST = "-1"
 
 class ActionType(Enum):
@@ -59,8 +60,9 @@ class Color(Enum):
     OCRE = 20
     ORANGE = 21
     MAUVE = 22
-    CUSTOM_FG = 23
-    CUSTOM_BG = 24
+    RED = 23
+    CUSTOM_FG = 24
+    CUSTOM_BG = 25
 
 colors = {
     Color.BLACK: '000000',
@@ -69,7 +71,8 @@ colors = {
     Color.BEIGE: 'F7E29C',
     Color.OCRE: 'BB6F6B',
     Color.ORANGE: 'FCBC80',
-    Color.MAUVE: '8B4B62'
+    Color.MAUVE: '8B4B62',
+    Color.RED: 'C62828',
 }
 
 
@@ -93,6 +96,6 @@ elems = {
     MapVal.BROKEN_DOOR: MapElem(10, "door_broken", Color.OCRE, Color.LIGHTBLACK),
     MapVal.OPEN_DOOR: MapElem(11, "door_open", Color.OCRE, Color.LIGHTBLACK, False),
     MapVal.RIDDLE: MapElem(12, "door_riddle", Color.OCRE, Color.LIGHTBLACK),
-    #MapVal.CLOSED_EXIT: MapElem(12, "exit", Color.RED, Color.LIGHTBLACK),
+    MapVal.CLOSED_EXIT: MapElem(12, "exit", Color.RED, Color.LIGHTBLACK, False),
     MapVal.LAST: MapElem(13, "void", Color.WHITE, Color.WHITE)
 }

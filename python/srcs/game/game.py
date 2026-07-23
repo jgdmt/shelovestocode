@@ -126,6 +126,7 @@ class Game:
             level.max_lines = maps_json.get("max_lines", 0)
             level.max_cols = maps_json.get("max_cols", 0)
             level.broken_door_proba = maps_json.get("broken_door_proba", 0.01)
+            level.prints = maps_json.get("print", [])
             maps.append(level)
 
         return maps

@@ -28,8 +28,8 @@
         "max_lines": 0,
         "broken_door_proba": 0.01,
         "max_cols": 0,
-        "notes": [
-            "Hello"
+        "print": [
+            "hello"
         ],
         "character": "not_a_sphinx.txt"
     }]

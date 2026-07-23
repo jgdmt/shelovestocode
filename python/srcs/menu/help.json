@@ -4,6 +4,7 @@
             "OBJECTS":{
                 "player": ["3", "Archimede."],
                 "exit": ["4", "The exit."],
+                "closed_exit": ["c", "The inactive exit."],
                 "door": ["5", "A door."],
                 "broken_door": ["7", "A damaged door. Might open if you try to break it enough times."],
                 "random_door": ["6", "A door that opens randomly. The 'c' shows which set the door belongs to. The 'n' is the number of the door in the set."],
@@ -51,6 +52,7 @@
             "OBJETS":{
                 "player": ["3", "Archimède."],
                 "exit": ["4", "La sortie."],
+                "closed_exit": ["c", "La sortie mais inactive."],
                 "door": ["5", "Une porte."],
                 "broken_door": ["7", "Une porte endommagée. Pourrait s'ouvrir si on tente de la briser suffisamment de fois."],
                 "random_door": ["6", "Une porte qui s'ouvre de façon random. Le 'c' montre à quel set appartient la porte. Le 'n' est le numéro de la porte dans le set."],
@@ -98,6 +100,7 @@
             "OBJECTS":{
                 "player": ["3", "Archimede."],
                 "exit": ["4", "De uitgang."],
+                "closed_exit": ["c", ""],
                 "door": ["5", "Een deur."],
                 "broken_door": ["7", "Een beschadigde deur. Misschien gaat hij open als je hem vaak genoeg probeert open te breken"],
                 "random_door": ["6", "Een deur die willekeurig opengaat. De 'c' geeft aan bij welke set de deur hoort. De 'n' is het nummer van de deur binnen die set."],
