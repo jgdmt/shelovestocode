@@ -91,7 +91,10 @@ def parse_file(win: curses.window, mod: str, ex: str, lan: str = 'en'):
     str_map = level[i].get("map")
     if str_map is None:
         print_error(win, f"Missing map in ex_{mod}_{ex} json file")
-    notes = level[i].get("notes", "")
+    
+    notes_all = level[i].get("notes", {})
+    notes = notes_all.get(lan, "")
+
     char_file = level[i].get("character", "owl.txt")
     char = ""
     try:

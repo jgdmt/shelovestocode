@@ -6,11 +6,19 @@
             "242",
             "222"
         ],
-        "notes": [
-            "Here comes the second exercise. Same as the last one, give me the instructions so I reach the exit!",
-            "",
-            "Once again, why don't you try replacing LEFT by the right direction in the file work.py?"
-        ]
+        "notes": {
+            "en": [
+                "Here comes the second exercise. Same as the last one, give me the instructions so I reach the exit!",
+                "",
+                "Once again, why don't you try replacing LEFT by the right direction in the file work.py?"    
+            ],
+            "fr": [
+                "Voici le second exercice. Comme pour le précédent, donne-moi les instructions pour que je puisse atteindre la sortie !",
+                "",
+                "De nouveau, pourquoi n'essaierais-tu pas de remplacer LEFT par la bonne direction dans le fichier work.py ?"
+            ]
+
+        }
     }],
     "help": {
         "door": false,

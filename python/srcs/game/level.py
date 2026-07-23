@@ -35,7 +35,6 @@ class Level:
             self.open_door_idx[key] = idx
             self.map[doors[idx][1]+self.new_h][doors[idx][0]+self.new_w] = MapVal.OPEN_DOOR.value
  
-    
     def init_riddles(self, riddles: dict):
         if riddles is None:
             return

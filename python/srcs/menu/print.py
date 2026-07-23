@@ -58,7 +58,7 @@ def print_map(map_win: curses.window, game_info: GameInfo):
             print_cell(map_win, x, y, width_mid, height_mid, game_info)
     map_win.refresh()
 
-def print_owl(win: curses.windows, char: str):
+def print_owl(win: curses.window, char: str):
     win.clear()
     char_height = len(char)
     total_height = win.getmaxyx()[0]
@@ -90,7 +90,7 @@ def print_game_info(wins: Windows, game_info: GameInfo):
     wins.owl_win.clear()
     print_map(wins.map_win, game_info)
     print_owl(wins.owl_win, game_info.character)
-    print_info_win(wins.info_win, game_info.notes[wins.lan], game_info.character)
+    print_info_win(wins.info_win, game_info.notes, game_info.character)
 
 def print_menu_message(win: curses.window, msg: str):
     win.clear()

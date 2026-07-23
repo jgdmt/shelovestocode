@@ -1,36 +1,43 @@
 max_lines_msg = {
     "en": "Your file exceeds the maximum allowed lines",
-    "fr": "Ton fichier dépasse le nombre maximum de lignes autorisé"
+    "fr": "Ton fichier dépasse le nombre maximum de lignes autorisé",
+    "nl": "Je bestand bevat meer regels dan maximaal is toegestaan"
 }
 
 max_cols_msg = {
     "en": ["Your line", "exceeds the maximum allowed columns"],
-    "fr": ["Ta ligne", "dépasse le nombre maximum de colonnes autorisé"]
+    "fr": ["Ta ligne", "dépasse le nombre maximum de colonnes autorisé"],
+    "nl": ["Je regel", "bevat meer kolommen dan maximaal is toegestaan"]
 }
 
 win_msg = {
     "en": "You won! Congratulations!",
-    "fr": "Tu as gagné ! Félicitations !"
+    "fr": "Tu as gagné ! Félicitations !",
+    "nl": "Je hebt gewonnen! Gefeliciteerd!"
 }
 
 screen_small = {
     "en": "Screen not big enough.",
-    "fr": "Écran pas assez grand."
+    "fr": "Écran pas assez grand.",
+    "nl": "Scherm is niet groot genoeg."
 }
 
 leave_keys = {
     "en": "Press Q or Esc to leave",
-    "fr": "Appuie sur Q ou Esc pour quitter"
+    "fr": "Appuie sur Q ou Esc pour quitter",
+    "nl": "Druk op Q of Esc om af te sluiten"
 }
 
 end_keys = {
     "en": "Game ended. Press any key to leave",
-    "fr": "Jeu terminé. Appuie sur n'importe quelle touche pour quitter."
+    "fr": "Jeu terminé. Appuie sur n'importe quelle touche pour quitter.",
+    "nl": "Spel afgelopen. Druk op een willekeurige toets om af te sluiten"
 }
 
 wall = {
     "en": "There is a wall...",
-    "fr": "Il y a un mur..."
+    "fr": "Il y a un mur...",
+    "nl": "Er staat een muur...",
 }
 
 break_result = {
@@ -41,6 +48,10 @@ break_result = {
     "fr": [
         "Tu as essayé de briser la porte mais tu as échoué...",
         "Tu as brisé la porte."
+    ],
+    "nl": [
+        "Je probeerde de deur open te breken, maar het is niet gelukt...",
+        "Je hebt de deur opengebroken.",
     ]
 }
 
@@ -56,6 +67,12 @@ fortune_teller = {
         "Le voyant veut savoir quel set tu veux.",
         "Le voyant est confus... Es-tu certaine d'avoir entré le bon set ?",
         "Le voyant voit quelque chose... Il semble que le numéro de la porte ouverte est:"
+    ],
+    "nl": [
+        "De waarzegger begrijpt niet wat je wilt. Er is geen deur.",
+        "De waarzegger wil weten welke set je bedoelt.",
+        "De waarzegger is in de war... Weet je zeker dat je de juiste set hebt ingevoerd?",
+        "De waarzegger ziet iets... Het lijkt erop dat het nummer van de geopende deur is:"
     ]
 }
 
@@ -67,5 +84,9 @@ riddle_result = {
     "fr": [
         "Tu as résolu l'énigme !",
         "Il semblerait que ce ne soit pas la bonne solution..."
+    ],
+    "nl": [
+        "Je hebt het raadsel opgelost!",
+        "Het lijkt erop dat de oplossing niet juist is..."
     ]
 }

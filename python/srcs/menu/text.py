@@ -48,13 +48,13 @@ code = r'''
 empty_sec = {
     "en": "This section seems emty for now... Why don't you check it again another time?",
     "fr": "Cette section semble vide pour l'instant... Pourquoi ne la visiterais-tu pas une autre fois ?",
-    "nl": ""
+    "nl": "Deze sectie is voorlopig nog leeg... Kijk later nog eens!"
 }
 
 restore_progress = {
     "en": "Do you want to restore your progress?",
     "fr": "Veux-tu en reprendre où tu en étais ?",
-    "nl": ""
+    "nl": "Wil je je voortgang herstellen?"
 }
 
 yes = {

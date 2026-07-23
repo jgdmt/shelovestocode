@@ -5,11 +5,13 @@
             "2432",
             "2222"
         ],
-        "notes": [
-            "One last time to see if you got used to how this game works.",
-            "",
-            "I'm sure by now you know what to do."
-        ]
+        "notes": {
+            "en": [
+                "One last time to see if you got used to how this game works.",
+                "",
+                "I'm sure by now you know what to do."
+            ]
+        }
     }],
     "help": {
         "door": false,

@@ -32,7 +32,7 @@
                     "# SINGLE LINE comment"
                 ]],
                 "if": ["CONDITIONS", [
-                    "if [condiiton]",
+                    "if [condition]",
                     "   [code to execute]"
                 ]],
                 "while": ["WHILE LOOPS", [
@@ -40,7 +40,7 @@
                     "   [code to execute]"
                 ]],
                 "for": ["FOR LOOPS", [
-                    "for i in range(start; end; step):",
+                    "for i in range(start, end, step):",
                     "   [code to execute]"
                 ]]
             }
@@ -79,7 +79,7 @@
                     "# SINGLE LINE comment"
                 ]],
                 "if": ["CONDITIONS", [
-                    "if [condiiton]",
+                    "if [condition]",
                     "   [code a executer]"
                 ]],
                 "while": ["BOUCLES WHILE", [
@@ -87,7 +87,7 @@
                     "   [code a executer]"
                 ]],
                 "for": ["BOUCLES FOR", [
-                    "for i in range(debut; fin; pas):",
+                    "for i in range(début, fin, pas):",
                     "   [code a executer]"
                 ]]
             }
@@ -97,22 +97,22 @@
         "sprites": {
             "OBJECTS":{
                 "player": ["3", "Archimede."],
-                "exit": ["4", "The exit."],
-                "door": ["5", "A door."],
-                "broken_door": ["7", "A damaged door. Might open if you try to break it enough times."],
-                "random_door": ["6", "A door that opens randomly. The 'c' shows which set the door belongs to. The 'n' is the number of the door in the set."],
-                "riddle": ["9", "A strange toast who wants you to solve their riddle."]
+                "exit": ["4", "De uitgang."],
+                "door": ["5", "Een deur."],
+                "broken_door": ["7", "Een beschadigde deur. Misschien gaat hij open als je hem vaak genoeg probeert open te breken"],
+                "random_door": ["6", "Een deur die willekeurig opengaat. De 'c' geeft aan bij welke set de deur hoort. De 'n' is het nummer van de deur binnen die set."],
+                "riddle": ["9", "Een vreemde boterham die wil dat je zijn raadsel oplost."]
         }
         },
         "functions": {
             "INSTRUCTION FUNCTIONS": {
-                "walk": ["walk(direction)", "Makes Archimede walk one step into the chosen direction."],
-                "open_door": ["open_door(direction)", "Makes Archimede open the door in the chosen direction."],
-                "fortune": ["fortune_teller(set) -> int", "Asks the fortune teller which door will open in a set of random doors. The answer is the number of the door."],
-                "break_door": ["break_door(direction) -> bool", "Makes Archimede try to break a damaged door in the chosen direction. The result is the success or failure."],
-                "get_riddle": ["get_riddle(direction) -> any", "Gets the riddle the toast wants you to solve in the chosen direction."],
-                "solve_riddle": ["solve_riddle(direction)", "Gives your solution to the sphinx in the chosen direction."],
-                "print": ["print(string)", "Prints the string."]
+                "walk": ["walk(direction)", "Laat Archimede één stap zetten in de gekozen richting."],
+                "open_door": ["open_door(direction)", "Laat Archimede de deur openen in de gekozen richting."],
+                "fortune": ["fortune_teller(set) -> int", "Vraagt de waarzegger welke deur zal opengaan in een set willekeurige deuren. Het antwoord is het nummer van de deur."],
+                "break_door": ["break_door(direction) -> bool", "Laat Archimede proberen een beschadigde deur open te breken in de gekozen richting. Het resultaat is een succes of een mislukking."],
+                "get_riddle": ["get_riddle(direction) -> any", "Geeft het raadsel dat de boterham in de gekozen richting wil dat je oplost."],
+                "solve_riddle": ["solve_riddle(direction)", "Geeft jouw oplossing aan de sfinx in de gekozen richting."],
+                "print": ["print(string)", "Drukt de tekst af."]
             },
             "INSTRUCTION PARAMETERS": {
                 "direction": ["direction", "UP | DOWN | LEFT | RIGHT"],
@@ -125,17 +125,17 @@
                     "\"\"\" MULTILINE/BLOCK comment \"\"\"",
                     "# SINGLE LINE comment"
                 ]],
-                "if": ["CONDITIONS", [
-                    "if [condiiton]",
-                    "   [code to execute]"
+                "if": ["VOORWAARDEN", [
+                    "if [voorwaarde]",
+                    "   [uit te voeren code]"
                 ]],
-                "while": ["WHILE LOOPS", [
-                    "while [condition]:",
-                    "   [code to execute]"
+                "while": ["WHILE LUSSEN", [
+                    "while [voorwaarde]:",
+                    "   [uit te voeren code]"
                 ]],
-                "for": ["FOR LOOPS", [
-                    "for i in range(start; end; step):",
-                    "   [code to execute]"
+                "for": ["FOR LUSSEN", [
+                    "for i in range(begin, einde, stap):",
+                    "   [uit te voeren code]"
                 ]]
             }
         }

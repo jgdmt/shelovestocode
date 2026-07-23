@@ -8,9 +8,11 @@
             "22222"
         ],
         "character": "owl.txt",
-        "notes": [
-            "I left a small trick for you in the work.py file! It will be very practical in the future, so try using it."
-        ]
+        "notes": {
+            "en": [
+                "I left a small trick for you in the work.py file! It will be very practical in the future, so try using it."
+            ]
+        }
     }],
     "help": {
         "door": false,

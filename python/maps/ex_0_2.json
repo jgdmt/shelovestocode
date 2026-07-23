@@ -6,10 +6,12 @@
             "232",
             "222"
         ],
-        "notes": [
-            "You know what they say, all things come in threes! ...Or is it third time is the charm?",
-            "Don't forget to check the 'Help' option. It seems this page might get some updates from time to time..."
-        ]
+        "notes": {
+            "en": [
+                "You know what they say, all things come in threes! ...Or is it third time is the charm?",
+                "Don't forget to check the 'Help' option. It seems this page might get some updates from time to time..."
+            ]
+        }
     }],
     "help": {
         "door": false,

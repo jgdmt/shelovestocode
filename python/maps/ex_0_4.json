@@ -8,9 +8,11 @@
             "242",
             "222"
         ],
-        "notes": [
-            "Let's make it a little bit harder. How about finding out how to tell me to move multiple times?"
-        ]
+        "notes": {
+            "en": [
+                "Let's make it a little bit harder. How about finding out how to tell me to move multiple times?"
+            ]
+        }
     }],
     "help": {
         "door": false,

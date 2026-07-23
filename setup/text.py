@@ -25,10 +25,10 @@ instructions = {
         "Q ou Esc pour quitter"
     ],
     "nl": [
-        "",
-        "",
-        "",
-        ""
+        "Gebruik de pijltjestoetsen omhoog en omlaag om te navigeren",
+        "Enter of pijl naar rechts om te bevestigen",
+        "Q of Esc of pijl naar links om af te sluiten",
+        "Q of Esc om af te sluiten"
     ]
 }
 
@@ -48,16 +48,16 @@ title = {
         "Exercice"
     ],
     "nl": [
-        ":",
-        ":",
-        ":",
-        "",
-        ""
+       "Kies je branch:",
+      "Kies je module:",
+      "Kies je oefening:",
+      "Module",
+      "Oefening"
     ]
 }
 
 no_module = {
     "en": "No module yet.",
     "fr": "Pas de module pour l'instant.",
-    "nl": ""
+    "nl": "Nog geen module."
 }
