@@ -44,3 +44,27 @@ code = r'''
  | (__/ _ \/ _` / -_)
   \___\___/\__,_\___|                     
 '''
+
+empty_sec = {
+    "en": "This section seems emty for now... Why don't you check it again another time?",
+    "fr": "Cette section semble vide pour l'instant... Pourquoi ne la visiterais-tu pas une autre fois ?",
+    "nl": ""
+}
+
+restore_progress = {
+    "en": "Do you want to restore your progress?",
+    "fr": "Veux-tu en reprendre où tu en étais ?",
+    "nl": ""
+}
+
+yes = {
+    "en": "Yes",
+    "fr": "Oui",
+    "nl": "Ya"
+}
+
+no = {
+    "en": "No",
+    "fr": "Non",
+    "nl": "Nee"
+}

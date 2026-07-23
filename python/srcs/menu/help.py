@@ -1,6 +1,6 @@
 import json
 import curses
-from .text import sprites, code, functions
+from .text import sprites, functions, code, empty_sec
 from .print import print_image
 from .struct import GameInfo
 from srcs.shared import configs
@@ -20,21 +20,22 @@ def help_page(win: curses.window, game_info: GameInfo):
     infos_file = configs.menu_dir / "help.json"
     try:
         with open(infos_file) as f:
-            infos = json.load(f)
+            infos_all = json.load(f)
     except FileNotFoundError:
         text = "No help file found."
         win.addstr(int(h / 2), (w - len(text)) // 2, text)
         return
     
+    infos = infos_all.get(game_info.lan, 'en')
     help_wins = HelpWins(win)
     height = h - 2 * configs.top_margin
     width = (w - 2 * configs.left_margin) // 3
     help_wins.sprite = curses.newwin(height, width, configs.top_margin, configs.left_margin)
     help_wins.func = curses.newwin(height, width, configs.top_margin, configs.left_margin + width)
     help_wins.code = curses.newwin(height, width, configs.top_margin, configs.left_margin + 2 * width)
-    help_sprites(help_wins.sprite, infos, game_info.help)
-    help_functions(help_wins.func, infos, game_info.help)
-    help_code(help_wins.code, infos, game_info.help)
+    help_sprites(help_wins.sprite, infos, game_info.help, game_info.lan)
+    help_functions(help_wins.func, infos, game_info.help, game_info.lan)
+    help_code(help_wins.code, infos, game_info.help, game_info.lan)
     help_wins.sprite.box()
     help_wins.func.box()
     help_wins.code.box()
@@ -62,7 +63,7 @@ def help_line(win: curses.window, line: str, base_w: int, base_h: int, pair: int
         curr_w += len(words[i]) + 1
     return curr_h
 
-def help_code(win: curses.window, infos: dict, info_check: dict):
+def help_code(win: curses.window, infos: dict, info_check: dict, lan: str = 'en'):
     _, w = win.getmaxyx()
     lines = code.split("\n")
     height = len(lines) + 1
@@ -72,9 +73,9 @@ def help_code(win: curses.window, infos: dict, info_check: dict):
 
     code_infos = infos.get("code", None)
     if code_infos is None:
-        win.addstr(height, 2, "No file found.")
+        win.addstr(height, 2, "File not found.")
     elif not info_check.get("code", True): 
-        help_line(win, "This section seems empty for now... Why don't you check it again another time?", 2, height)
+        help_line(win, empty_sec[lan], 2, height)
     else:
         for title, ids in code_infos.items():
             win.addstr(height, 2, title, curses.A_UNDERLINE)
@@ -90,7 +91,7 @@ def help_code(win: curses.window, infos: dict, info_check: dict):
     
     win.refresh()
 
-def help_functions(win: curses.window, infos: dict, info_check: dict):
+def help_functions(win: curses.window, infos: dict, info_check: dict, lan: str = 'en'):
     _, w = win.getmaxyx()
     lines = functions.split("\n")
     height = len(lines) + 1
@@ -100,9 +101,9 @@ def help_functions(win: curses.window, infos: dict, info_check: dict):
 
     func_infos = infos.get("functions", None)
     if func_infos is None:
-        win.addstr(height, 2, "No file found.")
+        win.addstr(height, 2, "File not found.")
     elif not info_check.get("functions", True):
-        help_line(win, "This section seems empty for now... Why don't you check it again another time?", 2, height)
+        help_line(win, empty_sec[lan], 2, height)
     else:
         for title, ids in func_infos.items():
             win.addstr(height, 2, title, curses.A_UNDERLINE)
@@ -116,7 +117,7 @@ def help_functions(win: curses.window, infos: dict, info_check: dict):
 
     win.refresh()
 
-def help_sprites(win: curses.window, infos: dict, info_check: dict):
+def help_sprites(win: curses.window, infos: dict, info_check: dict, lan: str = 'en'):
     _, w = win.getmaxyx()
     win.box()
     lines = sprites.split("\n")
@@ -127,9 +128,9 @@ def help_sprites(win: curses.window, infos: dict, info_check: dict):
 
     sprites_infos = infos.get("sprites", None)
     if sprites_infos is None:
-        win.addstr(height, 2, "No file found.")
+        win.addstr(height, 2, "File not found.")
     elif not info_check.get("sprites", True):
-        help_line(win, "This section seems empty for now... Why don't you check it again another time?", 2, height)
+        help_line(win, empty_sec[lan], 2, height)
     else:
         for title, ids in sprites_infos.items():
             height = help_line(win, title, 2, height, curses.A_UNDERLINE)

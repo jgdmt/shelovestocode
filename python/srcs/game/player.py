@@ -1,5 +1,7 @@
 import random
 from time import sleep
+from .utils import get_text
+from.text import wall, break_result, fortune_teller, riddle_result
 from srcs.shared.configs import elems, MapVal
 
 LEFT = (-1, 0)
@@ -23,7 +25,7 @@ class Player:
         sleep(0.5)
 
         if elems[case].block:
-            self.display.print_log("There is a wall...")
+            self.display.print_log(get_text(wall, self.game.lan))
             return
         elif case == MapVal.EXIT.value:
             self.game.victory()
@@ -51,9 +53,9 @@ class Player:
         if case == MapVal.BROKEN_DOOR.value:
             check = random.randint(0, 1 // self.game.curr_map.broken_door_proba)
             if check != 1:
-                self.game.display.print_log("You tried to break the door but you failed...")
+                self.game.display.print_log(get_text(break_result[self.game.lan][0]))
                 return False
-            self.game.display.print_log("You broke down the door.")
+            self.game.display.print_log(get_text(break_result[self.game.lan][1]))
             self.game.curr_map.map[y][x] = MapVal.OPEN_DOOR.value
         sleep(0.1)
         
@@ -62,17 +64,18 @@ class Player:
         self.display.get_input()
         res = [0, 0]
         curr_map = self.game.curr_map
+        text = get_text(fortune_teller, self.game.lan)
         if curr_map.random_doors is None:
-            self.display.print_log("The fortune teller doesn't understand what you want. There is no door.")
+            self.display.print_log(text[0])
         elif set is None and len(curr_map.random_doors) > 1:
-            self.display.print_log("The fortune teller wants to know which set you want.")
+            self.display.print_log(text[1])
         else:
             #TODO: if set is None change set to the only element in dico
             if curr_map.random_doors.get(set) is None:
-                self.display.print_log("The fortune teller is confused... Are you sure you entered the right key?")
+                self.display.print_log(text[2])
             else:
                 res = curr_map.random_doors[set]["doors"][curr_map.open_door_idx[set]]
-                self.display.print_log(f"The fortune teller is seeing something... It seems the coordinates of the open door are: {res}")
+                self.display.print_log(f"{text[3]} {res}")
         return res
         
     def get_riddle(self, direction: tuple):
@@ -109,9 +112,9 @@ class Player:
                 sol = riddle.input
             if sol == solution:
                 self.game.curr_map.map[y][x] = MapVal.PATH.value
-                self.display.print_log("You solved the riddle!")
+                self.display.print_log(get_text(riddle_result[self.game.lan][0]))
             else:
-                self.display.print_log("It doesn't seem the solution is the right one...")
+                self.display.print_log(get_text(riddle_result[self.game.lan][1]))
 
     def print(self, string: str):
         self.display.print_log(string)

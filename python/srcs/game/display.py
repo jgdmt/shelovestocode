@@ -1,5 +1,7 @@
 import curses
 import atexit
+from .utils import get_text
+from.text import screen_small, leave_keys, end_keys
 from srcs.shared import configs
 
 
@@ -14,7 +16,7 @@ class Display:
             mx = configs.cell_width * configs.map_width + configs.left_margin
             my = configs.cell_height * configs.map_height + configs.top_margin
             if not (curses.COLS > mx and curses.LINES > my):
-                self.win.addstr(2, 0, "Screen not big enough.")
+                self.win.addstr(2, 0, get_text(screen_small, game.lan))
                 self.win.getch()
                 self.clean()
                 exit()
@@ -57,7 +59,7 @@ class Display:
 
     def print_map(self):
         if configs.top_margin >= 1:
-            self.win.addstr(0, configs.left_margin, "Press Q or ESC to leave")
+            self.win.addstr(0, configs.left_margin, get_text(leave_keys, self.game.lan))
         for y in range(configs.map_height):
             for x in range(configs.map_width):
                 self.print_cell(x, y)
@@ -101,7 +103,7 @@ class Display:
 
     def leave_game(self):
         if configs.top_margin >= 1:
-            self.win.addstr(0, configs.left_margin, "Game ended. Press any key to leave")
+            self.win.addstr(0, configs.left_margin, get_text(end_keys, self.game.lan))
         self.win.nodelay(False)
         self.win.getch()
 

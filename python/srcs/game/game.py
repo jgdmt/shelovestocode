@@ -4,6 +4,8 @@ import subprocess
 from .level import Level
 from .player import Player, LEFT, RIGHT, UP, DOWN
 from .display import Display
+from .utils import get_text
+from .text import max_cols_msg, max_lines_msg, win_msg
 from srcs.shared import configs
 
 
@@ -18,11 +20,12 @@ class Game:
                 self.player = Player(self, self.display)
             else:
                 self.player = player
-            if len(sys.argv) != 3:
+            if len(sys.argv) != 4:
                 self.display.print_error("Missing arguments.")
 
             mod = sys.argv[1]
             ex = sys.argv[2]
+            self.lan = sys.argv[3]
             self.maps = self.load_maps(mod, ex)
             if len(self.maps) > 1:
                 self.curr_map_idx = self.find_map_index()
@@ -46,17 +49,16 @@ class Game:
         
     def find_map_index(self):
         res = subprocess.run(["cat", "/etc/hostname"], capture_output=True, text=True)
-        
-        
-        if res.stdout == "":
-            res.stdout = "shi-r4-p13.s19.be"
-        
-        
+
+        num = 0
         if res.stdout != "":
             num_str = res.stdout.split('.')
-            num = int(num_str[0][len(num_str[0]) - 1])
-        else:
-            num = 0
+            length = len(num_str[0])
+            if num_str[0][length - 2:].isnumeric():
+                num = int(num_str[0][length - 2:])
+            elif num_str[9][length - 1].isnumeric():
+                num = int(num_str[0][len(num_str[0]) - 1])
+
         return num % len(self.maps)
 
     def check_lines_cols(self):
@@ -64,13 +66,14 @@ class Game:
             with open(configs.game_dir / "work.py", 'r') as f:
                 lines = f.readlines()
                 if self.curr_map.max_lines > 0 and len(lines) > self.curr_map.max_lines:
-                    self.display.print_error(f"Your file exceeds the maximum allowed lines ({self.curr_map.max_lines})")
+                    self.display.print_error(f"{get_text(max_lines_msg, self.lan)} ({self.curr_map.max_lines})")
                 if self.curr_map.max_cols > 0:
                     for i in range(len(lines)):
                         if lines[i].find("import") != -1:
                             continue
                         if len(lines[i]) > self.curr_map.max_cols:
-                            self.display.print_error(f"Your line ({i}) exceeds the maximum allowed columns ({self.curr_map.max_cols})")
+                            msg = get_text(max_cols_msg, self.lan)
+                            self.display.print_error(f"{msg[0]} ({i}) {msg[1]} ({self.curr_map.max_cols})")
         except FileNotFoundError:
             self.display.print_error("No work.py file found to check lines and columns size.")
     
@@ -138,7 +141,7 @@ class Game:
     def victory(self):
         with open(configs.results, 'w') as f:
             f.write('0')
-        self.display.print_log("You won! Congratulations!")
+        self.display.print_log(get_text(win_msg, self.lan))
         
 
 player = Game().player

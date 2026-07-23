@@ -1,0 +1,71 @@
+max_lines_msg = {
+    "en": "Your file exceeds the maximum allowed lines",
+    "fr": "Ton fichier dépasse le nombre maximum de lignes autorisé"
+}
+
+max_cols_msg = {
+    "en": ["Your line", "exceeds the maximum allowed columns"],
+    "fr": ["Ta ligne", "dépasse le nombre maximum de colonnes autorisé"]
+}
+
+win_msg = {
+    "en": "You won! Congratulations!",
+    "fr": "Tu as gagné ! Félicitations !"
+}
+
+screen_small = {
+    "en": "Screen not big enough.",
+    "fr": "Écran pas assez grand."
+}
+
+leave_keys = {
+    "en": "Press Q or Esc to leave",
+    "fr": "Appuie sur Q ou Esc pour quitter"
+}
+
+end_keys = {
+    "en": "Game ended. Press any key to leave",
+    "fr": "Jeu terminé. Appuie sur n'importe quelle touche pour quitter."
+}
+
+wall = {
+    "en": "There is a wall...",
+    "fr": "Il y a un mur..."
+}
+
+break_result = {
+    "en": [
+        "You tried to break the door but you failed...",
+        "You broke down the door.",
+    ],
+    "fr": [
+        "Tu as essayé de briser la porte mais tu as échoué...",
+        "Tu as brisé la porte."
+    ]
+}
+
+fortune_teller = {
+    "en": [
+        "The fortune teller doesn't understand what you want. There is no door.",
+        "The fortune teller wants to know which set you want.",
+        "The fortune teller is confused... Are you sure you entered the right set?",
+        "The fortune teller is seeing something... It seems the number of the open door is:"
+    ],
+    "fr": [
+        "Le voyant ne comprend pas ce que tu veux. Il n'y a pas de porte.",
+        "Le voyant veut savoir quel set tu veux.",
+        "Le voyant est confus... Es-tu certaine d'avoir entré le bon set ?",
+        "Le voyant voit quelque chose... Il semble que le numéro de la porte ouverte est:"
+    ]
+}
+
+riddle_result = {
+    "en": [
+        "You solved the riddle!",
+        "It doesn't seem the solution is the right one..."
+    ],
+    "fr": [
+        "Tu as résolu l'énigme !",
+        "Il semblerait que ce ne soit pas la bonne solution..."
+    ]
+}

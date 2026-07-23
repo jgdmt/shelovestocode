@@ -5,6 +5,11 @@ from enum import Enum, auto
 
 #TODO: Handle error better
 
+class Language(int, Enum):
+    EN = 0
+    FR = 1
+    NL = 2
+
 class Order(int, Enum):
     PYTHON = 0
     C = 1
@@ -56,6 +61,7 @@ class Menu:
         self.curr_mod: int = 0
         self.curr_ex: int = 0
         self.branches: list = []
+        self.language: int = 0
         atexit.register(self.save_ex_status)
 
     def get(self, configs: dict, key: str, mandatory: bool = True, ret: any = None):

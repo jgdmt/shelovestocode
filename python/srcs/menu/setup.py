@@ -4,6 +4,7 @@ import curses
 import json
 from pathlib import Path
 from enum import Enum
+from .text import restore_progress, yes, no
 from .print import *
 from .help import help_page
 from .struct import GameInfo, Windows
@@ -57,20 +58,19 @@ def clean():
 
 def find_map_index(max_num: int):
     res = subprocess.run(["cat", "/etc/hostname"], capture_output=True, text=True)
-        
-        
-    if res.stdout == "":
-        res.stdout = "shi-r4-p12.s19.be"
-    
-    
+
+    num = 0
     if res.stdout != "":
         num_str = res.stdout.split('.')
-        num = int(num_str[0][len(num_str[0]) - 1])
-    else:
-        num = 0
+        length = len(num_str[0])
+        if num_str[0][length - 2:].isnumeric():
+            num = int(num_str[0][length - 2:])
+        elif num_str[0][length - 1].isnumeric():
+            num = int(num_str[0][length - 1])
+
     return num % max_num
 
-def parse_file(win: curses.window, mod: str, ex: str):
+def parse_file(win: curses.window, mod: str, ex: str, lan: str = 'en'):
     file = configs.maps_dir / ("ex_" + mod + "_" + ex + ".json")
     try:
         with open(file, 'r') as f:
@@ -102,7 +102,7 @@ def parse_file(win: curses.window, mod: str, ex: str):
     
     doors = level[i].get("random_doors", {})
 
-    return GameInfo(notes, str_map, doors, init_elems(win, configs.elems), char, help)
+    return GameInfo(notes, str_map, doors, init_elems(win, configs.elems), char, help, lan)
 
 
 
@@ -111,7 +111,6 @@ def init_door_colors(game_info: GameInfo):
     idx = 0
     elem = game_info.elems[configs.MapVal.RAND_DOOR]
     pair = configs.elems[configs.MapVal.LAST].id
-    # if game_info.random_
     for _, val in game_info.random_doors.items():
         fg = val.get("fg_color")
         bg = val.get("bg_color")
@@ -132,7 +131,12 @@ def init_door_colors(game_info: GameInfo):
 def print_too_small(wins: Windows):
     win = wins.win
     h, w = win.getmaxyx()
-    text = f"Windows is too small: expected {configs.screen_min_width} x {configs.screen_min_height} but got {w} x {h}."
+    texts = {
+        "en": f"Window is too small: expected {configs.screen_min_width} x {configs.screen_min_height} but got {w} x {h}.",
+        "fr": f"Fenêtre trop petite: taille attendue de {configs.screen_min_width} x {configs.screen_min_height} mais est de {w} x {h}",
+        "nl": ""
+    }
+    text = texts[wins.lan]
     if h < 1 or w < len(text):
         curses.endwin()
         exit(1)
@@ -140,26 +144,26 @@ def print_too_small(wins: Windows):
     win.addstr(h // 2, (w - len(text)) // 2, text)
     win.refresh()
 
-def load_menu(win: curses.window, index: int):
+def load_menu(win: curses.window, index: int, lan: str = 'en'):
     h, w = win.getmaxyx()
     win.clear()
     h_mid = (h - 3) // 2
-    title = "Do you want to restore your progress?"
+    title = restore_progress[lan]
     win.addstr(h_mid, (w - len(title)) // 2, title)
     if index == 0:
-        win.addstr(h_mid + 1, (w - 8) // 2, "Yes", curses.color_pair(2))
+        win.addstr(h_mid + 1, (w - 8) // 2, yes[lan], curses.color_pair(2))
         win.addstr(" - ")
-        win.addstr("No", curses.color_pair(1))
+        win.addstr(no[lan], curses.color_pair(1))
     else:
-        win.addstr(h_mid + 1, (w - 8) // 2, "Yes", curses.color_pair(1))
+        win.addstr(h_mid + 1, (w - 8) // 2, yes[lan], curses.color_pair(1))
         win.addstr(" - ")
-        win.addstr("No", curses.color_pair(2))
+        win.addstr(no[lan], curses.color_pair(2))
     win.refresh()
 
-def load(win: curses.window):
+def load(win: curses.window, lan: str = 'en'):
     idx = 0
     while True:
-        load_menu(win, idx)
+        load_menu(win, idx, lan)
         input = win.getch()
         if input == Keys.LEFT:
             idx = (idx - 1) % 2
@@ -197,7 +201,7 @@ def resize_windows(wins: Windows):
     wins.owl_win.clear()
     wins.info_win.clear()
 
-def init_windows(win: curses.window) -> Windows:
+def init_windows(win: curses.window, lan: str = 'en') -> Windows:
     lines, cols = win.getmaxyx()
     menu_win = curses.newwin(8, cols, 0, 0)
     map_width = configs.map_width * configs.cell_width
@@ -207,18 +211,19 @@ def init_windows(win: curses.window) -> Windows:
     map_win = curses.newwin(lines - top_margin, map_width, top_margin, configs.left_margin)
     info_win = curses.newwin(lines - top_margin, info_width, top_margin, 2*configs.left_margin + map_width+59)
     owl_win = curses.newwin(lines - top_margin, 59, top_margin, 2*configs.left_margin + map_width)
-    return Windows(win, map_win, info_win, owl_win, menu_win)
+    return Windows(win, map_win, info_win, owl_win, menu_win, lan)
 
 def work_setup(win: curses.window) -> tuple:
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 4:
         win.addstr("Error: Missing arguments")
         win.getch()
     mod = sys.argv[1]
     ex = sys.argv[2]
+    lan = sys.argv[3]
     level_file = Path(f"{configs.levels_dir}/ex_{mod}_{ex}.py")
     saved_file = Path(f"{configs.save_dir}/ex_{mod}_{ex}.py")
     subprocess.run(["mkdir", "-p", configs.work_dir])
-    if saved_file.exists() and load(win):
+    if saved_file.exists() and load(win, lan):
         subprocess.run(["cp", f"{configs.save_dir}/ex_{mod}_{ex}.py", f"{configs.work_dir}/work.py"])
     elif level_file.exists():
         subprocess.run(["cp", f"{configs.levels_dir}/ex_{mod}_{ex}.py", f"{configs.work_dir}/work.py"])
@@ -230,18 +235,18 @@ def work_setup(win: curses.window) -> tuple:
             exit(1)
         subprocess.run(["cp", f"{configs.levels_dir}/template.py", f"{configs.work_dir}/work.py"])
     # subprocess.run(["code", f"{configs.work_dir}/work.py"])
-    return (mod, ex)
+    return (mod, ex, lan)
 
 def main():
     win = curses.initscr()
     win.keypad(True)
     curses_setup()
-    mod, ex = work_setup(win)
-    wins = init_windows(win)
+    mod, ex, lan = work_setup(win)
+    wins = init_windows(win, lan)
 
     win.refresh()
 
-    game_info = parse_file(win, mod, ex)
+    game_info = parse_file(win, mod, ex, lan)
     init_door_colors(game_info)
     print_game_info(wins, game_info)
     idx = 0
@@ -275,7 +280,7 @@ def main():
                 curses.def_prog_mode()
                 curses.endwin()
                 subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.game_dir}/"])
-                subprocess.run(["python3", "-m", configs.work_path_cmd, mod, ex])
+                subprocess.run(["python3", "-m", configs.work_path_cmd, mod, ex, lan])
                 try:
                     with open(configs.results, 'r') as f:
                         status = f.read().strip()
