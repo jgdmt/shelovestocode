@@ -120,6 +120,7 @@ class Player:
 
     def print(self, string: str):
         self.display.print_log(string)
+        sleep(0.5)
         if string.strip() in self.game.curr_map.prints:
             case = self.game.curr_map.map[self.y][self.x]
             if case == MapVal.CLOSED_EXIT.value:

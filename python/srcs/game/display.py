@@ -21,14 +21,15 @@ class Display:
                 self.clean()
                 exit()
 
-            log_x = mx + configs.left_margin + configs.log_width
-            log_y = configs.top_margin + configs.log_height
-            if log_x < curses.COLS and log_y < curses.LINES:
-                self.logs = curses.newwin(configs.log_height, configs.log_width, configs.top_margin, mx + configs.left_margin)
-                self.logs.box()
-            else:
-                self.logs = None
-
+            _, w = self.win.getmaxyx()
+            log_x = w - mx - 2 * configs.left_margin
+            log_y = my
+            self.logs = curses.newwin(log_y, log_x, configs.top_margin, mx + configs.left_margin)
+            self.win.refresh()
+            self.logs.box()
+            self.logs.refresh()
+            
+            self.history = []
             self.win.nodelay(True)
             curses.start_color()
             curses.set_escdelay(1)
@@ -110,8 +111,28 @@ class Display:
     def print_log(self, msg: str):
         if self.logs is None:
             return
+        msg_split = msg.split("\n")
+        for i in range(len(msg_split), 0, -1):
+            self.history.insert(0, msg_split[i - 1])
         self.logs.clear()
-        self.logs.addstr(msg)
+        self.logs.box()
+        h, w = self.logs.getmaxyx()
+        curr_h = 1
+        for i in range(len(self.history)):
+            if curr_h >= h - 1:
+                del self.history[i:]
+                break
+            words = self.history[i].split(" ")
+            curr_w = 1
+            for j in range(len(words)):
+                if len(words[j]) + curr_w >= w - 1:
+                    curr_h += 1
+                    curr_w = 1
+                if curr_h >= h - 1:
+                    break
+                self.logs.addstr(curr_h, curr_w, words[j] + " ")
+                curr_w += len(words[j]) + 1
+            curr_h += 1
         self.logs.refresh()
 
     def print_error(self, err: str, color: int = None):
