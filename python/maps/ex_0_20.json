@@ -1,0 +1,50 @@
+{
+    "level": [{
+        "map": [
+            "2222222",
+            "2114112",
+            "2621212",
+            "2161212",
+            "2121212",
+            "2626262",
+            "2361112",
+            "2222222"
+        ],
+        "random_doors": {
+            "a": {
+                "doors": [[1, 5], [2, 6]],
+                "fg_color": "22B14C"
+            },
+            "b": {
+                "doors": [[3, 5], [5, 5]],
+                "fg_color": "911196"
+            },
+            "c": {
+                "doors": [[1, 2], [2, 3]],
+                "fg_color": "18399e"
+            }
+        },
+        "character": "fortune_teller.txt",
+        "notes": {
+            "en": [
+                "It seems some sets of random doors depend on a first set... Fortunately you can put a condition inside a condition!",
+                "",
+                "Now, since there are more than one set of doors, you will have to be more accurate when you consult me. See the character under the number of the door? It's the name of the set the door belongs to.",
+                "",
+                "For example, the green set is designed with the character 'a'. Give me the title of the set you want and I will tell you which door among this same set will open!"
+            ]
+        }
+    }],
+    "help": {
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "fortune": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "while": false,
+        "for": false
+    }
+}

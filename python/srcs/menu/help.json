@@ -4,7 +4,7 @@
             "OBJECTS":{
                 "player": ["3", "Archimede."],
                 "exit": ["4", "The exit."],
-                "closed_exit": ["c", "The inactive exit."],
+                "closed_exit": ["c", "The inactive exit. Will reactivate if you write the password while standing on it."],
                 "door": ["5", "A door."],
                 "broken_door": ["7", "A damaged door. Might open if you try to break it enough times."],
                 "random_door": ["6", "A door that opens randomly. The 'c' shows which set the door belongs to. The 'n' is the number of the door in the set."],
@@ -15,9 +15,9 @@
             "INSTRUCTION FUNCTIONS": {
                 "walk": ["walk(direction)", "Makes Archimede walk one step into the chosen direction."],
                 "open_door": ["open_door(direction)", "Makes Archimede open the door in the chosen direction."],
-                "fortune": ["fortune_teller(set) -> int", "Asks the fortune teller which door will open in a set of random doors. The answer is the number of the door."],
-                "break_door": ["break_door(direction) -> bool", "Makes Archimede try to break a damaged door in the chosen direction. The result is the success or failure."],
-                "get_riddle": ["get_riddle(direction) -> any", "Gets the riddle the toast wants you to solve in the chosen direction."],
+                "fortune": ["ask_fortune_teller(set)", "Asks the fortune teller which door will open in a set of random doors. The answer is the number of the door."],
+                "break_door": ["break_door(direction)", "Makes Archimede try to break a damaged door in the chosen direction. The result is the success or failure."],
+                "get_riddle": ["get_riddle(direction)", "Gets the riddle the toast wants you to solve in the chosen direction."],
                 "solve_riddle": ["solve_riddle(direction)", "Gives your solution to the toast in the chosen direction."],
                 "print": ["print(string)", "Prints the string."]
             },
@@ -32,8 +32,20 @@
                     "\"\"\" MULTILINE/BLOCK comment \"\"\"",
                     "# SINGLE LINE comment"
                 ]],
-                "if": ["CONDITIONS", [
-                    "if [condition]",
+                "if": ["IF STATEMENT", [
+                    "if [condition]:",
+                    "   [code to execute]"
+                ]],
+                "elif": ["ELIF STATEMENT", [
+                    "if [condition]:",
+                    "   [code to execute]",
+                    "elif [condition]:",
+                    "   [code to execute]"
+                ]],
+                "else": ["ELSE STATEMENT", [
+                    "if [condition]:",
+                    "   [code to execute]",
+                    "else:",
                     "   [code to execute]"
                 ]],
                 "while": ["WHILE LOOPS", [
@@ -52,7 +64,7 @@
             "OBJETS":{
                 "player": ["3", "Archimède."],
                 "exit": ["4", "La sortie."],
-                "closed_exit": ["c", "La sortie mais inactive."],
+                "closed_exit": ["c", "La sortie mais inactive. Se réactivera si tu écris le mot de passe en étant dessus."],
                 "door": ["5", "Une porte."],
                 "broken_door": ["7", "Une porte endommagée. Pourrait s'ouvrir si on tente de la briser suffisamment de fois."],
                 "random_door": ["6", "Une porte qui s'ouvre de façon random. Le 'c' montre à quel set appartient la porte. Le 'n' est le numéro de la porte dans le set."],
@@ -63,9 +75,9 @@
             "INSTRUCTION FUNCTIONS": {
                 "walk": ["walk(direction)", "Fait marcher Archimede un pas dans la direction donnee."],
                 "open_door": ["open_door(direction)", "Fait ouvrir la porte dans la direction donnee."],
-                "fortune": ["fortune_teller(set) -> int", "Demande au voyant quelle porte dans le set indique sera ouverte. La reponse est le numero de la porte."],
-                "break_door": ["break_door(direction) -> bool", "Archimede essayera de briser une porte endommagee dans la direction donnee. Le resultat est la reussite ou l'echec de la tentative."],
-                "get_riddle": ["get_riddle(direction) -> any", "Recupere l'enigme que le toast veut que tu resolves dans la direction donnee."],
+                "fortune": ["ask_fortune_teller(set)", "Demande au voyant quelle porte dans le set indique sera ouverte. La reponse est le numero de la porte."],
+                "break_door": ["break_door(direction)", "Archimede essayera de briser une porte endommagee dans la direction donnee. Le resultat est la reussite ou l'echec de la tentative."],
+                "get_riddle": ["get_riddle(direction)", "Recupere l'enigme que le toast veut que tu resolves dans la direction donnee."],
                 "solve_riddle": ["solve_riddle(direction)", "Donne la solution au toast dans la direction donnee."],
                 "print": ["print(string)", "Imprime la string."]
             },
@@ -80,9 +92,21 @@
                     "\"\"\" MULTILINE/BLOCK comment \"\"\"",
                     "# SINGLE LINE comment"
                 ]],
-                "if": ["CONDITIONS", [
+                "if": ["IF STATEMENT", [
                     "if [condition]",
                     "   [code a executer]"
+                ]],
+                "elif": ["ELIF STATEMENT", [
+                    "if [condition]:",
+                    "   [code to execute]",
+                    "elif [condition]:",
+                    "   [code to execute]"
+                ]],
+                "else": ["ELSE STATEMENT", [
+                    "if [condition]:",
+                    "   [code to execute]",
+                    "else:",
+                    "   [code to execute]"
                 ]],
                 "while": ["BOUCLES WHILE", [
                     "while [condition]:",
@@ -111,9 +135,9 @@
             "INSTRUCTION FUNCTIONS": {
                 "walk": ["walk(direction)", "Laat Archimede één stap zetten in de gekozen richting."],
                 "open_door": ["open_door(direction)", "Laat Archimede de deur openen in de gekozen richting."],
-                "fortune": ["fortune_teller(set) -> int", "Vraagt de waarzegger welke deur zal opengaan in een set willekeurige deuren. Het antwoord is het nummer van de deur."],
-                "break_door": ["break_door(direction) -> bool", "Laat Archimede proberen een beschadigde deur open te breken in de gekozen richting. Het resultaat is een succes of een mislukking."],
-                "get_riddle": ["get_riddle(direction) -> any", "Geeft het raadsel dat de boterham in de gekozen richting wil dat je oplost."],
+                "fortune": ["ask_fortune_teller(set)", "Vraagt de waarzegger welke deur zal opengaan in een set willekeurige deuren. Het antwoord is het nummer van de deur."],
+                "break_door": ["break_door(direction)", "Laat Archimede proberen een beschadigde deur open te breken in de gekozen richting. Het resultaat is een succes of een mislukking."],
+                "get_riddle": ["get_riddle(direction)", "Geeft het raadsel dat de boterham in de gekozen richting wil dat je oplost."],
                 "solve_riddle": ["solve_riddle(direction)", "Geeft jouw oplossing aan de sfinx in de gekozen richting."],
                 "print": ["print(string)", "Drukt de tekst af."]
             },
@@ -128,9 +152,21 @@
                     "\"\"\" MULTILINE/BLOCK comment \"\"\"",
                     "# SINGLE LINE comment"
                 ]],
-                "if": ["VOORWAARDEN", [
+                "if": ["IF STATEMENT", [
                     "if [voorwaarde]",
                     "   [uit te voeren code]"
+                ]],
+                "elif": ["ELIF STATEMENT", [
+                    "if [condition]:",
+                    "   [code to execute]",
+                    "elif [condition]:",
+                    "   [code to execute]"
+                ]],
+                "else": ["ELSE STATEMENT", [
+                    "if [condition]:",
+                    "   [code to execute]",
+                    "else:",
+                    "   [code to execute]"
                 ]],
                 "while": ["WHILE LUSSEN", [
                     "while [voorwaarde]:",

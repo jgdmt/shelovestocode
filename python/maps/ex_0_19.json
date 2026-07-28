@@ -1,0 +1,38 @@
+{
+    "level": [{
+        "map": [
+            "2222222",
+            "2111612",
+            "2122232",
+            "2416112",
+            "2122622",
+            "2111120",
+            "2222220"
+        ],
+        "random_doors": {
+            "a": {
+                "doors": [[4, 1], [3, 3], [4, 4]],
+                "fg_color": "22B14C"
+            }
+        },
+        "character": "fortune_teller.txt",
+        "notes": {
+            "en": [
+                "Same as before, ask me and I will tell your which door will open between the three."
+            ]
+        }
+    }],
+    "help": {
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "fortune": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "else": false,
+        "while": false,
+        "for": false
+    }
+}

@@ -1,6 +1,7 @@
 import json
 import sys
 import subprocess
+import traceback
 from .level import Level
 from .player import Player, LEFT, RIGHT, UP, DOWN
 from .display import Display
@@ -8,11 +9,11 @@ from .utils import get_text
 from .text import max_cols_msg, max_lines_msg, win_msg
 from srcs.shared import configs
 
-# def hook(exctype, excmsg, traceback):
-#     msg = f"error line {traceback.tb_frame.f_lineno}\n{excmsg}"
-#     player.game.display.print_log(msg, True)
-
-    # sleep(0.5)
+def hook(exctype, excmsg, tb):
+    msg = tb.format_exc()
+    # last = traceback.extract_tb(tb)[-1]
+    # msg = f"error line {last.lineno}\n{exctype.__name__}: {excmsg}"
+    player.game.display.print_log(msg, True)
 
 class Game:
 
@@ -40,6 +41,7 @@ class Game:
             self.check_lines_cols()
             self.elems = self.init_elems(configs.elems)
             self.current = 0
+            self.game_ended = False
             with open(configs.results, 'w') as f:
                 f.write("1")
             for y in range(configs.map_height):
@@ -49,7 +51,7 @@ class Game:
                         self.player.y = y
                         self.curr_map.map[y][x] = configs.MapVal.PATH
             self.display.print_map()
-            # sys.excepthook = hook
+            sys.excepthook = hook
 
 
             return cls.instance
@@ -132,6 +134,7 @@ class Game:
             level.init_riddles(maps_json.get("riddles", None))
             level.max_lines = maps_json.get("max_lines", 0)
             level.max_cols = maps_json.get("max_cols", 0)
+            level.hidden = maps_json.get("hidden", False)
             level.broken_door_proba = maps_json.get("broken_door_proba", 0.01)
             level.prints = maps_json.get("print", [])
             maps.append(level)
@@ -149,6 +152,7 @@ class Game:
     def victory(self):
         with open(configs.results, 'w') as f:
             f.write('0')
+        self.game_ended = True
         self.display.print_log(get_text(win_msg, self.lan))
         
 

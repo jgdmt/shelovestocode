@@ -1,0 +1,9 @@
+from .game import player, LEFT, RIGHT, UP, DOWN
+
+green_answer = player.ask_fortune_teller('a')
+blue_answer = ...
+violet_answer = ...
+
+if condition :
+    # you can put a condition inside a condition !
+    ...

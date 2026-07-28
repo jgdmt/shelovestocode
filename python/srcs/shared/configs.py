@@ -27,7 +27,7 @@ map_height = 16
 # log_width = 32
 min_info_height = 5
 min_info_width = 25
-screen_min_width = 165 #293
+screen_min_width = 165
 screen_min_height = 75
 
 class MapVal(str, Enum):
@@ -42,7 +42,7 @@ class MapVal(str, Enum):
     OPEN_DOOR = "8"
     RIDDLE = "9"
     CLOSED_EXIT = 'c'
-    LAST = "-1"
+    LAST = "-2"
 
 class ActionType(Enum):
     WALK = auto()

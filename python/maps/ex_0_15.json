@@ -2,30 +2,29 @@
     "level": [{
         "map": [
             "2222222",
-            "2311142",
+            "2111232",
+            "2421112",
             "2222222"
         ],
         "notes": {
             "en": [
-                "I managed to get all my maps back... Let's hope they don't get stolen again!",
+                "I left comments for you in the file!",
                 "",
-                "Why not try to use variables a bit longer?"
+                "Comments don't do anything special. They're literally comments. They help if you need to leave some notes in your code.",
+                "",
+                "There are different kind of comments in python. Use them if you want!"
             ]
         }
     }],
     "help": {
-        "door": false,
         "broken_door": false,
         "random_door": false,
         "riddle": false,
-        "open_door": false,
         "fortune": false,
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,
-        "print": false,
         "set": false,
-        "code": false,
-        "closed_exit": false
+        "code": false
     }
 }

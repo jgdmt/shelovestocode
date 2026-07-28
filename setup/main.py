@@ -32,7 +32,7 @@ def copy_cmd(cmd: list, module: str, ex: str, lan: str):
     cmd_cpy.append(lan)
     return cmd_cpy
 
-def load_exercise(win: curses.window, menu: Menu):
+def load_exercise(win: curses.window, menu: Menu) -> bool:
     curses.def_prog_mode()
     curses.endwin()
     mod = menu.branches[menu.curr_branch].mod[menu.curr_mod]
@@ -48,6 +48,8 @@ def load_exercise(win: curses.window, menu: Menu):
     win.refresh()
     if ret.returncode == 0:
         validate_exercise(menu)
+        return True
+    return False
     # win.refresh()
     # win.clear()
     # win.addstr(str(ret.returncode))
@@ -61,11 +63,13 @@ def choose_exercise(win: curses.window, menu: Menu):
     ex_nb = len(menu.branches[menu.curr_branch].mod[menu.curr_mod].ex)
     index = 0
     while True:
+        if not check_resize(win):
+            continue
         print_exercises(win, menu, index)
         input = win.getch()
     
-        if input == curses.KEY_RESIZE:
-            check_resize(win)
+        # if input == curses.KEY_RESIZE:
+        #     check_resize(win)
         if input == Keys.QUIT or input == Keys.ESC or input == Keys.LEFT:
             return
         elif input == Keys.DOWN:
@@ -74,7 +78,8 @@ def choose_exercise(win: curses.window, menu: Menu):
             index = (index - 1) % ex_nb
         elif input == Keys.CONFIRM or input == Keys.RIGHT:
             menu.curr_ex = index
-            load_exercise(win, menu)
+            if load_exercise(win, menu) and index < ex_nb - 1:
+                index += 1
 
 
 def choose_module(win: curses.window, menu: Menu):
@@ -89,11 +94,13 @@ def choose_module(win: curses.window, menu: Menu):
     modules_nb = len(menu.branches[menu.curr_branch].mod)
     index = 0
     while True:
+        if not check_resize(win):
+            continue
         print_modules(win, menu, index)
         input = win.getch()
 
-        if input == curses.KEY_RESIZE:
-            check_resize(win)
+        # if input == curses.KEY_RESIZE:
+        #     check_resize(win)
         if input == Keys.QUIT or input == Keys.ESC or input == Keys.LEFT:
             return
         elif input == Keys.DOWN:
@@ -109,11 +116,13 @@ def choose_branch(win: curses.window, menu: Menu):
     check_resize(win)
     index = 0
     while True:
+        if not check_resize(win):
+            continue
         print_menu(win, menu, index)
         input = win.getch()
 
-        if input == curses.KEY_RESIZE:
-            check_resize(win)
+        # if input == curses.KEY_RESIZE:
+        #     check_resize(win)
         if input == Keys.QUIT or input == Keys.ESC or input == Keys.LEFT:
             return
         elif input == Keys.UP:
@@ -128,38 +137,47 @@ def choose_language(win: curses.window, menu: Menu):
     check_resize(win)
     index = 0
     while True:
+        if not check_resize(win):
+            continue
         print_language(win, menu, index)
         input = win.getch()
 
-        if input == curses.KEY_RESIZE:
-            check_resize(win)
+        # if input == curses.KEY_RESIZE:
+        #     check_resize(win)
         if input == Keys.QUIT or input == Keys.ESC:
             return
         elif input == Keys.UP:
             index = (index - 1) % 3
         elif input == Keys.DOWN:
             index = (index + 1) % 3
-        elif index == Keys.CONFIRM or input == Keys.RIGHT:
+        elif input == Keys.CONFIRM or input == Keys.RIGHT:
             menu.language = index
             choose_branch(win, menu)
 
 def check_resize(win: curses.window):
     h, w = win.getmaxyx()
-    
-    while h < screen_min_height or w < screen_min_width:
-        h, w = win.getmaxyx()
+    if h < screen_min_height or w < screen_min_width:
         win.clear()
-        win.addstr(f"{h} - {screen_min_height}, {w} - {screen_min_width}")
         text = "Windows too small."
         win.addstr(h // 2, (w - len(text)) // 2, text)
         win.refresh()
-        input = win.getch()
-        if h < 1 or w < len("Windows too small."):
-            exit()
-        elif input == Keys.QUIT or input == Keys.ESC:
-            curses.endwin()
-            exit()
-    win.refresh()
+        return False
+    else:
+        return True
+    # while h < screen_min_height or w < screen_min_width:
+    #     h, w = win.getmaxyx()
+    #     win.clear()
+    #     win.addstr(f"{h} - {screen_min_height}, {w} - {screen_min_width}")
+    #     text = "Windows too small."
+    #     win.addstr(h // 2, (w - len(text)) // 2, text)
+    #     win.refresh()
+    #     # input = win.getch()
+    #     if h < 1 or w < len("Windows too small."):
+    #         exit()
+    #     # elif input == Keys.QUIT or input == Keys.ESC:
+    #     #     curses.endwin()
+    #     #     exit()
+    # win.refresh()
         
 
 def setup():

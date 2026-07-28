@@ -2,7 +2,7 @@ import curses
 import atexit
 from .utils import get_text
 from.text import screen_small, leave_keys, end_keys
-from srcs.shared import configs
+from srcs.shared import configs, utils
 
 
 class Display:
@@ -44,15 +44,9 @@ class Display:
         curses.echo()
         curses.endwin()
 
-    def to_rgb(self, color: str):
-        r = int((int(color[0:2], 16) / 255) * 1000)
-        g = int((int(color[2:4], 16) / 255) * 1000)
-        b = int((int(color[4:6], 16) / 255) * 1000)
-        return (r, g, b)
-
     def init_colors(self, colors: dict):
         for i, color in colors.items():
-            rgb = self.to_rgb(color)
+            rgb = utils.to_rgb(color)
             curses.init_color(i.value, *rgb)
 
     def init_pair(self, elem: configs.MapElem):
@@ -84,7 +78,7 @@ class Display:
                     line = line.replace("c", key)
             height = configs.top_margin + configs.cell_height * y + i
             width = configs.left_margin + configs.cell_width * x
-            if len(self.game.maps) > 1 and not player:
+            if level.hidden and not player:
                 self.win.addstr(height, width, " " * len(line))
             else:
                 self.win.addstr(height, width, line, curses.color_pair(elem.id))
@@ -117,25 +111,47 @@ class Display:
         self.logs.clear()
         self.logs.box()
         h, w = self.logs.getmaxyx()
-        curr_h = 1
+        h -= 2
         for i in range(len(self.history)):
-            if curr_h >= h - 1:
+            lines = len(self.history[i]) // (w - 4)
+            if h <= 0:
                 del self.history[i:]
                 break
-            words = self.history[i].split(" ")
-            curr_w = 1
-            for j in range(len(words)):
-                if len(words[j]) + curr_w >= w - 1:
-                    curr_h += 1
-                    curr_w = 1
-                if curr_h >= h - 1:
-                    break
-                self.logs.addstr(curr_h, curr_w, words[j] + " ", curses.color_pair(0))
-                curr_w += len(words[j]) + 1
-            curr_h += 1
+            h -= lines
+            if lines == 0:
+                self.logs.addstr(h, 1, self.history[i])
+            else:
+                curr_w = 1
+                curr_h = h
+                words = self.history[i].split(" ")
+                for j in range(len(words)):
+                    if len(words[j]) + curr_w >= w - 1:
+                        curr_h += 1
+                        curr_w = 1
+                    if curr_h > 0:
+                        self.logs.addstr(curr_h, curr_w, words[j] + " ")
+                    curr_w += len(words[j]) + 1
+            h -= 1
+
+        # curr_h = 1
+        # for i in range(len(self.history)):
+        #     if curr_h >= h - 1:
+        #         del self.history[i:]
+        #         break
+        #     words = self.history[i].split(" ")
+        #     curr_w = 1
+        #     for j in range(len(words)):
+        #         if len(words[j]) + curr_w >= w - 1:
+        #             curr_h += 1
+        #             curr_w = 1
+        #         if curr_h >= h - 1:
+        #             break
+        #         self.logs.addstr(curr_h, curr_w, words[j] + " ")
+        #         curr_w += len(words[j]) + 1
+        #     curr_h += 1
         self.logs.refresh()
-        # if leave:
-        #     exit(0)
+        if leave:
+            exit(0)
 
     def print_error(self, err: str, color: int = None):
         self.win.nodelay(False)

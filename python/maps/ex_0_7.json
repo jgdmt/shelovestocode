@@ -7,6 +7,7 @@
             "214112",
             "222222"
         ],
+        "hidden": true,
         "character": "thief.txt",
         "notes": {
             "en": [
@@ -27,12 +28,13 @@
             "222222"
         ],
         "character": "thief.txt",
+        "hidden": true,
         "notes": {
             "en": [
                 "Hohoho... Nice to meet you! I'm a little thief... And I stole your map and flashlight!",
-                "You will have to solve this level without seeing what the map looks like...",
+                "You will have to solve this level without seeing where you go...",
                 "",
-                "Don't worry, I'm not that mean. I have exchanged your map with someone else's... Why don't you ask around?",
+                "Don't worry, I'm not that mean. I didn't really steal your map, I have exchanged it with someone else's... Why don't you ask around?",
                 "Perhaps you can start with your neighbour..."
             ]
         }

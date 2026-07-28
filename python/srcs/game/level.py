@@ -18,6 +18,7 @@ class Level:
         self.riddles = None
         self.max_lines = 0
         self.prints = []
+        self.hidden = False
         self.max_cols = 0
         self.new_h = 0
         self.new_w = 0

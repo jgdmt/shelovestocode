@@ -1,0 +1,53 @@
+{
+    "level": [{
+        "map": [
+            "2222200",
+            "2311200",
+            "2221222",
+            "00212c2",
+            "0021212",
+            "0021112",
+            "0022222"
+        ],
+        "print": [
+            "python",
+            "Python"
+        ],
+        "notes": {
+            "en": [
+                "Another deactived exit... This time the password is the language you are learning here. Or a snake.",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Do you sometimes check the help menu?"
+            ]
+        }
+    }],
+    "help": {
+        "door": false,
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "open_door": false,
+        "fortune": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "code": false,
+        "closed_exit": false
+    }
+}

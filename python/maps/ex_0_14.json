@@ -1,0 +1,56 @@
+{
+    "level": [{
+        "map": [
+            "222000",
+            "232000",
+            "212200",
+            "211200",
+            "221200",
+            "021222",
+            "0211c2",
+            "022222"
+        ],
+        "character": "thief.txt",
+        "notes": {
+            "en": [
+                "Well hello again! Did you forget about me already? I'm a very kind thief.",
+                "",
+                "Don't worry, this time, I didn't steal your map nor your flashlight. I'm here to give you the password of the exit!",
+                "",
+                "So here is the password: 'hell0123'.",
+                "",
+                "... It doesn't open? How clumsy of me, I might have mixed up the passwords... :)"
+            ]
+        },
+        "print": [
+            "w0rld123"
+        ]
+    },
+    {
+        "map": [
+            "222000",
+            "232000",
+            "212200",
+            "211200",
+            "221200",
+            "021222",
+            "0211c2",
+            "022222"
+        ],
+        "character": "thief.txt",
+        "notes": {
+            "en": [
+                "Well hello again! Did you forget about me already? I'm a very kind thief.",
+                "",
+                "Don't worry, this time, I didn't steal your map nor your flashlight. I'm here to give you the password of the exit!",
+                "",
+                "So here is the password: 'w0rld123'.",
+                "",
+                "... It doesn't open? How clumsy of me, I might have mixed up the passwords... :)"
+            ]
+        },
+        "print": [
+            "hell0123"
+        ]
+    }]
+}

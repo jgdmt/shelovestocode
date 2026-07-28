@@ -1,0 +1,36 @@
+{
+    "level": [{
+        "map": [
+            "0022222",
+            "0024112",
+            "2222212",
+            "2321112",
+            "2111222",
+            "2222200"
+        ],
+        "max_lines": 13,
+        "notes": {
+            "en": [
+                "It seems that this level has a limited lines count!",
+                "",
+                "You have to solve this with less than 13 lines in your work.py file.",
+                "Perhaps you can find some lines to get rid of in your file."
+            ]
+        }
+    }],
+    "help": {
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "fortune": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "if": false,
+        "elif": false,
+        "else": false,
+        "while": false,
+        "for": false
+    }
+}

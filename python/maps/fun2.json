@@ -1,0 +1,37 @@
+{
+    "level": [{
+        "map": [
+            "00000022222",
+            "00000021142",
+            "00002221222",
+            "00002111200",
+            "00222122200",
+            "00211120000",
+            "22212220000",
+            "21112000000",
+            "21222000000",
+            "23200000000",
+            "22200000000"
+        ],
+        "notes": {
+            "en": [
+                "That's a lot of moves... Almost like a pattern.",
+                "",
+                "If only there was a way to do easily the same combination of moves but just writing one line... Right?"
+            ]
+        }
+    }],
+    "help": {
+        "door": false,
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "fortune": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "print": false,
+        "set": false,
+        "code": false
+    }
+}

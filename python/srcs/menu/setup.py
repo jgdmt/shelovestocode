@@ -8,7 +8,7 @@ from .text import restore_progress, yes, no
 from .print import *
 from .help import help_page
 from .struct import GameInfo, Windows
-from srcs.shared import configs
+from srcs.shared import configs, utils
 
 #TODO: error management
 
@@ -21,16 +21,9 @@ class Keys(int, Enum):
     CONFIRM = 10
     ESC = 27
 
-
-def to_rgb(color: str):
-    r = int((int(color[0:2], 16) / 255) * 1000)
-    g = int((int(color[2:4], 16) / 255) * 1000)
-    b = int((int(color[4:6], 16) / 255) * 1000)
-    return (r, g, b)
-
 def init_elems(win: curses.window, elems: dict):
     for i, color in configs.colors.items():
-        rgb = to_rgb(color)
+        rgb = utils.to_rgb(color)
         curses.init_color(i.value, *rgb)
 
     for elem in elems.values():
@@ -93,7 +86,9 @@ def parse_file(win: curses.window, mod: str, ex: str, lan: str = 'en'):
         print_error(win, f"Missing map in ex_{mod}_{ex} json file")
     
     notes_all = level[i].get("notes", {})
-    notes = notes_all.get(lan, "")
+    notes = notes_all.get(lan)
+    if notes is None:
+        notes = notes_all.get('en', "")
 
     char_file = level[i].get("character", "owl.txt")
     char = ""
@@ -116,10 +111,10 @@ def init_door_colors(game_info: GameInfo):
         fg = val.get("fg_color")
         bg = val.get("bg_color")
         if bg is not None:
-            bg_rgb = to_rgb(bg)
+            bg_rgb = utils.to_rgb(bg)
             curses.init_color(configs.Color.CUSTOM_BG.value+idx, *bg_rgb)
         if fg is not None:
-            fg_rgb = to_rgb(fg)
+            fg_rgb = utils.to_rgb(fg)
             curses.init_color(configs.Color.CUSTOM_FG.value+idx+1, *fg_rgb)
         if bg is not None and fg is not None:
             curses.init_pair(pair+idx, configs.Color.CUSTOM_FG.value+idx+1, configs.Color.CUSTOM_BG.value+idx)
@@ -221,6 +216,7 @@ def work_setup(win: curses.window) -> tuple:
     mod = sys.argv[1]
     ex = sys.argv[2]
     lan = sys.argv[3]
+
     level_file = Path(f"{configs.levels_dir}/ex_{mod}_{ex}.py")
     saved_file = Path(f"{configs.save_dir}/ex_{mod}_{ex}.py")
     subprocess.run(["mkdir", "-p", configs.work_dir])
@@ -238,20 +234,11 @@ def work_setup(win: curses.window) -> tuple:
     subprocess.run(["code", f"{configs.work_dir}/work.py"])
     return (mod, ex, lan)
 
-def main():
-    win = curses.initscr()
-    win.keypad(True)
-    curses_setup()
-    mod, ex, lan = work_setup(win)
-    wins = init_windows(win, lan)
-
-    win.refresh()
-
-    game_info = parse_file(win, mod, ex, lan)
-    init_door_colors(game_info)
-    print_game_info(wins, game_info)
+def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
     idx = 0
     res = 1
+    win = wins.win
+    lan = game_info.lan
     while True:
         h, w = win.getmaxyx()
         if h < configs.screen_min_height or w < configs.screen_min_width:
@@ -281,6 +268,7 @@ def main():
                 curses.def_prog_mode()
                 curses.endwin()
                 subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.game_dir}/"])
+                subprocess.run(["clear"])
                 result = subprocess.run(["python3", "-m", configs.work_path_cmd, mod, ex, lan],
                                         stderr=subprocess.PIPE, stdout=None, text=True)
                 try:
@@ -300,10 +288,32 @@ def main():
                     win.clear()
                     win.refresh()
                     print_game_info(wins, game_info)
+                if res == 0:
+                    clean()
+                    subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.save_dir}/ex_{mod}_{ex}.py"])
+                    exit(res)
                 curses_setup()
             elif idx == Menu.HELP.value:
                 help_page(wins.win, game_info)
                 print_game_info(wins, game_info)
+
+def main():
+    win = curses.initscr()
+    win.keypad(True)
+    curses_setup()
+    mod, ex, lan = work_setup(win)
+    wins = init_windows(win, lan)
+    win.refresh()
+
+    h, w = win.getmaxyx()
+    if h < configs.screen_min_height or w < configs.screen_min_width:
+        print_too_small(wins)
+
+    game_info = parse_file(win, mod, ex, lan)
+    init_door_colors(game_info)
+    print_game_info(wins, game_info)
+    game_loop(wins, game_info, mod, ex)
+    
                 
 
 if __name__ == "__main__":

@@ -1,0 +1,50 @@
+{
+    "level": [{
+        "map": [
+            "222222",
+            "211132",
+            "211112",
+            "262622",
+            "211112",
+            "241112",
+            "222222"
+        ],
+        "random_doors": {
+            "c": {
+                "doors": [[1, 3], [3, 3]],
+                "fg_color": "22B14C"
+            }
+        },
+        "character": "fortune_teller.txt",
+        "notes": {
+            "en": [
+                "Hello, I'm a fortune teller. As you can see, there are some weird doors here.",
+                "",
+                "Those are random doors. It means that in each set of color, only one door will open at random.",
+                "",
+                "Don't worry, I can see the future! Just ask me and I'll tell you the number of the door that will open.",
+                "To ask me, use the function fortune_teller that I added in your work.py file. The result is a the number of the open door.",
+                "On the map, you can see the number of the door on the first line the said door, right above a 'c'.",
+                "",
+                "Adapt your path according to the open door by using conditions!",
+                "",
+                "I added some more comments in your work.py file for you."
+            ]
+        }
+    }],
+    "help": {
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "fortune": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "if": false,
+        "elif": false,
+        "else": false,
+        "while": false,
+        "for": false
+    }
+}

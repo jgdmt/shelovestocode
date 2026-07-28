@@ -1,16 +1,16 @@
 {
     "level": [{
         "map": [
-            "22222",
-            "23222",
-            "21222",
-            "21242",
-            "21112",
-            "22222"
+            "2220000",
+            "2322222",
+            "2121112",
+            "2121212",
+            "2111242",
+            "2222222"
         ],
         "notes": {
             "en": [
-                "You're doing great!"
+                "Let's do more assignment!"
             ]
         }
     }],
@@ -22,9 +22,9 @@
         "open_door": false,
         "fortune": false,
         "break_door": false,
-        "print": false,
         "get_riddle": false,
         "solve_riddle": false,
+        "print": false,
         "set": false,
         "code": false,
         "closed_exit": false

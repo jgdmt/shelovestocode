@@ -4,7 +4,7 @@
         "random_doors": {
             "c": {
                 "doors": [[1, 1], [2, 2]],
-                "fg_color": "33DEB1",
+                "fg_color": "22B14C",
                 "bg_color": "FFFFFF"
             }
         },
@@ -25,10 +25,16 @@
         "character": "owl.txt",
         "notes": {
             "en": [],
-            "fr": []
+            "fr": [],
+            "nl": []
         }
     },
     {
         "map": []
-    }]
+    }],
+    "help": {
+        "sprites": false,
+        "functions": false,
+        "code": false
+    }
 }

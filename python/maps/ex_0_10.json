@@ -1,0 +1,40 @@
+{
+    "level": [{
+        "map": [
+            "222222",
+            "2311c2",
+            "222222"
+        ],
+        "notes": {
+            "en": [
+                "It seems there is an issue with the exit... It looks like it's not activated?",
+                "",
+                "There is a note here. It says the password is my name, how weird.",
+                "",
+                "Perhaps if I stand on the exit and write the password it will activate the exit?",
+                "That's great because I found a new function that I wanted you to try. I left it in the work.py file."
+            ]
+        },
+        "print": [
+            "Archimede",
+            "archimede",
+            "Archimède",
+            "archimède"
+        ]
+    }],
+    "help": {
+        "door": false,
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "open_door": false,
+        "fortune": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "print": false,
+        "set": false,
+        "code": false,
+        "closed_exit": false
+    }
+}

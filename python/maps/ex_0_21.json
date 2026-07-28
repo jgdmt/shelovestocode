@@ -1,0 +1,67 @@
+{
+    "level": [{
+        "map": [
+            "222222",
+            "241612",
+            "211212",
+            "211612",
+            "252262",
+            "211632",
+            "222222"
+        ],
+        "random_doors": {
+            "a": {
+                "doors": [[3, 5], [4, 4]],
+                "fg_color": "22B14C"
+            },
+            "b": {
+                "doors": [[3, 1], [3, 3]],
+                "fg_color": "911196"
+            }
+        },
+        "character": "thief.txt",
+        "notes": {
+            "en": [
+                "And I'm back! This time I did swap your map with someone's else. Because I'm still kind, you still won't have to look far.",
+                "",
+                "Will you be able to solve this one?"
+            ]
+        },
+        "hidden": true
+    },
+    {
+        "map": [
+            "2222222",
+            "2161112",
+            "2122212",
+            "2161212",
+            "2125212",
+            "232c512",
+            "2222222"
+        ],
+        "random_doors": {
+            "a": {
+                "doors": [[3, 5], [4, 4]],
+                "fg_color": "22B14C"
+            },
+            "b": {
+                "doors": [[3, 1], [3, 3]],
+                "fg_color": "911196"
+            }
+        },
+        "character": "thief.txt",
+        "notes": {
+            "en": [
+                "And I'm back! This time I did swap your map with someone's else. Because I'm still kind, you still won't have to look far.",
+                "",
+                "Will you be able to solve this one?",
+                "",
+                "Also you might need to tell your neighbour this: '1942'."
+            ]
+        },
+        "print": [
+            "1942"
+        ],
+        "hidden": true
+    }]
+}

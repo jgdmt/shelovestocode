@@ -27,7 +27,7 @@ while True:
     i+=1
     if player.open_door(DOWN):
         break
-player.game.display.print_log(f"Took {i} tries")
+player.print(f"Took {i} tries")
 player.walk(DOWN)
 player.walk(DOWN)
 player.walk(LEFT)

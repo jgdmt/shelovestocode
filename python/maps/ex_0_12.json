@@ -1,32 +1,30 @@
 {
     "level": [{
         "map": [
-            "22222",
-            "23222",
-            "21222",
-            "21242",
-            "21112",
-            "22222"
+            "222",
+            "242",
+            "212",
+            "252",
+            "212",
+            "232",
+            "222"
         ],
         "notes": {
             "en": [
-                "You're doing great!"
+                "There is a door blocking my way! Fortunately, it's not locked so I can just open it if you give me the instruction."
             ]
         }
     }],
     "help": {
-        "door": false,
         "broken_door": false,
         "random_door": false,
         "riddle": false,
         "open_door": false,
         "fortune": false,
         "break_door": false,
-        "print": false,
         "get_riddle": false,
         "solve_riddle": false,
         "set": false,
-        "code": false,
-        "closed_exit": false
+        "code": false
     }
 }

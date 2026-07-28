@@ -19,6 +19,11 @@ class Player:
 
     def walk(self, direction: tuple):
         self.display.get_input()
+        if direction != LEFT and direction != RIGHT and \
+            direction != UP and direction != DOWN:
+            return
+        if self.game.game_ended:
+            return
         x = self.x + direction[0]
         y = self.y + direction[1]
         case = self.game.curr_map.map[y][x]
@@ -40,48 +45,69 @@ class Player:
 
     def open_door(self, direction: tuple):
         self.display.get_input()
+        if direction != LEFT and direction != RIGHT and \
+            direction != UP and direction != DOWN:
+            return
+        if self.game.game_ended:
+            return
         x = self.x + direction[0]
         y = self.y + direction[1]
+        sleep(0.5)
         case = self.game.curr_map.map[y][x]
         if case == MapVal.DOOR.value:
             self.game.curr_map.map[y][x] = MapVal.OPEN_DOOR.value
-        sleep(0.1)
+        
+        self.display.print_cell(x, y)
     
     def break_door(self, direction: tuple) -> bool:
         self.display.get_input()
+        if direction != LEFT and direction != RIGHT and \
+            direction != UP and direction != DOWN:
+            return False
+        if self.game.game_ended:
+            return False
         x = self.x + direction[0]
         y = self.y + direction[1]
         case = self.game.curr_map.map[y][x]
         if case == MapVal.BROKEN_DOOR.value:
-            check = random.randint(0, 1 // self.game.curr_map.broken_door_proba)
+            check = random.randint(0, int(1 / self.game.curr_map.broken_door_proba))
             if check != 1:
-                self.game.display.print_log(get_text(break_result[self.game.lan][0]))
                 return False
-            self.game.display.print_log(get_text(break_result[self.game.lan][1]))
+            sleep(0.5)
+            self.game.display.print_log(get_text(break_result, self.game.lan)[1])
             self.game.curr_map.map[y][x] = MapVal.OPEN_DOOR.value
-        sleep(0.1)
+            self.display.print_cell(x, y)
+        return True
         
 
-    def fortune_teller(self, set: str = None) -> list[int]:
+    def ask_fortune_teller(self, set: str = None) -> list[int]:
         self.display.get_input()
-        res = [0, 0]
+        if self.game.game_ended:
+            return
         curr_map = self.game.curr_map
         text = get_text(fortune_teller, self.game.lan)
+        res = -1
         if curr_map.random_doors is None:
             self.display.print_log(text[0])
         elif set is None and len(curr_map.random_doors) > 1:
             self.display.print_log(text[1])
         else:
-            #TODO: if set is None change set to the only element in dico
-            if curr_map.random_doors.get(set) is None:
+            if set is None:
+                set = list(curr_map.random_doors.keys())[0]
+            if curr_map.open_door_idx.get(set) is None:
                 self.display.print_log(text[2])
             else:
-                res = curr_map.random_doors[set]["doors"][curr_map.open_door_idx[set]]
+                res = curr_map.open_door_idx[set]
                 self.display.print_log(f"{text[3]} {res}")
         return res
         
     def get_riddle(self, direction: tuple):
         self.display.get_input()
+        if direction != LEFT and direction != RIGHT and \
+            direction != UP and direction != DOWN:
+            return
+        if self.game.game_ended:
+            return
         x = self.x + direction[0] - self.game.curr_map.new_w
         y = self.y + direction[1] - self.game.curr_map.new_h
         riddles = self.game.curr_map.riddles
@@ -96,6 +122,11 @@ class Player:
 
     def solve_riddle(self, direction: tuple, solution):
         self.display.get_input()
+        if direction != LEFT and direction != RIGHT and \
+            direction != UP and direction != DOWN:
+            return
+        if self.game.game_ended:
+            return
         sleep(0.5)
         x = self.x + direction[0]
         y = self.y + direction[1]
@@ -114,12 +145,17 @@ class Player:
                 sol = riddle.input
             if sol == solution:
                 self.game.curr_map.map[y][x] = MapVal.PATH.value
-                self.display.print_log(get_text(riddle_result[self.game.lan][0]))
+                self.display.print_log(get_text(riddle_result, self.game.lan)[0])
+                self.display.print_cell(x, y)
             else:
-                self.display.print_log(get_text(riddle_result[self.game.lan][1]))
+                self.display.print_log(get_text(riddle_result, self.game.lan)[1])
 
-    def print(self, string: str):
-        self.display.print_log(string)
+    def print(self, params: str):
+        self.display.get_input()
+        if self.game.game_ended:
+            return
+        string = str(params)
+        self.display.print_log(string, 0)
         sleep(0.5)
         if string.strip() in self.game.curr_map.prints:
             case = self.game.curr_map.map[self.y][self.x]

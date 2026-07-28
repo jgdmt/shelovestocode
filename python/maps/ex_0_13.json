@@ -1,0 +1,34 @@
+{
+    "level": [{
+        "map": [
+            "2222222",
+            "2321542",
+            "2121222",
+            "2525200",
+            "2111200",
+            "2222200"
+        ],
+        "notes": {
+            "en": [
+                "The exit is once again inactive. And there are multiple doors blocking the way!",
+                "",
+                "Well I'm sure you can solve this. The password this time is the answer to the ultimate questions of life, the universe and everything. Or the number of the school you're currently at."
+            ]
+        },
+        "print": [
+            "42",
+            "19"
+        ]
+    }],
+    "help": {
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "fortune": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "code": false
+    }
+}

@@ -1,15 +1,17 @@
 {
     "level": [{
         "map": [
-            "2222222",
-            "2311142",
-            "2222222"
+            "22222222",
+            "24111132",
+            "22222222"
         ],
         "notes": {
             "en": [
-                "I managed to get all my maps back... Let's hope they don't get stolen again!",
+                "Since you are doing very well, I left another little trick in the work.py file...",
                 "",
-                "Why not try to use variables a bit longer?"
+                "That's called a function. When you call a function, it will execute all the code you wrote inside.",
+                "",
+                "Have fun with it!"
             ]
         }
     }],
@@ -18,14 +20,12 @@
         "broken_door": false,
         "random_door": false,
         "riddle": false,
-        "open_door": false,
         "fortune": false,
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,
         "print": false,
         "set": false,
-        "code": false,
-        "closed_exit": false
+        "code": false
     }
 }

@@ -26,7 +26,7 @@
             }
         },
         "max_lines": 0,
-        "broken_door_proba": 0.01,
+        "broken_door_proba": 0.001,
         "max_cols": 0,
         "print": [
             "hello"
