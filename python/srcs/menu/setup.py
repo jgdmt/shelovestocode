@@ -52,7 +52,7 @@ def curses_setup():
 def clean():
     curses.endwin()
 
-def find_map_index(max_num: int):
+def find_map_index(max_num: int, offset: int = 0):
     res = subprocess.run(["cat", "/etc/hostname"], capture_output=True, text=True)
 
     num = 0
@@ -64,7 +64,7 @@ def find_map_index(max_num: int):
         elif num_str[0][length - 1].isnumeric():
             num = int(num_str[0][length - 1])
 
-    return num % max_num
+    return (num + offset) % max_num
 
 def parse_file(win: curses.window, mod: str, ex: str, lan: str = 'en'):
     file = configs.maps_dir / ("ex_" + mod + "_" + ex + ".json")

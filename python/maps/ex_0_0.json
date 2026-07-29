@@ -27,11 +27,11 @@
                 "Tu peux voir la map du niveau à gauche de moi.",
                 "",
                 "Toutes les instructions que tu veux me donner doivent être écrites dans le fichier 'work.py' que j'ai ouvert pour toi.",
-                "Ne modifie pas et n'efface pas la première ligne du fichier (celle avec 'import') ! C'est trés important que tu la conserves.",
+                "Ne modifie pas et n'efface pas la première ligne du fichier (celle avec 'import') ! C'est très important que tu la conserves.",
                 "",
                 "Quand tu as terminé, tu peux revenir sur cette fenêtre et commencer le niveau avec l'option 'Play'.",
                 "Pour te déplacer dans le menu, utilise la Flèche gauche et la Flèche droite. Appuie sur Enter pour confirmer. Tu peux aussi utiliser Q ou Esc pour quitter.",
-                "N'hésite pas a checker l'option 'Help', elle pourrait te servir.",
+                "N'hésite pas à checker l'option 'Help', elle pourrait te servir.",
                 "",
                 "Pour commencer, pourquoi n'essaierais-tu pas de remplacer LEFT par RIGHT dans le fichier work.py?"
             ],

@@ -61,7 +61,7 @@ class Game:
         return cls.instance
         
         
-    def find_map_index(self):
+    def find_map_index(self, offset: int = 1):
         res = subprocess.run(["cat", "/etc/hostname"], capture_output=True, text=True)
 
         num = 0
@@ -73,7 +73,7 @@ class Game:
             elif num_str[0][length - 1].isnumeric():
                 num = int(num_str[0][len(num_str[0]) - 1])
 
-        return num % len(self.maps)
+        return (num + offset) % len(self.maps)
 
     def check_lines_cols(self):
         try:

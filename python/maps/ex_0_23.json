@@ -39,5 +39,15 @@
                 "It will be okay! There's always multiple ways to solve a problem!"
             ]
         }
-    }]
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "while": false,
+        "for": false
+    }
 }

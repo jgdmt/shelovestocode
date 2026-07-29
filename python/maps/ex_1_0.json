@@ -1,12 +1,27 @@
 {
     "level": [{
         "map": [
-
+            "222222222222",
+            "231111111142",
+            "222222222222"
         ],
         "notes": {
             "en": [
-                "Welcome back to the module 2!"
+                "Welcome back to the module 2!",
+                "",
+                "Let's start with an easy one. A simple straight line!",
+                "",
+                "It's a bit long though... If only there was an easy way to repeat the same instruction multiple times..."
             ]
         }
-    }]
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "for": false
+    }
 }

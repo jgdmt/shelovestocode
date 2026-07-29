@@ -26,5 +26,15 @@
                 "More and more conditions..."
             ]
         }
-    }]
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "while": false,
+        "for": false
+    }
 }

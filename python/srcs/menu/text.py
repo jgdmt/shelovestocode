@@ -46,7 +46,7 @@ code = r'''
 '''
 
 empty_sec = {
-    "en": "This section seems emty for now... Why don't you check it again another time?",
+    "en": "This section seems empty for now... Why don't you check it again another time?",
     "fr": "Cette section semble vide pour l'instant... Pourquoi ne la visiterais-tu pas une autre fois ?",
     "nl": "Deze sectie is voorlopig nog leeg... Kijk later nog eens!"
 }

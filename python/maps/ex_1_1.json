@@ -1,0 +1,26 @@
+{
+    "level": [{
+        "map": [
+            "2222222222222222222",
+            "2411111111111111132",
+            "2222222222222222222"
+        ],
+        "notes": {
+            "en": [
+                "Hoho, it seems there's a limit of lines... Your file can't have more than 7 lines!",
+                "",
+                "I might have found something that will be very useful... A loop! I put one in your work.py file."
+            ]
+        },
+        "max_lines": 7
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "for": false
+    }
+}
