@@ -2,7 +2,16 @@ import subprocess
 import curses
 import sys
 from time import sleep
+import signal
 
+
+def handle(sign, frame):
+    print(f"signal {sign}")
+signal.signal(signal.SIGINT, signal.SIG_IGN)
+
+subprocess.run(["python3", "-m", "srcs.menu.setup", "0", "0", "en"], cwd="../python")
+# while True:
+#     continue
 dico = {"love":"love"}
 print(list(dico.keys())[0])
 # from test_file2 import Display

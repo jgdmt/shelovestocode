@@ -1,6 +1,7 @@
 import sys
 import subprocess
 import curses
+import signal
 import json
 from pathlib import Path
 from enum import Enum
@@ -11,6 +12,8 @@ from .struct import GameInfo, Windows
 from srcs.shared import configs, utils
 
 #TODO: error management
+
+signal.signal(signal.SIGINT, signal.SIG_IGN)
 
 class Keys(int, Enum):
     DOWN = curses.KEY_DOWN
@@ -40,7 +43,7 @@ def curses_setup():
     curses.noecho()
     curses.curs_set(0)
     curses.set_escdelay(1)
-    curses.cbreak()
+    curses.raw()
     curses.start_color()
     curses.use_default_colors()
     curses.init_pair(1, curses.COLOR_WHITE, -1)
@@ -231,7 +234,7 @@ def work_setup(win: curses.window) -> tuple:
             win.getch()
             exit(1)
         subprocess.run(["cp", f"{configs.levels_dir}/template.py", f"{configs.work_dir}/work.py"])
-    subprocess.run(["code", f"{configs.work_dir}/work.py"])
+    # subprocess.run(["code", f"{configs.work_dir}/work.py"])
     return (mod, ex, lan)
 
 def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
@@ -269,9 +272,13 @@ def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
                 curses.endwin()
                 subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.game_dir}/"])
                 subprocess.run(["clear"])
-                result = subprocess.run(["python3", "-m", configs.work_path_cmd, mod, ex, lan],
-                                        stderr=subprocess.PIPE, stdout=None, text=True)
                 try:
+                    result = subprocess.run(["python3", "-m", configs.work_path_cmd, mod, ex, lan],
+                                            stderr=subprocess.PIPE, stdout=None, text=True)
+                # finally:
+                #     print("????")
+                #     signal.signal(signal.SIGINT, old_handler)
+                    # try:
                     with open(configs.results, 'r') as f:
                         status = f.read().strip()
                         res = int(status)
@@ -293,6 +300,9 @@ def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
                     subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.save_dir}/ex_{mod}_{ex}.py"])
                     exit(res)
                 curses_setup()
+                # except KeyboardInterrupt:
+                #     print("??????????????")
+                #     # pass
             elif idx == Menu.HELP.value:
                 help_page(wins.win, game_info)
                 print_game_info(wins, game_info)

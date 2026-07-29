@@ -2,6 +2,7 @@ import json
 import sys
 import subprocess
 import traceback
+import signal
 from .level import Level
 from .player import Player, LEFT, RIGHT, UP, DOWN
 from .display import Display
@@ -10,10 +11,13 @@ from .text import max_cols_msg, max_lines_msg, win_msg
 from srcs.shared import configs
 
 def hook(exctype, excmsg, tb):
-    msg = tb.format_exc()
-    # last = traceback.extract_tb(tb)[-1]
-    # msg = f"error line {last.lineno}\n{exctype.__name__}: {excmsg}"
+    last = traceback.extract_tb(tb)[-1]
+    msg = f"error line {last.lineno}\n{exctype.__name__}: {excmsg}"
     player.game.display.print_log(msg, True)
+
+def handle_signal(signum, frame):
+    player.game.display.unregister(player.game.display.leave_game)
+    exit()
 
 class Game:
 
@@ -52,9 +56,10 @@ class Game:
                         self.curr_map.map[y][x] = configs.MapVal.PATH
             self.display.print_map()
             sys.excepthook = hook
+            signal.signal(signal.SIGINT, handle_signal)
 
-
-            return cls.instance
+        return cls.instance
+        
         
     def find_map_index(self):
         res = subprocess.run(["cat", "/etc/hostname"], capture_output=True, text=True)
@@ -65,7 +70,7 @@ class Game:
             length = len(num_str[0])
             if num_str[0][length - 2:].isnumeric():
                 num = int(num_str[0][length - 2:])
-            elif num_str[9][length - 1].isnumeric():
+            elif num_str[0][length - 1].isnumeric():
                 num = int(num_str[0][len(num_str[0]) - 1])
 
         return num % len(self.maps)

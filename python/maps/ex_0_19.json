@@ -18,15 +18,13 @@
         "character": "fortune_teller.txt",
         "notes": {
             "en": [
-                "Same as before, ask me and I will tell your which door will open between the three."
+                "Same as always, ask me and I will tell you which door will open between the three."
             ]
         }
     }],
     "help": {
         "broken_door": false,
-        "random_door": false,
         "riddle": false,
-        "fortune": false,
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,

@@ -21,7 +21,7 @@
             },
             "c": {
                 "doors": [[1, 2], [2, 3]],
-                "fg_color": "18399e"
+                "fg_color": "18399E"
             }
         },
         "character": "fortune_teller.txt",
@@ -31,15 +31,15 @@
                 "",
                 "Now, since there are more than one set of doors, you will have to be more accurate when you consult me. See the character under the number of the door? It's the name of the set the door belongs to.",
                 "",
-                "For example, the green set is designed with the character 'a'. Give me the title of the set you want and I will tell you which door among this same set will open!"
+                "For example, the green set is designed with the character 'a'. The blue set is designed with the character 'c'.",
+                "",
+                "Give me the title of the set you want and I will tell you which door among this same set will open!"
             ]
         }
     }],
     "help": {
         "broken_door": false,
-        "random_door": false,
         "riddle": false,
-        "fortune": false,
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,

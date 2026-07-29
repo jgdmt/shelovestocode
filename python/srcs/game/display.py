@@ -38,11 +38,14 @@ class Display:
             self.game = game
             atexit.register(self.clean)
             atexit.register(self.leave_game)
-            return cls.instance
+        return cls.instance
 
     def clean(self):
         curses.echo()
         curses.endwin()
+
+    def unregister(self, func: function):
+        atexit.unregister(func)
 
     def init_colors(self, colors: dict):
         for i, color in colors.items():
@@ -132,23 +135,6 @@ class Display:
                         self.logs.addstr(curr_h, curr_w, words[j] + " ")
                     curr_w += len(words[j]) + 1
             h -= 1
-
-        # curr_h = 1
-        # for i in range(len(self.history)):
-        #     if curr_h >= h - 1:
-        #         del self.history[i:]
-        #         break
-        #     words = self.history[i].split(" ")
-        #     curr_w = 1
-        #     for j in range(len(words)):
-        #         if len(words[j]) + curr_w >= w - 1:
-        #             curr_h += 1
-        #             curr_w = 1
-        #         if curr_h >= h - 1:
-        #             break
-        #         self.logs.addstr(curr_h, curr_w, words[j] + " ")
-        #         curr_w += len(words[j]) + 1
-        #     curr_h += 1
         self.logs.refresh()
         if leave:
             exit(0)

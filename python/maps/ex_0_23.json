@@ -1,0 +1,43 @@
+{
+    "level": [{
+        "map": [
+            "222222222222",
+            "241511116112",
+            "211212222112",
+            "211611116112",
+            "211262222212",
+            "211511161252",
+            "211225221212",
+            "211121121262",
+            "241161161632",
+            "222222222222"
+        ],
+        "random_doors": {
+            "a": {
+                "doors": [[9, 8], [10, 7]],
+                "fg_color": "22B14C"
+            },
+            "b": {
+                "doors": [[8, 1], [8, 3]],
+                "fg_color": "911196"
+            },
+            "c": {
+                "doors": [[7, 5], [7, 8]],
+                "fg_color": "18399E"
+            },
+            "d": {
+                "doors": [[3, 3], [4, 4], [4, 8]],
+                "fg_color": "ED1C24"
+            }
+        },
+        "notes": {
+            "en": [
+                "Those maps keep getting harder... And now there's even more than one exit!",
+                "",
+                "Be careful not to confuse random doors with normal doors...",
+                "",
+                "It will be okay! There's always multiple ways to solve a problem!"
+            ]
+        }
+    }]
+}

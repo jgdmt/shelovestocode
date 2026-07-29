@@ -10,7 +10,9 @@
         ],
         "notes": {
             "en": [
-                "Let's make it a little bit harder. How about finding out how to tell me to move multiple times?"
+                "Let's make it a little bit harder. How about finding out how to tell me to move multiple times?",
+                "",
+                "One '*' equals to one move."
             ]
         }
     }],
