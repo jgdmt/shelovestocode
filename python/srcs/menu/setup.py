@@ -256,6 +256,8 @@ def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
             continue
         if input == Keys.QUIT or input == Keys.ESC:
             clean()
+            if not Path(configs.save_dir).exists():
+                subprocess.run(["mkdir", "-p", configs.save_dir])
             subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.save_dir}/ex_{mod}_{ex}.py"])
             exit(res)
         elif input == Keys.LEFT:
@@ -265,6 +267,8 @@ def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
         elif input == Keys.CONFIRM:
             if idx == Menu.QUIT.value:
                 clean()
+                if not Path(configs.save_dir).exists():
+                    subprocess.run(["mkdir", "-p", configs.save_dir])
                 subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.save_dir}/ex_{mod}_{ex}.py"])
                 exit(res)
             elif idx == Menu.PLAY.value:
@@ -297,6 +301,8 @@ def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
                     print_game_info(wins, game_info)
                 if res == 0:
                     clean()
+                    if not Path(configs.save_dir).exists():
+                        subprocess.run(["mkdir", "-p", configs.save_dir])
                     subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.save_dir}/ex_{mod}_{ex}.py"])
                     exit(res)
                 curses_setup()
