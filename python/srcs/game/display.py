@@ -44,7 +44,7 @@ class Display:
         curses.echo()
         curses.endwin()
 
-    def unregister(self, func: function):
+    def unregister(self, func):
         atexit.unregister(func)
 
     def init_colors(self, colors: dict):

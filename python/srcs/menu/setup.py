@@ -234,7 +234,7 @@ def work_setup(win: curses.window) -> tuple:
             win.getch()
             exit(1)
         subprocess.run(["cp", f"{configs.levels_dir}/template.py", f"{configs.work_dir}/work.py"])
-    # subprocess.run(["code", f"{configs.work_dir}/work.py"])
+    subprocess.run(["code", f"{configs.work_dir}/work.py"])
     return (mod, ex, lan)
 
 def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
@@ -286,6 +286,7 @@ def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
                     with open(configs.results, 'r') as f:
                         status = f.read().strip()
                         res = int(status)
+                    subprocess.run(["rm", configs.results])
                 except FileNotFoundError:
                     res = 1
                 except ValueError:
