@@ -1,11 +1,11 @@
 import pathlib
-import os 
+import os
 from dataclasses import dataclass
 from enum import Enum, auto
 
 BASE_DIR = pathlib.Path(__file__).parent.parent.parent.resolve()
 
-sprites_dir =  BASE_DIR / 'sprites/'
+sprites_dir = BASE_DIR / 'sprites/'
 maps_dir = BASE_DIR / "maps/"
 levels_dir = BASE_DIR / "levels/"
 work_dir = f"{os.environ['HOME']}/Desktop/current/"
@@ -23,12 +23,11 @@ cell_width = 7
 cell_height = 4
 map_width = 19
 map_height = 16
-# log_height = 75
-# log_width = 32
 min_info_height = 5
 min_info_width = 25
 screen_min_width = 165
 screen_min_height = 75
+
 
 class MapVal(str, Enum):
     VOID = "0"
@@ -43,6 +42,7 @@ class MapVal(str, Enum):
     RIDDLE = "9"
     CLOSED_EXIT = 'c'
     LAST = "-2"
+
 
 class ActionType(Enum):
     WALK = auto()
@@ -64,6 +64,7 @@ class Color(Enum):
     CUSTOM_FG = 24
     CUSTOM_BG = 25
 
+
 colors = {
     Color.BLACK: '000000',
     Color.LIGHTBLACK: '111111',
@@ -84,6 +85,7 @@ class MapElem:
     bg_color: int
     block: bool = True
     sprite: str = None
+
 
 elems = {
     MapVal.VOID: MapElem(3, "void", Color.WHITE, Color.LIGHTBLACK),

@@ -1,13 +1,14 @@
 import random
 from time import sleep
-from .utils import get_text
-from.text import wall, break_result, fortune_teller, riddle_result, closed_exit, open_exit
+from .tools import get_text
+from .text import wall, break_result, fortune_teller, riddle_result, closed_exit, open_exit, wrong_pwd
 from srcs.shared.configs import elems, MapVal
 
 LEFT = (-1, 0)
 RIGHT = (1, 0)
 UP = (0, -1)
 DOWN = (0, 1)
+
 
 class Player:
 
@@ -20,7 +21,7 @@ class Player:
     def walk(self, direction: tuple):
         self.display.get_input()
         if direction != LEFT and direction != RIGHT and \
-            direction != UP and direction != DOWN:
+                direction != UP and direction != DOWN:
             return
         if self.game.game_ended:
             return
@@ -42,11 +43,10 @@ class Player:
         self.display.print_cell(self.x, self.y)
         self.display.print_cell(self.x - direction[0], self.y - direction[1])
 
-
     def open_door(self, direction: tuple):
         self.display.get_input()
         if direction != LEFT and direction != RIGHT and \
-            direction != UP and direction != DOWN:
+                direction != UP and direction != DOWN:
             return
         if self.game.game_ended:
             return
@@ -56,13 +56,12 @@ class Player:
         case = self.game.curr_map.map[y][x]
         if case == MapVal.DOOR.value:
             self.game.curr_map.map[y][x] = MapVal.OPEN_DOOR.value
-        
         self.display.print_cell(x, y)
-    
+
     def break_door(self, direction: tuple) -> bool:
         self.display.get_input()
         if direction != LEFT and direction != RIGHT and \
-            direction != UP and direction != DOWN:
+                direction != UP and direction != DOWN:
             return False
         if self.game.game_ended:
             return False
@@ -78,7 +77,6 @@ class Player:
             self.game.curr_map.map[y][x] = MapVal.OPEN_DOOR.value
             self.display.print_cell(x, y)
         return True
-        
 
     def ask_fortune_teller(self, set: str = None) -> list[int]:
         self.display.get_input()
@@ -100,11 +98,11 @@ class Player:
                 res = curr_map.open_door_idx[set]
                 self.display.print_log(f"{text[3]} {res}")
         return res
-        
+
     def get_riddle(self, direction: tuple):
         self.display.get_input()
         if direction != LEFT and direction != RIGHT and \
-            direction != UP and direction != DOWN:
+                direction != UP and direction != DOWN:
             return
         if self.game.game_ended:
             return
@@ -112,7 +110,7 @@ class Player:
         y = self.y + direction[1] - self.game.curr_map.new_h
         riddles = self.game.curr_map.riddles
         if riddles is None:
-            return #return an error
+            return  # Add error management
         riddle = riddles.get(f"({x}, {y})")
         if riddle is not None:
             if not riddle.random:
@@ -123,7 +121,7 @@ class Player:
     def solve_riddle(self, direction: tuple, solution):
         self.display.get_input()
         if direction != LEFT and direction != RIGHT and \
-            direction != UP and direction != DOWN:
+                direction != UP and direction != DOWN:
             return
         if self.game.game_ended:
             return
@@ -137,7 +135,7 @@ class Player:
         if riddle is not None:
             sol = ""
             if riddle.random:
-                if type(riddle.input) == list:
+                if isinstance(riddle.input, list):
                     sol = riddle.input[riddle.idx]
                 else:
                     sol = riddle.input
@@ -157,10 +155,10 @@ class Player:
         string = str(params)
         self.display.print_log(string, 0)
         sleep(0.5)
-        if string.strip() in self.game.curr_map.prints:
-            case = self.game.curr_map.map[self.y][self.x]
-            if case == MapVal.CLOSED_EXIT.value:
+        case = self.game.curr_map.map[self.y][self.x]
+        if case == MapVal.CLOSED_EXIT.value:
+            if string.strip() in self.game.curr_map.prints:
                 self.display.print_log(get_text(open_exit, self.game.lan))
                 self.game.victory()
-
-
+            else:
+                self.display.print_log(get_text(wrong_pwd, self.game.lan))

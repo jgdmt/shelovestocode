@@ -45,6 +45,8 @@
                 "else": ["ELSE STATEMENT", [
                     "if [condition]:",
                     "   [code to execute]",
+                    "elif [condition]:",
+                    "   [code to execute]",
                     "else:",
                     "   [code to execute]"
                 ]],
@@ -93,28 +95,30 @@
                     "# SINGLE LINE comment"
                 ]],
                 "if": ["IF STATEMENT", [
-                    "if [condition]",
-                    "   [code a executer]"
+                    "if [condition]:",
+                    "   [code à exécuter]"
                 ]],
                 "elif": ["ELIF STATEMENT", [
                     "if [condition]:",
-                    "   [code to execute]",
+                    "   [code à exécuter]",
                     "elif [condition]:",
-                    "   [code to execute]"
+                    "   [code à exécuter]"
                 ]],
                 "else": ["ELSE STATEMENT", [
                     "if [condition]:",
-                    "   [code to execute]",
+                    "   [code à exécuter]",
+                    "elif [condition]:",
+                    "   [code à exécuter]",
                     "else:",
-                    "   [code to execute]"
+                    "   [code à exécuter]"
                 ]],
                 "while": ["BOUCLES WHILE", [
                     "while [condition]:",
-                    "   [code a executer]"
+                    "   [code à exécuter]"
                 ]],
                 "for": ["BOUCLES FOR", [
                     "for i in range(début, fin, pas):",
-                    "   [code a executer]"
+                    "   [code à exécuter]"
                 ]]
             }
         }
@@ -153,20 +157,22 @@
                     "# SINGLE LINE comment"
                 ]],
                 "if": ["IF STATEMENT", [
-                    "if [voorwaarde]",
+                    "if [voorwaarde]:",
                     "   [uit te voeren code]"
                 ]],
                 "elif": ["ELIF STATEMENT", [
-                    "if [condition]:",
-                    "   [code to execute]",
-                    "elif [condition]:",
-                    "   [code to execute]"
+                    "if [uit te voeren code]:",
+                    "   [uit te voeren code]",
+                    "elif [uit te voeren code]:",
+                    "   [uit te voeren code]"
                 ]],
                 "else": ["ELSE STATEMENT", [
-                    "if [condition]:",
-                    "   [code to execute]",
+                    "if [uit te voeren code]:",
+                    "   [uit te voeren code]",
+                    "elif [uit te voeren code]:",
+                    "   [uit te voeren code]",
                     "else:",
-                    "   [code to execute]"
+                    "   [uit te voeren code]"
                 ]],
                 "while": ["WHILE LUSSEN", [
                     "while [voorwaarde]:",

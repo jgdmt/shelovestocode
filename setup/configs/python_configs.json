@@ -1,5 +1,5 @@
 {
-    "cmd": ["python3", "-m", "srcs.menu.setup"],
+    "cmd": ["python3", "-m", "srcs.menu.main"],
     "cwd": "../python",
     "modules": [
         {

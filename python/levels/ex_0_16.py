@@ -76,9 +76,4 @@ La boheme - Charles Aznavour
 	On était fous
 	La bohême, la bohême
 	Ça ne veut plus rien dire du tout.
-	RIP Mr. Aznavour
-
-
-	Ca serait tellement genial que VIM propose une facon de supprimer plusieurs
-	lignes a la fois... Eh mais, attends... !
 """

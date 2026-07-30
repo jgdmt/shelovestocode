@@ -1,20 +1,22 @@
 import curses
 import json
 import atexit
-from enum import Enum, auto
+from enum import Enum
+from utils import clean
 
-#TODO: Handle error better
 
 class Language(int, Enum):
     EN = 0
     FR = 1
     NL = 2
 
+
 class Order(int, Enum):
     PYTHON = 0
     C = 1
     SHELL = 2
     WEB = 3
+
 
 class Keys(int, Enum):
     DOWN = curses.KEY_DOWN
@@ -25,17 +27,20 @@ class Keys(int, Enum):
     CONFIRM = 10
     ESC = 27
 
+
 class Status(int, Enum):
     DEFAULT = 0
     STARTED = 1
     FINISHED = 2
 
+
 class Exercise:
-    
+
     def __init__(self, status: Status = Status.DEFAULT, mandatory: bool = True):
         self.value: int
         self.status: Status = status
         self.mandatory: bool = mandatory
+
 
 class Module:
 
@@ -46,12 +51,14 @@ class Module:
         self.cmd: list
         self.cwd: str
 
+
 class Branch:
 
     def __init__(self):
         self.cmd: list = None
         self.cwd: str = None
         self.mod: list
+
 
 class Menu:
 
@@ -64,7 +71,15 @@ class Menu:
         self.language: int = 0
         atexit.register(self.save_ex_status)
 
-    def get(self, configs: dict, key: str, mandatory: bool = True, ret: any = None):
+    def get(self, configs: dict, key: str, mandatory: bool = True, ret: any = None) -> any:
+        """Get the value associated with a key in a dictionary. Return the
+        value if found, another value if set or exit if mandatory is true.
+
+        :param configs: the dictionary where to search.        
+        :param key: the key of the dictionary.
+        :param mandatory: if true, will print error and exit if value not found.
+        :param ret: the value to return if the key was not found.
+        """
         res = configs.get(key)
         if res is None and mandatory:
             print(f"Error: Missing key {key} in Python configs.")
@@ -72,7 +87,7 @@ class Menu:
         if res is None and ret is not None:
             return ret
         return res
-    
+
     def parse_exercises(self, dict_json: dict) -> list:
         exercises = self.get(dict_json, "exercises")
         res = []
@@ -83,7 +98,6 @@ class Menu:
             res.append(ex)
         return res
 
-    
     def parse_modules(self, dict_json: dict, cmd: list, cwd: str):
         modules = self.get(dict_json, "modules", False, [])
         res = []
@@ -96,36 +110,38 @@ class Menu:
             res.append(mod)
         return res
 
-    def parse_file(self, file: str):
+    def parse_file(self, file: str) -> None:
         try:
             with open(file, 'r') as f:
                 branch_json = json.load(f)
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             print(f"Error: {file} not found")
             atexit.unregister(self.save_ex_status)
+            clean()
             exit(1)
 
         branch = Branch()
-        
         branch.cmd = self.get(branch_json, "cmd", True)
         branch.cwd = self.get(branch_json, "cwd", False, ".")
         branch.mod = self.parse_modules(branch_json, branch.cmd, branch.cwd)
 
         return branch
 
-    
-    def parse(self):
-        python_configs = "python_configs.json"
-        c_configs = "c_configs.json"
-        shell_configs = "shell_configs.json"
-        web_configs = "web_configs.json"
+    def parse(self) -> None:
+        python_configs = "configs/python_configs.json"
+        c_configs = "configs/c_configs.json"
+        shell_configs = "configs/shell_configs.json"
+        web_configs = "configs/web_configs.json"
 
         self.branches.append(self.parse_file(python_configs))
         self.branches.append(self.parse_file(c_configs))
         self.branches.append(self.parse_file(shell_configs))
         self.branches.append(self.parse_file(web_configs))
 
-    def update_mod_status(self, branch: int, mod: int):
+    def update_mod_status(self, branch: int, mod: int) -> None:
+        """Update the module status (started, finished, default) according
+        to the status of all the exercises.
+        """
         finished = True
         curr_module = self.branches[branch].mod[mod]
         for ex in curr_module.ex:
@@ -137,13 +153,18 @@ class Menu:
         if finished:
             curr_module.status = Status.FINISHED
 
-    def parse_ex_status(self, save_file: str = ".save.json"):
+    def parse_ex_status(self, save_file: str = ".save.json") -> None:
+        """Parse the save file where the exercises status (started, finished,
+        default) are stored.
+
+        :param save_file: the json file (default .save.json)
+        """
         try:
             with open(save_file, "r") as f:
                 configs = json.load(f)
         except FileNotFoundError:
             return
-        
+
         for i, branch in configs.items():
             for mod_idx, mod_val in branch.items():
                 if int(mod_idx) < len(self.branches[int(i)].mod):
@@ -152,7 +173,12 @@ class Menu:
                             self.branches[int(i)].mod[int(mod_idx)].ex[int(ex_idx)].status = ex_val
                 self.update_mod_status(int(i), int(mod_idx))
 
-    def save_ex_status(self, save_file: str = ".save.json"):
+    def save_ex_status(self, save_file: str = ".save.json") -> None:
+        """Save the status of the exercises (started, finished, default)
+        and put it inside the save json file.
+
+        :param save_file: the json file (default .save.json)
+        """
         dico = {}
         for branch in range(4):
             dico[str(branch)] = {}
@@ -163,3 +189,5 @@ class Menu:
 
         with open(save_file, "w") as f:
             json.dump(dico, f)
+
+        clean()

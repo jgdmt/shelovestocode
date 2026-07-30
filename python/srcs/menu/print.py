@@ -1,15 +1,10 @@
 import curses
-from enum import Enum
 from .text import play, quit, help
-from .struct import GameInfo, Windows
+from .struct import GameInfo, Windows, Menu
 from srcs.shared import configs
 
-class Menu(Enum):
-    PLAY = 0
-    HELP = 1
-    QUIT = 2
 
-def print_error(win: curses.window, err: str, clear: bool = False, pair: int = None):
+def print_error(win: curses.window, err: str, clear: bool = False, pair: int = None) -> None:
     if clear:
         win.clear()
     if pair is not None:
@@ -19,7 +14,8 @@ def print_error(win: curses.window, err: str, clear: bool = False, pair: int = N
     win.getch()
     exit(1)
 
-def find_random_key(game_info: GameInfo, x: int, y: int):
+
+def find_random_key(game_info: GameInfo, x: int, y: int) -> tuple:
     color_idx = 0
     for key, values in game_info.random_doors.items():
         doors = values.get("doors")
@@ -27,8 +23,10 @@ def find_random_key(game_info: GameInfo, x: int, y: int):
             if doors[i] == [x, y]:
                 return color_idx, key, i
         color_idx += 1
+    return (0, 0, 0)
 
-def print_cell(map_win: curses.window, x: int, y: int, base_x: int, base_y: int, game_info: GameInfo):
+
+def print_cell(map_win: curses.window, x: int, y: int, base_x: int, base_y: int, game_info: GameInfo) -> None:
     val = game_info.map[y][x]
     elem = game_info.elems[val]
     for i, line in enumerate(elem.sprite):
@@ -48,7 +46,7 @@ def print_cell(map_win: curses.window, x: int, y: int, base_x: int, base_y: int,
     map_win.refresh()
 
 
-def print_map(map_win: curses.window, game_info: GameInfo):
+def print_map(map_win: curses.window, game_info: GameInfo) -> None:
     width = len(game_info.map[0])
     height = len(game_info.map)
     width_mid = (configs.map_width - width) // 2
@@ -58,7 +56,8 @@ def print_map(map_win: curses.window, game_info: GameInfo):
             print_cell(map_win, x, y, width_mid, height_mid, game_info)
     map_win.refresh()
 
-def print_owl(win: curses.window, char: str):
+
+def print_owl(win: curses.window, char: str) -> None:
     win.clear()
     char_height = len(char)
     total_height = win.getmaxyx()[0]
@@ -67,7 +66,8 @@ def print_owl(win: curses.window, char: str):
         win.addstr(line)
     win.refresh()
 
-def print_info_win(win: curses.window, info: str, char: str):
+
+def print_info_win(win: curses.window, info: str, char: str) -> None:
     win.clear()
     char_height = len(char)
     h, w = win.getmaxyx()
@@ -84,7 +84,8 @@ def print_info_win(win: curses.window, info: str, char: str):
         curr_h += 1
     win.refresh()
 
-def print_game_info(wins: Windows, game_info: GameInfo):
+
+def print_game_info(wins: Windows, game_info: GameInfo) -> None:
     wins.info_win.clear()
     wins.map_win.clear()
     wins.owl_win.clear()
@@ -92,17 +93,14 @@ def print_game_info(wins: Windows, game_info: GameInfo):
     print_owl(wins.owl_win, game_info.character)
     print_info_win(wins.info_win, game_info.notes, game_info.character)
 
-def print_menu_message(win: curses.window, msg: str):
+
+def print_menu_message(win: curses.window, msg: str) -> None:
     win.clear()
     win.addstr(msg)
     win.getch()
 
-def print_image(win: curses.window, image: str, height: int = 0, width: int = 0):
-    image_split = image.split("\n")
-    for j in range(len(image_split)):
-        win.addstr(j + height, width, image_split[j])
 
-def print_menu(wins: Windows, index: int):
+def print_menu(wins: Windows, index: int) -> None:
     win = wins.menu_win
     win.clear()
 
@@ -124,4 +122,20 @@ def print_menu(wins: Windows, index: int):
             help_split = help.split("\n")
             for j in range(len(help_split)):
                 win.addstr(j, (i + 1) * space, help_split[j], color)
+    win.refresh()
+
+
+def print_too_small(win: curses.window, lan: str):
+    h, w = win.getmaxyx()
+    texts = {
+        "en": f"Window is too small: expected {configs.screen_min_width} x {configs.screen_min_height} but got {w} x {h}.",
+        "fr": f"Fenêtre trop petite: taille attendue de {configs.screen_min_width} x {configs.screen_min_height} mais est de {w} x {h}",
+        "nl": ""
+    }
+    text = texts[lan]
+    if h < 1 or w < len(text):
+        curses.endwin()
+        exit(1)
+    win.clear()
+    win.addstr(h // 2, (w - len(text)) // 2, text)
     win.refresh()

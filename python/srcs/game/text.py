@@ -100,3 +100,7 @@ open_exit = {
     "en": "You hear some weird noises... Something seems to have been activated?",
     "fr": "Tu entends des bruits étranges... Quelque chose semble s'être activé ?"
 }
+
+wrong_pwd = {
+    "en": "Nothing happens..."
+}

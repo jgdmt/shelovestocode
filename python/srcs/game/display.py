@@ -1,7 +1,7 @@
 import curses
 import atexit
-from .utils import get_text
-from.text import screen_small, leave_keys, end_keys
+from .tools import get_text
+from .text import screen_small, leave_keys, end_keys
 from srcs.shared import configs, utils
 
 

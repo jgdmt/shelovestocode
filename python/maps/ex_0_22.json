@@ -23,7 +23,9 @@
         },
         "notes": {
             "en": [
-                "More and more conditions..."
+                "More and more conditions...",
+                "",
+                "Well, it seems you can solve it with 16 conditions... or 8."
             ]
         }
     }],

@@ -1,9 +1,11 @@
+"""This file contains all functions about the help menu."""
+
 import json
 import curses
-from .text import sprites, functions, code, empty_sec
-from .print import print_image
 from .struct import GameInfo
+from .text import sprites, functions, code, empty_sec
 from srcs.shared import configs
+
 
 class HelpWins():
 
@@ -13,7 +15,8 @@ class HelpWins():
         self.func = None
         self.code = None
 
-def help_page(win: curses.window, game_info: GameInfo):
+
+def help_page(win: curses.window, game_info: GameInfo) -> None:
     win.clear()
     win.refresh()
     h, w = win.getmaxyx()
@@ -25,7 +28,7 @@ def help_page(win: curses.window, game_info: GameInfo):
         text = "No help file found."
         win.addstr(int(h / 2), (w - len(text)) // 2, text)
         return
-    
+
     infos = infos_all.get(game_info.lan, 'en')
     help_wins = HelpWins(win)
     height = h - 2 * configs.top_margin
@@ -50,7 +53,15 @@ def help_page(win: curses.window, game_info: GameInfo):
     del help_wins.code
 
 
-def help_line(win: curses.window, line: str, base_w: int, base_h: int, pair: int = 0):
+def help_line(win: curses.window, line: str, base_w: int, base_h: int, pair: int = 0) -> int:
+    """Write a line in the given window. Will make sure to not cut any word.
+
+    :param win: the window where to write.
+    :param line: the line to write.
+    :param base_w: the starting x position of the line.
+    :param base_h: the starting y position of the line.
+    :param pair: the pair to give to addstr (default 0).
+    """
     _, w = win.getmaxyx()
     words = line.split(" ")
     curr_w = base_w
@@ -63,7 +74,17 @@ def help_line(win: curses.window, line: str, base_w: int, base_h: int, pair: int
         curr_w += len(words[i]) + 1
     return curr_h
 
-def help_code(win: curses.window, infos: dict, info_check: dict, lan: str = 'en'):
+
+def help_code(win: curses.window, infos: dict, info_check: dict, lan: str = 'en') -> None:
+    """Draw and write the code column.
+
+    :param win: the window where to draw the informations.
+    :param infos: the dictionary with the informations.
+    :param info_check: the dictionary containing whether to write or
+    not an information.
+    :param lan: the language the informations must be written in
+    (default en).
+    """
     _, w = win.getmaxyx()
     lines = code.split("\n")
     height = len(lines) + 1
@@ -74,7 +95,7 @@ def help_code(win: curses.window, infos: dict, info_check: dict, lan: str = 'en'
     code_infos = infos.get("code", None)
     if code_infos is None:
         win.addstr(height, 2, "File not found.")
-    elif not info_check.get("code", True): 
+    elif not info_check.get("code", True):
         help_line(win, empty_sec[lan], 2, height)
     else:
         for title, ids in code_infos.items():
@@ -88,10 +109,20 @@ def help_code(win: curses.window, infos: dict, info_check: dict, lan: str = 'en'
                         win.addstr(height, 2, line)
                         height += 1
                     height += 1
-    
+
     win.refresh()
 
-def help_functions(win: curses.window, infos: dict, info_check: dict, lan: str = 'en'):
+
+def help_functions(win: curses.window, infos: dict, info_check: dict, lan: str = 'en') -> None:
+    """Draw and write the functions column.
+
+    :param win: the window where to draw the informations.
+    :param infos: the dictionary with the informations.
+    :param info_check: the dictionary containing whether to write or
+    not an information.
+    :param lan: the language the informations must be written in
+    (default en).
+    """
     _, w = win.getmaxyx()
     lines = functions.split("\n")
     height = len(lines) + 1
@@ -117,9 +148,20 @@ def help_functions(win: curses.window, infos: dict, info_check: dict, lan: str =
 
     win.refresh()
 
-def help_sprites(win: curses.window, infos: dict, info_check: dict, lan: str = 'en'):
+
+def help_sprites(win: curses.window, infos: dict, info_check: dict, lan: str = 'en') -> None:
+    """Draw and write the sprites column.
+
+    :param win: the window where to draw the informations.
+    :param infos: the dictionary with the informations.
+    :param info_check: the dictionary containing whether to write or
+    not an information.
+    :param lan: the language the informations must be written in
+    (default en).
+    """
     _, w = win.getmaxyx()
     win.box()
+
     lines = sprites.split("\n")
     height = len(lines) + 1
 
@@ -144,5 +186,5 @@ def help_sprites(win: curses.window, infos: dict, info_check: dict, lan: str = '
                             win.addstr(height, 2, line, curses.color_pair(elem.id))
                             height += 1
                 height += 2
-        
+
     win.refresh()

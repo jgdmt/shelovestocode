@@ -1,23 +1,25 @@
 import json
 import sys
-import subprocess
 import traceback
 import signal
 from .level import Level
 from .player import Player, LEFT, RIGHT, UP, DOWN
 from .display import Display
-from .utils import get_text
+from .tools import get_text
 from .text import max_cols_msg, max_lines_msg, win_msg
-from srcs.shared import configs
+from srcs.shared import configs, utils
+
 
 def hook(exctype, excmsg, tb):
     last = traceback.extract_tb(tb)[-1]
     msg = f"error line {last.lineno}\n{exctype.__name__}: {excmsg}"
     player.game.display.print_log(msg, True)
 
+
 def handle_signal(signum, frame):
     player.game.display.unregister(player.game.display.leave_game)
     exit()
+
 
 class Game:
 
@@ -38,7 +40,7 @@ class Game:
             self.lan = sys.argv[3]
             self.maps = self.load_maps(mod, ex)
             if len(self.maps) > 1:
-                self.curr_map_idx = self.find_map_index()
+                self.curr_map_idx = utils.find_map_index(len(self.maps), 1)
             else:
                 self.curr_map_idx = 0
             self.curr_map = self.maps[self.curr_map_idx]
@@ -59,21 +61,6 @@ class Game:
             signal.signal(signal.SIGINT, handle_signal)
 
         return cls.instance
-        
-        
-    def find_map_index(self, offset: int = 1):
-        res = subprocess.run(["cat", "/etc/hostname"], capture_output=True, text=True)
-
-        num = 0
-        if res.stdout != "":
-            num_str = res.stdout.split('.')
-            length = len(num_str[0])
-            if num_str[0][length - 2:].isnumeric():
-                num = int(num_str[0][length - 2:])
-            elif num_str[0][length - 1].isnumeric():
-                num = int(num_str[0][len(num_str[0]) - 1])
-
-        return (num + offset) % len(self.maps)
 
     def check_lines_cols(self):
         try:
@@ -90,7 +77,7 @@ class Game:
                             self.display.print_error(f"{msg[0]} ({i}) {msg[1]} ({self.curr_map.max_cols})")
         except FileNotFoundError:
             self.display.print_error("No work.py file found to check lines and columns size.")
-    
+
     def fill_with_zeros(self, map, height: int, width: int):
         height_start = (configs.map_height - height) // 2
         width_start = (configs.map_width - width) // 2
@@ -107,28 +94,25 @@ class Game:
 
     def load_maps(self, module: str = "0", ex: str = "0") -> list:
         """"""
-        ex_file = "ex_" + module + "_" + ex + ".json" 
+        ex_file = "ex_" + module + "_" + ex + ".json"
         file = configs.maps_dir / ex_file
         maps = []
         try:
             with open(file, 'r') as f:
                 ex_json = json.load(f)
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             self.display.print_error(f"File not found for module {module}, exercise {ex}")
 
-            
-        for maps_json in ex_json["level"]:
-            #TODO: error if "level" is missing
+        for maps_json in ex_json["level"]: # Add error management
             level = Level()
 
             map = []
-            for l in maps_json["map"]:
-                #TODO: error if "map" is missing & map empty & map is ok or not
+            for l in maps_json["map"]: # Add error management
                 line = []
                 for c in l:
                     line.append(c)
                 map.append(line)
-            
+
             if len(map) > configs.map_height or len(map[0]) > configs.map_width:
                 self.display.print_error("Map is too big")
             elif len(map) < configs.map_height or len(map[0]) < configs.map_width:
@@ -148,17 +132,20 @@ class Game:
 
     def init_elems(self, elems: dict):
         for elem in elems.values():
-            with open(configs.sprites_dir / elem.sprite_file, 'r') as f:
-                #TODO: error if file not found
-                elem.sprite = f.read().split('\n')
-                self.display.init_pair(elem)
+            try:
+                with open(configs.sprites_dir / elem.sprite_file, 'r') as f:
+                    #TODO: error if file not found
+                    elem.sprite = f.read().split('\n')
+                    self.display.init_pair(elem)
+            except FileNotFoundError:
+                self.display.print_error("File not found.")
         return elems
-    
+
     def victory(self):
         with open(configs.results, 'w') as f:
             f.write('0')
         self.game_ended = True
         self.display.print_log(get_text(win_msg, self.lan))
-        
+
 
 player = Game().player

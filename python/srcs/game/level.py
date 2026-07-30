@@ -1,6 +1,7 @@
 import random
 from srcs.shared.configs import MapVal
 
+
 class Riddle:
 
     def __init__(self, outputs: any, input: any, is_random: bool = False):
@@ -8,6 +9,7 @@ class Riddle:
         self.input = input
         self.random = is_random
         self.idx = random.randint(0, len(outputs) - 1)
+
 
 class Level:
 
@@ -23,7 +25,7 @@ class Level:
         self.new_h = 0
         self.new_w = 0
         self.broken_door_proba = 0.01
-    
+
     def init_random_doors(self, doors: dict):
         if doors is None:
             return
@@ -31,12 +33,12 @@ class Level:
         self.open_door_idx = {}
         for key, value in doors.items():
             doors = value.get("doors")
-            if doors is None:
-                return #TODO error
+            if doors is None:   # Add error management
+                return
             idx = random.randint(0, len(doors) - 1)
             self.open_door_idx[key] = idx
             self.map[doors[idx][1]+self.new_h][doors[idx][0]+self.new_w] = MapVal.OPEN_DOOR.value
- 
+
     def init_riddles(self, riddles: dict):
         if riddles is None:
             return

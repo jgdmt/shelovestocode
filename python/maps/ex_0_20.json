@@ -29,11 +29,11 @@
             "en": [
                 "It seems some sets of random doors depend on a first set... Fortunately you can put a condition inside a condition!",
                 "",
-                "Now, since there are more than one set of doors, you will have to be more accurate when you consult me. See the character under the number of the door? It's the name of the set the door belongs to.",
+                "Now, since there are more than one set of doors, you must be more accurate when you consult me. See the character under the number of the door? It's the name of the set the door belongs to.",
                 "",
-                "For example, the green set is designed with the character 'a'. The blue set is designed with the character 'c'.",
+                "For instance, the green set is designed with the character 'a'. The blue set is designed with the character 'c'.",
                 "",
-                "Give me the title of the set you want and I will tell you which door among this same set will open!"
+                "Give me the name of the set you want and I will tell you which door among this same set will open!"
             ]
         }
     }],

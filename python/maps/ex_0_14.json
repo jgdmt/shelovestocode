@@ -19,11 +19,19 @@
                 "",
                 "So here is the password: 'hell0123'.",
                 "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
                 "... It doesn't open? How clumsy of me, I might have mixed up the passwords... :3"
             ]
         },
         "print": [
-            "w0rld123"
+            "hell0123"
         ]
     },
     {
@@ -46,11 +54,30 @@
                 "",
                 "So here is the password: 'w0rld123'.",
                 "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
                 "... It doesn't open? How clumsy of me, I might have mixed up the passwords... :3"
             ]
         },
         "print": [
-            "hell0123"
+            "w0rld123"
         ]
-    }]
+    }],
+    "help": {
+        "broken_door": false,
+        "random_door": false,
+        "riddle": false,
+        "fortune": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "code": false
+    }
 }
