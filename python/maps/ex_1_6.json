@@ -1,0 +1,24 @@
+{
+    "level": [{
+        "map": [
+            "2222222222222222",
+            "2411111111111132",
+            "2222222222222222"
+        ],
+        "notes": {
+            "en": [
+                "I have a gift! As usual, I left it in your work file, hoho.",
+                "",
+                "It's another kind of loop, the for loop."
+            ]
+        }
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false
+    }
+}

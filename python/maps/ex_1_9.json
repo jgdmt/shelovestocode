@@ -1,0 +1,42 @@
+{
+    "level": [{
+        "map": [
+            "000000222000000",
+            "000000242000000",
+            "000000212000000",
+            "000000212000000",
+            "000000212000000",
+            "000000212000000",
+            "222222262222222",
+            "241111636111142",
+            "222222262222222",
+            "000000212000000",
+            "000000212000000",
+            "000000212000000",
+            "000000212000000",
+            "000000242000000",
+            "000000222000000"
+        ],
+        "random_doors": {
+            "a": {
+                "doors": [[7, 6], [6, 7], [8, 7], [7, 8]],
+                "fg_color": "22B14C"
+            }
+        },
+        "notes": {
+            "en": [
+                "You can put conditions inside of loops and loops inside of conditions. So many ways to solve this!",
+                "",
+                "Can you do it using a single loop?"
+            ]
+        }
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false
+    }
+}

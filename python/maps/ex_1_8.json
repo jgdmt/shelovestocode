@@ -1,0 +1,28 @@
+{
+    "level": [{
+        "map": [
+            "2222222000000000000",
+            "2311112222200000000",
+            "2222211111222220000",
+            "0000222221111122222",
+            "0000000022222111142",
+            "0000000000002222222"
+        ],
+        "notes": {
+            "en": [
+                "Maximum lines count is 10!",
+                "",
+                "Fortunately, you can put a loop inside a loop!"
+            ]
+        },
+        "max_lines": 10
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false
+    }
+}

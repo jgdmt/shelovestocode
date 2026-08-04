@@ -6,3 +6,4 @@ result = player.ask_fortune_teller()
 if result == 0:
     player.walk(LEFT)
     # Write your code here
+# This is outside of the condition

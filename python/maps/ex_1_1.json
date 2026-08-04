@@ -9,7 +9,9 @@
             "en": [
                 "Hoho, it seems there's a limit of lines... Your file can't have more than 7 lines!",
                 "",
-                "I might have found something that will be very useful... A loop! I put one in your work.py file."
+                "I might have found something that will be very useful... A loop! I put one in your work.py file.",
+                "",
+                "Don't forget to use the help if you don't remember something."
             ]
         },
         "max_lines": 7

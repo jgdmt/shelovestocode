@@ -98,6 +98,9 @@ def main():
     mod, ex, lan = parsing.get_argv(win)
     if h < configs.screen_min_height or w < configs.screen_min_width:
         p.print_too_small(win, lan)
+        win.getch()
+        tools.clean()
+        exit(1)
     setup.work_setup(win, mod, ex, lan)
     wins = parsing.init_windows(win, lan)
     win.refresh()

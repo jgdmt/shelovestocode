@@ -1,0 +1,26 @@
+{
+    "level": [{
+        "map": [
+            "2222222",
+            "2311142",
+            "2222222"
+        ],
+        "notes": {
+            "en": [
+                "Hey, I found something very nice. It's a function and it's so useful!",
+                "",
+                "When you call a function, it will execute all the code inside of it.",
+                "",
+                "Does it look a little bit familiar? You have been using them from the beginning!"
+            ]
+        }
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false
+    }
+}

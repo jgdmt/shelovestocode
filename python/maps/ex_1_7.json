@@ -1,0 +1,93 @@
+{
+    "level": [{
+        "map": [
+            "222222222",
+            "212111212",
+            "215131512",
+            "212111212",
+            "212252212",
+            "211111112",
+            "211262112",
+            "2116c6112",
+            "211262112",
+            "211111112",
+            "222222222"
+        ],
+        "random_doors": {
+            "a": {
+                "doors": [[4, 6], [3, 7], [5, 7], [4, 8]],
+                "fg_color": "22B14C"
+            }
+        },
+        "character": "thief.txt",
+        "notes": {
+            "en": [
+                "Meoww... Did you miss me? You didn't forget about me, did you?",
+                "",
+                "I think you need to go back to the basics, so I brought back old mechanics you might have forgotten. You're welcome! :3",
+                "",
+                "",
+                "",
+                "",
+                "I almost forgot but tell your neighbour that the password is one of the instructions that lets you do a loop."
+            ]
+        },
+        "hidden": true,
+        "print": [
+            "while",
+            "for"
+        ]
+    },
+    {
+        "map": [
+            "2222222222222",
+            "2211111216112",
+            "2121111212112",
+            "2112111612112",
+            "2111211212112",
+            "2131511212142",
+            "2111211212112",
+            "2112111612112",
+            "2121111212112",
+            "2211111216112",
+            "2222222222222"
+        ],
+        "random_doors": {
+            "a": {
+                "doors": [[7, 3], [7, 7]],
+                "fg_color": "22B14C"
+            },
+            "b": {
+                "doors": [[9, 1], [9, 9]],
+                "fg_color": "911196"
+            }
+        },
+        "character": "thief.txt",
+        "notes": {
+            "en": [
+                "Meoww... Did you miss me? You didn't forget about me, did you?",
+                "",
+                "I think you need to go back to the basics, so I brought back old mechanics you might have forgotten. You're welcome! :3",
+                "",
+                "",
+                "",
+                "",
+                "I almost forgot but tell your neighbour that the password is one of the instructions about conditions."
+            ]
+        },
+        "hidden": true,
+        "print": [
+            "if",
+            "elif",
+            "else"
+        ]
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false
+    }
+}

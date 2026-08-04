@@ -1,0 +1,32 @@
+{
+    "level": [{
+        "map": [
+            "2222222222222222",
+            "2411111111111112",
+            "2222222222222212",
+            "0000000000000212",
+            "0000000000000212",
+            "0000000000000212",
+            "0000000000000212",
+            "0000000000000212",
+            "0000000000000212",
+            "0000000000000232",
+            "0000000000000222"
+        ],
+        "notes": {
+            "en": [
+                "Lines limit is 14... It seems that a single while will not be enough this time..."
+            ]
+        },
+        "max_lines": 0
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "for": false
+    }
+}

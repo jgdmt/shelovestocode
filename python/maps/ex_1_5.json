@@ -1,0 +1,35 @@
+{
+    "level": [{
+        "map": [
+            "22222222222222222",
+            "23555555555555552",
+            "22222222222222252",
+            "24200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25222222222222252",
+            "25555555555555552",
+            "22222222222222222"
+        ],
+        "notes": {
+            "en": [
+                "There are no lines limits this time, but there's clearly a faster way to solve the level than write instruction one by one..."
+            ]
+        }
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "for": false
+    }
+}

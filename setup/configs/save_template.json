@@ -1,28 +1,18 @@
 {
-    "0": {
-        "0": {
-            "0": 0,
-            "1": 1,
-            "2": 2
-        },
-        "1": {
-            "0":2
+    "cmd": ["command", "flag1", "flag2", "arg1", "arg2"],
+    "cwd": "path",
+    "modules": [
+        {
+            "project_id": 0,
+            "cmd": ["command", "flag", "arg"],
+            "cwd": "path",
+            "exercises": [
+                {
+                    "id": 1,
+                    "value": 10,
+                    "isMandatory": false
+                }
+            ]
         }
-    },
-    "1": {
-        "0": {
-            "0": 3
-        }
-    },
-    "2": {
-        "0": {
-            "0": 1
-        }
-    },
-    "3": {
-        "0": {
-            "0": 2
-        }
-    }
-
+    ]
 }

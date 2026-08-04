@@ -1,0 +1,15 @@
+{
+    "level": [{
+        "map": [
+            "222222",
+            "232142",
+            "211122",
+            "222220"
+        ],
+        "notes": {
+            "en": [
+                "Let's combine functions and variables... By learning about functions arguments!"
+            ]
+        }
+    }]
+}

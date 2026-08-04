@@ -1,3 +1,4 @@
 from .game import player, LEFT, RIGHT, UP, DOWN
 
-player.walk()
+for i in range(4):
+    player.walk()

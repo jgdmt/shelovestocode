@@ -1,0 +1,37 @@
+{
+    "level": [{
+        "map": [
+            "222",
+            "242",
+            "212",
+            "212",
+            "212",
+            "212",
+            "212",
+            "212",
+            "212",
+            "212",
+            "212",
+            "212",
+            "212",
+            "212",
+            "232",
+            "222"
+        ],
+        "notes": {
+            "en": [
+                "Another line limit... Your file can't have more than 5 lines!"
+            ]
+        },
+        "max_lines": 5
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false,
+        "for": false
+    }
+}
