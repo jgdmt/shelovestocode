@@ -31,10 +31,14 @@ class Player:
         sleep(0.5)
 
         if elems[case].block:
+            self.game.stats.hit_wall()
             self.display.print_log(get_text(wall, self.game.lan))
             return
-        elif case == MapVal.EXIT.value:
+        self.game.stats.move()
+        if case == MapVal.EXIT.value:
             self.game.victory()
+        elif case == MapVal.TELEPORTER.value:
+            self.game.reset()
         elif case == MapVal.CLOSED_EXIT.value:
             self.display.print_log(get_text(closed_exit, self.game.lan))
 

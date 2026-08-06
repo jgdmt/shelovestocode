@@ -14,6 +14,7 @@ game_dir = BASE_DIR / "srcs/game/"
 menu_dir = BASE_DIR / "srcs/menu/"
 character_dir = BASE_DIR / "character/"
 results = game_dir / "results.txt"
+repeat_save = game_dir / "repeat_save.json"
 
 work_path_cmd = "srcs.game.work"
 
@@ -41,6 +42,7 @@ class MapVal(str, Enum):
     OPEN_DOOR = "8"
     RIDDLE = "9"
     CLOSED_EXIT = 'c'
+    TELEPORTER = 't'
     LAST = "-2"
 
 
@@ -61,8 +63,9 @@ class Color(Enum):
     ORANGE = 21
     MAUVE = 22
     RED = 23
-    CUSTOM_FG = 24
-    CUSTOM_BG = 25
+    BLUE = 24
+    CUSTOM_FG = 25
+    CUSTOM_BG = 26
 
 
 colors = {
@@ -74,6 +77,7 @@ colors = {
     Color.ORANGE: 'FCBC80',
     Color.MAUVE: '8B4B62',
     Color.RED: 'C62828',
+    Color.BLUE: '00B7EF',
 }
 
 
@@ -99,5 +103,6 @@ elems = {
     MapVal.OPEN_DOOR: MapElem(11, "door_open", Color.OCRE, Color.LIGHTBLACK, False),
     MapVal.RIDDLE: MapElem(12, "door_riddle", Color.OCRE, Color.LIGHTBLACK),
     MapVal.CLOSED_EXIT: MapElem(13, "exit", Color.RED, Color.LIGHTBLACK, False),
-    MapVal.LAST: MapElem(14, "void", Color.WHITE, Color.WHITE)
+    MapVal.TELEPORTER: MapElem(14, "exit", Color.BLUE, Color.LIGHTBLACK, False),
+    MapVal.LAST: MapElem(15, "void", Color.WHITE, Color.WHITE)
 }

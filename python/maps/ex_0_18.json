@@ -18,7 +18,8 @@
             "en": [
                 "Random doors again? Here, I left a small gift in your work file."
             ]
-        }
+        },
+        "repeat": 3
     }],
     "help": {
         "broken_door": false,

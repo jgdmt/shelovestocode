@@ -24,6 +24,7 @@ class Level:
         self.max_cols = 0
         self.new_h = 0
         self.new_w = 0
+        self.repeat = 0
         self.broken_door_proba = 0.01
 
     def init_random_doors(self, doors: dict):

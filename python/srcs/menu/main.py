@@ -18,6 +18,20 @@ from srcs.shared import configs
 
 signal.signal(signal.SIGINT, signal.SIG_IGN)
 
+def run_game(mod: str, ex: str, lan: str):
+    try:
+        result = subprocess.run(["python3", "-m", configs.work_path_cmd, mod, ex, lan],
+                                stderr=subprocess.PIPE, stdout=None, text=True)
+        id 
+        with open(configs.results, 'r') as f:
+            status = f.read().strip()
+            res = int(status)
+        subprocess.run(["rm", configs.results])
+    except FileNotFoundError:
+        res = 1
+    except ValueError:
+        res = 1
+    return result, res
 
 def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
     idx = 0
@@ -58,17 +72,13 @@ def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
                 curses.endwin()
                 subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.game_dir}/"])
                 subprocess.run(["clear"])
-                try:
-                    result = subprocess.run(["python3", "-m", configs.work_path_cmd, mod, ex, lan],
-                                            stderr=subprocess.PIPE, stdout=None, text=True)
-                    with open(configs.results, 'r') as f:
-                        status = f.read().strip()
-                        res = int(status)
-                    subprocess.run(["rm", configs.results])
-                except FileNotFoundError:
-                    res = 1
-                except ValueError:
-                    res = 1
+                while game_info.repeat >= 0:
+                    result, res = run_game(mod, ex, lan)
+                    if res == 1:
+                        break
+                    if result.returncode != 0 or result.stderr != "":
+                        break
+                    game_info.repeat -= 1
                 curses.flushinp()
                 curses.reset_prog_mode()
                 if result.returncode != 0 and result.stderr != "":

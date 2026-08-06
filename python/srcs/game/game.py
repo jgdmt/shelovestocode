@@ -2,11 +2,13 @@ import json
 import sys
 import traceback
 import signal
+import subprocess
 from .level import Level
 from .player import Player, LEFT, RIGHT, UP, DOWN
 from .display import Display
-from .tools import get_text
-from .text import max_cols_msg, max_lines_msg, win_msg
+from .tools import get_text, copy_map
+from .stats import Stats
+from .text import max_cols_msg, max_lines_msg, win_msg, move_stats, wall_stats, teleport
 from srcs.shared import configs, utils
 
 
@@ -45,22 +47,45 @@ class Game:
                 self.curr_map_idx = 0
             self.curr_map = self.maps[self.curr_map_idx]
             self.check_lines_cols()
+            self.stats = Stats()
             self.elems = self.init_elems(configs.elems)
             self.current = 0
             self.game_ended = False
             with open(configs.results, 'w') as f:
                 f.write("1")
-            for y in range(configs.map_height):
-                for x in range(configs.map_width):
-                    if self.curr_map.map[y][x] == configs.MapVal.PLAYER:
-                        self.player.x = x
-                        self.player.y = y
-                        self.curr_map.map[y][x] = configs.MapVal.PATH
+            self.restore_save()
+            self.init_replace()
             self.display.print_map()
             sys.excepthook = hook
             signal.signal(signal.SIGINT, handle_signal)
 
         return cls.instance
+
+    def restore_save(self):
+        try:
+            with open(configs.repeat_save, 'r') as f:
+                save = json.load(f)
+                self.curr_map.repeat = save["repeat"]
+                self.display.history = save["log_history"]
+                self.stats.walls_hit = save["stats_walls"]
+                self.stats.steps = save["stats_moves"]
+            self.display.print_history()
+            subprocess.run(["rm", configs.repeat_save])
+        except FileNotFoundError:
+            return
+
+
+    def init_replace(self):
+        for y in range(configs.map_height):
+            for x in range(configs.map_width):
+                if self.curr_map.map[y][x] == configs.MapVal.PLAYER:
+                    self.player.x = x
+                    self.player.y = y
+                    self.curr_map.map[y][x] = configs.MapVal.PATH.value
+                if self.curr_map.map[y][x] == configs.MapVal.TELEPORTER \
+                    and self.curr_map.repeat == 0:
+                    self.curr_map.map[y][x] = configs.MapVal.EXIT.value
+
 
     def check_lines_cols(self):
         try:
@@ -118,6 +143,7 @@ class Game:
             elif len(map) < configs.map_height or len(map[0]) < configs.map_width:
                 level.new_w, level.new_h = self.fill_with_zeros(map, len(map), len(map[0]))
 
+            level.repeat = maps_json.get("repeat", 0)
             level.map = map
             level.init_random_doors(maps_json.get("random_doors", None))
             level.init_riddles(maps_json.get("riddles", None))
@@ -141,11 +167,28 @@ class Game:
                 self.display.print_error("File not found.")
         return elems
 
+    def reset(self):
+        self.display.unregister(self.display.leave_game)
+        dico_save = {}
+        dico_save["repeat"] = self.curr_map.repeat - 1
+        dico_save["log_history"] = self.display.history
+        dico_save["stats_moves"] = self.stats.steps
+        dico_save["stats_walls"] = self.stats.walls_hit
+        self.display.print_log(get_text(teleport, self.lan))
+        with open(configs.repeat_save, 'w') as f:
+            json.dump(dico_save, f)
+        with open(configs.results, 'w') as f:
+            f.write('0')
+        exit()
+
+
     def victory(self):
         with open(configs.results, 'w') as f:
             f.write('0')
-        self.game_ended = True
         self.display.print_log(get_text(win_msg, self.lan))
+        self.display.print_log(f"{get_text(move_stats, self.lan)} {self.stats.steps}")
+        self.display.print_log(f"{get_text(wall_stats, self.lan)} {self.stats.walls_hit}")
+        self.game_ended = True
 
 
 player = Game().player

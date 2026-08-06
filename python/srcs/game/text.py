@@ -16,6 +16,18 @@ win_msg = {
     "nl": "Je hebt gewonnen! Gefeliciteerd!"
 }
 
+move_stats = {
+    "en": "Total moves:",
+    "fr": "",
+    "nl": ""
+}
+
+wall_stats = {
+    "en": "Total of walls hit:",
+    "fr": "",
+    "nl": ""
+}
+
 screen_small = {
     "en": "Screen not big enough.",
     "fr": "Écran pas assez grand.",
@@ -103,4 +115,8 @@ open_exit = {
 
 wrong_pwd = {
     "en": "Nothing happens..."
+}
+
+teleport = {
+    "en": "There is a clock sound... And suddenly everything fades away. When you wake up, everything feels familiar."
 }

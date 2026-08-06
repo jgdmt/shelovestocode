@@ -4,7 +4,7 @@
             "2222222",
             "2111612",
             "2122232",
-            "2416112",
+            "2t16112",
             "2122622",
             "2111120",
             "2222220"
@@ -15,12 +15,16 @@
                 "fg_color": "22B14C"
             }
         },
-        "character": "fortune_teller.txt",
+        "character": "time_traveler.txt",
         "notes": {
             "en": [
-                "Same as always, ask me and I shall answer you with the number of the right door."
+                "... Hello? Can you read me? I'm a time traveler. It seems there is a time rift in your level.",
+                "",
+                "What is a time rift? Well each time you reach it, it will bring you back to the past... How to reach the end?",
+                "It seems that if you go through those rifts enough times, they will miraculously turn back into normal exits..."
             ]
-        }
+        },
+        "repeat": 3
     }],
     "help": {
         "broken_door": false,

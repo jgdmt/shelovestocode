@@ -1,7 +1,22 @@
 {
     "level": [{
         "map": [
-            "1111"
-        ]
+            "22222220000",
+            "23111120000",
+            "22222120000",
+            "00002120000",
+            "00002122222",
+            "00002111112",
+            "00002222212",
+            "00000000212",
+            "00022222212",
+            "00024111112",
+            "00022222222"
+        ],
+        "notes": {
+            "en": [
+                "If only we could do the same pattern of moves but with different directions with a single line of code... Wait..."
+            ]
+        }
     }]
 }

@@ -2,7 +2,7 @@
     "level": [{
         "map": [
             "2222222",
-            "2114112",
+            "211t112",
             "2621212",
             "2161212",
             "2121212",
@@ -35,7 +35,8 @@
                 "",
                 "Give me the name of the set you want and I will tell you which door among this same set will open!"
             ]
-        }
+        },
+        "repeat": 2
     }],
     "help": {
         "broken_door": false,

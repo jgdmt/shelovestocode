@@ -105,12 +105,7 @@ class Display:
         self.win.nodelay(False)
         self.win.getch()
 
-    def print_log(self, msg: str, leave: bool = False):
-        if self.logs is None:
-            return
-        msg_split = msg.split("\n")
-        for i in range(len(msg_split), 0, -1):
-            self.history.insert(0, msg_split[i - 1])
+    def print_history(self):
         self.logs.clear()
         self.logs.box()
         h, w = self.logs.getmaxyx()
@@ -136,6 +131,14 @@ class Display:
                     curr_w += len(words[j]) + 1
             h -= 1
         self.logs.refresh()
+
+    def print_log(self, msg: str, leave: bool = False):
+        if self.logs is None:
+            return
+        msg_split = msg.split("\n")
+        for i in range(len(msg_split), 0, -1):
+            self.history.insert(0, msg_split[i - 1])
+        self.print_history()
         if leave:
             exit(0)
 

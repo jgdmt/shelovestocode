@@ -4,7 +4,7 @@ from enum import Enum
 
 class GameInfo:
 
-    def __init__(self, notes: str, map: list, doors: dict, elems: dict, character: str, help: dict, lan: str = 'en'):
+    def __init__(self, notes: str, map: list, doors: dict, elems: dict, character: str, help: dict, lan: str = 'en', repeat: int = 0):
         self.notes = notes
         self.map = map
         self.elems = elems
@@ -12,6 +12,7 @@ class GameInfo:
         self.character = character
         self.help = help
         self.lan = lan
+        self.repeat = repeat
 
 
 class Windows:

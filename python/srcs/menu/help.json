@@ -7,6 +7,7 @@
                 "closed_exit": ["c", "The inactive exit. Will reactivate if you write the password while standing on it."],
                 "door": ["5", "A door."],
                 "random_door": ["6", "A door that opens randomly. The 'c' shows which set the door belongs to. The 'n' is the number of the door in the set."],
+                "teleporter": ["t", "A time rift that teleports Archimede back in time. Going through it multiple times is enough to make it disappear."],
                 "riddle": ["9", "A strange toast who wants you to solve their riddle."],
                 "broken_door": ["7", "A damaged door. Might open if you try to break it enough times."]
         }
@@ -50,14 +51,20 @@
                     "else:",
                     "   [code to execute]"
                 ]],
-                "while": ["WHILE LOOPS", [
+                "while": ["WHILE LOOP", [
                     "while [condition]:",
                     "   [code to execute]"
                 ]],
-                "for": ["FOR LOOPS", [
+                "for": ["FOR LOOP", [
                     "for i in range(start, end, step):",
                     "   [code to execute]"
-                ]]
+                ]],
+                "function": ["FUNCTION", [
+                    "def [function name](args):",
+                    "   [code to execute]"
+                ]
+
+                ]
             }
         }
     },

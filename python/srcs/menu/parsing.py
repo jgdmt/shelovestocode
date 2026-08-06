@@ -109,4 +109,6 @@ def parse_file(win: curses.window, mod: str, ex: str, lan: str = 'en') -> GameIn
     except FileNotFoundError:
         print_error(win, "File not found for notes")
 
-    return GameInfo(notes, str_map, doors, init_elems(win, configs.elems), char, help, lan)
+    repeat = get(win, level[i], "repeat", "", 0)
+
+    return GameInfo(notes, str_map, doors, init_elems(win, configs.elems), char, help, lan, repeat)
