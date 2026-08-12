@@ -29,7 +29,11 @@ def help_page(win: curses.window, game_info: GameInfo) -> None:
         win.addstr(int(h / 2), (w - len(text)) // 2, text)
         return
 
-    infos = infos_all.get(game_info.lan, 'en')
+    infos = infos_all.get(game_info.lan)
+    if infos is None:
+        infos = infos_all.get('en')
+        if infos is None:
+            return
     help_wins = HelpWins(win)
     height = h - 2 * configs.top_margin
     width = (w - 2 * configs.left_margin) // 3

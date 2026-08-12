@@ -13,6 +13,14 @@
                 "",
                 "Perhaps if I stand on the exit and write the password it will activate the exit?",
                 "That's great because I found a new function that I wanted you to try. I left it in the work.py file."
+            ],
+            "fr": [
+                "Il semblerait qu'il y ait un problème avec la sorite... On dirait qu'elle n'est pas activée ?",
+                "",
+                "Il y a une note ici. Il est écrit que le mot de passe est mon prénom, c'est bizarre.",
+                "",
+                "Peut-être que si je suis sur la sortie et que j'écris le mot de passe, ça va la réactiver ?",
+                "C'est parfait parce que je viens de trouver une nouvelle fonction que je voulais que tu esssaies. Je l'ai laissée dans work.py."
             ]
         },
         "print": [
@@ -26,6 +34,7 @@
         "door": false,
         "broken_door": false,
         "random_door": false,
+        "teleporter": false,
         "riddle": false,
         "open_door": false,
         "fortune": false,

@@ -13,6 +13,11 @@
                 "Let's make it a little bit harder. How about finding out how to tell me to move multiple times?",
                 "",
                 "One '*' equals to one move."
+            ],
+            "fr": [
+                "Augmentons un peu la difficulté. Pourquoi ne pas essayer de me faire me déplacer plusieurs fois ?",
+                "",
+                "Une '*' est égale à un mouvement."
             ]
         }
     }],
@@ -22,6 +27,7 @@
         "random_door": false,
         "riddle": false,
         "open_door": false,
+        "teleporter": false,
         "fortune": false,
         "break_door": false,
         "get_riddle": false,

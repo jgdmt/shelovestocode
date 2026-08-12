@@ -13,7 +13,7 @@
         "character": "thief.txt",
         "notes": {
             "en": [
-                "Well hello again! Did you forget about me already? I'm a very kind thief.",
+                "Well hello again! Did you fur-get about me already? I'm a very kind thief.",
                 "",
                 "Don't worry, this time, I didn't steal your map nor your flashlight. I'm here to give you the password of the exit!",
                 "",
@@ -27,7 +27,30 @@
                 "",
                 "",
                 "",
+                "",
+                "",
+                "",
                 "... It doesn't open? How clumsy of me, I might have mixed up the passwords... :3"
+            ],
+            "fr": [
+                "Hello encore une fois ! Tu ne m'as pas déjà oublié ? Je suis un très gentil chat-pardeur !",
+                "",
+                "Ne t'inquiète pas, cette fois, je n'ai pas volé ta carte. Je n'ai pas non plus volé ta lampe torche. Je suis seulement ici pour te donner la mot de passe de la sortie !",
+                "",
+                "Donc voici le mot de passe : 'hell0123'. Ne suis-je pas adorable ?",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "... La sortie ne s'active pas ? Je suis tellement maladroit, j'ai dû mélanger les mots de passe... :3"
             ]
         },
         "print": [
@@ -48,7 +71,7 @@
         "character": "thief.txt",
         "notes": {
             "en": [
-                "Well hello again! Did you forget about me already? I'm a very kind thief.",
+                "Well hello again! Did you fur-get about me already? I'm a very kind thief.",
                 "",
                 "Don't worry, this time, I didn't steal your map nor your flashlight. I'm here to give you the password of the exit!",
                 "",
@@ -62,7 +85,30 @@
                 "",
                 "",
                 "",
+                "",
+                "",
+                "",
                 "... It doesn't open? How clumsy of me, I might have mixed up the passwords... :3"
+            ],
+            "fr": [
+                "Hello encore une fois ! Tu ne m'as pas déjà oublié ? Je suis un très gentil chat-pardeur !",
+                "",
+                "Ne t'inquiète pas, cette fois, je n'ai pas volé ta carte. Je n'ai pas non plus volé ta lampe torche. Je suis seulement ici pour te donner la mot de passe de la sortie !",
+                "",
+                "Donc voici le mot de passe : 'w0rld123'. Ne suis-je pas adorable ?",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "... La sortie ne s'active pas ? Je suis tellement maladroit, j'ai dû mélanger les mots de passe... :3"
             ]
         },
         "print": [
@@ -74,6 +120,7 @@
         "random_door": false,
         "riddle": false,
         "fortune": false,
+        "teleporter": false,
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,

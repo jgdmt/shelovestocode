@@ -1,0 +1,13 @@
+{
+    "level": [{
+        "map": [
+            "111"
+        ],
+        "character": "thief.txt",
+        "notes": {
+            "en": [
+                "Did you lose your map? What a cat-astrophe! Why are you looking at me like that? I didn't do anything... Meow :3"
+            ]
+        }
+    }]
+}

@@ -150,3 +150,4 @@ class Display:
         else:
             self.win.addstr("Error: " + err)
         self.win.getch()
+        exit()

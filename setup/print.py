@@ -11,7 +11,8 @@ def print_exercises(win: curses.window, menu: Menu, index: int):
     win.clear()
     lan = ['en', 'fr', 'nl']
     title = text.title[lan[menu.language]]
-    ex_nb = len(menu.branches[menu.curr_branch].mod[menu.curr_mod].ex)
+    curr_exs = menu.branches[menu.curr_branch].mod[menu.curr_mod].ex
+    ex_nb = len(curr_exs)
     height_mid = (win.getmaxyx()[0] - ex_nb) // 2 + 1
     width_mid = (win.getmaxyx()[1] - len(f"{title[4]} i")) // 2
     print_line(win, title[2], 0, height_mid - 5)
@@ -26,7 +27,12 @@ def print_exercises(win: curses.window, menu: Menu, index: int):
             pair = curses.color_pair(4)
         else:
             pair = curses.color_pair(1)
-        print_line(win, f"{title[4]} " + str(i), pair, height_mid + i, width_mid)
+        option = ""
+        if curr_exs[i].hard:
+            option = " (hard)"
+        elif not curr_exs[i].mandatory:
+            option = " (optional)"
+        print_line(win, f"{title[4]} {i}{option}", pair, height_mid + i, width_mid)
 
 
 def print_modules(win: curses.window, menu: Menu, index: int):
@@ -45,13 +51,17 @@ def print_modules(win: curses.window, menu: Menu, index: int):
     for i in range(modules_nb):
         if i == index:
             pair = curses.color_pair(2)
-        elif menu.branches[menu.curr_branch].mod[i].status == Status.FINISHED:
+        elif menu.branches[menu.curr_branch].mod[i].status == Status.FINISHED \
+                or menu.branches[menu.curr_branch].mod[i].status == Status.PERFECT:
             pair = curses.color_pair(3)
         elif menu.branches[menu.curr_branch].mod[i].status == Status.STARTED:
             pair = curses.color_pair(4)
         else:
             pair = curses.color_pair(1)
-        print_line(win, f"{title[3]} " + str(i), pair, height_mid + i, width_mid)
+        perfect = ""
+        if menu.branches[menu.curr_branch].mod[i].status == Status.PERFECT:
+            perfect = " ☆"
+        print_line(win, f"{title[3]} {i}{perfect}", pair, height_mid + i, width_mid)
 
 
 def print_menu(win: curses.window, menu: Menu, index: int):

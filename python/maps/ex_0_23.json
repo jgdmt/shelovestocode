@@ -37,6 +37,13 @@
                 "Be careful not to confuse random doors with normal doors...",
                 "",
                 "It will be okay! There are always multiple ways to solve a problem!"
+            ],
+            "fr": [
+                "Ces niveaux n'arrêtent pas de monter en difficulté ! Et maintenant, il y a plus qu'une seule sortie !",
+                "",
+                "Fais attention à ne pas confondre les portes aléatoires des portes normales...",
+                "",
+                "Ça ira ! Il y a toujours plusieurs façons de résoudre un problème !"
             ]
         },
         "repeat": 3

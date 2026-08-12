@@ -12,6 +12,9 @@
         "notes": {
             "en": [
                 "There is a door blocking my way! Fortunately, it's not locked so I can just open it if you give me the instruction."
+            ],
+            "fr": [
+                "Il y a une porte qui bloque mon chemin ! Heureusement elle n'est pas fermée à clé donc je peux juste l'ouvrir si tu m'en donnes l'instruction."
             ]
         }
     }],
@@ -20,6 +23,7 @@
         "random_door": false,
         "riddle": false,
         "open_door": false,
+        "teleporter": false,
         "fortune": false,
         "break_door": false,
         "get_riddle": false,

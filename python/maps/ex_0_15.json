@@ -13,6 +13,13 @@
                 "Comments don't do anything special. They're literally comments. They help if you need to leave some notes in your code.",
                 "",
                 "There are different kind of comments in python. Use them if you want!"
+            ],
+            "fr": [
+                "J'ai laissé des commentaires pour toi dans le fichier !",
+                "",
+                "Les commentaires ne font rien de spécial. Ce sont littéralement des commentaires. Ils aident si tu dois laisser des notes dans ton code.",
+                "",
+                "Il y a différents types de commentaires en python. Utilise-les si tu veux !"
             ]
         }
     }],
@@ -20,6 +27,7 @@
         "broken_door": false,
         "random_door": false,
         "riddle": false,
+        "teleporter": false,
         "fortune": false,
         "break_door": false,
         "get_riddle": false,

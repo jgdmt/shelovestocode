@@ -15,6 +15,12 @@
                 "",
                 "You have to solve this with less than 13 lines in your work.py file.",
                 "Perhaps you can find some lines to get rid of in your file."
+            ],
+            "fr": [
+                "Il semblerait que ce niveau a un nombre limité de lignes autorisées !",
+                "",
+                "Tu vas devoir résoudre cet exercice avec moins de 13 lignes dans ton fichier work.py.",
+                "Peut-être que tu pourrais trouver quelques lignes inutiles à effacer..."
             ]
         }
     }],
@@ -25,6 +31,7 @@
         "fortune": false,
         "break_door": false,
         "get_riddle": false,
+        "teleporter": false,
         "solve_riddle": false,
         "set": false,
         "if": false,

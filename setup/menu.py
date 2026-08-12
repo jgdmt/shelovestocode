@@ -32,14 +32,16 @@ class Status(int, Enum):
     DEFAULT = 0
     STARTED = 1
     FINISHED = 2
+    PERFECT = 3
 
 
 class Exercise:
 
-    def __init__(self, status: Status = Status.DEFAULT, mandatory: bool = True):
+    def __init__(self, status: Status = Status.DEFAULT, mandatory: bool = True, hard: bool = False):
         self.value: int
         self.status: Status = status
         self.mandatory: bool = mandatory
+        self.hard: bool = hard
 
 
 class Module:
@@ -95,6 +97,7 @@ class Menu:
             ex = Exercise()
             ex.value = self.get(exercise, "value")
             ex.mandatory = self.get(exercise, "isMandatory", False, True)
+            ex.hard = self.get(exercise, "hard", False, False)
             res.append(ex)
         return res
 
@@ -139,19 +142,24 @@ class Menu:
         self.branches.append(self.parse_file(web_configs))
 
     def update_mod_status(self, branch: int, mod: int) -> None:
-        """Update the module status (started, finished, default) according
-        to the status of all the exercises.
+        """Update the module status (started, finished, default, perfect) 
+        according to the status of all the exercises.
         """
         finished = True
+        perfect = True
         curr_module = self.branches[branch].mod[mod]
         for ex in curr_module.ex:
-            if ex.status == Status.STARTED:
+            if ex.mandatory and ex.status == Status.STARTED:
                 curr_module.status = Status.STARTED
                 return
-            if ex.status == Status.DEFAULT:
+            if not ex.mandatory and (ex.status == Status.STARTED or ex.status == Status.DEFAULT):
+                perfect = False
+            if ex.mandatory and ex.status == Status.DEFAULT:
                 finished = False
         if finished:
             curr_module.status = Status.FINISHED
+        if perfect:
+            curr_module.status = Status.PERFECT
 
     def parse_ex_status(self, save_file: str = ".save.json") -> None:
         """Parse the save file where the exercises status (started, finished,

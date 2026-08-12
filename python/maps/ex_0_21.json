@@ -24,7 +24,12 @@
             "en": [
                 "And I'm back! This time I did swap your map with someone else's. Because I'm still kind, you still won't have to look far.",
                 "",
-                "Will you be able to solve this one?"
+                "Will you be able to solve this one? Well, I'm paw-sitive that you can!"
+            ],
+            "fr": [
+                "Et je suis de retour ! Cette fois, j'ai bel et bien échangé ta carte avec celle de quelqu'un d'autre. Parce que je suis toujours adorable, tu n'auras pas besoin d'aller chercher trop loin.",
+                "",
+                "Seras-tu capable de résoudre ce niveau ?"
             ]
         },
         "hidden": true
@@ -50,9 +55,16 @@
             "en": [
                 "And I'm back! This time I did swap your map with someone else's. Because I'm still kind, you still won't have to look far.",
                 "",
-                "Will you be able to solve this one?",
+                "Will you be able to solve this one? Well, I'm paw-sitive that you can!",
                 "",
                 "Also you might need to tell your neighbour this: '1942'."
+            ],
+            "fr": [
+                "Et je suis de retour ! Cette fois, j'ai bel et bien échangé ta carte avec celle de quelqu'un d'autre. Parce que je suis toujours adorable, tu n'auras pas besoin d'aller chercher trop loin.",
+                "",
+                "Seras-tu capable de résoudre ce niveau ?",
+                "",
+                "Oh, aussi, tu auras peut-être besoin de dire ceci à ta voisine : '1942'."
             ]
         },
         "print": [

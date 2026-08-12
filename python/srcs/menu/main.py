@@ -74,7 +74,7 @@ def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
                 subprocess.run(["clear"])
                 while game_info.repeat >= 0:
                     result, res = run_game(mod, ex, lan)
-                    if res == 1:
+                    if res != 2:
                         break
                     if result.returncode != 0 or result.stderr != "":
                         break

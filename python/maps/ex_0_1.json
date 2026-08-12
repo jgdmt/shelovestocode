@@ -23,6 +23,7 @@
     "help": {
         "door": false,
         "broken_door": false,
+        "teleporter": false,
         "random_door": false,
         "riddle": false,
         "functions": false,

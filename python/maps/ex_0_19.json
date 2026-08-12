@@ -21,7 +21,13 @@
                 "... Hello? Can you read me? I'm a time traveler. It seems there is a time rift in your level.",
                 "",
                 "What is a time rift? Well each time you reach it, it will bring you back to the past... How to reach the end?",
-                "It seems that if you go through those rifts enough times, they will miraculously turn back into normal exits..."
+                "It seems that if you go through those rifts enough times, they will miraculously revert back into normal exits..."
+            ],
+            "fr": [
+                "...Hello ? Tu peux me lire ? Je suis un voyageur temporel. Il semblerait qu'il y a une faille temporelle dans ton niveau.",
+                "",
+                "Qu'est-ce qu'une faille temporelle ? Chaque fois que tu la traverses, elle te ramène dans le passé... Comment atteindre la fin ?",
+                "Il semblerait que si tu les traverses assez de fois, elles finissent par naturellement redevenir des sorties normales..."
             ]
         },
         "repeat": 3

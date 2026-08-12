@@ -40,6 +40,7 @@
     }],
     "help": {
         "door": false,
+        "teleporter": false,
         "broken_door": false,
         "random_door": false,
         "riddle": false,

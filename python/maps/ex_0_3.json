@@ -10,6 +10,11 @@
                 "One last time to see if you got used to how this game works.",
                 "",
                 "I'm sure by now you know what to do."
+            ],
+            "fr": [
+                "Une dernière fois pour s'assurer que tu as bien compris comment le jeu fonctionne.",
+                "",
+                "Je suis sûre que tu sais ce que tu dois faire maintenant."
             ]
         }
     }],
@@ -17,6 +22,7 @@
         "door": false,
         "broken_door": false,
         "random_door": false,
+        "teleporter": false,
         "riddle": false,
         "open_door": false,
         "fortune": false,

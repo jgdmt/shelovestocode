@@ -14,6 +14,7 @@ def validate_exercise(menu: Menu):
 def check_return(menu: Menu, code: int) -> None:
     curr_module = menu.branches[menu.curr_branch].mod[menu.curr_mod]
     if code == 0:
+        validate_exercise(menu)
         curr_module.ex[menu.curr_ex].status = Status.FINISHED
     elif curr_module.ex[menu.curr_ex].status != Status.FINISHED:
         curr_module.ex[menu.curr_ex].status = Status.STARTED
@@ -45,7 +46,6 @@ def load_exercise(win: curses.window, menu: Menu) -> bool:
         setup()
         win.refresh()
         if ret.returncode == 0:
-            validate_exercise(menu)
             return True
         return False
     except KeyboardInterrupt:

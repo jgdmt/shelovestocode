@@ -11,6 +11,9 @@
         "notes": {
             "en": [
                 "Let's do more assignment!"
+            ],
+            "fr": [
+                "Faisons plus d'assignement !"
             ]
         }
     }],
@@ -21,6 +24,7 @@
         "riddle": false,
         "open_door": false,
         "fortune": false,
+        "teleporter": false,
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,

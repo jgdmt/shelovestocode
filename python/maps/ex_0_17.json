@@ -29,6 +29,19 @@
                 "Adapt your path according to the open door by using conditions!",
                 "",
                 "I added some more comments in your work.py file for you."
+            ],
+            "fr": [
+                "Bonjour, je suis un voyant. Comme tu peux le remarquer, il y a quelques portes bien étranges ici.",
+                "",
+                "Ce sont des portes aléatoires. Cela signifie que dans chaque set de couleur, une seule porte s'ouvrira, de façon aléatoire.",
+                "",
+                "Ne t'inquiète pas, je peux lire dans le futur ! Demande-moi et je te dirai le numéro de la porte qui sera ouverte.",
+                "Pour me consulter, utilise la fonction ask_fortune_teller que j'ai ajoutée dans ton fichier work.py. Le résultat est le numéro de la porte ouverte.",
+                "Sur la carte, tu peux voir le numéro de la porte dans la première ligne de ladite porte, juste au-dessus du 'c'.",
+                "",
+                "Adapte le chemin selon la porte ouverte en utilisant des conditions !",
+                "",
+                "J'ai ajouté d'autres notes dans ton fichier work.py."
             ]
         }
     }],
@@ -38,6 +51,7 @@
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,
+        "teleporter": false,
         "set": false,
         "if": false,
         "elif": false,

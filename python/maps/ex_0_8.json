@@ -10,6 +10,11 @@
                 "I managed to get all my maps back... Let's hope they don't get stolen again!",
                 "",
                 "Why not try to use variables a bit longer?"
+            ],
+            "fr": [
+                "J'ai réussi à récupérer toutes mes cartes... Espérons qu'elles ne soient plus volées !",
+                "",
+                "Pourquoi ne pas utiliser les variables un peu plus longtemps ?"
             ]
         }
     }],
@@ -20,6 +25,7 @@
         "riddle": false,
         "open_door": false,
         "fortune": false,
+        "teleporter": false,
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,

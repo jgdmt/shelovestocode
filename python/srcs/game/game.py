@@ -178,7 +178,7 @@ class Game:
         with open(configs.repeat_save, 'w') as f:
             json.dump(dico_save, f)
         with open(configs.results, 'w') as f:
-            f.write('0')
+            f.write('2')
         exit()
 
 

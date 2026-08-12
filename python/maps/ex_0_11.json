@@ -34,7 +34,27 @@
                 "",
                 "Do you sometimes check the help menu?"
             ]
-        }
+        },
+            "fr": [
+                "Une autre sortie désactivée ? Cette fois le mot de passe est le langage que tu es en train d'apprendre ici. Ou un serpent.",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Est-ce que tu visites parfois la page d'aide ?"
+            ]
     }],
     "help": {
         "door": false,
@@ -42,6 +62,7 @@
         "random_door": false,
         "riddle": false,
         "open_door": false,
+        "teleporter": false,
         "fortune": false,
         "break_door": false,
         "get_riddle": false,

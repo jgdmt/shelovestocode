@@ -12,10 +12,17 @@
         "notes": {
             "en": [
                 "Meow... Nice to mewt you! I'm a little thief... And I stole your map and flashlight!",
-                "You will have to solve this level without seeing what the map looks like...",
+                "You will have to solve this level without seeing where you go...",
                 "",
                 "Don't worry, I'm not that mean. I didn't really steal your map, I have exchanged it with someone else's... Why don't you ask around?",
-                "Perhaps you can start with your neighbour..."
+                "Purr-haps you can start with your neighbour..."
+            ],
+            "fr": [
+                "Miaou... Ravi de faire ta connaissance ! Je suis un petit chat-pardeur... et j'ai volé ta carte et ta lampe torche !",
+                "Tu devras résoudre cet exercise sans chat-voir où tu vas...",
+                "",
+                "Ne t'inquiète pas, je ne suis pas aussi méchant. Je n'ai pas réellement volé ta carte, je l'ai juste échangée avec celle de quelqu'un d'autre... Pourquoi ne demanderais-tu pas autour de toi ?",
+                "Peut-être que tu pourrais commencer par ta voisine..."
             ]
         }
     },
@@ -35,7 +42,14 @@
                 "You will have to solve this level without seeing where you go...",
                 "",
                 "Don't worry, I'm not that mean. I didn't really steal your map, I have exchanged it with someone else's... Why don't you ask around?",
-                "Perhaps you can start with your neighbour..."
+                "Purr-haps you can start with your neighbour..."
+            ],
+            "fr": [
+                "Miaou... Ravi de faire ta connaissance ! Je suis un petit chat-pardeur... et j'ai volé ta carte et ta lampe torche !",
+                "Tu devras résoudre cet exercise sans chat-voir où tu vas...",
+                "",
+                "Ne t'inquiète pas, je ne suis pas aussi méchant. Je n'ai pas réellement volé ta carte, je l'ai juste échangée avec celle de quelqu'un d'autre... Pourquoi ne demanderais-tu pas autour de toi ?",
+                "Peut-être que tu pourrais commencer par ta voisine..."
             ]
         }
     }],
@@ -47,6 +61,7 @@
         "open_door": false,
         "fortune": false,
         "break_door": false,
+        "teleporter": false,
         "get_riddle": false,
         "solve_riddle": false,
         "print": false,

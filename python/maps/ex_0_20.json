@@ -31,9 +31,18 @@
                 "",
                 "Now, since there are more than one set of doors, you must be more accurate when you consult me. See the character under the number of the door? It's the name of the set the door belongs to.",
                 "",
-                "For instance, the green set is designed with the character 'a'. The blue set is designed with the character 'c'.",
+                "For instance, the green set is represented with the character 'a'. The blue set is represented with the character 'c'.",
                 "",
                 "Give me the name of the set you want and I will tell you which door among this same set will open!"
+            ],
+            "fr": [
+                "Il semblerait que certains sets dépendent d'un premier set... Heureusement, tu peux écrire une condition à l'intérieur d'une condition !",
+                "",
+                "Puisqu'il y a plusieurs sets de couleurs, il faudra désormais être plus précise lorsque tu me consultes. Tu vois le caractère en-dessous du numéro de la porte ? C'est le caractère qui représente le set auquel la porte appartient.",
+                "",
+                "Par exemple, le set vert est représenté par le caractère 'a'. Le set bleu est représenté par le caractère 'c'.",
+                "",
+                "Donne-moi le caractère d'un set et je te donnerai le numéro de la porte qui s'ouvrira dans ce set !"
             ]
         },
         "repeat": 2

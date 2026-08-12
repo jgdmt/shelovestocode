@@ -11,6 +11,9 @@
         "notes": {
             "en": [
                 "I left a small trick for you in the work.py file! It will be very practical in the future, so try using it."
+            ],
+            "fr": [
+                "J'ai laissé une petite astuce dans ton fichier work.py ! Ce sera très utile dans le futur alors essaie de l'utiliser. "
             ]
         }
     }],
@@ -21,6 +24,7 @@
         "riddle": false,
         "open_door": false,
         "fortune": false,
+        "teleporter": false,
         "break_door": false,
         "print": false,
         "get_riddle": false,

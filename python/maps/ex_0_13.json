@@ -12,7 +12,12 @@
             "en": [
                 "The exit is once again inactive. And there are multiple doors blocking the way!",
                 "",
-                "Well I'm sure you can solve this. The password this time is the answer to the ultimate questions of life, the universe and everything. Or the number of the school you're currently at."
+                "Well I'm sure you can solve this. The password this time is the answer to the ultimate question of life, the universe and everything. Or the number of the school you're currently at."
+            ],
+            "fr": [
+                "La sortie est encore une fois inactive. Et en plus il y a plusieurs portes qui me bloquent le chemin !",
+                "",
+                "Enfin bon, je sais que tu peux résoudre cet exercice. Le mot de passe cette fois est la réponse à la grande question sur la vie, l'Univers et le reste. Ou le nombre de l'école où tu te trouves."
             ]
         },
         "print": [
@@ -26,6 +31,7 @@
         "riddle": false,
         "fortune": false,
         "break_door": false,
+        "teleporter": false,
         "get_riddle": false,
         "solve_riddle": false,
         "set": false,

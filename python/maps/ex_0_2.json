@@ -10,6 +10,10 @@
             "en": [
                 "You know what they say, all things come in threes! ...Or is it third time is the charm?",
                 "Don't forget to check the 'Help' option. It seems this page might get some updates from time to time..."
+            ],
+            "fr": [
+                "Tu sais ce qu'on dit, jamais deux sans trois ! Ou peut-être la troisième fois sera la bonne ?",
+                "N'oublie pas de visiter la page d'aide de temps en temps, via l'option 'Help'. Il semblerait qu'elle soit parfois mise à jour..."
             ]
         }
     }],
@@ -20,6 +24,7 @@
         "riddle": false,
         "open_door": false,
         "fortune": false,
+        "teleporter": false,
         "break_door": false,
         "print": false,
         "get_riddle": false,
