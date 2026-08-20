@@ -27,6 +27,7 @@
         "get_riddle": false,
         "solve_riddle": false,
         "set": false,
-        "for": false
+        "for": false,
+        "function": false
     }
 }

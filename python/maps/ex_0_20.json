@@ -55,6 +55,7 @@
         "solve_riddle": false,
         "set": false,
         "while": false,
-        "for": false
+        "for": false,
+        "function": false
     }
 }

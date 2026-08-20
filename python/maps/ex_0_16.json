@@ -38,6 +38,7 @@
         "elif": false,
         "else": false,
         "while": false,
-        "for": false
+        "for": false,
+        "function": false
     }
 }

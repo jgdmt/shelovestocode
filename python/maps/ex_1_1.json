@@ -9,9 +9,9 @@
             "en": [
                 "Hoho, it seems there's a limit of lines... Your file can't have more than 7 lines!",
                 "",
-                "I might have found something that will be very useful... A loop! I put one in your work.py file.",
+                "I might have found something that will be very useful... A loop! I put one in your work.py file. The code inside a loop will be repeated until the condition becomes false.",
                 "",
-                "Don't forget to use the help if you don't remember something."
+                "Don't forget to use the help if you don't remember something. You can also go back to check the exercises from the module 0."
             ]
         },
         "max_lines": 7
@@ -23,6 +23,7 @@
         "get_riddle": false,
         "solve_riddle": false,
         "set": false,
-        "for": false
+        "for": false,
+        "function": false
     }
 }

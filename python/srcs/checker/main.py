@@ -14,10 +14,18 @@ from srcs.shared import configs
 def parse_file(args: Params) -> None:
     file = f"ex_{args.module}_{args.exercise}.json"
     with open(configs.maps_dir / file, 'r') as f:
-        conf = json.load(f)
+        try:
+            conf = json.load(f)
+        except:
+            print_log(args, "Config file could not be turned into a dictionary", Status.KO)
+            exit()
     levels = get(args, conf, "level")
+    if levels is None:
+        return
     for i in range(len(levels)):
         level_map = get(args, levels[i], "map")
+        if level_map is None:
+            continue
         check_map(args, levels[i], level_map)
         check_options(args, levels[i])
 

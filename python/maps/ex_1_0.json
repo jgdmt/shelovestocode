@@ -7,11 +7,18 @@
         ],
         "notes": {
             "en": [
-                "Welcome back to the module 2!",
+                "Welcome back for the module 1!",
                 "",
                 "Let's start with an easy one. A simple straight line!",
                 "",
                 "It's a bit long though... If only there was an easy way to repeat the same instruction multiple times..."
+            ],
+            "fr": [
+                "Bienvenue dans le module 1 !",
+                "",
+                "Commençons avec un exercice facile. Une simple ligne droite !",
+                "",
+                "C'est un peu long par contre... Si seulement il existait un moyen facile de répéter la même instruction plusieurs fois..."
             ]
         }
     }],
@@ -22,6 +29,7 @@
         "get_riddle": false,
         "solve_riddle": false,
         "set": false,
-        "for": false
+        "for": false,
+        "function": false
     }
 }

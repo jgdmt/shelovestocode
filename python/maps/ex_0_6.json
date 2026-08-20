@@ -10,10 +10,14 @@
         "character": "owl.txt",
         "notes": {
             "en": [
-                "I left a small trick for you in the work.py file! It will be very practical in the future, so try using it."
+                "I left a small trick for you in the work.py file! It will be very practical in the future, so try using it.",
+                "",
+                "It's called a variable. Vocabulary is important, try to remember it. I called it 'direction' but you can rename it however you want."
             ],
             "fr": [
-                "J'ai laissé une petite astuce dans ton fichier work.py ! Ce sera très utile dans le futur alors essaie de l'utiliser. "
+                "J'ai laissé une petite astuce dans ton fichier work.py ! Ce sera très utile dans le futur alors essaie de l'utiliser.",
+                "",
+                "Ça s'appelle une variable. Le vocabulaire est important, essaie de t'en rappeler. Je l'ai appelée 'direction' mais tu peux la renommer comme tu veux."
             ]
         }
     }],

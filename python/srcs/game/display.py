@@ -136,8 +136,8 @@ class Display:
         if self.logs is None:
             return
         msg_split = msg.split("\n")
-        for i in range(len(msg_split), 0, -1):
-            self.history.insert(0, msg_split[i - 1])
+        for i in range(len(msg_split)):
+            self.history.insert(0, msg_split[i])
         self.print_history()
         if leave:
             exit(0)

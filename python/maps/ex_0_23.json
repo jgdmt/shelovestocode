@@ -41,7 +41,7 @@
             "fr": [
                 "Ces niveaux n'arrêtent pas de monter en difficulté ! Et maintenant, il y a plus qu'une seule sortie !",
                 "",
-                "Fais attention à ne pas confondre les portes aléatoires des portes normales...",
+                "Fais attention à ne pas confondre les portes aléatoires et les portes normales...",
                 "",
                 "Ça ira ! Il y a toujours plusieurs façons de résoudre un problème !"
             ]
@@ -56,6 +56,7 @@
         "solve_riddle": false,
         "set": false,
         "while": false,
-        "for": false
+        "for": false,
+        "function": false
     }
 }

@@ -32,6 +32,7 @@
         "solve_riddle": false,
         "set": false,
         "code": false,
-        "closed_exit": false
+        "closed_exit": false,
+        "variables": false
     }
 }

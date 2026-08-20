@@ -71,14 +71,21 @@ def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
                 curses.def_prog_mode()
                 curses.endwin()
                 subprocess.run(["cp", f"{configs.work_dir}/work.py", f"{configs.game_dir}/"])
+                import_line = "from .game import player, LEFT, RIGHT, UP, DOWN"
+                print_override = "print = player.override_print"
+                tools.prepend_line(f"{configs.game_dir}/work.py", print_override)
+                tools.prepend_line(f"{configs.game_dir}/work.py", import_line)
                 subprocess.run(["clear"])
-                while game_info.repeat >= 0:
+                counter = game_info.repeat
+                while counter >= 0:
                     result, res = run_game(mod, ex, lan)
                     if res != 2:
+                        counter = game_info.repeat
                         break
                     if result.returncode != 0 or result.stderr != "":
+                        counter = game_info.repeat
                         break
-                    game_info.repeat -= 1
+                    counter -= 1
                 curses.flushinp()
                 curses.reset_prog_mode()
                 if result.returncode != 0 and result.stderr != "":

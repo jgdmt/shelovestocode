@@ -1,0 +1,21 @@
+{
+    "level": [{
+        "map": [
+            "22222222",
+            "23119142",
+            "22222222"
+        ],
+        "character": "not_a_sphinx.txt",
+        "notes": {
+            "en": [
+                "Hello! I'm Naan-Pita-Croissant though you can call me NPC. I have a quest for you dear heroine!",
+                "",
+                "I have an integer (int) and I need you give me the square of the said integer.",
+                "You can get the integer with the function get_riddle() and give me the answer by calling solve_riddle().",
+                "There is an example in the file.",
+                "",
+                "Please help me, heroine!"
+            ]
+        }
+    }]
+}

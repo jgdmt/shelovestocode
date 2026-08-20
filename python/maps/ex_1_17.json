@@ -1,16 +1,19 @@
 {
     "level": [{
         "map": [
-            "222222",
-            "232142",
-            "211122",
-            "222220"
+            "22200",
+            "23220",
+            "21120",
+            "22122",
+            "02142",
+            "02222"
         ],
         "notes": {
             "en": [
-                "Let's combine functions and variables... By learning about functions arguments!"
+                "Lists would be great for exercises like this one. You can only have 6 lines!"
             ]
-        }
+        },
+        "max_lines": 6
     }],
     "help": {
         "broken_door": false,

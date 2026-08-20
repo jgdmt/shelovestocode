@@ -9,14 +9,22 @@
             "00002111112",
             "00002222212",
             "00000000212",
-            "00022222212",
-            "00024111112",
-            "00022222222"
+            "00002222212",
+            "00002411112",
+            "00002222222"
         ],
         "notes": {
             "en": [
-                "If only we could do the same pattern of moves but with different directions with a single line of code... Wait..."
+                "It seems there is a pattern in here. If only we could repeat the same pattern without having to write it multiple times..."
             ]
         }
-    }]
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false
+    }
 }

@@ -18,13 +18,13 @@ win_msg = {
 
 move_stats = {
     "en": "Total moves:",
-    "fr": "",
+    "fr": "Nombre total de mouvements :",
     "nl": ""
 }
 
 wall_stats = {
     "en": "Total of walls hit:",
-    "fr": "",
+    "fr": "Nombre total de murs touchés :",
     "nl": ""
 }
 
@@ -114,9 +114,11 @@ open_exit = {
 }
 
 wrong_pwd = {
-    "en": "Nothing happens..."
+    "en": "Nothing happens...",
+    "fr": "Rien ne se passe..."
 }
 
 teleport = {
-    "en": "There is a clock sound... And suddenly everything fades away. When you wake up, everything feels familiar."
+    "en": "There is a clock sound... And suddenly everything fades away. When you wake up, everything feels familiar.",
+    "fr": "Il y a le son d'une horloge... Et soudain tout devient flou. Quand tu te réveilles, tout te semble familier."
 }

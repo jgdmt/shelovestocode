@@ -57,7 +57,7 @@ title = {
 }
 
 no_module = {
-    "en": "No module yet.",
-    "fr": "Pas de module pour l'instant.",
-    "nl": "Nog geen module."
+    "en": "Coming soon!",
+    "fr": "Bientöt disponible !",
+    "nl": ""
 }

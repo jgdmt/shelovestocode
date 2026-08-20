@@ -29,6 +29,9 @@
         },
         "code": {
             "PYTHON SYNTAX": {
+                "variables": ["VARIABLES", [
+                    "[variable name] = [value to assign]"
+                ]],
                 "comments": ["COMMENTS", [
                     "\"\"\" MULTILINE/BLOCK comment \"\"\"",
                     "# SINGLE LINE comment"

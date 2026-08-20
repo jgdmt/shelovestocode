@@ -10,7 +10,7 @@
             "en": [
                 "Here comes the second exercise. Same as the last one, give me the instructions so I reach the exit!",
                 "",
-                "Once again, why don't you try replacing LEFT by the right direction in the file work.py?"    
+                "Once again, why don't you try replacing LEFT by the correct direction in the file work.py?"    
             ],
             "fr": [
                 "Voici le second exercice. Comme pour le précédent, donne-moi les instructions pour que je puisse atteindre la sortie !",
@@ -28,6 +28,7 @@
         "riddle": false,
         "functions": false,
         "code": false,
-        "closed_exit": false
+        "closed_exit": false,
+        "variables": false
     }
 }

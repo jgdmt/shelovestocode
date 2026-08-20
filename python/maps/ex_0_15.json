@@ -19,7 +19,9 @@
                 "",
                 "Les commentaires ne font rien de spécial. Ce sont littéralement des commentaires. Ils aident si tu dois laisser des notes dans ton code.",
                 "",
-                "Il y a différents types de commentaires en python. Utilise-les si tu veux !"
+                "Il y a différents types de commentaires en python. Utilise-les si tu veux !",
+                "",
+                "Comme la norme en code est l'anglais, aucun commentaire n'a été traduit. Si tu as des problèmes pour comprendre, n'hésite pas à les traduire ou à demander de l'aide !"
             ]
         }
     }],

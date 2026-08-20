@@ -1,0 +1,9 @@
+The checker is not finished yet. 
+It will not check if the map can be solved or not.
+It checks:
+- is the map rectangular?
+- is the map closed?
+- is the map not too big?
+- is there a player?
+- is there at least an exit?
+- if there is a specific mechanic (e.g. random doors), are the informations related to the mechanic present as well?

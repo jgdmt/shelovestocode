@@ -9,7 +9,7 @@
             "en": [
                 "I have a gift! As usual, I left it in your work file, hoho.",
                 "",
-                "It's another kind of loop, the for loop."
+                "It's another kind of loop, the for loop. It does the same thing as the while loop but the syntax is different. Use the one you prefer!"
             ]
         }
     }],
@@ -19,6 +19,7 @@
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,
-        "set": false
+        "set": false,
+        "function": false
     }
 }

@@ -1,0 +1,37 @@
+{
+    "level": [{
+        "map": [
+            "22200000000000000",
+            "21222022200000000",
+            "21112021222200000",
+            "21212021111222222",
+            "21212021221121112",
+            "21212021222111212",
+            "21212021202222212",
+            "21212021200000212",
+            "21212021200000212",
+            "21212021222222212",
+            "21212021221111112",
+            "21212021221222222",
+            "21212221221124200",
+            "21211111222111200",
+            "23212222202222200",
+            "22222000000000000"
+        ],
+        "notes": {
+            "en": [
+                "Sometimes you need to think about which tool will be more useful in a context. Sometimes you will have to adapt too. Perhaps some parts are better with loops, but other need another solution.",
+                "",
+                "There are no lines limit but try to solve this with as little lines as possible!"
+            ]
+        }
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false
+    }
+}

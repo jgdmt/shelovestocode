@@ -44,3 +44,11 @@ def resize_windows(wins: Windows):
     wins.map_win.clear()
     wins.owl_win.clear()
     wins.info_win.clear()
+
+
+def prepend_line(file, line):
+    with open(file, 'r+') as f:
+        content = f.read()
+        f.seek(0, 0)
+        f.write(line.rstrip('\r\n') + '\n' + content)
+

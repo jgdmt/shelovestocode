@@ -86,12 +86,11 @@ class Game:
                     and self.curr_map.repeat == 0:
                     self.curr_map.map[y][x] = configs.MapVal.EXIT.value
 
-
     def check_lines_cols(self):
         try:
             with open(configs.game_dir / "work.py", 'r') as f:
                 lines = f.readlines()
-                if self.curr_map.max_lines > 0 and len(lines) > self.curr_map.max_lines:
+                if self.curr_map.max_lines > 0 and len(lines) > self.curr_map.max_lines + 2: # +2 because we add import and print override
                     self.display.print_error(f"{get_text(max_lines_msg, self.lan)} ({self.curr_map.max_lines})")
                 if self.curr_map.max_cols > 0:
                     for i in range(len(lines)):

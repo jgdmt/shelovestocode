@@ -1,0 +1,27 @@
+{
+    "level": [{
+        "map": [
+            "2222222",
+            "2111142",
+            "2111112",
+            "2113112",
+            "2111112",
+            "2222222"
+        ],
+        "notes": {
+            "en": [
+                "I think it's a good time to talk about lists! A list is a type in python, just like string and int. Just like the name, it's a list of elements. Very useful.",
+                "",
+                "Let's see what we can do with it!"
+            ]
+        }
+    }],
+    "help": {
+        "broken_door": false,
+        "riddle": false,
+        "break_door": false,
+        "get_riddle": false,
+        "solve_riddle": false,
+        "set": false
+    }
+}

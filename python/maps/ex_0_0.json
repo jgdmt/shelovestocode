@@ -13,12 +13,13 @@
                 "You can see the map of the level on the left.",
                 "",
                 "All the instructions you want to give me must be written in the file 'work.py' that I opened for you.",
-                "Don't edit or remove the first line of the file (the one with 'import')! It's very important to keep it!",
+                "Don't edit or remove the first line of the file (the one with 'import')!",
+                "",
+                "Why don't you start by replacing LEFT by RIGHT in the file work.py?",
                 "",
                 "When you are done, you can come back to this window and start the level with the option 'Play'.",
                 "To move around the menu use the Left Arrow and Right Arrow. Press Enter to confirm. You can also use Q or Esc to quit.",
-                "",
-                "Why don't you start by replacing LEFT by RIGHT in the file work.py?"
+                "Maybe check the 'Help' option, it might help you."
             ],
             "fr": [
                 "Bienvenue dans le premier exercice python! Je suis Archimède.",
@@ -27,13 +28,13 @@
                 "Tu peux voir la map du niveau à gauche de l'écran.",
                 "",
                 "Toutes les instructions que tu veux me donner doivent être écrites dans le fichier 'work.py' que j'ai ouvert pour toi.",
-                "Ne modifie pas et n'efface pas la première ligne du fichier (celle avec 'import') ! C'est très important de la conserver.",
+                "Ne modifie pas et n'efface pas la première ligne du fichier (celle avec 'import') !",
+                "",
+                "Pour commencer, pourquoi n'essaierais-tu pas de remplacer LEFT par RIGHT dans le fichier work.py?",
                 "",
                 "Quand tu as terminé, tu peux revenir sur cette fenêtre et commencer le niveau avec l'option 'Play'.",
                 "Pour te déplacer dans le menu, utilise la Flèche gauche et la Flèche droite. Appuie sur Enter pour confirmer. Tu peux aussi utiliser Q ou Esc pour quitter.",
-                "N'hésite pas à checker l'option 'Help', elle pourrait te servir.",
-                "",
-                "Pour commencer, pourquoi n'essaierais-tu pas de remplacer LEFT par RIGHT dans le fichier work.py?"
+                "N'hésite pas à checker l'option 'Help', elle pourrait te servir."
             ],
             "nl": []
         }
@@ -46,6 +47,7 @@
         "riddle": false,
         "functions": false,
         "code": false,
-        "closed_exit": false
+        "closed_exit": false,
+        "variables": false
     }
 }
