@@ -46,7 +46,7 @@ def load(win: curses.window, lan: str = 'en'):
 
 def work_setup(win: curses.window, mod: str, ex: str, lan: str):
     level_file = Path(f"{configs.levels_dir}/ex_{mod}_{ex}.py")
-    saved_file = Path(f"{configs.save_dir}/ex_{mod}_{ex}.py")
+    saved_file = Path(f"{configs.save_dir}/ex_{mod}_{ex}.pym")
     subprocess.run(["mkdir", "-p", configs.work_dir])
     if saved_file.exists() and load(win, lan):
         subprocess.run(["cp", f"{configs.save_dir}/ex_{mod}_{ex}.py", f"{configs.work_dir}/work.py"])

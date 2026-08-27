@@ -52,6 +52,7 @@ class Player:
 
     def open_door(self, direction: tuple):
         self.display.get_input()
+        self.game.stats.door_open += 1
         if direction != LEFT and direction != RIGHT and \
                 direction != UP and direction != DOWN:
             return
@@ -62,6 +63,7 @@ class Player:
         sleep(0.5)
         case = self.game.curr_map.map[y][x]
         if case == MapVal.DOOR.value:
+            self.game.stats.door_open_success += 1
             self.game.curr_map.map[y][x] = MapVal.OPEN_DOOR.value
         self.display.print_cell(x, y)
 

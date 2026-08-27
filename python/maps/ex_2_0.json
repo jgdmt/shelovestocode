@@ -8,7 +8,7 @@
         "character": "not_a_sphinx.txt",
         "notes": {
             "en": [
-                "Hello! I'm Naan-Pita-Croissant though you can call me NPC. I have a quest for you dear heroine!",
+                "Hello! I'm Napstablook-Patrick-Clyde though you can call me NPC. I have a quest for you dear heroine!",
                 "",
                 "I have an integer (int) and I need you give me the square of the said integer.",
                 "You can get the integer with the function get_riddle() and give me the answer by calling solve_riddle().",

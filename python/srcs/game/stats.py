@@ -11,8 +11,3 @@ class Stats:
 
     def move(self):
         self.steps += 1
-
-    def open_door(self, success: bool):
-        self.door_open += 1
-        if success:
-            self.door_open_success += 1

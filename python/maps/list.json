@@ -2,16 +2,17 @@
     "level": [{
         "map": [
             "2222222",
-            "2311142",
+            "2111142",
+            "2111112",
+            "2113112",
+            "2111112",
             "2222222"
         ],
         "notes": {
             "en": [
-                "Hey, I found something very nice. It's a function and it's so useful!",
+                "I think it's a good time to talk about lists! A list is a type in python, just like string and int. Just like the name, it's a list of elements. Very useful.",
                 "",
-                "When you call a function, it will execute all the code inside of it.",
-                "",
-                "Does it look a little bit familiar? You have been using them from the beginning!"
+                "Let's see what we can do with it!"
             ]
         }
     }],

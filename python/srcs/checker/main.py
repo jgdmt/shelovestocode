@@ -31,11 +31,12 @@ def parse_file(args: Params) -> None:
 
 def parse(args: argparse.Namespace):
     if args.module == -1 or args.exercise == -1:
+        checked_module = args.module
         files = next(walk(configs.maps_dir), (None, None, []))[2]
         for filename in files:
             if re.search("ex_[0-9]+_[0-9]+.json", filename) == None:
                 continue
-            if args.module != -1 and re.search(f"ex_{args.module}_[0-9]+.json", filename) == None:
+            if checked_module != -1 and re.search(f"ex_{checked_module}_[0-9]+.json", filename) == None:
                 continue
             filesplit = re.findall("[0-9]+", filename)
             mod, ex = filesplit[0], filesplit[1]

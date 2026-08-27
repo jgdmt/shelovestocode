@@ -52,8 +52,6 @@
         "get_riddle": false,
         "solve_riddle": false,
         "teleporter": false,
-        "set": false,
-        "if": false,
         "elif": false,
         "else": false,
         "while": false,

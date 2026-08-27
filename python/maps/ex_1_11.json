@@ -1,23 +1,18 @@
 {
     "level": [{
         "map": [
-            "222222",
-            "232142",
-            "211122",
-            "222220"
+            "22222022222",
+            "23112024112",
+            "22212222212",
+            "00211121112",
+            "00222121222",
+            "00002111200",
+            "00002222200"
         ],
         "notes": {
             "en": [
-                "Let's combine functions and variables... By learning about functions arguments!"
+                "You can define different functions! Useful if there are different patterns."
             ]
         }
-    }],
-    "help": {
-        "broken_door": false,
-        "riddle": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false
-    }
+    }]
 }

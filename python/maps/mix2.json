@@ -30,7 +30,6 @@
         "riddle": false,
         "break_door": false,
         "get_riddle": false,
-        "solve_riddle": false,
-        "set": false
+        "solve_riddle": false
     }
 }

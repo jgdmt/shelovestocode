@@ -1,28 +1,25 @@
 {
     "level": [{
         "map": [
-            "22222222222222",
-            "21111111112242",
-            "21222222212212",
-            "21200000212212",
-            "21200000212212",
-            "21222222212212",
-            "21221111112212",
-            "21221222222212",
-            "21221200000212",
-            "21221200000212",
-            "21221222222212",
-            "23221111111112",
-            "22222222222222"
+            "22222222222222222",
+            "23555555555555552",
+            "22222222222222252",
+            "24200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25200000000000252",
+            "25222222222222252",
+            "25555555555555552",
+            "22222222222222222"
         ],
-        "max_lines": 13,
         "notes": {
             "en": [
-                "Hoho! You only have 13 lines to solve this level!",
-                "",
-                "It would be nice if you could move more than one step when you use the walk function... Maybe you could try writing a customized walk function?",
-                "",
-                "Also, I left something in your work file. It works for two but it also works for more than two..."
+                "There are no line limits this time, but there's clearly a faster way to solve the level than write instruction one by one... What about using functions...?"
             ]
         }
     }],
@@ -31,7 +28,6 @@
         "riddle": false,
         "break_door": false,
         "get_riddle": false,
-        "solve_riddle": false,
-        "set": false
+        "solve_riddle": false
     }
 }

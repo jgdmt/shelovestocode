@@ -5,7 +5,7 @@
                 "player": ["3", "Archimede."],
                 "exit": ["4", "The exit."],
                 "closed_exit": ["c", "The inactive exit. Will reactivate if you write the password while standing on it."],
-                "door": ["5", "A door."],
+                "door": ["5", "A door that can be manually opened."],
                 "random_door": ["6", "A door that opens randomly. The 'c' shows which set the door belongs to. The 'n' is the number of the door in the set."],
                 "teleporter": ["t", "A time rift that teleports Archimede back in time. Going through it multiple times is enough to turn it back into a normal exit."],
                 "riddle": ["9", "A strange toast who wants you to solve their riddle."],
@@ -15,8 +15,8 @@
         "functions": {
             "INSTRUCTION FUNCTIONS": {
                 "walk": ["walk(direction)", "Makes Archimede walk one step into the chosen direction."],
-                "open_door": ["open_door(direction)", "Makes Archimede open the door in the chosen direction."],
-                "fortune": ["ask_fortune_teller(set)", "Asks the fortune teller which door will open in a set of random doors. The answer is the number of the door."],
+                "open_door": ["open_door(direction)", "Makes Archimede open a door in the chosen direction."],
+                "fortune": ["ask_fortune_teller(set)", "Asks the fortune teller which door will open in a set of random doors. The answer is the number of the door. 'Set' can be left empty."],
                 "break_door": ["break_door(direction)", "Makes Archimede try to break a damaged door in the chosen direction. The result is the success or failure."],
                 "get_riddle": ["get_riddle(direction)", "Gets the riddle the toast wants you to solve in the chosen direction."],
                 "solve_riddle": ["solve_riddle(direction)", "Gives your solution to the toast in the chosen direction."],
@@ -24,7 +24,7 @@
             },
             "INSTRUCTION PARAMETERS": {
                 "direction": ["direction", "UP | DOWN | LEFT | RIGHT"],
-                "set": ["set", "any character"]
+                "set": ["set", "any character | None"]
             }
         },
         "code": {

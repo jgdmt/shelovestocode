@@ -10,12 +10,12 @@
         ],
         "notes": {
             "en": [
-                "Maximum lines count is 10!",
+                "Maximum lines count is 5!",
                 "",
                 "Fortunately, you can put a loop inside a loop!"
             ]
         },
-        "max_lines": 10
+        "max_lines": 5
     }],
     "help": {
         "broken_door": false,
@@ -23,7 +23,6 @@
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,
-        "set": false,
         "function": false
     }
 }

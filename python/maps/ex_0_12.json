@@ -22,7 +22,6 @@
         "broken_door": false,
         "random_door": false,
         "riddle": false,
-        "open_door": false,
         "teleporter": false,
         "fortune": false,
         "break_door": false,

@@ -8,7 +8,7 @@ from .player import Player, LEFT, RIGHT, UP, DOWN
 from .display import Display
 from .tools import get_text, copy_map
 from .stats import Stats
-from .text import max_cols_msg, max_lines_msg, win_msg, move_stats, wall_stats, teleport
+from .text import max_cols_msg, max_lines_msg, win_msg, move_stats, wall_stats, teleport, door_stats
 from srcs.shared import configs, utils
 
 
@@ -187,6 +187,7 @@ class Game:
         self.display.print_log(get_text(win_msg, self.lan))
         self.display.print_log(f"{get_text(move_stats, self.lan)} {self.stats.steps}")
         self.display.print_log(f"{get_text(wall_stats, self.lan)} {self.stats.walls_hit}")
+        self.display.print_log(f"{get_text(door_stats, self.lan)} {self.stats.door_open_success} / {self.stats.door_open}")
         self.game_ended = True
 
 

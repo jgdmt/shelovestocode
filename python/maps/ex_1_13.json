@@ -1,25 +1,21 @@
 {
     "level": [{
         "map": [
-            "22222222222222222",
-            "23555555555555552",
-            "22222222222222252",
-            "24200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25222222222222252",
-            "25555555555555552",
-            "22222222222222222"
+            "22222220000",
+            "23111120000",
+            "22222120000",
+            "00002120000",
+            "00002122222",
+            "00002111112",
+            "00002222212",
+            "00000000212",
+            "00002222212",
+            "00002411112",
+            "00002222222"
         ],
         "notes": {
             "en": [
-                "There are no line limits this time, but there's clearly a faster way to solve the level than write instruction one by one... What about using functions...?"
+                "It seems there is a pattern in here. If only we could repeat the same pattern without having to write it multiple times..."
             ]
         }
     }],
@@ -28,8 +24,6 @@
         "riddle": false,
         "break_door": false,
         "get_riddle": false,
-        "solve_riddle": false,
-        "set": false,
-        "for": false
+        "solve_riddle": false
     }
 }

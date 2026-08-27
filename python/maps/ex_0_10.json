@@ -43,7 +43,6 @@
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,
-        "print": false,
         "set": false,
         "code": false,
         "closed_exit": false

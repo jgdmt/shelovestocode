@@ -42,16 +42,18 @@ def init_door_colors(game_info: GameInfo) -> None:
         bg = val.get("bg_color")
         if bg is not None:
             bg_rgb = utils.to_rgb(bg)
-            curses.init_color(conf_bg.value+idx, *bg_rgb)
+            curses.init_color(conf_bg+idx, *bg_rgb)
         if fg is not None:
             fg_rgb = utils.to_rgb(fg)
             curses.init_color(conf_fg+idx+1, *fg_rgb)
         if bg is not None and fg is not None:
-            curses.init_pair(pair+idx, conf_fg+idx+1, conf_bg.value+idx)
+            curses.init_pair(pair+idx, conf_fg+idx+1, conf_bg+idx)
         elif bg is not None:
-            curses.init_pair(pair+idx, elem.fg_color.value, conf_bg.value+idx)
-        else:
+            curses.init_pair(pair+idx, elem.fg_color.value, conf_bg+idx)
+        elif fg is not None:
             curses.init_pair(pair+idx, conf_fg+idx+1, elem.bg_color.value)
+        else:
+            curses.init_pair(pair+idx, elem.fg_color.value, elem.bg_color.value)
         idx += 1
 
 

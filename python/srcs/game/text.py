@@ -28,6 +28,12 @@ wall_stats = {
     "nl": ""
 }
 
+door_stats = {
+    "en": "Doors successfully opened / Attempts to open a door:",
+    "fr": "Nombre de portes ouvertes / Tentatives d'ouvrir une porte :",
+    "nl": ""
+}
+
 screen_small = {
     "en": "Screen not big enough.",
     "fr": "Écran pas assez grand.",

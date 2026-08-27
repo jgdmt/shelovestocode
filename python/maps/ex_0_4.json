@@ -10,12 +10,16 @@
         ],
         "notes": {
             "en": [
-                "Let's make it a little bit harder. How about finding out how to tell me to move multiple times?",
+                "Let's make it a little bit harder. How about finding out how to tell me to move multiple times? Sometimes easiest is the answer.",
+                "",
+                "Try some stuff! Trying is a good way of learning!",
                 "",
                 "One '*' on the map equals to one move."
             ],
             "fr": [
-                "Augmentons un peu la difficulté. Pourquoi ne pas essayer de me faire me déplacer plusieurs fois ?",
+                "Augmentons un peu la difficulté. Pourquoi ne pas essayer de me faire me déplacer plusieurs fois ? Parfois la simplicité est la réponse.",
+                "",
+                "Essaie des choses ! Essayer est une excellente façon d'apprendre.",
                 "",
                 "Une '*' sur la carte est égale à un mouvement."
             ]

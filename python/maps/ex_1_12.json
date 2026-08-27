@@ -1,21 +1,16 @@
 {
     "level": [{
         "map": [
-            "22222220000",
-            "23111120000",
-            "22222120000",
-            "00002120000",
-            "00002122222",
-            "00002111112",
-            "00002222212",
-            "00000000212",
-            "00002222212",
-            "00002411112",
-            "00002222222"
+            "222222",
+            "232142",
+            "211122",
+            "222220"
         ],
         "notes": {
             "en": [
-                "It seems there is a pattern in here. If only we could repeat the same pattern without having to write it multiple times..."
+                "Let's combine functions and variables... By learning about functions arguments!",
+                "",
+                "Spend some time to try things and get a better understanding on how functions work! You can also check on internet or ask your neighbours."
             ]
         }
     }],
@@ -24,7 +19,6 @@
         "riddle": false,
         "break_door": false,
         "get_riddle": false,
-        "solve_riddle": false,
-        "set": false
+        "solve_riddle": false
     }
 }

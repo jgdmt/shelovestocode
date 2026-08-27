@@ -1,7 +1,10 @@
 from .game import player, LEFT, RIGHT, UP, DOWN
 
-# 'fun' and 'direction' are names I gave, you can change them if you want!
-def fun(direction):
-    player.walk(direction)
+def up_2():
+    player.walk(UP)
+    player.walk(UP)
 
-fun(LEFT)
+def left_2():
+    player.walk(LEFT)
+    player.walk(LEFT)
+

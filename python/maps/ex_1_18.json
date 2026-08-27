@@ -1,37 +1,41 @@
 {
     "level": [{
         "map": [
-            "22200000000000000",
-            "21222022200000000",
-            "21112021222200000",
-            "21212021111222222",
-            "21212021221121112",
-            "21212021222111212",
-            "21212021202222212",
-            "21212021200000212",
-            "21212021200000212",
-            "21212021222222212",
-            "21212021221111112",
-            "21212021221222222",
-            "21212221221124200",
-            "21211111222111200",
-            "23212222202222200",
-            "22222000000000000"
+            "0000222000222",
+            "00002t20002t2",
+            "2222262222252",
+            "2111111111252",
+            "2122262221252",
+            "2121111121252",
+            "2121262121252",
+            "2151636121552",
+            "2121262121252",
+            "2121111121252",
+            "2122262221252",
+            "2111111111252",
+            "2222262222252",
+            "00002t20002t2",
+            "0000222000222"
         ],
+        "random_doors": {
+            "a": {
+                "doors": [[5, 6], [4, 7], [5, 8], [6, 7]],
+                "fg_color": "22B14C"
+            },
+            "b": {
+                "doors": [[5, 4], [5, 10]],
+                "fg_color": "911196"
+            },
+            "c": {
+                "doors": [[5, 2], [5, 12]],
+                "fg_color": "18399E"
+            }
+        },
         "notes": {
             "en": [
-                "Sometimes you need to think about which tool will be more useful in a context. Sometimes you will have to adapt too. Perhaps some parts are better with loops, but other need another solution.",
-                "",
-                "There are no lines limit but try to solve this with as little lines as possible!"
+                "Time to mix everything you've learned so far!"
             ]
-        }
-    }],
-    "help": {
-        "broken_door": false,
-        "riddle": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false
-    }
+        },
+        "repeat": 4
+    }]
 }

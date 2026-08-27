@@ -27,10 +27,13 @@
             "en": [
                 "You can put conditions inside of loops and loops inside of conditions. So many ways to solve this!",
                 "",
-                "Can you do it using a single loop?"
+                "Can you do it using a single loop?",
+                "",
+                "(Maximum lines count: 20)"
             ]
         },
-        "repeat": 2
+        "repeat": 2,
+        "max_lines": 20
     }],
     "help": {
         "broken_door": false,
@@ -38,7 +41,6 @@
         "break_door": false,
         "get_riddle": false,
         "solve_riddle": false,
-        "set": false,
         "function": false
     }
 }

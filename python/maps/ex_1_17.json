@@ -1,26 +1,39 @@
 {
     "level": [{
         "map": [
-            "22200",
-            "23220",
-            "21120",
-            "22122",
-            "02142",
-            "02222"
+            "2222222222222222222",
+            "2111111111111111112",
+            "2122222222222222252",
+            "2121111111111111112",
+            "2125222222222222222",
+            "2121111111111111112",
+            "2122222222222222252",
+            "2121111111111111112",
+            "2125222222222222222",
+            "2121111111111111112",
+            "2122222222222222252",
+            "2121111111111111112",
+            "2125222222222222222",
+            "2421111111111111132",
+            "2222222222222222222"
         ],
         "notes": {
             "en": [
-                "Lists would be great for exercises like this one. You can only have 6 lines!"
+                "This level is so big! Good thing you have now a customized walk function. It will make things easier!",
+                "",
+                "Don't hesitate to write as many functions as you need!",
+                "",
+                "Oh we need a password for this one. Did you know that variables have a type? For example if you write:",
+                "myVar = 'hello'",
+                "Then myVar will have the type string (str) in python because it stores a list of characters. There are different types and they depend on the language you are learning.",
+                "",
+                "The password is a type, in python, that represents a numeric value. Don't hesitate to look it up on internet!"
             ]
         },
-        "max_lines": 6
-    }],
-    "help": {
-        "broken_door": false,
-        "riddle": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false
-    }
+        "print": [
+            "int",
+            "complex",
+            "float"
+        ]
+    }]
 }
