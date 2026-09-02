@@ -1,4 +1,12 @@
 {
     "cmd": [""],
-    "modules": []
+    "modules": [
+        {
+            "project_id": 0,
+            "show_ex": false,
+            "check_returncode": false,
+            "cmd": ["command"],
+            "exercises": []
+        }
+    ]
 }

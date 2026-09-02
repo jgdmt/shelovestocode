@@ -4,11 +4,7 @@ import text
 import print as p
 from menu import Menu, Keys, Status
 from utils import check_resize, setup
-
-
-def validate_exercise(menu: Menu):
-    #TODO: connect with intra api and validate
-    i = 0
+from intra import validate_exercise
 
 
 def check_return(menu: Menu, code: int) -> None:
@@ -41,7 +37,8 @@ def load_exercise(win: curses.window, menu: Menu) -> bool:
     subprocess.run(["clear"])
     try:
         ret = subprocess.run(cmd, cwd=mod.cwd)
-        check_return(menu, ret.returncode)
+        if mod.check_returncode:
+            check_return(menu, ret.returncode)
         curses.reset_prog_mode()
         setup()
         win.refresh()
@@ -99,7 +96,10 @@ def choose_module(win: curses.window, menu: Menu) -> None:
             index = (index - 1) % modules_nb
         elif input == Keys.CONFIRM or input == Keys.RIGHT:
             menu.curr_mod = index
-            choose_exercise(win, menu)
+            if menu.branches[menu.curr_branch].mod[index].show_ex:
+                choose_exercise(win, menu)
+            else:
+                load_exercise(win, menu)
 
 
 def choose_branch(win: curses.window, menu: Menu) -> None:

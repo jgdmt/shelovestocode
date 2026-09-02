@@ -11,22 +11,39 @@ import subprocess
 import signal
 import utils
 import navigate
-from menu import Menu
+import threading
+import uvicorn
+from api import app
+from menu import Menu, menu
 
 
 signal.signal(signal.SIGINT, signal.SIG_IGN)
 
+
+def run_api():
+    uvicorn.run(
+        app,
+        host = "127.0.0.1",
+        port = 8000,
+        log_level = "critical",
+        access_log = False
+    )
 
 def main():
     #TODO: login if needed
 
     #TODO: intra
     #request.get()
+    api_thread = threading.Thread(
+        target = run_api,
+        daemon = True
+    )
+    api_thread.start()
 
     subprocess.run("clear")
     win = curses.initscr()
     utils.setup()
-    menu = Menu()
+    global menu
     menu.parse()
     menu.parse_ex_status()
     win.keypad(True)

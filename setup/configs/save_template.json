@@ -6,6 +6,8 @@
             "project_id": 0,
             "cmd": ["command", "flag", "arg"],
             "cwd": "path",
+            "show_ex": true,
+            "check_returncode": true,
             "exercises": [
                 {
                     "id": 1,

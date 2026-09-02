@@ -47,7 +47,9 @@ class Exercise:
 class Module:
 
     def __init__(self, status: Status = Status.DEFAULT):
-        self.ex: list
+        self.ex: list[Exercise]
+        self.show_ex: bool = True
+        self.check_returncode: bool = True
         self.project_id: int
         self.status: Status = status
         self.cmd: list
@@ -57,9 +59,9 @@ class Module:
 class Branch:
 
     def __init__(self):
-        self.cmd: list = None
+        self.cmd: list[str] = None
         self.cwd: str = None
-        self.mod: list
+        self.mod: list[Module]
 
 
 class Menu:
@@ -69,7 +71,7 @@ class Menu:
         self.curr_branch: int = 0
         self.curr_mod: int = 0
         self.curr_ex: int = 0
-        self.branches: list = []
+        self.branches: list[Branch] = []
         self.language: int = 0
         atexit.register(self.save_ex_status)
 
@@ -109,6 +111,8 @@ class Menu:
             mod.project_id = self.get(module, "project_id")
             mod.cmd = self.get(module, "cmd", False, cmd)
             mod.cwd = self.get(module, "cwd", False, cwd)
+            mod.show_ex = self.get(module, "show_ex", False, True)
+            mod.check_returncode = self.get(module, "check_returncode", False, True)
             mod.ex = self.parse_exercises(module)
             res.append(mod)
         return res
@@ -140,6 +144,13 @@ class Menu:
         self.branches.append(self.parse_file(c_configs))
         self.branches.append(self.parse_file(shell_configs))
         self.branches.append(self.parse_file(web_configs))
+
+    def update_ex(self, branch: int, mod: int, ex: int, status: Status):
+        if len(self.branches) > branch:
+            if len(self.branches[branch].mod) > mod:
+                if len(self.branches[branch].mod[mod].ex) > ex:
+                    self.branches[branch].mod[mod].ex[ex].status = status
+                    self.update_mod_status(branch, mod)
 
     def update_mod_status(self, branch: int, mod: int) -> None:
         """Update the module status (started, finished, default, perfect) 
@@ -199,3 +210,5 @@ class Menu:
             json.dump(dico, f)
 
         clean()
+
+menu = Menu()

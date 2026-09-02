@@ -2,28 +2,46 @@ from .game import player, LEFT, RIGHT, UP, DOWN
 print = player.override_print
 from .game import player, LEFT, RIGHT, UP, DOWN
 
-door = player.ask_fortune_teller()
+green_answer = player.ask_fortune_teller('a')
+blue_answer = player.ask_fortune_teller('c')
+violet_answer = player.ask_fortune_teller('b')
 
-player.walk(UP)
-player.walk(UP)
-if door == 0:
+if green_answer == 0 :
     player.walk(UP)
     player.walk(UP)
+    player.walk(UP)
+    if blue_answer == 0 :
+        player.walk(UP)
+        player.walk(UP)
+        player.walk(RIGHT)
+        player.walk(RIGHT)
+    else :
+        player.walk(RIGHT)
+        player.walk(RIGHT)
+        player.walk(UP)
+        player.walk(UP)
+
+else :
     player.walk(RIGHT)
     player.walk(RIGHT)
-    player.walk(RIGHT)
-    player.walk(RIGHT)
-    player.walk(DOWN)
-    player.walk(DOWN)
-    player.walk(DOWN)
-    player.walk(DOWN)
-    player.open_door(LEFT)
-    player.walk(LEFT)
-    player.walk(LEFT)
-else:
-    player.walk(RIGHT)
-    player.walk(RIGHT)
-    player.open_door(DOWN)
-    player.walk(DOWN)
-    player.walk(DOWN)
-player.print('1942')
+    if violet_answer == 1 :
+        player.walk(RIGHT)
+        player.walk(RIGHT)
+        player.walk(UP)
+        player.walk(UP)
+        player.walk(UP)
+        player.walk(UP)
+        player.walk(UP)
+        player.walk(LEFT)
+        player.walk(LEFT)
+
+    else :
+        player.walk(UP)
+        player.walk(UP)
+        player.walk(UP)
+        player.walk(UP)
+        player.walk(UP)
+
+    
+    # you can put a condition inside a condition !
+    ...
