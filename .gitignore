@@ -1,4 +1,11 @@
 **/__pychache__/
 *.pyc
-python/save/
+python/save/*
+python/srcs/game/results.txt
 setup/.save.json
+
+setup/test_file4.py
+setup/test_file2.py
+setup/test_file3.py
+
+*.md
