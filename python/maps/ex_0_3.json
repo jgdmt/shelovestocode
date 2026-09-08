@@ -15,24 +15,20 @@
                 "Une dernière fois pour s'assurer que tu as bien compris comment le jeu fonctionne.",
                 "",
                 "Je suis sûre que tu sais ce que tu dois faire maintenant."
+            ],
+            "nl": [
+                "Nog één laatste keer, om er zeker van te zijn dat je goed hebt begrepen hoe het spel werkt.",
+                "",
+                "Ik weet zeker dat je nu weet wat je moet doen."
             ]
         }
     }],
     "help": {
-        "door": false,
-        "broken_door": false,
-        "random_door": false,
-        "teleporter": false,
-        "riddle": false,
-        "open_door": false,
-        "fortune": false,
-        "break_door": false,
-        "print": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false,
-        "code": false,
-        "closed_exit": false,
-        "variables": false
+        "sprites": true,
+        "player": true,
+        "exit": true,
+        "functions": true,
+        "walk": true,
+        "direction": true
     }
 }

@@ -5,3 +5,5 @@ directions = [LEFT, DOWN]
 
 for direction in directions:
     player.walk(direction)
+
+

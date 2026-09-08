@@ -24,10 +24,29 @@
         }
     }],
     "help": {
-        "broken_door": false,
-        "riddle": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true,
+        "door": true,
+        "open_door": true,
+        "comments": true,
+        "if": true,
+        "fortune": true,
+        "random_door": true,
+        "set": true,
+        "else": true,
+        "elif": true,
+        "teleporter": true,
+        "comparison_ops": true,
+        "while": true,
+        "for": true,
+        "function": true
     }
 }

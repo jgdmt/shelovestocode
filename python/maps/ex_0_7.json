@@ -23,6 +23,13 @@
                 "",
                 "Ne t'inquiète pas, je ne suis pas aussi méchant. Je n'ai pas réellement volé ta carte, je l'ai juste échangée avec celle de quelqu'un d'autre... Pourquoi ne demanderais-tu pas autour de toi ?",
                 "Peut-être que tu pourrais commencer par ta voisine..."
+            ],
+            "nl": [
+                "Miauw... Leuk je te ontmoeten! Ik ben een kleine kattendief... En ik heb je kaart en zaklamp gestolen!",
+                "Je zult dit level moeten oplossen zonder te kunnen zien waar je naartoe gaat...",
+                "",
+                "Maak je geen zorgen, ik ben niet zó gemeen. Ik heb je kaart niet echt gestolen, ik heb hem gewoon omgeruild met die van iemand anders... Waarom vraag je het niet eens aan de anderen?",
+                "Misschien kun je beginnen bij je buurvrouw..."
             ]
         }
     },
@@ -50,23 +57,24 @@
                 "",
                 "Ne t'inquiète pas, je ne suis pas aussi méchant. Je n'ai pas réellement volé ta carte, je l'ai juste échangée avec celle de quelqu'un d'autre... Pourquoi ne demanderais-tu pas autour de toi ?",
                 "Peut-être que tu pourrais commencer par ta voisine..."
+            ],
+            "nl": [
+                "Miauw... Leuk je te ontmoeten! Ik ben een kleine kattendief... En ik heb je kaart en zaklamp gestolen!",
+                "Je zult dit level moeten oplossen zonder te kunnen zien waar je naartoe gaat...",
+                "",
+                "Maak je geen zorgen, ik ben niet zó gemeen. Ik heb je kaart niet echt gestolen, ik heb hem gewoon omgeruild met die van iemand anders... Waarom vraag je het niet eens aan de anderen?",
+                "Misschien kun je beginnen bij je buurvrouw..."
             ]
         }
     }],
     "help": {
-        "door": false,
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "open_door": false,
-        "fortune": false,
-        "break_door": false,
-        "teleporter": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "print": false,
-        "set": false,
-        "code": false,
-        "closed_exit": false
+        "sprites": true,
+        "player": true,
+        "exit": true,
+        "functions": true,
+        "walk": true,
+        "direction": true,
+        "code": true,
+        "variables": true
     }
 }

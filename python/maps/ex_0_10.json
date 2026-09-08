@@ -12,7 +12,9 @@
                 "There is a note here. It says the password is my name, how weird.",
                 "",
                 "Perhaps if I stand on the exit and write the password it will activate the exit?",
-                "That's great because I found a new function that I wanted you to try. I left it in the work.py file."
+                "That's great because I found a new function that I wanted you to try. I left it in the work.py file.",
+                "",
+                "Quotes are used for the string type. Try to remember this!"
             ],
             "fr": [
                 "Il semblerait qu'il y ait un problème avec la sorite... On dirait qu'elle n'est pas activée ?",
@@ -20,7 +22,19 @@
                 "Il y a une note ici. Il est écrit que le mot de passe est mon prénom, c'est bizarre.",
                 "",
                 "Peut-être que si je suis sur la sortie et que j'écris le mot de passe, ça va la réactiver ?",
-                "C'est parfait parce que je viens de trouver une nouvelle fonction que je voulais que tu esssaies. Je l'ai laissée dans work.py."
+                "C'est parfait parce que je viens de trouver une nouvelle fonction que je voulais que tu esssaies. Je l'ai laissée dans work.py.",
+                "",
+                "Les guillemets sont utilisés pour le type string. Essaie de t'en souvenir !"
+            ],
+            "nl": [
+                "Het lijkt erop dat er een probleem is met de uitgang... Het lijkt erop dat die niet geactiveerd is?",
+                "",
+                "Hier ligt een briefje. Er staat dat het wachtwoord mijn voornaam is, wat vreemd.",
+                "",
+                "Misschien wordt de uitgang geactiveerd als ik erop ga staan en het wachtwoord invoer?",
+                "Dat is mooi, want ik heb net een nieuwe functie gevonden die ik je wilde laten uitproberen. Ik heb hem in het bestand work.py gezet.",
+                "",
+                "Aanhalingstekens wordt gebruikt voor het type string. Probeer dit te onthouden!"
             ]
         },
         "print": [
@@ -33,18 +47,15 @@
         ]
     }],
     "help": {
-        "door": false,
-        "broken_door": false,
-        "random_door": false,
-        "teleporter": false,
-        "riddle": false,
-        "open_door": false,
-        "fortune": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false,
-        "code": false,
-        "closed_exit": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true
     }
 }

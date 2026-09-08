@@ -21,24 +21,28 @@
                 "",
                 "Tu vas devoir résoudre cet exercice avec moins de 13 lignes dans ton fichier work.py.",
                 "Peut-être que tu pourrais trouver quelques lignes inutiles à effacer..."
+            ],
+            "nl": [
+                "Het lijkt erop dat dit level een beperkt aantal regels heeft!",
+                "",
+                "Je moet dit oplossen met minder dan 13 regels in je bestand work.py.",
+                "Misschien kun je een paar overbodige regels in je bestand vinden om te verwijderen..."
             ]
         }
     }],
     "help": {
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "fortune": false,
-        "break_door": false,
-        "get_riddle": false,
-        "teleporter": false,
-        "solve_riddle": false,
-        "set": false,
-        "if": false,
-        "elif": false,
-        "else": false,
-        "while": false,
-        "for": false,
-        "function": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true,
+        "door": true,
+        "open_door": true,
+        "comments": true
     }
 }

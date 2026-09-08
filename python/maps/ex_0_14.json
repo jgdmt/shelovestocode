@@ -35,7 +35,7 @@
             "fr": [
                 "Hello encore une fois ! Tu ne m'as pas déjà oublié ? Je suis un très gentil chat-pardeur !",
                 "",
-                "Ne t'inquiète pas, cette fois, je n'ai pas volé ta carte. Je n'ai pas non plus volé ta lampe torche. Je suis seulement ici pour te donner la mot de passe de la sortie !",
+                "Ne t'inquiète pas, cette fois, je n'ai pas volé ta carte. Je n'ai pas non plus volé ta lampe torche. Je suis seulement ici pour te donner le mot de passe de la sortie !",
                 "",
                 "Donc voici le mot de passe : 'hell0123'. Ne suis-je pas adorable ?",
                 "",
@@ -51,6 +51,26 @@
                 "",
                 "",
                 "... La sortie ne s'active pas ? Je suis tellement maladroit, j'ai dû mélanger les mots de passe... :3"
+            ],
+            "nl": [
+                "Hallo daar, ik ben er weer! Ben je me nu al vergeten? Ik ben een heel aardige kattendief!",
+                "",
+                "Maak je geen zorgen, deze keer heb ik je kaart én je zaklamp niet gestolen. Ik ben hier alleen om je het wachtwoord van de uitgang te geven!",
+                "",
+                "Dus, hier is het wachtwoord: 'hell0123'. Ben ik niet schattig?",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "... De uitgang gaat niet open? Wat ben ik toch onhandig, ik heb de wachtwoorden vast door elkaar gehaald... :3"
             ]
         },
         "print": [
@@ -109,6 +129,26 @@
                 "",
                 "",
                 "... La sortie ne s'active pas ? Je suis tellement maladroit, j'ai dû mélanger les mots de passe... :3"
+            ],
+            "nl": [
+                "Hallo daar, ik ben er weer! Ben je me nu al vergeten? Ik ben een heel aardige kattendief!",
+                "",
+                "Maak je geen zorgen, deze keer heb ik je kaart én je zaklamp niet gestolen. Ik ben hier alleen om je het wachtwoord van de uitgang te geven!",
+                "",
+                "Dus, hier is het wachtwoord: 'w0rld123'. Ben ik niet schattig?",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "... De uitgang gaat niet open? Wat ben ik toch onhandig, ik heb de wachtwoorden vast door elkaar gehaald... :3"
             ]
         },
         "print": [
@@ -116,15 +156,17 @@
         ]
     }],
     "help": {
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "fortune": false,
-        "teleporter": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false,
-        "code": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true,
+        "door": true,
+        "open_door": true
     }
 }

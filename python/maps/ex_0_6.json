@@ -18,23 +18,22 @@
                 "J'ai laissé une petite astuce dans ton fichier work.py ! Ce sera très utile dans le futur alors essaie de l'utiliser.",
                 "",
                 "Ça s'appelle une variable. Le vocabulaire est important, essaie de t'en rappeler. Je l'ai appelée 'direction' mais tu peux la renommer comme tu veux."
+            ],
+            "nl": [
+                "Ik heb een klein trucje voor je achtergelaten in het bestand work.py! Het zal in de toekomst erg handig zijn, dus probeer het eens te gebruiken.",
+                "",
+                "Het heet een variabele. Het is belangrijk om de juiste termen te kennen, dus probeer het te onthouden. Ik heb de variabele 'direction' genoemd, maar je mag haar noemen zoals je wilt."
             ]
         }
     }],
     "help": {
-        "door": false,
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "open_door": false,
-        "fortune": false,
-        "teleporter": false,
-        "break_door": false,
-        "print": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false,
-        "code": false,
-        "closed_exit": false
+        "sprites": true,
+        "player": true,
+        "exit": true,
+        "functions": true,
+        "walk": true,
+        "direction": true,
+        "code": true,
+        "variables": true
     }
 }

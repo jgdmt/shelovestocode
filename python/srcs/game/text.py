@@ -19,19 +19,19 @@ win_msg = {
 move_stats = {
     "en": "Total moves:",
     "fr": "Nombre total de mouvements :",
-    "nl": ""
+    "nl": "Totaal aantal bewegingen:"
 }
 
 wall_stats = {
     "en": "Total of walls hit:",
     "fr": "Nombre total de murs touchés :",
-    "nl": ""
+    "nl": "Totaal aantal geraakte muren:"
 }
 
 door_stats = {
     "en": "Doors successfully opened / Attempts to open a door:",
     "fr": "Nombre de portes ouvertes / Tentatives d'ouvrir une porte :",
-    "nl": ""
+    "nl": "Succesvol geopende deuren / Pogingen om een deur te openen:"
 }
 
 screen_small = {
@@ -60,7 +60,8 @@ wall = {
 
 closed_exit = {
     "en": "The exit seems to be inactive...",
-    "fr": "La sortie semble ne pas avoir été activée..."
+    "fr": "La sortie semble ne pas avoir été activée...",
+    "nl": "Het lijkt erop dat de uitgang niet geactiveerd is..."
 }
 
 break_result = {
@@ -116,15 +117,18 @@ riddle_result = {
 
 open_exit = {
     "en": "You hear some weird noises... Something seems to have been activated?",
-    "fr": "Tu entends des bruits étranges... Quelque chose semble s'être activé ?"
+    "fr": "Tu entends des bruits étranges... Quelque chose semble s'être activé ?",
+    "nl": "Je hoort vreemde geluiden... Het lijkt erop dat er iets geactiveerd is?"
 }
 
 wrong_pwd = {
     "en": "Nothing happens...",
-    "fr": "Rien ne se passe..."
+    "fr": "Rien ne se passe...",
+    "nl": "Er gebeurt niets..."
 }
 
 teleport = {
     "en": "There is a clock sound... And suddenly everything fades away. When you wake up, everything feels familiar.",
-    "fr": "Il y a le son d'une horloge... Et soudain tout devient flou. Quand tu te réveilles, tout te semble familier."
+    "fr": "Il y a le son d'une horloge... Et soudain tout devient flou. Quand tu te réveilles, tout te semble familier.",
+    "nl": "Je hoort het geluid van een klok... En plotseling vervaagt alles. Wanneer je wakker wordt, voelt alles vertrouwd aan."
 }

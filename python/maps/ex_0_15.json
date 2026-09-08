@@ -22,19 +22,31 @@
                 "Il y a différents types de commentaires en python. Utilise-les si tu veux !",
                 "",
                 "Comme la norme en code est l'anglais, aucun commentaire n'a été traduit. Si tu as des problèmes pour comprendre, n'hésite pas à les traduire ou à demander de l'aide !"
+            ],
+            "nl": [
+                "Ik heb opmerkingen voor je achtergelaten in het bestand!",
+                "",
+                "Opmerkingen doen niets bijzonders. Het zijn letterlijk gewoon opmerkingen. Ze zijn handig als je notities in je code wilt achterlaten.",
+                "",
+                "Er zijn verschillende soorten opmerkingen in Python. Gebruik ze gerust als je wilt!",
+                "",
+                "Omdat Engels de standaardtaal is in de programmeerwereld, zijn de opmerkingen niet vertaald. Als je moeite hebt om ze te begrijpen, aarzel dan niet om ze te vertalen of om hulp te vragen!"
             ]
         }
     }],
     "help": {
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "teleporter": false,
-        "fortune": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false,
-        "code": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true,
+        "door": true,
+        "open_door": true,
+        "comments": true
     }
 }

@@ -30,10 +30,5 @@
                 "fg_color": "911196"
             }
         }
-    }],
-    "help": {
-        "functions": false,
-        "code": false,
-        "sprites": false
-    }
+    }]
 }

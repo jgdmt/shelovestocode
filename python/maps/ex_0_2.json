@@ -14,24 +14,19 @@
             "fr": [
                 "Tu sais ce qu'on dit, jamais deux sans trois ! Ou peut-être la troisième fois sera la bonne ?",
                 "N'oublie pas de visiter la page d'aide de temps en temps, via l'option 'Help'. Il semblerait qu'elle soit parfois mise à jour..."
+            ],
+            "nl": [
+                "Weet je wat ze zeggen: driemaal is scheepsrecht! ...Of is het de derde keer scheepsrecht?",
+                "Vergeet niet om af en toe de optie 'Help' te bekijken. Het lijkt erop dat deze pagina van tijd tot tijd wordt bijgewerkt..."
             ]
         }
     }],
     "help": {
-        "door": false,
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "open_door": false,
-        "fortune": false,
-        "teleporter": false,
-        "break_door": false,
-        "print": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false,
-        "code": false,
-        "closed_exit": false,
-        "variables": false
+        "sprites": true,
+        "player": true,
+        "exit": true,
+        "functions": true,
+        "walk": true,
+        "direction": true
     }
 }

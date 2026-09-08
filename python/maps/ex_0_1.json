@@ -16,19 +16,17 @@
                 "Voici le second exercice. Comme pour le précédent, donne-moi les instructions pour que je puisse atteindre la sortie !",
                 "",
                 "De nouveau, pourquoi n'essaierais-tu pas de remplacer LEFT par la bonne direction dans le fichier work.py ?"
+            ],
+            "nl": [
+                "Hier komt de tweede oefening. Net als bij de vorige oefening: geef me de instructies zodat ik de uitgang kan bereiken!",
+                "",
+                "Waarom probeer je deze keer niet opnieuw LEFT te vervangen door de juiste richting in het bestand work.py?"
             ]
-
         }
     }],
     "help": {
-        "door": false,
-        "broken_door": false,
-        "teleporter": false,
-        "random_door": false,
-        "riddle": false,
-        "functions": false,
-        "code": false,
-        "closed_exit": false,
-        "variables": false
+        "sprites": true,
+        "player": true,
+        "exit": true
     }
 }

@@ -29,11 +29,11 @@
             "en": [
                 "It seems some sets of random doors depend on a first set... Fortunately you can put a condition inside a condition!",
                 "",
-                "Now, since there are more than one set of doors, you must be more accurate when you consult me. See the character under the number of the door? It's the name of the set the door belongs to.",
+                "Now, since there are more than one set of doors, you must be more accurate when you consult me. See the character under the number of the door? It's the character that represents the set the door belongs to.",
                 "",
                 "For instance, the green set is represented with the character 'a'. The blue set is represented with the character 'c'.",
                 "",
-                "Give me the name of the set you want and I will tell you which door among this same set will open!"
+                "Give me the character of the set you want and I will tell you which door among this same set will open!"
             ],
             "fr": [
                 "Il semblerait que certains sets dépendent d'un premier set... Heureusement, tu peux écrire une condition à l'intérieur d'une condition !",
@@ -43,18 +43,40 @@
                 "Par exemple, le set vert est représenté par le caractère 'a'. Le set bleu est représenté par le caractère 'c'.",
                 "",
                 "Donne-moi le caractère d'un set et je te donnerai le numéro de la porte qui s'ouvrira dans ce set !"
+            ],
+            "nl": [
+                "Het lijkt erop dat sommige groepen willekeurige deuren afhankelijk zijn van een andere groep... Gelukkig kun je een voorwaarde in een andere voorwaarde plaatsen!",
+                "",
+                "Aangezien er nu meerdere groepen deuren zijn, moet je nauwkeuriger zijn wanneer je het mij vraagt. Zie je het teken onder het nummer van de deur? Dat is het teken dat aangeeft bij welke groep de deur hoort.",
+                "",
+                "De groene groep wordt bijvoorbeeld weergegeven met het teken 'a'. De blauwe groep wordt weergegeven met het teken 'c'.",
+                "",
+                "Geef me het teken van de groep die je wilt en ik zal je vertellen welke deur binnen die groep zal opengaan!"
             ]
         },
         "repeat": 2
     }],
     "help": {
-        "broken_door": false,
-        "riddle": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "while": false,
-        "for": false,
-        "function": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true,
+        "door": true,
+        "open_door": true,
+        "comments": true,
+        "if": true,
+        "fortune": true,
+        "random_door": true,
+        "set": true,
+        "else": true,
+        "elif": true,
+        "teleporter": true,
+        "comparison_ops": true
     }
 }

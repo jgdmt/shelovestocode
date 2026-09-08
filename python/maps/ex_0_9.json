@@ -10,27 +10,24 @@
         ],
         "notes": {
             "en": [
-                "Let's do more assignment!"
+                "Let's do more assignment statements!"
             ],
             "fr": [
-                "Faisons plus d'assignement !"
+                "Faisons plus d'assignations !"
+            ],
+            "nl": [
+                "Laten we meer toewijzingsinstructies doen!"
             ]
         }
     }],
     "help": {
-        "door": false,
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "open_door": false,
-        "fortune": false,
-        "teleporter": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "print": false,
-        "set": false,
-        "code": false,
-        "closed_exit": false
+        "sprites": true,
+        "player": true,
+        "exit": true,
+        "functions": true,
+        "walk": true,
+        "direction": true,
+        "code": true,
+        "variables": true
     }
 }

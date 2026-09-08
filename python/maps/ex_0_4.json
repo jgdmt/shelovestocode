@@ -22,24 +22,22 @@
                 "Essaie des choses ! Essayer est une excellente façon d'apprendre.",
                 "",
                 "Une '*' sur la carte est égale à un mouvement."
+            ],
+            "nl": [
+                "Laten we het iets moeilijker maken. Wat dacht je ervan om uit te zoeken hoe je me meerdere keren kunt laten bewegen? Soms is de eenvoudigste oplossing de juiste.",
+                "",
+                "Probeer gewoon wat dingen uit! Door te proberen leer je!",
+                "",
+                "Elke '*' op de kaart staat voor één beweging."
             ]
         }
     }],
     "help": {
-        "door": false,
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "open_door": false,
-        "teleporter": false,
-        "fortune": false,
-        "break_door": false,
-        "get_riddle": false,
-        "print": false,
-        "solve_riddle": false,
-        "set": false,
-        "code": false,
-        "variables": false,
-        "closed_exit": false
+        "sprites": true,
+        "player": true,
+        "exit": true,
+        "functions": true,
+        "walk": true,
+        "direction": true
     }
 }

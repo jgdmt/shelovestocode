@@ -14,24 +14,18 @@
             ],
             "fr": [
                 "Tu te débrouilles super bien !"
+            ],
+            "nl": [
+                "Je bent goed bezig!"
             ]
         }
     }],
     "help": {
-        "door": false,
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "open_door": false,
-        "fortune": false,
-        "teleporter": false,
-        "break_door": false,
-        "print": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false,
-        "code": false,
-        "closed_exit": false,
-        "variables": false
+        "sprites": true,
+        "player": true,
+        "exit": true,
+        "functions": true,
+        "walk": true,
+        "direction": true
     }
 }

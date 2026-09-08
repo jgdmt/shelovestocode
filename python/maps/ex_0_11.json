@@ -34,8 +34,7 @@
                 "",
                 "",
                 "Do you sometimes check the help menu?"
-            ]
-        },
+            ],
             "fr": [
                 "Une autre sortie désactivée ? Cette fois, le mot de passe est le langage que tu es en train d'apprendre ici. Ou un serpent.",
                 "",
@@ -55,21 +54,39 @@
                 "",
                 "",
                 "Est-ce que tu visites parfois la page d'aide ?"
+            ],
+            "nl": [
+                "Alweer een gedeactiveerde uitgang... Deze keer is het wachtwoord de programmeertaal die je hier leert. Of een slang.",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Bekijk je het helpmenu soms?"
             ]
+        }
     }],
     "help": {
-        "door": false,
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "open_door": false,
-        "teleporter": false,
-        "fortune": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false,
-        "code": false,
-        "closed_exit": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true
     }
 }

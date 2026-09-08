@@ -27,26 +27,46 @@
                 "",
                 "Well, it seems you can solve it with 16 conditions... or 8.",
                 "",
-                "I forgot but did you see the '(hard)' next to the level? It means this level is either harder or longer than the others. Hard levels are optional however."
+                "I forgot but did you see the '(hard)' next to the level? It means this level is either harder or longer than the others."
             ],
             "fr": [
                 "Et encore plus de conditions...",
                 "",
-                "Il semblerait que tu peux résoudre cet exercice avec 16 conditions... Ou 8.",
+                "Il semble que tu peux résoudre cet exercice avec 16 conditions... Ou 8.",
                 "",
-                "J'avais oublié mais tu as vu le '(hard)' à côté de l'exercice ? Cela signifie que ce niveau est plus difficile ou plus long que les autres. Les niveaux difficiles sont optionnels."
+                "J'avais oublié mais as-tu vu le '(hard)' à côté de l'exercice ? Cela signifie que ce niveau est plus difficile ou plus long que les autres."
+            ],
+            "nl": [
+                "Steeds meer voorwaarden...",
+                "",
+                "Het lijkt erop dat je dit kunt oplossen met 16 voorwaarden... of 8.",
+                "",
+                "Ik was het vergeten, maar heb je de '(hard)' naast het level gezien? Dat betekent dat dit level moeilijker of langer is dan de andere."
             ]
         },
         "repeat": 2
     }],
     "help": {
-        "broken_door": false,
-        "riddle": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "while": false,
-        "for": false,
-        "function": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true,
+        "door": true,
+        "open_door": true,
+        "comments": true,
+        "if": true,
+        "fortune": true,
+        "random_door": true,
+        "set": true,
+        "else": true,
+        "elif": true,
+        "teleporter": true,
+        "comparison_ops": true
     }
 }

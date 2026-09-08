@@ -3,8 +3,8 @@
         "sprites": {
             "OBJECTS":{
                 "player": ["3", "Archimede."],
-                "exit": ["4", "The exit."],
-                "closed_exit": ["c", "The inactive exit. Will reactivate if you write the password while standing on it."],
+                "exit": ["4", "An exit."],
+                "closed_exit": ["c", "An inactive exit. Will reactivate if you write the password while standing on it."],
                 "door": ["5", "A door that can be manually opened."],
                 "random_door": ["6", "A door that opens randomly. The 'c' shows which set the door belongs to. The 'n' is the number of the door in the set."],
                 "teleporter": ["t", "A time rift that teleports Archimede back in time. Going through it multiple times is enough to turn it back into a normal exit."],
@@ -65,9 +65,180 @@
                 "function": ["FUNCTION", [
                     "def [function name](args):",
                     "   [code to execute]"
-                ]
-
-                ]
+                ]],
+                "comparison_ops": ["COMPARISON OPERATORS", [
+                    "'==': equal",
+                    "'!=': not equal",
+                    "'>' / '>=': greater than / greater than or equal to",
+                    "'<' / '<=': less than / lesser than or equal to"
+                ]],
+                "logical_ops": ["LOGICAL OPERATORS", [
+                    "'and': returns True if both statements are true",
+                    "'or': returns True if one of the statements is true",
+                    "'not': reverses the result"
+                ]]
+            }
+        }
+    },
+    "fr": {
+        "sprites": {
+            "OBJECTS":{
+                "player": ["3", "Archimède."],
+                "exit": ["4", "Une sortie."],
+                "closed_exit": ["c", "Une sortie désactivée. Peut être réactivée si le mot de passe est écrit alors qu'Archimède se tient sur la sortie."],
+                "door": ["5", "Une porte qui peut être ouverte."],
+                "random_door": ["6", "Une porte qui s'ouvre de façon aléatoire. Le 'c' indique à quel set la porte appartient. Le 'n' est le numéro de la porte dans le set."],
+                "teleporter": ["t", "Une faille temporelle qui téléporte Archimède dans le passé. La traverser plusieurs fois est suffisant pour qu'elle redevienne une sortie normale."],
+                "riddle": ["9", "Un étrange toast qui veut qu'on résolve ses énigmes."],
+                "broken_door": ["7", "Une porte endommagée. Pourrait s'ouvrir si on essaie de l'ouvrir suffisamment de fois."]
+        }
+        },
+        "functions": {
+            "INSTRUCTION FUNCTIONS": {
+                "walk": ["walk(direction)", "Fait marcher Archimède une fois dans la direction choisie."],
+                "open_door": ["open_door(direction)", "Fait ouvrir une porte à Archimède dans la direction indiquée."],
+                "fortune": ["ask_fortune_teller(set)", "Demande au voyant quelle porte sera ouverte dans un set de portes aléatoires. La réponse est le numéro de la porte. 'Set' peut être laissé vide."],
+                "break_door": ["break_door(direction)", "Fait essayer à Archimède de casser une porte endommagée dans la direction indiquée. Le résultat est le succès ou l'échec de la tentative."],
+                "get_riddle": ["get_riddle(direction)", "Reçoit l'énigme que le toast veut que tu résolves dans la direction indiquée."],
+                "solve_riddle": ["solve_riddle(direction)", "Donne ta solution au toast dans la direction indiquée."],
+                "print": ["print(string)", "Imprime la string."]
+            },
+            "INSTRUCTION PARAMETERS": {
+                "direction": ["direction", "UP | DOWN | LEFT | RIGHT"],
+                "set": ["set", "n'importe quel caractère | None"]
+            }
+        },
+        "code": {
+            "PYTHON SYNTAX": {
+                "variables": ["VARIABLES", [
+                    "[nom de la variable] = [valeur à assigner]"
+                ]],
+                "comments": ["COMMENTAIRES", [
+                    "\"\"\" MULTILINE/BLOCK comment \"\"\"",
+                    "# SINGLE LINE comment"
+                ]],
+                "if": ["CONDITION IF", [
+                    "if [condition]:",
+                    "   [code à exécuter]"
+                ]],
+                "elif": ["CONDITION ELIF", [
+                    "if [condition]:",
+                    "   [code à exécuter]",
+                    "elif [condition]:",
+                    "   [code à exécuter]"
+                ]],
+                "else": ["CONDITION ELSE", [
+                    "if [condition]:",
+                    "   [code à exécuter]",
+                    "elif [condition]:",
+                    "   [code à exécuter]",
+                    "else:",
+                    "   [code à exécuter]"
+                ]],
+                "while": ["BOUCLE WHILE", [
+                    "while [condition]:",
+                    "   [code à exécuter]"
+                ]],
+                "for": ["BOUCLE FOR", [
+                    "for i in range(start, end, step):",
+                    "   [code à exécuter]"
+                ]],
+                "function": ["FONCTION", [
+                    "def [nom de la fonction](args):",
+                    "   [code à exécuter]"
+                ]],
+                "comparison_ops": ["OPÉRATEURS DE COMPARAISON", [
+                    "'==': égal",
+                    "'!=': non égal",
+                    "'>' / '>=': plus grand que / plus grand ou égal à",
+                    "'<' / '<=': plus petit que / plus petit ou égal à"
+                ]],
+                "logical_ops": ["OPÉRATEURS LOGIQUES", [
+                    "'and': renvoie True si les deux conditions sont vraies",
+                    "'or': renvoie True si une des deux conditions est vraie",
+                    "'not': inverse le résultat"
+                ]]
+            }
+        }
+    },
+    "nl": {
+        "sprites": {
+            "OBJECTS":{
+                "player": ["3", "Archimede."],
+                "exit": ["4", "Een uitgang."],
+                "closed_exit": ["c", "Een inactieve uitgang. Kan opnieuw worden geactiveerd als je het wachtwoord schrijft terwijl Archimedes op de uitgang staat."],
+                "door": ["5", "Een deur die geopend kan worden."],
+                "random_door": ["6", "Een deur die willekeurig opengaat. De 'c' geeft aan tot welke set de deur behoort. De 'n' is het nummer van de deur binnen de set."],
+                "teleporter": ["t", "Een tijdsbreuk die Archimedes terug in de tijd teleporteert. Er meerdere keren doorheen gaan is voldoende om er weer een normale uitgang van te maken."],
+                "riddle": ["9", "Een vreemde toast die wil dat je zijn raadsels oplost."],
+                "broken_door": ["7", "Een beschadigde deur. Misschien gaat ze open als je vaak genoeg probeert haar open te breken."]
+        }
+        },
+        "functions": {
+            "INSTRUCTION FUNCTIONS": {
+                "walk": ["walk(direction)", "Laat Archimedes één stap in de gekozen richting zetten."],
+                "open_door": ["open_door(direction)", "Laat Archimedes een deur in de gekozen richting openen."],
+                "fortune": ["ask_fortune_teller(set)", "Vraagt aan de waarzegger welke deur er zal opengaan in een set van willekeurige deuren. Het antwoord is het nummer van de deur. 'Set' mag leeg worden gelaten."],
+                "break_door": ["break_door(direction)", "Laat Archimedes proberen een beschadigde deur in de gekozen richting open te breken. Het resultaat is het slagen of mislukken van de poging."],
+                "get_riddle": ["get_riddle(direction)", "Ontvangt het raadsel dat de toast wil dat je oplost in de gekozen richting."],
+                "solve_riddle": ["solve_riddle(direction)", "Geeft jouw oplossing aan de toast in de gekozen richting."],
+                "print": ["print(string)", "Print de string."]
+            },
+            "INSTRUCTION PARAMETERS": {
+                "direction": ["direction", "UP | DOWN | LEFT | RIGHT"],
+                "set": ["set", "elk teken | None"]
+            }
+        },
+        "code": {
+            "PYTHON SYNTAX": {
+                "variables": ["VARIABELEN", [
+                    "[naam van de variabele] = [waarde die moet worden toegewezen]"
+                ]],
+                "comments": ["COMMENTAREN", [
+                    "\"\"\" MULTILINE/BLOCK comment \"\"\"",
+                    "# SINGLE LINE comment"
+                ]],
+                "if": ["IF-CONDITIE", [
+                    "if [conditie]:",
+                    "   [code die moet worden uitgevoerd]"
+                ]],
+                "elif": ["ELIF-CONDITIE", [
+                    "if [conditie]:",
+                    "   [code die moet worden uitgevoerd]",
+                    "elif [conditie]:",
+                    "   [code die moet worden uitgevoerd]"
+                ]],
+                "else": ["ELSE-CONDITIE", [
+                    "if [conditie]:",
+                    "   [code die moet worden uitgevoerd]",
+                    "elif [conditie]:",
+                    "   [code die moet worden uitgevoerd]",
+                    "else:",
+                    "   [code die moet worden uitgevoerd]"
+                ]],
+                "while": ["WHILE-LUS", [
+                    "while [conditie]:",
+                    "   [code die moet worden uitgevoerd]"
+                ]],
+                "for": ["FOR-LUS", [
+                    "for i in range(start, end, step):",
+                    "   [code die moet worden uitgevoerd]"
+                ]],
+                "function": ["FUNCTIE", [
+                    "def [naam van de functie](args):",
+                    "   [code die moet worden uitgevoerd]"
+                ]],
+                "comparison_ops": ["VERGELIJKINGSOPERATOREN", [
+                    "'==': gelijk aan",
+                    "'!=': niet gelijk aan",
+                    "'>' / '>=': groter dan / groter dan of gelijk aan",
+                    "'<' / '<=': kleiner dan / kleiner dan of gelijk aan"
+                ]],
+                "logical_ops": ["LOGISCHE OPERATOREN", [
+                    "'and': geeft True terug als beide voorwaarden waar zijn",
+                    "'or': geeft True terug als één van de voorwaarden waar is",
+                    "'not': keert het resultaat om"
+                ]]
             }
         }
     }

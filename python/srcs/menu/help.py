@@ -99,14 +99,14 @@ def help_code(win: curses.window, infos: dict, info_check: dict, lan: str = 'en'
     code_infos = infos.get("code", None)
     if code_infos is None:
         win.addstr(height, 2, "File not found.")
-    elif not info_check.get("code", True):
+    elif not info_check.get("code", False):
         help_line(win, empty_sec[lan], 2, height)
     else:
         for title, ids in code_infos.items():
             win.addstr(height, 2, title, curses.A_UNDERLINE)
             height += 2
             for id, info in ids.items():
-                if info_check.get(id, True):
+                if info_check.get(id, False):
                     win.addstr(height, 2, info[0])
                     height += 1
                     for line in info[1]:
@@ -137,14 +137,14 @@ def help_functions(win: curses.window, infos: dict, info_check: dict, lan: str =
     func_infos = infos.get("functions", None)
     if func_infos is None:
         win.addstr(height, 2, "File not found.")
-    elif not info_check.get("functions", True):
+    elif not info_check.get("functions", False):
         help_line(win, empty_sec[lan], 2, height)
     else:
         for title, ids in func_infos.items():
             win.addstr(height, 2, title, curses.A_UNDERLINE)
             height += 2
             for id, info in ids.items():
-                if info_check.get(id, True):
+                if info_check.get(id, False):
                     height = help_line(win, f"{info[0]}:", 2, height)
                     height = help_line(win, info[1], len(info[0]) + 4, height)
                     height += 2
@@ -175,14 +175,14 @@ def help_sprites(win: curses.window, infos: dict, info_check: dict, lan: str = '
     sprites_infos = infos.get("sprites", None)
     if sprites_infos is None:
         win.addstr(height, 2, "File not found.")
-    elif not info_check.get("sprites", True):
+    elif not info_check.get("sprites", False):
         help_line(win, empty_sec[lan], 2, height)
     else:
         for title, ids in sprites_infos.items():
             height = help_line(win, title, 2, height, curses.A_UNDERLINE)
             height += 2
             for id, info in ids.items():
-                if info_check.get(id, True):
+                if info_check.get(id, False):
                     elem = configs.elems.get(info[0])
                     if elem is not None:
                         help_line(win, info[1], configs.cell_width + 3, height)

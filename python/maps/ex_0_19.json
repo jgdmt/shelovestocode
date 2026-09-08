@@ -26,24 +26,44 @@
                 "Don't overthink too much and just solve the level normally!"
             ],
             "fr": [
-                "...Hello ? Tu peux me lire ? Je suis un voyageur temporel. Il semblerait qu'il y a une faille temporelle dans ton niveau.",
+                "...Hello ? Tu peux me lire ? Je suis un voyageur temporel. Il semblerait qu'il y ait une faille temporelle dans ton niveau.",
                 "",
                 "Qu'est-ce qu'une faille temporelle ? Chaque fois que tu la traverses, elle te ramène dans le passé... Comment atteindre la fin ?",
                 "Il semblerait que si tu les traverses assez de fois, elles finissent par naturellement redevenir des sorties normales...",
                 "",
                 "Ne te prends pas trop la tête et résous le niveau normalement !"
+            ],
+            "nl": [
+                "... Hallo? Kun je me horen? Ik ben een tijdreiziger. Het lijkt erop dat er een tijdsscheur in je level zit.",
+                "",
+                "Wat is een tijdsscheur? Elke keer dat je erdoorheen gaat, brengt ze je terug naar het verleden... Hoe kom je dan bij het einde?",
+                "Het lijkt erop dat als je vaak genoeg door die scheuren gaat, ze op wonderbaarlijke wijze weer veranderen in normale uitgangen...",
+                "",
+                "Denk er niet te veel over na en los het level gewoon op zoals normaal!"
             ]
         },
         "repeat": 3
     }],
     "help": {
-        "broken_door": false,
-        "riddle": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "while": false,
-        "for": false,
-        "function": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true,
+        "door": true,
+        "open_door": true,
+        "comments": true,
+        "if": true,
+        "fortune": true,
+        "random_door": true,
+        "set": true,
+        "else": true,
+        "elif": true,
+        "teleporter": true
     }
 }

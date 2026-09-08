@@ -36,18 +36,26 @@
                 "Pour te déplacer dans le menu, utilise la Flèche gauche et la Flèche droite. Appuie sur Enter pour confirmer. Tu peux aussi utiliser Q ou Esc pour quitter.",
                 "N'hésite pas à checker l'option 'Help', elle pourrait te servir."
             ],
-            "nl": []
+            "nl": [
+                "Welkom bij de eerste Python-oefeing! Ik ben Archimede.",
+                "Het is jouw doel om mij naar de uitgang te brengen.",
+                "",
+                "Je kunt de kaart van het level links op het scherm zien.",
+                "",
+                "Alle instructies die je mij wilt geven, moeten worden geschreven in het bestand 'work.py' dat ik voor je heb geopend.",
+                "Wijzig of verwijder de eerste regel van het bestand niet (de regel met 'import')!",
+                "",
+                "Waarom begin je niet door LEFT te vervangen door RIGHT in het bestand work.py?",
+                "",
+                "Wanneer je klaar bent, kun je terugkeren naar dit venster en het level starten met de optie 'Play'.",
+                "Gebruik de pijl naar links en de pijl naar rechts om door het menu te navigeren. Druk op Enter om te bevestigen. Je kunt ook Q of Esc gebruiken om af te sluiten.",
+                "Misschien kun je de optie 'Help' bekijken, die kan je misschien helpen."
+            ]
         }
     }],
     "help": {
-        "door": false,
-        "teleporter": false,
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "functions": false,
-        "code": false,
-        "closed_exit": false,
-        "variables": false
+        "sprites": true,
+        "player": true,
+        "exit": true
     }
 }

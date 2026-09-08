@@ -18,6 +18,11 @@
                 "La sortie est encore une fois inactive. Et en plus il y a plusieurs portes qui me bloquent le chemin !",
                 "",
                 "Enfin bon, je sais que tu peux résoudre cet exercice. Le mot de passe cette fois est la réponse à la grande question sur la vie, l'Univers et le reste. Ou le nombre de l'école où tu te trouves."
+            ],
+            "nl": [
+                "De uitgang is alweer inactief. En er zijn meerdere deuren die de weg blokkeren!",
+                "",
+                "Nou, ik weet zeker dat je dit kunt oplossen. Het wachtwoord is deze keer het antwoord op de ultieme vraag over het leven, het universum en alles. Of het nummer van de school waar je nu bent."
             ]
         },
         "print": [
@@ -26,15 +31,17 @@
         ]
     }],
     "help": {
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "fortune": false,
-        "break_door": false,
-        "teleporter": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false,
-        "code": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true,
+        "door": true,
+        "open_door": true
     }
 }

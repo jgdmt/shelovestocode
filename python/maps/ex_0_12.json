@@ -15,19 +15,24 @@
             ],
             "fr": [
                 "Il y a une porte qui bloque mon chemin ! Heureusement elle n'est pas fermée à clé donc je peux juste l'ouvrir si tu m'en donnes l'instruction."
+            ],
+            "nl": [
+                "Er staat een deur in de weg! Gelukkig zit hij niet op slot, dus ik kan hem gewoon openen als je me de juiste instructie geeft."
             ]
         }
     }],
     "help": {
-        "broken_door": false,
-        "random_door": false,
-        "riddle": false,
-        "teleporter": false,
-        "fortune": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "set": false,
-        "code": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true,
+        "door": true,
+        "open_door": true
     }
 }

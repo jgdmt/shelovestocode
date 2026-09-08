@@ -27,9 +27,14 @@
                 "Will you be able to solve this one? Well, I'm paw-sitive that you can!"
             ],
             "fr": [
-                "Et je suis de retour ! Cette fois, j'ai bel et bien échangé ta carte avec celle de quelqu'un d'autre. Parce que je suis toujours adorable, tu n'auras pas besoin d'aller chercher trop loin.",
+                "Et je suis de retour ! Cette fois, j'ai bel et bien échangé ta carte avec celle de quelqu'un d'autre. Parce que je suis toujours chat-rmant, tu n'auras pas besoin d'aller chercher trop loin.",
                 "",
                 "Seras-tu capable de résoudre ce niveau ?"
+            ],
+            "nl": [
+                "En daar ben ik weer! Deze keer heb ik je kaart inderdaad omgeruild met die van iemand anders. Omdat ik nog steeds aardig ben, hoef je niet ver te zoeken.",
+                "",
+                "Zal het je lukken om dit level op te lossen? Ik weet poot-zeker dat je het kunt!"
             ]
         },
         "hidden": true
@@ -65,6 +70,13 @@
                 "Seras-tu capable de résoudre ce niveau ?",
                 "",
                 "Oh, aussi, tu auras peut-être besoin de dire ceci à ta voisine : '1942'."
+            ],
+            "nl": [
+                "En daar ben ik weer! Deze keer heb ik je kaart inderdaad omgeruild met die van iemand anders. Omdat ik nog steeds aardig ben, hoef je niet ver te zoeken.",
+                "",
+                "Zal het je lukken om dit level op te lossen? Ik weet poot-zeker dat je het kunt!",
+                "",
+                "Oh, ook moet je misschien dit tegen je buurvrouw zeggen: '1942'."
             ]
         },
         "print": [
@@ -73,13 +85,26 @@
         "hidden": true
     }],
     "help": {
-        "broken_door": false,
-        "riddle": false,
-        "break_door": false,
-        "get_riddle": false,
-        "solve_riddle": false,
-        "while": false,
-        "for": false,
-        "function": false
+        "sprites": true,
+        "functions": true,
+        "code": true,
+        "player": true,
+        "exit": true,
+        "walk": true,
+        "direction": true,
+        "variables": true,
+        "closed_exit": true,
+        "print": true,
+        "door": true,
+        "open_door": true,
+        "comments": true,
+        "if": true,
+        "fortune": true,
+        "random_door": true,
+        "set": true,
+        "else": true,
+        "elif": true,
+        "teleporter": true,
+        "comparison_ops": true
     }
 }
