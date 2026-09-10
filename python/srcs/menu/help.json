@@ -166,20 +166,20 @@
             "OBJECTS":{
                 "player": ["3", "Archimede."],
                 "exit": ["4", "Een uitgang."],
-                "closed_exit": ["c", "Een inactieve uitgang. Kan opnieuw worden geactiveerd als je het wachtwoord schrijft terwijl Archimedes op de uitgang staat."],
+                "closed_exit": ["c", "Een inactieve uitgang. Kan opnieuw worden geactiveerd als je het wachtwoord schrijft terwijl Archimede op de uitgang staat."],
                 "door": ["5", "Een deur die geopend kan worden."],
                 "random_door": ["6", "Een deur die willekeurig opengaat. De 'c' geeft aan tot welke set de deur behoort. De 'n' is het nummer van de deur binnen de set."],
-                "teleporter": ["t", "Een tijdsbreuk die Archimedes terug in de tijd teleporteert. Er meerdere keren doorheen gaan is voldoende om er weer een normale uitgang van te maken."],
+                "teleporter": ["t", "Een tijdsbreuk die Archimede terug in de tijd teleporteert. Er meerdere keren doorheen gaan is voldoende om er weer een normale uitgang van te maken."],
                 "riddle": ["9", "Een vreemde toast die wil dat je zijn raadsels oplost."],
                 "broken_door": ["7", "Een beschadigde deur. Misschien gaat ze open als je vaak genoeg probeert haar open te breken."]
         }
         },
         "functions": {
             "INSTRUCTION FUNCTIONS": {
-                "walk": ["walk(direction)", "Laat Archimedes één stap in de gekozen richting zetten."],
-                "open_door": ["open_door(direction)", "Laat Archimedes een deur in de gekozen richting openen."],
+                "walk": ["walk(direction)", "Laat Archimede één stap in de gekozen richting zetten."],
+                "open_door": ["open_door(direction)", "Laat Archimede een deur in de gekozen richting openen."],
                 "fortune": ["ask_fortune_teller(set)", "Vraagt aan de waarzegger welke deur er zal opengaan in een set van willekeurige deuren. Het antwoord is het nummer van de deur. 'Set' mag leeg worden gelaten."],
-                "break_door": ["break_door(direction)", "Laat Archimedes proberen een beschadigde deur in de gekozen richting open te breken. Het resultaat is het slagen of mislukken van de poging."],
+                "break_door": ["break_door(direction)", "Laat Archimede proberen een beschadigde deur in de gekozen richting open te breken. Het resultaat is het slagen of mislukken van de poging."],
                 "get_riddle": ["get_riddle(direction)", "Ontvangt het raadsel dat de toast wil dat je oplost in de gekozen richting."],
                 "solve_riddle": ["solve_riddle(direction)", "Geeft jouw oplossing aan de toast in de gekozen richting."],
                 "print": ["print(string)", "Print de string."]
@@ -235,8 +235,8 @@
                     "'<' / '<=': kleiner dan / kleiner dan of gelijk aan"
                 ]],
                 "logical_ops": ["LOGISCHE OPERATOREN", [
-                    "'and': geeft True terug als beide voorwaarden waar zijn",
-                    "'or': geeft True terug als één van de voorwaarden waar is",
+                    "'and': geeft True aan als beide voorwaarden waar zijn",
+                    "'or': geeft True aan als één van de voorwaarden waar is",
                     "'not': keert het resultaat om"
                 ]]
             }

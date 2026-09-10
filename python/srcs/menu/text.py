@@ -60,7 +60,7 @@ restore_progress = {
 yes = {
     "en": "Yes",
     "fr": "Oui",
-    "nl": "Ya"
+    "nl": "Ja"
 }
 
 no = {
