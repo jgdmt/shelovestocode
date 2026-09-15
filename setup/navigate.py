@@ -10,12 +10,12 @@ from intra import validate_exercise
 def check_return(menu: Menu, code: int) -> None:
     curr_module = menu.branches[menu.curr_branch].mod[menu.curr_mod]
     if code == 0:
-        validate_exercise(menu)
-        curr_module.ex[menu.curr_ex].status = Status.FINISHED
+        status = Status.FINISHED
     elif curr_module.ex[menu.curr_ex].status != Status.FINISHED:
-        curr_module.ex[menu.curr_ex].status = Status.STARTED
-    menu.update_mod_status(menu.curr_branch, menu.curr_mod)
-
+        status = Status.STARTED
+    else:
+        return
+    menu.update_ex(menu.curr_branch, menu.curr_mod, menu.curr_ex, status)
 
 def copy_cmd(cmd: list, module: str, ex: str, lan: str) -> None:
     cmd_cpy = []
@@ -33,7 +33,10 @@ def load_exercise(win: curses.window, menu: Menu) -> bool:
     mod = menu.branches[menu.curr_branch].mod[menu.curr_mod]
     languages = ['en', 'fr', 'nl']
     lan = languages[menu.language]
-    cmd = copy_cmd(mod.cmd, f"{menu.curr_mod}", f"{menu.curr_ex}", lan)
+    if mod.add_info:
+        cmd = copy_cmd(mod.cmd, f"{menu.curr_mod}", f"{menu.curr_ex}", lan)
+    else:
+        cmd = mod.cmd
     subprocess.run(["clear"])
     try:
         ret = subprocess.run(cmd, cwd=mod.cwd)

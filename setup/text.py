@@ -59,5 +59,5 @@ title = {
 no_module = {
     "en": "Coming soon!",
     "fr": "Bientöt disponible !",
-    "nl": ""
+    "nl": "Coming soon!"
 }

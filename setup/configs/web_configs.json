@@ -5,8 +5,22 @@
             "project_id": 0,
             "show_ex": false,
             "check_returncode": false,
-            "cmd": ["command"],
-            "exercises": []
+            "cmd": ["sh", "start.sh"],
+            "cwd": "../web",
+            "exercises": [
+                {
+                    "id": 1,
+                    "value": 2
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 4
+                }
+            ]
         }
     ]
 }

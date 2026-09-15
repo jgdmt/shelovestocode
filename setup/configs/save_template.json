@@ -7,12 +7,14 @@
             "cmd": ["command", "flag", "arg"],
             "cwd": "path",
             "show_ex": true,
+            "add_info": true,
             "check_returncode": true,
             "exercises": [
                 {
                     "id": 1,
                     "value": 10,
-                    "isMandatory": false
+                    "isMandatory": false,
+                    "hard": false
                 }
             ]
         }

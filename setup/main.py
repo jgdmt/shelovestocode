@@ -40,7 +40,7 @@ def main():
     )
     api_thread.start()
 
-    subprocess.run("clear")
+    # subprocess.run("clear")
     win = curses.initscr()
     utils.setup()
     global menu

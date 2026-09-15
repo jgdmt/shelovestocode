@@ -3,6 +3,7 @@ import json
 import atexit
 from enum import Enum
 from utils import clean
+from intra import validate_exercise
 
 
 class Language(int, Enum):
@@ -50,6 +51,7 @@ class Module:
         self.ex: list[Exercise]
         self.show_ex: bool = True
         self.check_returncode: bool = True
+        self.add_info: bool = True
         self.project_id: int
         self.status: Status = status
         self.cmd: list
@@ -113,6 +115,7 @@ class Menu:
             mod.cwd = self.get(module, "cwd", False, cwd)
             mod.show_ex = self.get(module, "show_ex", False, True)
             mod.check_returncode = self.get(module, "check_returncode", False, True)
+            mod.add_info = self.get(module, "add_info", False, True)
             mod.ex = self.parse_exercises(module)
             res.append(mod)
         return res
@@ -149,7 +152,10 @@ class Menu:
         if len(self.branches) > branch:
             if len(self.branches[branch].mod) > mod:
                 if len(self.branches[branch].mod[mod].ex) > ex:
-                    self.branches[branch].mod[mod].ex[ex].status = status
+                    module = self.branches[branch].mod[mod]
+                    # if module.ex[ex].status != Status.FINISHED and status == Status.FINISHED:
+                    #     validate_exercise(module.project_id, module.ex[ex].value)
+                    module.ex[ex].status = status
                     self.update_mod_status(branch, mod)
 
     def update_mod_status(self, branch: int, mod: int) -> None:

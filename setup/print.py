@@ -30,8 +30,8 @@ def print_exercises(win: curses.window, menu: Menu, index: int):
         option = ""
         if curr_exs[i].hard:
             option = " (hard)"
-        elif not curr_exs[i].mandatory:
-            option = " (optional)"
+        if not curr_exs[i].mandatory:
+            option += " (optional)"
         print_line(win, f"{title[4]} {i}{option}", pair, height_mid + i, width_mid)
 
 
@@ -92,7 +92,6 @@ def print_language(win: curses.window, menu: Menu, index: int):
     print_line(win, "En", curses.color_pair(pairs[Language.EN]), height_mid + 1)
     print_line(win, "Fr", curses.color_pair(pairs[Language.FR]), height_mid + 2)
     print_line(win, "Nl", curses.color_pair(pairs[Language.NL]), height_mid + 3)
-
 
 def print_title(win: curses.window, end_height: int):
     text_split = text.welcome_title.split("\n")
