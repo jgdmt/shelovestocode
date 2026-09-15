@@ -30,17 +30,13 @@ def run_api():
     )
 
 def main():
-    #TODO: login if needed
-
-    #TODO: intra
-    #request.get()
     api_thread = threading.Thread(
         target = run_api,
         daemon = True
     )
     api_thread.start()
 
-    # subprocess.run("clear")
+    subprocess.run("clear")
     win = curses.initscr()
     utils.setup()
     global menu

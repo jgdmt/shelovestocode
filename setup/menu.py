@@ -1,6 +1,7 @@
 import curses
 import json
 import atexit
+import subprocess
 from enum import Enum
 from utils import clean
 from intra import validate_exercise
@@ -69,7 +70,7 @@ class Branch:
 class Menu:
 
     def __init__(self):
-        self.user_id: int = 0
+        self.login: str = ""
         self.curr_branch: int = 0
         self.curr_mod: int = 0
         self.curr_ex: int = 0
@@ -143,6 +144,9 @@ class Menu:
         shell_configs = "configs/shell_configs.json"
         web_configs = "configs/web_configs.json"
 
+        res = subprocess.run(["whoami"], capture_output=True, text=True)
+        self.login = str(res.stdout)
+
         self.branches.append(self.parse_file(python_configs))
         self.branches.append(self.parse_file(c_configs))
         self.branches.append(self.parse_file(shell_configs))
@@ -154,7 +158,7 @@ class Menu:
                 if len(self.branches[branch].mod[mod].ex) > ex:
                     module = self.branches[branch].mod[mod]
                     # if module.ex[ex].status != Status.FINISHED and status == Status.FINISHED:
-                    #     validate_exercise(module.project_id, module.ex[ex].value)
+                    #     validate_exercise(self.login, module.project_id, module.ex[ex].value)
                     module.ex[ex].status = status
                     self.update_mod_status(branch, mod)
 
@@ -196,7 +200,7 @@ class Menu:
                     for ex_idx, ex_val in mod_val.items():
                         if int(ex_idx) < len(self.branches[int(i)].mod[int(mod_idx)].ex):
                             self.branches[int(i)].mod[int(mod_idx)].ex[int(ex_idx)].status = ex_val
-                self.update_mod_status(int(i), int(mod_idx))
+                    self.update_mod_status(int(i), int(mod_idx))
 
     def save_ex_status(self, save_file: str = ".save.json") -> None:
         """Save the status of the exercises (started, finished, default)

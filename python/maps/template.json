@@ -35,8 +35,8 @@
         "map": []
     }],
     "help": {
-        "sprites": false,
-        "functions": false,
-        "code": false
+        "sprites": true,
+        "functions": true,
+        "code": true
     }
 }

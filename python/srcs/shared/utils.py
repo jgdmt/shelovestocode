@@ -20,4 +20,4 @@ def find_map_index(map_num: int, offset: int = 0) -> int:
         elif num_str[0][length - 1].isnumeric():
             num = int(num_str[0][len(num_str[0]) - 1])
 
-    return (num + offset + 1) % map_num
+    return (num + offset) % map_num
