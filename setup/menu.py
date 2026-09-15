@@ -54,6 +54,7 @@ class Module:
         self.check_returncode: bool = True
         self.add_info: bool = True
         self.project_id: int
+        self.curr_score: int = 0
         self.status: Status = status
         self.cmd: list
         self.cwd: str
@@ -158,7 +159,7 @@ class Menu:
                 if len(self.branches[branch].mod[mod].ex) > ex:
                     module = self.branches[branch].mod[mod]
                     # if module.ex[ex].status != Status.FINISHED and status == Status.FINISHED:
-                    #     validate_exercise(self.login, module.project_id, module.ex[ex].value)
+                    #     validate_exercise(self.login, module.project_id, module.ex[ex].value + module.curr_score)
                     module.ex[ex].status = status
                     self.update_mod_status(branch, mod)
 
@@ -170,6 +171,8 @@ class Menu:
         perfect = True
         curr_module = self.branches[branch].mod[mod]
         for ex in curr_module.ex:
+            if ex.status == Status.FINISHED:
+                self.branches[branch].mod[mod].curr_score += ex.value
             if ex.mandatory and ex.status == Status.STARTED:
                 curr_module.status = Status.STARTED
                 return
