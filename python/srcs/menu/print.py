@@ -130,7 +130,7 @@ def print_too_small(win: curses.window, lan: str):
     texts = {
         "en": f"Window is too small: expected {configs.screen_min_width} x {configs.screen_min_height} but got {w} x {h}.",
         "fr": f"Fenêtre trop petite: taille attendue de {configs.screen_min_width} x {configs.screen_min_height} mais est de {w} x {h}",
-        "nl": f""
+        "nl": f"Venster is te klein: verwacht {configs.screen_min_width} x {configs.screen_min_height} maar kreeg {w} x {h}."
     }
     text = texts[lan]
     if h < 1 or w < len(text):

@@ -51,4 +51,3 @@ def prepend_line(file, line):
         content = f.read()
         f.seek(0, 0)
         f.write(line.rstrip('\r\n') + '\n' + content)
-

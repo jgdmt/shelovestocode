@@ -4,7 +4,6 @@ import text
 import print as p
 from menu import Menu, Keys, Status
 from utils import check_resize, setup
-from intra import validate_exercise
 
 
 def check_return(menu: Menu, code: int) -> None:
@@ -16,6 +15,7 @@ def check_return(menu: Menu, code: int) -> None:
     else:
         return
     menu.update_ex(menu.curr_branch, menu.curr_mod, menu.curr_ex, status)
+
 
 def copy_cmd(cmd: list, module: str, ex: str, lan: str) -> None:
     cmd_cpy = []

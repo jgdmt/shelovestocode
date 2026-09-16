@@ -6,7 +6,7 @@ import subprocess
 from .level import Level
 from .player import Player, LEFT, RIGHT, UP, DOWN
 from .display import Display
-from .tools import get_text, copy_map
+from .tools import get_text
 from .stats import Stats
 from .text import max_cols_msg, max_lines_msg, win_msg, move_stats, wall_stats, teleport, door_stats
 from srcs.shared import configs, utils
@@ -74,7 +74,6 @@ class Game:
         except FileNotFoundError:
             return
 
-
     def init_replace(self):
         for y in range(configs.map_height):
             for x in range(configs.map_width):
@@ -83,14 +82,14 @@ class Game:
                     self.player.y = y
                     self.curr_map.map[y][x] = configs.MapVal.PATH.value
                 if self.curr_map.map[y][x] == configs.MapVal.TELEPORTER \
-                    and self.curr_map.repeat == 0:
+                        and self.curr_map.repeat == 0:
                     self.curr_map.map[y][x] = configs.MapVal.EXIT.value
 
     def check_lines_cols(self):
         try:
             with open(configs.game_dir / "work.py", 'r') as f:
                 lines = f.readlines()
-                if self.curr_map.max_lines > 0 and len(lines) > self.curr_map.max_lines + 2: # +2 because we add import and print override
+                if self.curr_map.max_lines > 0 and len(lines) > self.curr_map.max_lines + 2:    # +2 because we add import and print override
                     self.display.print_error(f"{get_text(max_lines_msg, self.lan)} ({self.curr_map.max_lines})")
                 if self.curr_map.max_cols > 0:
                     for i in range(len(lines)):
@@ -127,11 +126,11 @@ class Game:
         except FileNotFoundError:
             self.display.print_error(f"File not found for module {module}, exercise {ex}")
 
-        for maps_json in ex_json["level"]: # Add error management
+        for maps_json in ex_json["level"]:  # Add error management
             level = Level()
 
             map = []
-            for l in maps_json["map"]: # Add error management
+            for l in maps_json["map"]:  # Add error management
                 line = []
                 for c in l:
                     line.append(c)
@@ -159,7 +158,6 @@ class Game:
         for elem in elems.values():
             try:
                 with open(configs.sprites_dir / elem.sprite_file, 'r') as f:
-                    #TODO: error if file not found
                     elem.sprite = f.read().split('\n')
                     self.display.init_pair(elem)
             except FileNotFoundError:
@@ -179,7 +177,6 @@ class Game:
         with open(configs.results, 'w') as f:
             f.write('2')
         exit()
-
 
     def victory(self):
         with open(configs.results, 'w') as f:

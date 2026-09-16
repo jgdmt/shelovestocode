@@ -44,6 +44,7 @@ def get_project_id(branch: int, module: int):
         res = -1
     return res
 
+
 def reset_intra(branch: int, module: int):
     project_id = get_project_id(branch, module)
     if project_id == -1:
@@ -55,6 +56,7 @@ def reset_intra(branch: int, module: int):
     r = requests.post(url, json=body)
 
     print(r)
+
 
 def reset_save(branch: int, module: int):
     file = ".save.json"
@@ -72,6 +74,7 @@ def reset_save(branch: int, module: int):
 
     with open(file, "w") as f:
         json.dump(configs, f)
+
 
 def main():
     args = sys.argv

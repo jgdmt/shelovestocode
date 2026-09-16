@@ -18,8 +18,8 @@ class Player:
         self.game = game
         self.display = display
 
-    def override_print(self, *args, sep = None, end = None, file = None, flush = None):
-            self.display.print_log("You are not allowed to use this function. Did you perhaps mean to use player.print instead?")
+    def override_print(self, *args, sep=None, end=None, file=None, flush=None):
+        self.display.print_log("You are not allowed to use this function. Did you perhaps mean to use player.print instead?")
 
     def walk(self, direction: tuple):
         self.display.get_input()
@@ -156,7 +156,7 @@ class Player:
                 self.display.print_cell(x, y)
             else:
                 self.display.print_log(get_text(riddle_result, self.game.lan)[1])
-    
+
     def print(self, *params: object, sep: str = " ", end: str = "", file: str = None, flush: bool = False):
         self.display.get_input()
         if self.game.game_ended:

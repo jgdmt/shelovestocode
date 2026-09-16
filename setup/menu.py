@@ -83,7 +83,7 @@ class Menu:
         """Get the value associated with a key in a dictionary. Return the
         value if found, another value if set or exit if mandatory is true.
 
-        :param configs: the dictionary where to search.        
+        :param configs: the dictionary where to search.
         :param key: the key of the dictionary.
         :param mandatory: if true, will print error and exit if value not found.
         :param ret: the value to return if the key was not found.
@@ -164,7 +164,7 @@ class Menu:
                     self.update_mod_status(branch, mod)
 
     def update_mod_status(self, branch: int, mod: int) -> None:
-        """Update the module status (started, finished, default, perfect) 
+        """Update the module status (started, finished, default, perfect)
         according to the status of all the exercises.
         """
         finished = True
@@ -223,5 +223,6 @@ class Menu:
             json.dump(dico, f)
 
         clean()
+
 
 menu = Menu()

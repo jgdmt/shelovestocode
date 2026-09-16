@@ -14,15 +14,15 @@ from .help import help_page
 from .struct import GameInfo, Windows, Keys, Menu
 from srcs.shared import configs
 
-#TODO: error management
+# TODO: error management
 
 signal.signal(signal.SIGINT, signal.SIG_IGN)
+
 
 def run_game(mod: str, ex: str, lan: str):
     try:
         result = subprocess.run(["python3", "-m", configs.work_path_cmd, mod, ex, lan],
                                 stderr=subprocess.PIPE, stdout=None, text=True)
-        id 
         with open(configs.results, 'r') as f:
             status = f.read().strip()
             res = int(status)
@@ -32,6 +32,7 @@ def run_game(mod: str, ex: str, lan: str):
     except ValueError:
         res = 1
     return result, res
+
 
 def game_loop(wins: Windows, game_info: GameInfo, mod: int, ex: int):
     idx = 0

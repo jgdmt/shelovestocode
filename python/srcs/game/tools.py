@@ -4,6 +4,7 @@ def get_text(dico: dict, key: str) -> str:
         res = dico.get('en')
     return res
 
+
 def copy_map(map: str) -> list[list[str]]:
     copy = []
     for line in map:

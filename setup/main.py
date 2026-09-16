@@ -2,8 +2,6 @@
 
 It does the general setup (select language, branch, module and exercise).
 It runs the command set up in the right configs file.
-It waits for the return code of the subprocess, 0 for success
-and 1 for failure.
 """
 
 import curses
@@ -14,7 +12,7 @@ import navigate
 import threading
 import uvicorn
 from api import app
-from menu import Menu, menu
+from menu import menu
 
 
 signal.signal(signal.SIGINT, signal.SIG_IGN)
@@ -23,16 +21,17 @@ signal.signal(signal.SIGINT, signal.SIG_IGN)
 def run_api():
     uvicorn.run(
         app,
-        host = "127.0.0.1",
-        port = 8000,
-        log_level = "critical",
-        access_log = False
+        host="127.0.0.1",
+        port=8000,
+        log_level="critical",
+        access_log=False
     )
+
 
 def main():
     api_thread = threading.Thread(
-        target = run_api,
-        daemon = True
+        target=run_api,
+        daemon=True
     )
     api_thread.start()
 
