@@ -158,8 +158,8 @@ class Menu:
             if len(self.branches[branch].mod) > mod:
                 if len(self.branches[branch].mod[mod].ex) > ex:
                     module = self.branches[branch].mod[mod]
-                    # if module.ex[ex].status != Status.FINISHED and status == Status.FINISHED:
-                    #     validate_exercise(self.login, module.project_id, module.ex[ex].value + module.curr_score)
+                    if module.ex[ex].status != Status.FINISHED and status == Status.FINISHED:
+                        validate_exercise(self.login, module.project_id, module.ex[ex].value + module.curr_score)
                     module.ex[ex].status = status
                     self.update_mod_status(branch, mod)
 
@@ -169,6 +169,7 @@ class Menu:
         """
         finished = True
         perfect = True
+        self.branches[branch].mod[mod].curr_score = 0
         curr_module = self.branches[branch].mod[mod]
         for ex in curr_module.ex:
             if ex.status == Status.FINISHED:
