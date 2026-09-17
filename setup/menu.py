@@ -58,6 +58,7 @@ class Module:
         self.status: Status = status
         self.cmd: list
         self.cwd: str
+        self.blocking: bool = True
 
 
 class Branch:
@@ -119,6 +120,7 @@ class Menu:
             mod.check_returncode = self.get(module, "check_returncode", False, True)
             mod.add_info = self.get(module, "add_info", False, True)
             mod.ex = self.parse_exercises(module)
+            mod.blocking = self.get(module, "blocking", False, True)
             res.append(mod)
         return res
 

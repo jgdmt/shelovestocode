@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset=utf-8>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="stylesheet" href="../../css/quiz.css">
+        <script src="../../js/utils.js" defer></script>
+        <script src="../../js/level.js" defer></script>
+    </head>
+    <body>
+
+        <!-- Side menu -->
+        <div id="side-menu" class="side-menu" style="width: 300px;">
+            <div>
+                <h3><b>SheLovesToCode</b></h3>
+            </div>
+            <a href="../../index.html">Home</a>
+            <nav id="ex-list"></nav>
+        </div>
+
+        <!-- exercise -->
+        <div style="margin-left: 340px;">
+            <h1>Hello and welcome</h1>
+
+            <!-- html code -->
+             <div style="background-color:white; width: fit-content;">
+<textarea style="resize: none; border: #e2f9f1 solid 1px; border-radius: 5px; margin: 19px; padding: 19px; text-align: left;">
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;link href="mycss.css"&gt;
+        &lt;script src="myjs.js&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div&gt;
+            A story with a random title&lt;/h3&gt;
+            &lt;p&gt;This is the story of a random character.&lt;/p&gt;
+            &lt;div&gt;
+                &lt;"storybook.png"&gt;
+            &lt;/div&gt;
+    &lt;/body&gt;
+</textarea>
+<button onclick="checkFillInExercise()" id="finish-btn">Finish</button>
+
+            </div>
+
+
+            <div id="next-btn" hidden>
+                <p>Congratulations! Level finished!</p>
+                <a id="next-btn-link">Next</a>
+            </div>
+
+    </div>
+    </body>
+</html>

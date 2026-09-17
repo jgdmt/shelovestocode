@@ -38,15 +38,18 @@ def load_exercise(win: curses.window, menu: Menu) -> bool:
         cmd = mod.cmd
     subprocess.run(["clear"])
     try:
-        ret = subprocess.run(cmd, cwd=mod.cwd)
-        if mod.check_returncode:
-            check_return(menu, ret.returncode)
-        curses.reset_prog_mode()
-        setup()
-        win.refresh()
-        if ret.returncode == 0:
-            return True
-        return False
+        if mod.blocking:
+            ret = subprocess.run(cmd, cwd=mod.cwd)
+            if mod.check_returncode:
+                check_return(menu, ret.returncode)
+            curses.reset_prog_mode()
+            setup()
+            win.refresh()
+            if ret.returncode == 0:
+                return True
+            return False
+        else:
+            subprocess.Popen(cmd, cwd=mod.cwd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except KeyboardInterrupt:
         pass
 

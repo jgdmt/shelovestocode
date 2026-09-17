@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset=utf-8>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="stylesheet" href="../../css/fillin.css">
+        <script src="../../js/utils.js" defer></script>
+        <script src="../../js/level.js" defer></script>
+    </head>
+    <body>
+
+        <!-- Side menu -->
+        <div id="side-menu" class="side-menu" style="width: 300px;">
+            <div>
+                <h3><b>SheLovesToCode</b></h3>
+            </div>
+            <a href="../../index.html">Home</a>
+            <nav id="ex-list"></nav>
+        </div>
+
+        <!-- diary -->
+        <button class="diary-btn" onclick="openDiary()"  style="right: 0; top: 0; position: absolute;">Click me</button>
+        <div id="diary" class="diary">
+            <button onclick="closeDiary()">Close me</button>
+            This is a diary<br>
+            <textarea id="diary-entry">Write something</textarea>
+        </div>
+
+        <!-- exercise -->
+        <div style="margin-left: 340px;">
+            <h1>Hello and welcome</h1>
+
+            <!-- html code -->
+            <div style="background-color:white; width: fit-content;">
+<pre style="margin: 10px;">
+
+&lt;!DOCTYPE html&gt;
+<span style="color: red;">&lt;html&gt;</span>
+    <span style="color: orange">&lt;head&gt;</span>
+    <span style="color: orange">&lt;/head&gt;</span>
+    <span style="color: green">&lt;body&gt;</span>
+        <select>
+            <option selected disabled hidden></option>
+            <option>&lt;h2&gt;</option>
+            <option value="correct">&lt;h3&gt;</option>
+            <option>&lt;h1&gt;</option>
+            <option>&lt;h4&gt;</option>
+            <option>&lt;title&gt;</option>
+        </select>A story with a random title&lt;/h3&gt;
+        <span style="color: purple">&lt;p&gt;</span>This is the story of a random character.<span style="color: purple;">&lt;/p&gt;</span>
+    <span style="color: green">&lt;/body&gt;</span>
+<span style="color: red;">&lt;/html&gt;</span>
+<button onclick="checkQuizExercise()" id="finish-btn">Finish</button>
+
+</pre>
+                </div>
+
+                <!-- result -->
+                <div name="hidden-result" hidden style="background-color: white; width: fit-content;">
+                    <div>
+                        <h3>A story with a random title</h3>
+                        <p>This is the story of a random character.</p>
+                    </div>
+                </div>
+
+                <!-- end tips -->
+                <div name="hidden-result" hidden>
+                    <p style="background-color: white;">
+                        &lt;html&gt;, &lt;head&gt;, &lt;body&gt;, &lt;p&gt; and &lt;h3&gt; are called tags.<br>
+                        Most tags go in pairs, the opening one (e.g. &lt;html&gt;) and the closing one (e.g. &lt;/html&gt;).<br><br>
+                        There are 3 fundamental tags:<br>
+                            &lt;html&gt;&lt;/html&gt;: we always start with the tag &lt;html&gt; (it announces that the rest will be html code) and we close everything at the end with &lt;/html&gt;.<br>
+                            &lt;head&gt;&lt;/head&gt;: contains metadata (i.e. data not readable on the web page but important for the web browser).<br>
+                            &lt;body&gt;&lt;/body&gt;: contains everything visible on the web page.<br><br>
+                        There are a lot of different tags that do different things. Don't hesitate to look them up on internet!
+                    </p>
+                </div>
+
+            <!-- next button -->
+            <div id="next-btn" hidden>
+
+                <p>Congratulations! Level finished!</p>
+                <a id="next-btn-link">Next</a>
+            </div>
+
+    </div>
+    </body>
+</html>

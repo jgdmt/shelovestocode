@@ -1,0 +1,40 @@
+html {
+    font-family: fantasy;
+    background-color: #26d59a21;
+}
+
+.diary {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+}
+
+.ex-link-done {
+    color: green;
+    display: block;
+}
+
+.ex-link-started {
+    color: orange;
+    display: block;
+}
+
+.ex-link-current {
+    color: grey;
+    display: block;
+}
+
+.ex-link-default {
+    display: block;
+}
+
+.side-menu {
+    height: 100%;
+    top: 0;
+    position:fixed;
+}
