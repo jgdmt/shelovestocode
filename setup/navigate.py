@@ -2,8 +2,8 @@ import curses
 import subprocess
 import text
 import print as p
-from menu import Menu, Keys, Status
-from utils import check_resize, setup
+from menu import Menu, Keys, Status, Order
+from utils import check_resize, setup, languages
 
 
 def check_return(menu: Menu, code: int) -> None:
@@ -31,7 +31,6 @@ def load_exercise(win: curses.window, menu: Menu) -> bool:
     curses.def_prog_mode()
     curses.endwin()
     mod = menu.branches[menu.curr_branch].mod[menu.curr_mod]
-    languages = ['en', 'fr', 'nl']
     lan = languages[menu.language]
     if mod.add_info:
         cmd = copy_cmd(mod.cmd, f"{menu.curr_mod}", f"{menu.curr_ex}", lan)
@@ -76,11 +75,10 @@ def choose_exercise(win: curses.window, menu: Menu) -> None:
 
 def choose_module(win: curses.window, menu: Menu) -> None:
     check_resize(win)
-    lan = ['en', 'fr', 'nl']
     if menu.branches[menu.curr_branch].mod is None or \
             len(menu.branches[menu.curr_branch].mod) < 1:
         while True:
-            p.print_empty_menu(win, text.no_module[lan[menu.language]])
+            p.print_empty_menu(win, text.no_module[languages[menu.language]])
             win.getch()
             return
     modules_nb = len(menu.branches[menu.curr_branch].mod)
@@ -117,9 +115,9 @@ def choose_branch(win: curses.window, menu: Menu) -> None:
         if input == Keys.QUIT or input == Keys.ESC or input == Keys.LEFT:
             return
         elif input == Keys.UP:
-            index = (index - 1) % 4
+            index = (index - 1) % len(Order)
         elif input == Keys.DOWN:
-            index = (index + 1) % 4
+            index = (index + 1) % len(Order)
         elif input == Keys.CONFIRM or input == Keys.RIGHT:
             menu.curr_branch = index
             choose_module(win, menu)
@@ -137,9 +135,9 @@ def choose_language(win: curses.window, menu: Menu) -> None:
         if input == Keys.QUIT or input == Keys.ESC:
             return
         elif input == Keys.UP:
-            index = (index - 1) % 3
+            index = (index - 1) % len(languages)
         elif input == Keys.DOWN:
-            index = (index + 1) % 3
+            index = (index + 1) % len(languages)
         elif input == Keys.CONFIRM or input == Keys.RIGHT:
             menu.language = index
             choose_branch(win, menu)

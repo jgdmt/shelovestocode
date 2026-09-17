@@ -1,6 +1,7 @@
 import curses
 import text
 from menu import Order, Status, Menu, Language
+from utils import languages
 
 
 def print_empty_menu(win: curses.window, msg: str):
@@ -10,7 +11,7 @@ def print_empty_menu(win: curses.window, msg: str):
 
 def print_exercises(win: curses.window, menu: Menu, index: int):
     win.clear()
-    lan = ['en', 'fr', 'nl']
+    lan = languages
     title = text.title[lan[menu.language]]
     curr_exs = menu.branches[menu.curr_branch].mod[menu.curr_mod].ex
     ex_nb = len(curr_exs)
@@ -39,7 +40,7 @@ def print_exercises(win: curses.window, menu: Menu, index: int):
 def print_modules(win: curses.window, menu: Menu, index: int):
     win.clear()
     modules_nb = 0
-    lan = ['en', 'fr', 'nl']
+    lan = languages
     title = text.title[lan[menu.language]]
     if menu.branches[menu.curr_branch].mod is not None:
         modules_nb = len(menu.branches[menu.curr_branch].mod)
@@ -67,13 +68,13 @@ def print_modules(win: curses.window, menu: Menu, index: int):
 def print_menu(win: curses.window, menu: Menu, index: int):
     win.clear()
 
-    lan = ['en', 'fr', 'nl']
+    lan = languages
     title = text.title[lan[menu.language]]
-    pairs = [1, 1, 1, 1]
+    pairs = [1] * len(Order)
     pairs[index] = 2
-    height_mid = (win.getmaxyx()[0] - 4) // 2
-    print_title(win, height_mid - 5)
-    print_line(win, title[0], curses.color_pair(1), height_mid - 4)
+    height_mid = (win.getmaxyx()[0] - len(Order)) // 2
+    print_title(win, height_mid - (len(Order) + 1))
+    print_line(win, title[0], curses.color_pair(1), height_mid - len(Order))
     print_instructions(win, menu, height_mid - 1)
     print_line(win, "Python", curses.color_pair(pairs[Order.PYTHON]), height_mid + 1)
     print_line(win, "C", curses.color_pair(pairs[Order.C]), height_mid + 2)
@@ -84,10 +85,10 @@ def print_menu(win: curses.window, menu: Menu, index: int):
 def print_language(win: curses.window, menu: Menu, index: int):
     win.clear()
 
-    pairs = [1, 1, 1]
+    pairs = [1] * len(languages)
     pairs[index] = 2
-    height_mid = (win.getmaxyx()[0] - 3) // 2
-    print_title(win, height_mid - 5)
+    height_mid = (win.getmaxyx()[0] - len(Language)) // 2
+    print_title(win, height_mid - (len(Language) + 1))
     print_line(win, "Choose your language:", curses.color_pair(1), height_mid - 4)
     print_instructions(win, menu, height_mid - 1)
     print_line(win, "En", curses.color_pair(pairs[Language.EN]), height_mid + 1)
@@ -103,7 +104,7 @@ def print_title(win: curses.window, end_height: int):
 
 
 def print_instructions(win: curses.window, menu: Menu, end_height: int, left_arrow: bool = True):
-    lan = ['en', 'fr', 'nl']
+    lan = languages
     instr = text.instructions[lan[menu.language]]
     print_line(win, instr[0], curses.color_pair(5), end_height - 2)
     print_line(win, instr[1], curses.color_pair(5), end_height - 1)

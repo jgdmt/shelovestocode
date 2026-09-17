@@ -213,7 +213,7 @@ class Menu:
         :param save_file: the json file (default .save.json)
         """
         dico = {}
-        for branch in range(4):
+        for branch in range(len(Order)):
             dico[str(branch)] = {}
             for i in range(len(self.branches[branch].mod)):
                 dico[str(branch)][str(i)] = {}
