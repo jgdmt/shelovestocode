@@ -49,13 +49,22 @@ def reset_intra(branch: int, module: int):
     project_id = get_project_id(branch, module)
     if project_id == -1:
         return
-    res = subprocess.run(["whoami"], capture_output=True, text=True)
-    login = str(res.stdout)
-    url = "https://sltc.42belgium.be/update-project"
-    body = {"login": login, "project_id": project_id, "score": 0}
-    r = requests.post(url, json=body)
 
-    print(r)
+    try:
+        res = subprocess.run(["whoami"], capture_output=True, text=True)
+        login = (str(res.stdout)).strip('\n')
+        url = "https://sltc.42belgium.be/update-project"
+        body = {"login": login, "project_id": project_id, "score": 0}
+        r = requests.post(url, json=body)
+    except requests.exceptions.RequestException as e:
+        print(e)
+        return
+
+    if r.status_code != 200:
+        print(f"{r.status_code}: {r.text}")
+    else:
+        print(f'{r.status_code}')
+        
 
 
 def reset_save(branch: int, module: int):

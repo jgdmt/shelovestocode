@@ -146,7 +146,7 @@ class Menu:
         web_configs = "configs/web_configs.json"
 
         res = subprocess.run(["whoami"], capture_output=True, text=True)
-        self.login = str(res.stdout)
+        self.login = (str(res.stdout)).strip('\n')
 
         self.branches.append(self.parse_file(python_configs))
         self.branches.append(self.parse_file(c_configs))
