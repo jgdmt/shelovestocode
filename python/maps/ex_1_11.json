@@ -1,22 +1,22 @@
 {
     "level": [{
         "map": [
-            "22222022222",
-            "23112024112",
-            "22212222212",
-            "00211121112",
-            "00222121222",
-            "00002111200",
-            "00002222200"
+            "2222222",
+            "2311142",
+            "2222222"
         ],
         "notes": {
             "en": [
-                "You can define different functions! Useful if there are different patterns."
+                "Hey, I found something very nice. It's a function and it's so useful!",
+                "",
+                "When you call a function, it will execute all the code inside of it.",
+                "",
+                "Does it look a little bit familiar? You have been using them from the beginning!"
             ]
         }
     }],
     "help": {
-                "sprites": true,
+        "sprites": true,
         "functions": true,
         "code": true,
         "player": true,

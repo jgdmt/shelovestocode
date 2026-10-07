@@ -1,46 +1,41 @@
 {
     "level": [{
         "map": [
-            "0022222220222",
-            "002t2t2t202t2",
-            "2226262622252",
-            "2111111111252",
-            "2122262221252",
-            "2121111121252",
-            "2121262121252",
-            "2151636121552",
-            "2121262121252",
-            "2121111121252",
-            "2122262221252",
-            "2111111111252",
-            "2226262622252",
-            "002t2t2t202t2",
-            "0022222220222"
+            "2222222222222222222",
+            "2111111111111111112",
+            "2122222222222222252",
+            "2121111111111111112",
+            "2125222222222222222",
+            "2121111111111111112",
+            "2122222222222222252",
+            "2121111111111111112",
+            "2125222222222222222",
+            "2121111111111111112",
+            "2122222222222222252",
+            "2121111111111111112",
+            "2125222222222222222",
+            "2421111111111111132",
+            "2222222222222222222"
         ],
-        "random_doors": {
-            "a": {
-                "doors": [[5, 6], [4, 7], [5, 8], [6, 7]],
-                "fg_color": "22B14C"
-            },
-            "b": {
-                "doors": [[5, 4], [5, 10]],
-                "fg_color": "911196"
-            },
-            "c": {
-                "doors": [[3, 2], [5, 2], [7, 2]],
-                "fg_color": "18399E"
-            },
-            "d": {
-                "doors": [[3, 12], [5, 12], [7, 12]],
-                "fg_color": "ED1C24"
-            }
-        },
         "notes": {
             "en": [
-                "Time to mix everything you've learned so far!"
+                "This level is so big! Good thing you have now a customized walk function. It will make things easier!",
+                "",
+                "Don't hesitate to write as many functions as you need!",
+                "",
+                "Oh we need a password for this one. Did you know that variables have a type? For example if you write:",
+                "myVar = 'hello'",
+                "Then myVar will have the type string (str) in python because it stores a list of characters. There are different types and they depend on the language you are learning.",
+                "",
+                "The password is a type, in python, that represents a numeric value. Don't hesitate to look it up on internet!"
             ]
         },
-        "repeat": 4
+        "print": [
+            "int",
+            "integer",
+            "complex",
+            "float"
+        ]
     }],
     "help": {
         "sprites": true,

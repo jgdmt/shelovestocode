@@ -179,11 +179,11 @@ class Menu:
                 self.branches[branch].mod[mod].curr_score += ex.value
             if ex.mandatory and ex.status == Status.STARTED:
                 curr_module.status = Status.STARTED
-                return
             if not ex.mandatory and (ex.status == Status.STARTED or ex.status == Status.DEFAULT):
                 perfect = False
-            if ex.mandatory and ex.status == Status.DEFAULT:
+            if ex.mandatory and (ex.status == Status.DEFAULT or ex.status == Status.STARTED):
                 finished = False
+                perfect = False
         if finished:
             curr_module.status = Status.FINISHED
         if perfect:

@@ -1,63 +1,26 @@
 {
     "level": [{
         "map": [
-            "000000222000000",
-            "0000002t2000000",
-            "000000212000000",
-            "000000212000000",
-            "000000212000000",
-            "000000212000000",
-            "222222262222222",
-            "2t11116361111t2",
-            "222222262222222",
-            "000000212000000",
-            "000000212000000",
-            "000000212000000",
-            "000000212000000",
-            "0000002t2000000",
-            "000000222000000"
+            "2222222",
+            "2111612",
+            "2122232",
+            "2t16112",
+            "2122622",
+            "2111120",
+            "2222220"
         ],
         "random_doors": {
             "a": {
-                "doors": [[7, 6], [6, 7], [8, 7], [7, 8]],
+                "doors": [[4, 1], [3, 3], [4, 4]],
                 "fg_color": "22B14C"
             }
         },
+        "repeat": 3,
         "notes": {
             "en": [
-                "You can put conditions inside of loops and loops inside of conditions. So many ways to solve this!",
-                "",
-                "Can you do it using a single loop?",
-                "",
-                "(Maximum lines count: 20)"
+                "Well, hello again! I didn't think we would meet again! Did you decide to do a jump in the past?"
             ]
         },
-        "repeat": 2,
-        "max_lines": 20
-    }],
-    "help": {
-        "sprites": true,
-        "functions": true,
-        "code": true,
-        "player": true,
-        "exit": true,
-        "walk": true,
-        "direction": true,
-        "variables": true,
-        "closed_exit": true,
-        "print": true,
-        "door": true,
-        "open_door": true,
-        "comments": true,
-        "if": true,
-        "fortune": true,
-        "random_door": true,
-        "set": true,
-        "else": true,
-        "elif": true,
-        "teleporter": true,
-        "comparison_ops": true,
-        "while": true,
-        "for": true
-    }
+        "character": "time_traveler.txt"
+    }]
 }
