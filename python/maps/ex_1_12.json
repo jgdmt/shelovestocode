@@ -1,21 +1,22 @@
 {
     "level": [{
         "map": [
-            "222222",
-            "232142",
-            "211122",
-            "222220"
+            "22222022222",
+            "23112024112",
+            "22212222212",
+            "00211121112",
+            "00222121222",
+            "00002111200",
+            "00002222200"
         ],
         "notes": {
             "en": [
-                "Let's combine functions and variables... By learning about functions arguments!",
-                "",
-                "Spend some time to try things and get a better understanding on how functions work! You can also check on internet or ask your neighbours."
+                "You can define different functions! Useful if there are different patterns."
             ]
         }
     }],
     "help": {
-        "sprites": true,
+                "sprites": true,
         "functions": true,
         "code": true,
         "player": true,

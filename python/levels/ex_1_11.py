@@ -1,10 +1,10 @@
 from .game import player, LEFT, RIGHT, UP, DOWN
 
-def up_2():
-    player.walk(UP)
-    player.walk(UP)
+# This is a function whose name is 'fun'. You can rename it but remember to call it with the name you gave
+def fun():
+    player.walk(RIGHT)
+    # You are inside the function
+# You are outside the function
 
-def left_2():
-    player.walk(LEFT)
-    player.walk(LEFT)
-
+# This is "calling a function"
+fun()

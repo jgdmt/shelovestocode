@@ -1,25 +1,16 @@
 {
     "level": [{
         "map": [
-            "22222222222222222",
-            "23555555555555552",
-            "22222222222222252",
-            "24200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25200000000000252",
-            "25222222222222252",
-            "25555555555555552",
-            "22222222222222222"
+            "22222222",
+            "23117142",
+            "22222222"
         ],
+        "character": "dragon.txt",
         "notes": {
             "en": [
-                "There are no line limits this time, but there's clearly a faster way to solve the level than write instruction one by one... What about using functions...?"
+                "Hello. I am the ancient dragon of wisdom. I see that your path is blocked by a damaged door. I have a piece of advice for you, young one.",
+                "",
+                "Sometimes violence is not the answer, but the question, and the answer is yes! Try to break this door until it breaks!"
             ]
         }
     }],
@@ -47,6 +38,9 @@
         "comparison_ops": true,
         "while": true,
         "for": true,
-        "function": true
+        "function": true,
+        "riddle": true,
+        "solve_riddle": true,
+        "get_riddle": true
     }
 }

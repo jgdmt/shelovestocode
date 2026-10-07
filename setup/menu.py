@@ -178,15 +178,16 @@ class Menu:
                 self.branches[branch].mod[mod].curr_score += ex.value
             if ex.mandatory and ex.status == Status.STARTED:
                 curr_module.status = Status.STARTED
-                return
             if not ex.mandatory and (ex.status == Status.STARTED or ex.status == Status.DEFAULT):
                 perfect = False
-            if ex.mandatory and ex.status == Status.DEFAULT:
+            if ex.mandatory and (ex.status == Status.DEFAULT or ex.status == Status.STARTED):
                 finished = False
+                perfect = False
         if finished:
             curr_module.status = Status.FINISHED
         if perfect:
             curr_module.status = Status.PERFECT
+
 
     def parse_ex_status(self, save_file: str = ".save.json") -> None:
         """Parse the save file where the exercises status (started, finished,

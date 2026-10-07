@@ -1,19 +1,39 @@
 {
     "level": [{
         "map": [
-            "2222222",
-            "2311142",
-            "2222222"
+            "000000222000000",
+            "0000002t2000000",
+            "000000212000000",
+            "000000212000000",
+            "000000212000000",
+            "000000212000000",
+            "222222262222222",
+            "2t11116361111t2",
+            "222222262222222",
+            "000000212000000",
+            "000000212000000",
+            "000000212000000",
+            "000000212000000",
+            "0000002t2000000",
+            "000000222000000"
         ],
+        "random_doors": {
+            "a": {
+                "doors": [[7, 6], [6, 7], [8, 7], [7, 8]],
+                "fg_color": "22B14C"
+            }
+        },
         "notes": {
             "en": [
-                "Hey, I found something very nice. It's a function and it's so useful!",
+                "You can put conditions inside of loops and loops inside of conditions. So many ways to solve this!",
                 "",
-                "When you call a function, it will execute all the code inside of it.",
+                "Can you do it using a single loop?",
                 "",
-                "Does it look a little bit familiar? You have been using them from the beginning!"
+                "(Maximum lines count: 20)"
             ]
-        }
+        },
+        "repeat": 2,
+        "max_lines": 20
     }],
     "help": {
         "sprites": true,
@@ -38,7 +58,6 @@
         "teleporter": true,
         "comparison_ops": true,
         "while": true,
-        "for": true,
-        "function": true
+        "for": true
     }
 }
