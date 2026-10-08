@@ -191,6 +191,10 @@
                 },
                 {
                     "id": 19,
+                    "value": 10
+                },
+                {
+                    "id": 20,
                     "value": 10,
                     "isMandatory": false
                 }

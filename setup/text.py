@@ -13,18 +13,21 @@ welcome_title = r'''
 
 instructions = {
     "en": [
+        "Do not close this window!",
         "Use the Up and Down Arrows to move",
         "Enter or Right Arrow to confirm",
         "Q or Esc or Left Arrow to leave",
         "Q or Esc to leave"
     ],
     "fr": [
+        "Ne ferme pas cette fenêtre !",
         "Flèche du haut et Flèche du bas pour se déplacer",
-        "Entrée ou Flèche du bas pour confirmer",
+        "Entrée ou Flèche de droite pour confirmer",
         "Q or Esc ou Flèche gauche pour quitter",
         "Q ou Esc pour quitter"
     ],
     "nl": [
+        "",
         "Gebruik de pijltjestoetsen omhoog en omlaag om te navigeren",
         "Enter of pijl naar rechts om te bevestigen",
         "Q of Esc of pijl naar links om af te sluiten",
@@ -58,6 +61,6 @@ title = {
 
 no_module = {
     "en": "Coming soon!",
-    "fr": "Bientöt disponible !",
+    "fr": "Bientôt disponible !",
     "nl": "Coming soon!"
 }

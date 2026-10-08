@@ -1,5 +1,81 @@
 {
     "cmd": [""],
     "modules": [
+        {
+            "project_id": 0,
+            "show_ex": false,
+            "check_returncode": false,
+            "blocking": false,
+            "cmd": ["sh", "start.sh"],
+            "cwd": "../web",
+            "exercises": [
+                {
+                    "id": 1,
+                    "value": 2
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 4
+                },
+                {
+                    "id": 4,
+                    "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 4
+                },
+                {
+                    "id": 6,
+                    "value": 4
+                },
+                {
+                    "id": 7,
+                    "value": 4
+                },
+                {
+                    "id": 8,
+                    "value": 4
+                },
+                {
+                    "id": 9,
+                    "value": 4
+                }
+            ]
+        },
+                {
+            "project_id": 0,
+            "show_ex": false,
+            "check_returncode": false,
+            "blocking": false,
+            "cmd": ["sh", "start.sh"],
+            "cwd": "../web",
+            "exercises": [
+                {
+                    "id": 1,
+                    "value": 2
+                },
+                {
+                    "id": 2,
+                    "value": 2
+                },
+                {
+                    "id": 3,
+                    "value": 4
+                },
+                {
+                    "id": 4,
+                    "value": 4
+                },
+                {
+                    "id": 5,
+                    "value": 4
+                }
+            ]
+        }
     ]
 }

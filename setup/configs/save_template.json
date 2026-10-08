@@ -9,6 +9,7 @@
             "show_ex": true,
             "add_info": true,
             "check_returncode": true,
+            "blocking": true,
             "exercises": [
                 {
                     "id": 1,
