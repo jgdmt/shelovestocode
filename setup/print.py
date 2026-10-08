@@ -106,12 +106,13 @@ def print_title(win: curses.window, end_height: int):
 def print_instructions(win: curses.window, menu: Menu, end_height: int, left_arrow: bool = True):
     lan = languages
     instr = text.instructions[lan[menu.language]]
-    print_line(win, instr[0], curses.color_pair(5), end_height - 2)
-    print_line(win, instr[1], curses.color_pair(5), end_height - 1)
+    print_line(win, instr[0], curses.color_pair(6), end_height - 3)
+    print_line(win, instr[1], curses.color_pair(5), end_height - 2)
+    print_line(win, instr[2], curses.color_pair(5), end_height - 1)
     if left_arrow:
-        print_line(win, instr[2], curses.color_pair(5), end_height)
-    else:
         print_line(win, instr[3], curses.color_pair(5), end_height)
+    else:
+        print_line(win, instr[4], curses.color_pair(5), end_height)
 
 
 def print_line(win: curses.window, text: str, pair: int, height: int, width: int = -1):

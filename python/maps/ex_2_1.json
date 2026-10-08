@@ -41,6 +41,8 @@
         "function": true,
         "riddle": true,
         "solve_riddle": true,
-        "get_riddle": true
+        "get_riddle": true,
+        "broken_door": true,
+        "break_door": true
     }
 }

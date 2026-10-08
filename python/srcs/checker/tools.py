@@ -20,7 +20,7 @@ class MapChecker:
 
 class Params:
 
-    def __init__(self, args: Params):
+    def __init__(self, args: argparse.Namespace):
         self.module = args.module
         self.exercise = args.exercise
         self.ignore_ko = args.ignore_ko

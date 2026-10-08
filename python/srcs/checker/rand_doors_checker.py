@@ -8,8 +8,6 @@ def check_in_sets(args: Params, checker: MapChecker, infos: dict):
         if doors_dico is None:
             break
 
-
-
 def check_rand_doors(args: Params, checker: MapChecker, infos: dict):
     if len(checker.random_doors) > 0:
         rand_doors_infos = get(args, infos, "random_doors")

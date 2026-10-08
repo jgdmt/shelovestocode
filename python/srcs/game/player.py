@@ -80,6 +80,7 @@ class Player:
         if case == MapVal.BROKEN_DOOR.value:
             check = random.randint(0, int(1 / self.game.curr_map.broken_door_proba))
             if check != 1:
+                self.display.print_log(get_text(break_result, self.game.lan)[0])
                 return False
             sleep(0.5)
             self.game.display.print_log(get_text(break_result, self.game.lan)[1])

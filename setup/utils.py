@@ -29,6 +29,7 @@ def setup():
     curses.init_pair(4, curses.COLOR_YELLOW, -1)
     curses.init_color(18, 500, 500, 500)
     curses.init_pair(5, 18, -1)
+    curses.init_pair(6, curses.COLOR_RED, -1)
 
 
 def clean():
