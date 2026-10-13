@@ -2,6 +2,7 @@ import curses
 import json
 import atexit
 import subprocess
+import os
 from enum import Enum
 from utils import clean
 from intra import validate_exercise
@@ -188,7 +189,7 @@ class Menu:
         if perfect:
             curr_module.status = Status.PERFECT
 
-    def parse_ex_status(self, save_file: str = ".save.json") -> None:
+    def parse_ex_status(self, save_file: str = f"{os.environ['HOME']}/Desktop/.save.json") -> None:
         """Parse the save file where the exercises status (started, finished,
         default) are stored.
 
@@ -208,7 +209,7 @@ class Menu:
                             self.branches[int(i)].mod[int(mod_idx)].ex[int(ex_idx)].status = ex_val
                     self.update_mod_status(int(i), int(mod_idx))
 
-    def save_ex_status(self, save_file: str = ".save.json") -> None:
+    def save_ex_status(self, save_file: str = f"{os.environ['HOME']}/Desktop/.save.json") -> None:
         """Save the status of the exercises (started, finished, default)
         and put it inside the save json file.
 
