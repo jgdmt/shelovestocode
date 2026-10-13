@@ -13,21 +13,21 @@ welcome_title = r'''
 
 instructions = {
     "en": [
-        "Do not close this window!",
+        "DO NOT CLOSE THIS WINDOW!",
         "Use the Up and Down Arrows to move",
         "Enter or Right Arrow to confirm",
         "Q or Esc or Left Arrow to leave",
         "Q or Esc to leave"
     ],
     "fr": [
-        "Ne ferme pas cette fenêtre !",
+        "NE FERME PAS CETTE FENÊTRE !",
         "Flèche du haut et Flèche du bas pour se déplacer",
         "Entrée ou Flèche de droite pour confirmer",
         "Q or Esc ou Flèche gauche pour quitter",
         "Q ou Esc pour quitter"
     ],
     "nl": [
-        "",
+        "GELIEVE DIT VENSTER NIET TE SLUITEN!",
         "Gebruik de pijltjestoetsen omhoog en omlaag om te navigeren",
         "Enter of pijl naar rechts om te bevestigen",
         "Q of Esc of pijl naar links om af te sluiten",
