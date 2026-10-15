@@ -26,6 +26,34 @@ async function startExercise(branch, mod, ex) {
     sessionStorage.setItem('ex-state', JSON.stringify(ex_list))
 }
 
+async function saveFile(name, content) {
+    const request = new Request(`http://127.0.0.1:8000/web/save`, {
+        method: "POST",
+        body: JSON.stringify({
+            name: name,
+            content: content
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    fetch(request)
+    .then((response) => {
+        if (response.status !== 200) {
+            console.log("ERROR", response.status);
+        }
+        else {
+            console.log("Success", response.body);
+        }
+    })
+}
+
+async function getFile(name) {
+    const resp = await fetch(`http://127.0.0.1:8000/web/get?name=${name}`);
+    const body = await resp.json();
+    console.log(body);
+}
+
 function nextButtonSetup() {
     let ex_list = JSON.parse(sessionStorage.getItem('ex-state'));
     const urlParams = new URLSearchParams(window.location.search);
@@ -47,29 +75,38 @@ function nextButtonSetup() {
     }
 }
 
-function openDiary() {
-    console.log("Clicked")
-    document.getElementById("diary").style.width = "50%";
+function translate(lan, mod, ex) {
 
-    fetch("../../diary/0.txt")
-    .then((res) => res.text())
-    .then((text) => 
-        console.log(text))
-    .catch((e) => console.log(e));
-    // let abc = new Blob(["HELLOOOO"], {type: "text/plain"});
-    // let def = new FileReader();
-    // def.addEventListener("loadend", function(e) {
-    //     document.getElementById("diary-entry").innerHTML = e.srcElement.result;
-    // });
-
-    // let test = File()
-
-    // def.readAsText(abc)
 }
 
-function closeDiary() {
+function openInventory() {
+    console.log("Clicked")
+    document.getElementById("diary").style.width = "50%";
+}
+
+function closeInventory() {
     console.log("Closed")
     document.getElementById("diary").style.width = "0";
 }
 
+function manageInventory(id) {
+    let items = document.getElementById("inventory-items");
+    let list = document.getElementById("inventory-list");
+
+    if (items == null || list == null) {
+        return;
+    }
+
+    items.hidden = true;
+    list.hidden = true;
+    switch (id) {
+        case "inventory-items":
+            items.hidden = false;
+            break;
+        case "inventory-list":
+            list.hidden = false;
+    }
+}
+
 nextButtonSetup()
+translate()

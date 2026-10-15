@@ -1,6 +1,13 @@
 html {
-    font-family: fantasy;
     background-color: #26d59a21;
+}
+
+html, body {
+    height: 100%;
+}
+
+[hidden] {
+    display: none !important;
 }
 
 .diary {
@@ -10,8 +17,20 @@ html {
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: white;
+    background-color: wheat;
     overflow-x: hidden;
+    display: grid;
+    grid-template-rows: 10% 90%;
+}
+
+.ex-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ex-list a {
+    width: 75px;
 }
 
 .ex-link-done {
@@ -37,4 +56,30 @@ html {
     height: 100%;
     top: 0;
     position:fixed;
+    width: 300px;
+}
+
+.user-panels {
+    display: flex;
+    gap: 10px;
+}
+
+.user-panels div {
+    justify-content: center;
+}
+
+.result-panel {
+    font-family: fantasy;
+    background-color: white;
+    width: fit-content;
+    padding: 1px 10px 1px 10px; 
+    display: inline-block;
+    border: solid 1px #26d59be1
+}
+
+.code-panel {
+    background-color: white;
+    width: fit-content;
+    display: inline-block;
+    border: solid 1px #26d59be1
 }
