@@ -1,5 +1,10 @@
+import json
+import os
+import subprocess
+from pathlib import Path
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 from menu import menu, Status, Order
 
 app = FastAPI()
@@ -40,3 +45,35 @@ def update_exercise(branch: int, mod: int, ex: int):
 @app.post("/finish")
 def finish_exercise(branch: int, mod: int, ex: int):
     menu.update_ex(branch, mod, ex, Status.FINISHED)
+
+
+# Web related endpoints
+class File(BaseModel):
+    name: str
+    content: dict
+
+
+@app.post("/web/save")
+def save_file(file: File):
+    web_save_path = f"{os.environ['HOME']}/Desktop/web_save/"
+
+    if not Path(web_save_path).exists():
+        subprocess.run(["mkdir", "-p", web_save_path])
+
+    with open(web_save_path + file.name, 'w') as f:
+        json.dump(file.content, f)
+
+    return {"a": file.name, 'b': file.content}
+
+
+@app.get("/web/get")
+def get_file(name: str):
+    web_save_path = f"{os.environ['HOME']}/Desktop/web_save/"
+
+    if not Path(web_save_path).exists():
+        return {}
+
+    with open(web_save_path + name, 'r') as f:
+        content = json.load(f)
+
+    return content

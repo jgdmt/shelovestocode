@@ -13,7 +13,7 @@
         }
         },
         "functions": {
-            "INSTRUCTION FUNCTIONS": {
+            "PLAYER FUNCTIONS": {
                 "walk": ["walk(direction)", "Makes Archimede walk one step into the chosen direction."],
                 "open_door": ["open_door(direction)", "Makes Archimede open a door in the chosen direction."],
                 "fortune": ["ask_fortune_teller(set)", "Asks the fortune teller which door will open in a set of random doors. The answer is the number of the door. 'Set' can be left empty."],
@@ -94,7 +94,7 @@
         }
         },
         "functions": {
-            "INSTRUCTION FUNCTIONS": {
+            "PLAYER FUNCTIONS": {
                 "walk": ["walk(direction)", "Fait marcher Archimède une fois dans la direction choisie."],
                 "open_door": ["open_door(direction)", "Fait ouvrir une porte à Archimède dans la direction indiquée."],
                 "fortune": ["ask_fortune_teller(set)", "Demande au voyant quelle porte sera ouverte dans un set de portes aléatoires. La réponse est le numéro de la porte. 'Set' peut être laissé vide."],
@@ -175,7 +175,7 @@
         }
         },
         "functions": {
-            "INSTRUCTION FUNCTIONS": {
+            "PLAYER FUNCTIONS": {
                 "walk": ["walk(direction)", "Laat Archimede één stap in de gekozen richting zetten."],
                 "open_door": ["open_door(direction)", "Laat Archimede een deur in de gekozen richting openen."],
                 "fortune": ["ask_fortune_teller(set)", "Vraagt aan de waarzegger welke deur er zal opengaan in een set van willekeurige deuren. Het antwoord is het nummer van de deur. 'Set' mag leeg worden gelaten."],

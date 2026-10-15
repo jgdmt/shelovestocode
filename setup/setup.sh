@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Check if virtual environment exists
-if [ ! -d "bin" ]; then
+if [ ! -f "bin/activate" ]; then
     echo "Setting up virtual environment..."
     python3 -m venv .
     source bin/activate

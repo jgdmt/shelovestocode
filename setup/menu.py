@@ -164,6 +164,8 @@ class Menu:
                     if module.ex[ex].status != Status.FINISHED and status == Status.FINISHED:
                         validate_exercise(self.login, module.project_id, module.ex[ex].value + module.curr_score)
                     module.ex[ex].status = status
+                    if status == Status.FINISHED:
+                        self.save_ex_status()
                     self.update_mod_status(branch, mod)
 
     def update_mod_status(self, branch: int, mod: int) -> None:
