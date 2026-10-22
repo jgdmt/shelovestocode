@@ -1,0 +1,78 @@
+/* Workspace grid, panels and splitters */
+
+.workspace {
+    height: calc(100% - 60px);
+    display: grid;
+    /* the left panel keeps its width: resizing only trades space between
+       the code and the result, separated by the splitter column */
+    grid-template-columns: minmax(340px, 22%) minmax(420px, 1fr) var(--gap) var(--right-width, minmax(320px, 0.875fr));
+    padding: var(--gap);
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 1px 3px rgba(43, 29, 87, 0.06);
+}
+
+.panel-head {
+    flex: 0 0 var(--head-h);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+.panel-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.panel-title .icon { color: var(--brand); }
+
+.panel-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.splitter {
+    position: relative;
+    flex: 0 0 var(--gap);
+    touch-action: none;
+}
+
+.splitter[aria-orientation="vertical"] { cursor: col-resize; }
+.splitter[aria-orientation="horizontal"] { cursor: row-resize; }
+
+.splitter::after {
+    content: "";
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    background: var(--lavender);
+    border-radius: 3px;
+    transition: background 0.15s;
+}
+
+.splitter[aria-orientation="vertical"]::after { width: 4px; height: 48px; }
+.splitter[aria-orientation="horizontal"]::after { width: 48px; height: 4px; }
+.splitter:hover::after, .resizing .splitter::after { background: var(--brand); }
+
+/* iframes would swallow the pointer while dragging */
+.resizing { user-select: none; }
+.resizing iframe { pointer-events: none; }
+.resizing-vertical { cursor: col-resize; }
+.resizing-horizontal { cursor: row-resize; }

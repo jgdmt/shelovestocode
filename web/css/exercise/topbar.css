@@ -1,0 +1,60 @@
+/* Top bar: logo, module title, steps, Next button */
+
+.topbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 0 20px;
+    background: var(--brand);
+    color: white;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    color: white;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.25em;
+    letter-spacing: 0.02em;
+}
+
+.logo-mark { color: var(--lavender); font-weight: 400; font-size: 1.15em; }
+
+.logo-heart {
+    width: 26px;
+    height: 26px;
+    margin: 0 2px;
+    fill: none;
+    stroke: var(--lavender);
+    stroke-width: 2;
+    stroke-linejoin: round;
+}
+
+.module-title { color: var(--lavender); font-weight: 500; }
+
+.steps {
+    display: flex;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 0.85em;
+    font-weight: 600;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+}
+
+.step:hover { border-color: var(--lavender); }
+.step.started { border-style: dashed; border-color: var(--lavender); }
+.step.done { background: var(--lavender); border-color: var(--lavender); color: var(--ink); }
+.step.current { background: white; border-color: white; color: var(--brand); box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3); }

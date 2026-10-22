@@ -25,6 +25,19 @@ export function h(tag, props = {}, ...children) {
     return node;
 }
 
+const SVG_NS = "http://www.w3.org/2000/svg";
+
+// An icon from the sprite in exercise.html: icon("x") uses <symbol id="i-x">.
+export function icon(name, className = "icon") {
+    const svg = document.createElementNS(SVG_NS, "svg");
+    svg.setAttribute("class", className);
+    svg.setAttribute("aria-hidden", "true");
+    const use = document.createElementNS(SVG_NS, "use");
+    use.setAttribute("href", `#i-${name}`);
+    svg.appendChild(use);
+    return svg;
+}
+
 /**
  * Wires a group of buttons carrying a data-<attr> so only one is active.
  * onSelect can return false to refuse the change. The returned select(value)

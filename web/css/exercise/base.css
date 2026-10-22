@@ -1,0 +1,139 @@
+/* Design tokens (SheLovesToCode branding), reset, icons, buttons */
+
+:root {
+    --brand: #6847c7;
+    --brand-strong: #4f32a8;
+    --lavender: #b9a5f2;
+    --lavender-mid: #9a83e8;
+    --lavender-soft: #efeafd;
+    --ink: #2b1d57;
+    --muted: #776c9a;
+    --bg: #f4f1fd;
+    --panel: #ffffff;
+    --border: #e3dbf8;
+    --code-bg: #fcfbff;
+    --danger: #d64570;
+    --danger-soft: #fde8ef;
+    --warning: #e8983a;
+    --warning-soft: #fff4e5;
+
+    --tag-h: #6847c7;
+    --tag-p: #c2459b;
+    --tag-img: #3f6ad8;
+    --tag-other: #615a7d;
+
+    --radius: 12px;
+    --head-h: 54px;      /* every panel header has the same height */
+    --gap: 14px;         /* workspace padding, left panel margin, splitter width */
+
+    --font-ui: "Poppins", system-ui, sans-serif;
+    --font-display: "Bowlby One", "Poppins", sans-serif;
+    --font-code: "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    font-size: 15px;
+}
+
+[hidden] { display: none !important; }
+
+a { color: var(--brand); }
+
+/* no ligatures: beginners must see "<!--" and "=>" exactly as they type them */
+code, .CodeMirror, .chip, .block-tag, .tag-open, .block-text, .raw-code, .skeleton {
+    font-variant-ligatures: none;
+}
+
+code {
+    font-family: var(--font-code);
+    background: var(--lavender-soft);
+    color: var(--brand-strong);
+    padding: 1px 5px;
+    border-radius: 4px;
+    font-size: 0.88em;
+}
+
+.muted { color: var(--muted); }
+.push-right { margin-left: auto; }
+
+.icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.icon-sm { width: 12px; height: 12px; stroke-width: 2.5; }
+
+:focus-visible { outline: 2px solid var(--lavender-mid); outline-offset: 2px; }
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 36px;
+    padding: 0 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--panel);
+    color: var(--ink);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.btn:hover { border-color: var(--lavender-mid); }
+.btn-primary { background: var(--brand); border-color: var(--brand); color: white; }
+.btn-primary:hover { background: var(--brand-strong); border-color: var(--brand-strong); }
+.btn-light { background: white; border-color: white; color: var(--brand); }
+.btn-light:hover { background: var(--lavender-soft); }
+.btn-ghost { background: transparent; border-color: transparent; color: var(--brand); }
+.btn-ghost:hover { background: var(--lavender-soft); border-color: transparent; }
+.btn[aria-disabled="true"] { opacity: 0.45; pointer-events: none; }
+
+.segmented {
+    display: inline-flex;
+    background: var(--lavender-soft);
+    border-radius: 999px;
+    padding: 3px;
+}
+
+.segmented button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 30px;
+    padding: 0 14px;
+    border: none;
+    border-radius: 999px;
+    background: transparent;
+    font: inherit;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.segmented button.active { background: var(--brand); color: white; }
+
+.confetti {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}

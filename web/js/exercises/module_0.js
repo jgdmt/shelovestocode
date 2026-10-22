@@ -1,14 +1,6 @@
-// Exercises of module 0, rendered by js/exercise/main.js.
-//
-// An exercise is:
-//   title, guide    heading and Archimede's speech bubble
-//   mission         paragraphs of instructions (HTML allowed)
-//   blocks          { palette: [tags] } for the blocks mode, or false to disable it
-//   starter         code the student starts from
-//   solution        expected code, shown in the "Goal" view
-//   checks          [{ label, test(doc) }]: doc is the parsed student code
-//   hints           revealed one by one (HTML allowed)
-//   lesson          shown once every check passes (HTML allowed)
+// Exercises of module 0: HTML basics. Format: see README.md in this folder.
+
+import { snippet } from "./helpers.js";
 
 const norm = (s) => (s || "").replace(/\s+/g, " ").trim().toLowerCase();
 
@@ -66,7 +58,7 @@ export default {
             hints: [
                 "Titles are written with tags that start with <code>h</code> followed by a number. The smaller the number, the bigger the title.",
                 "Most tags go in pairs: an opening tag <code>&lt;h1&gt;</code> and a closing tag <code>&lt;/h1&gt;</code>. The text goes between them.",
-                "Write <code>&lt;h1&gt;A story with a random title&lt;/h1&gt;</code> on the line just before <code>&lt;p&gt;</code>."
+                `Write this on the line just before <code>&lt;p&gt;</code>:${snippet("<h1>A story with a random title</h1>")}`
             ],
             lesson:
 `<p><code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;p&gt;</code> and <code>&lt;h1&gt;</code> are called <b>tags</b>. Most tags go in pairs: the opening one (<code>&lt;html&gt;</code>) and the closing one (<code>&lt;/html&gt;</code>).</p>

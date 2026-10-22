@@ -7,7 +7,7 @@
 //   2. round trip: anything else the parser rearranged shows up as a
 //      difference between the source and the regenerated code
 
-import { VOID_TAGS } from "./blocks.js";
+import { VOID_TAGS } from "./model.js";
 
 // Tags the browser adds on its own: never reported, never compared.
 const IMPLIED_TAGS = new Set(["html", "head", "body"]);

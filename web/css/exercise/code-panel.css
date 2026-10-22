@@ -1,0 +1,163 @@
+/* Code panel: editor theme, diagnostics, problems, read-only files, file tabs, repair dialog */
+
+.code-view { flex: 1; min-height: 0; }
+
+.code-view .CodeMirror {
+    height: 100%;
+    font-family: var(--font-code);
+    font-size: 15px;
+    line-height: 1.65;
+    background: var(--code-bg);
+    color: var(--ink);
+}
+
+.code-view .CodeMirror-gutters { background: var(--code-bg); border-right: 1px solid var(--border); }
+.code-view .CodeMirror-linenumber { color: var(--lavender-mid); }
+.code-view .CodeMirror-cursor { border-left: 2px solid var(--brand); }
+.code-view .CodeMirror-selected { background: var(--lavender-soft) !important; }
+.cm-s-default .cm-tag { color: var(--brand); font-weight: 700; }
+.cm-s-default .cm-bracket { color: var(--lavender-mid); }
+.cm-s-default .cm-attribute { color: var(--tag-img); }
+.cm-s-default .cm-string { color: var(--tag-p); }
+.cm-s-default .cm-comment { color: var(--muted); font-style: italic; }
+
+/* diagnostics: gutter dot + tinted line, problems list under the editor */
+.code-view .diagnostics { width: 14px; }
+.diag-marker { display: block; width: 8px; height: 8px; margin: 8px 3px; border-radius: 50%; cursor: help; }
+.diag-error { background: var(--danger); }
+.diag-warning { background: var(--warning); }
+.line-error { background: var(--danger-soft); }
+.line-warning { background: var(--warning-soft); }
+.line-focus { background: var(--lavender-soft); }
+
+.problems {
+    flex: 0 0 auto;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 6px 8px;
+    border-top: 1px solid var(--border);
+    background: var(--panel);
+}
+
+.problems.in-blocks { display: none; }
+
+.problems-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 2px 6px 4px;
+    font-size: 0.85em;
+    font-weight: 700;
+    color: var(--danger);
+}
+
+.problem {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 4px 8px 4px 24px;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    font: inherit;
+    font-size: 0.88em;
+    text-align: left;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.problem::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    margin-top: -4px;
+    border-radius: 50%;
+    background: var(--danger);
+}
+
+.problem-warning::before { background: var(--warning); }
+.problem:hover { background: var(--lavender-soft); }
+
+/* read-only files: lock on the tab, banner above the code, grayed editor */
+.readonly-banner {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--lavender-soft);
+    border-bottom: 1px solid var(--border);
+    color: var(--brand-strong);
+    font-size: 0.9em;
+}
+
+.code-view.readonly .CodeMirror,
+.code-view.readonly .CodeMirror-gutters { background: var(--bg); }
+.code-view.readonly .CodeMirror-cursor { display: none; }
+.file-lock { color: var(--muted); }
+
+/* file tabs */
+.file-tabs { display: flex; align-self: stretch; margin-left: -12px; }
+
+.file-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 14px;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: none;
+    font-family: var(--font-code);
+    font-size: 0.88em;
+    font-weight: 700;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.file-tab:hover { color: var(--ink); }
+.file-tab.active { color: var(--ink); border-bottom-color: var(--brand); }
+.file-dot { width: 8px; height: 8px; border-radius: 50%; }
+.file-html .file-dot { background: var(--tag-p); }
+.file-css .file-dot { background: var(--tag-img); }
+.file-js .file-dot { background: var(--warning); }
+
+.file-badge {
+    display: grid;
+    place-items: center;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 9px;
+    background: var(--warning);
+    color: white;
+    font-family: var(--font-ui);
+    font-size: 0.75em;
+}
+
+.file-badge.has-errors { background: var(--danger); }
+
+.repair {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(43, 29, 87, 0.4);
+    padding: 20px;
+}
+
+.repair-card {
+    background: var(--panel);
+    border-radius: var(--radius);
+    padding: 4px 24px 16px;
+    max-width: 520px;
+    box-shadow: 0 12px 32px rgba(43, 29, 87, 0.25);
+    line-height: 1.55;
+}
+
+.icon-alert { color: var(--danger); width: 20px; height: 20px; }
+.repair-card ul { padding-left: 20px; }
+.repair-card li { margin-bottom: 6px; }
+.repair-actions { display: flex; gap: 10px; margin-top: 16px; }
