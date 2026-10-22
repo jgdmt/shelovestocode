@@ -4,3 +4,4 @@ python/save/*
 setup/configs/*
 
 *.md
+!web/js/exercises/README.md
