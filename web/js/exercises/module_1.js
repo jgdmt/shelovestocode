@@ -16,7 +16,8 @@ ${body}
 const LINK = `\n    <link rel="stylesheet" href="style.css">`;
 
 export default {
-    title: "Module 1 — CSS basics",
+    title: "CSS basics",
+    description: "Colors, sizes and fonts: give your page some style.",
     length: 2,
     exercises: [
         {

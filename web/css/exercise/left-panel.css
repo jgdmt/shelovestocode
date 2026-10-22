@@ -34,23 +34,7 @@
     border: 3px solid var(--lavender);
 }
 
-.bubble {
-    margin: 0;
-    background: var(--lavender-soft);
-    padding: 12px 14px;
-    border-radius: 4px 16px 16px 16px;
-    line-height: 1.5;
-}
 
-.display {
-    font-family: var(--font-display);
-    font-weight: 400;
-    text-transform: uppercase;
-    color: var(--brand);
-    font-size: 1.9em;
-    line-height: 1;
-    margin: 24px 0 12px;
-}
 
 .section-title {
     display: flex;
@@ -151,20 +135,37 @@ pre.snippet {
     line-height: 1.5;
 }
 
+/* inventory: one card per item: chip, description, example of use */
 .tag-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
 
-.tag-list li {
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    align-items: center;
-    gap: 10px;
-    padding: 6px 8px;
+.inventory-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 10px;
     border: 1px solid var(--border);
     border-radius: 8px;
     cursor: pointer;
 }
 
-.tag-list li:hover { border-color: var(--lavender-mid); background: var(--lavender-soft); }
+.inventory-item:hover { border-color: var(--lavender-mid); background: var(--lavender-soft); }
+
+.inventory-item .chip { align-self: flex-start; white-space: nowrap; padding: 3px 10px; font-size: 0.9em; }
+.inventory-item-desc { font-size: 0.9em; color: var(--muted); line-height: 1.4; }
+
+.inventory-example {
+    align-self: flex-start;
+    margin-top: 2px;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85em;
+}
+
+.example-property { color: var(--tag-img); font-weight: 700; }
+.example-value { color: var(--tag-p); }
 
 .image-list {
     display: grid;

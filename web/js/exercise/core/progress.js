@@ -1,9 +1,12 @@
-// Exercise progress: sessionStorage "ex-state" (filled by the index page) + backend API.
-// When the page is opened directly, there is no state and nothing is tracked.
+// Exercise progress, kept by the backend. The home page fetches it and stores
+// it in sessionStorage ("ex-state", also read by the old exercise pages) with
+// the module it belongs to. Without backend, nothing is tracked.
 
 import { ctx } from "./context.js";
 
 const API = "http://127.0.0.1:8000";
+const STATES_KEY = "ex-state";
+const MODULE_KEY = "ex-state-module";
 
 export const Status = {
     DEFAULT: 0,
@@ -11,19 +14,36 @@ export const Status = {
     FINISHED: 2
 };
 
-function readStates() {
+// States of the exercises of module mod, or [] when unknown.
+export function readStates(mod = ctx.mod) {
     try {
-        return JSON.parse(sessionStorage.getItem("ex-state")) || [];
+        if (sessionStorage.getItem(MODULE_KEY) !== String(mod))
+            return [];
+        return JSON.parse(sessionStorage.getItem(STATES_KEY)) || [];
     } catch {
         return [];
     }
 }
 
-function writeStates(states) {
+function writeStates(mod, states) {
     try {
-        sessionStorage.setItem("ex-state", JSON.stringify(states));
+        sessionStorage.setItem(STATES_KEY, JSON.stringify(states));
+        sessionStorage.setItem(MODULE_KEY, String(mod));
     } catch {
         // progress stays on the backend anyway
+    }
+}
+
+/** Asks the backend where the student is: { module, states }, or null without backend. */
+export async function fetchProgress(branch = ctx.branch) {
+    try {
+        const response = await fetch(`${API}/info?branch=${branch}`);
+        const info = await response.json();
+        writeStates(info.module, info.branch_status);
+        return { module: String(info.module), states: info.branch_status };
+    } catch {
+        console.warn("Backend not reachable: progress is not tracked");
+        return null;
     }
 }
 
@@ -47,7 +67,7 @@ function advance(endpoint, from, to) {
     if (!state || !from.includes(state.status))
         return;
     state.status = to;
-    writeStates(states);
+    writeStates(ctx.mod, states);
     post(`/${endpoint}?branch=${ctx.branch}&mod=${ctx.mod}&ex=${ctx.ex}`);
 }
 

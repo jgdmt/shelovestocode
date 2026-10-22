@@ -5,11 +5,14 @@ Each module is a file `module_<n>.js` in this folder, opened with
 
 ```js
 export default {
-    title: "Module 1 — CSS basics",
+    title: "CSS basics",
+    description: "Colors, sizes and fonts: give your page some style.",  // shown on the home page
     length: 8,            // steps shown in the top bar; missing exercises link to the old pages
     exercises: [ /* ... */ ]
 };
 ```
+
+Add the module number to `MODULES` in `index.js` to show it on the home page.
 
 ## An exercise
 

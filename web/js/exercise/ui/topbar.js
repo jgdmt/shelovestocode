@@ -10,7 +10,7 @@ const STEP_CLASS = {
 };
 
 export function createTopbar(module) {
-    $("module-title").textContent = module.title;
+    $("module-title").textContent = `Module ${ctx.mod} — ${module.title}`;
 
     const steps = Array.from({ length: module.length }, (_, i) => {
         const step = h("a", { class: "step", href: exerciseUrl(module, i) }, String(i));

@@ -1,0 +1,80 @@
+/* Home page: welcome and module cards */
+
+body.home { height: auto; min-height: 100%; }
+
+.home-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 40px;
+}
+
+.hero-avatar {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 4px solid var(--lavender);
+    object-fit: cover;
+}
+
+.hero-title { font-size: 3.2em; margin: 0 0 14px; }
+.hero .bubble { max-width: 560px; font-size: 1.05em; }
+
+.modules {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.module-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(43, 29, 87, 0.06);
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.module-card:hover { border-color: var(--lavender-mid); box-shadow: 0 8px 22px rgba(104, 71, 199, 0.12); }
+
+.module-label {
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--lavender-mid);
+}
+
+.module-card .display { margin: 0; font-size: 1.8em; }
+.module-description { margin: 0; color: var(--muted); line-height: 1.5; }
+
+.module-progress { display: flex; align-items: center; gap: 10px; font-size: 0.85em; }
+
+.progress-bar {
+    flex: 1;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--lavender-soft);
+    overflow: hidden;
+}
+
+.progress-bar span { display: block; height: 100%; border-radius: 4px; background: var(--brand); }
+
+/* the topbar steps, on a light background */
+.module-steps { display: flex; flex-wrap: wrap; gap: 6px; }
+.module-steps .step { color: var(--muted); border-color: var(--border); }
+.module-steps .step:hover { color: var(--brand); border-color: var(--brand); }
+.module-steps .step.started { border-color: var(--lavender-mid); border-style: dashed; }
+.module-steps .step.done { color: white; background: var(--brand); border-color: var(--brand); }
+
+.module-card .btn { align-self: flex-start; margin-top: 4px; }

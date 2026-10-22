@@ -6,6 +6,7 @@
 //
 // Each panel lives in its own folder, HTML/CSS specifics in languages/.
 
+import "./ui/icons.js";
 import { debounce } from "./ui/dom.js";
 import { ctx } from "./core/context.js";
 import { loadExercise } from "./core/exercise-loader.js";

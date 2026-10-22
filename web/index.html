@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
     <head>
         <meta charset=utf-8>
-        <script src="js/utils.js" defer></script>
-        <script src="js/start.js" defer></script>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SheLovesToCode — Web workshop</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=JetBrains+Mono:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+        <link rel="stylesheet" href="/css/exercise/base.css">
+        <link rel="stylesheet" href="/css/exercise/topbar.css">
+        <link rel="stylesheet" href="/css/home.css">
+        <script type="module" src="/js/home/main.js"></script>
     </head>
-    <body>
-        <h1>Hello and welcome to the web branch!</h1>
-        <h1>I am Archimede and I will be your guide</h1>
-        <img src="images/archi.jpg" class="img-circle">
-        <ul id="exercise-list">Exercises:</ul>
+    <body class="home">
+
+        <header class="topbar">
+            <a class="logo" href="/index.html" aria-label="She Loves To Code — home">
+                <span class="logo-mark">&lt;</span>SHE<svg class="logo-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></svg>CODE<span class="logo-mark">/&gt;</span>
+            </a>
+            <span class="module-title">Web workshop</span>
+        </header>
+
+        <main class="home-main">
+            <section class="hero">
+                <img class="hero-avatar" src="/images/archi.jpg" alt="Archimede">
+                <div>
+                    <h1 class="display hero-title">Learn the web</h1>
+                    <p class="bubble">Hi, I'm Archimede and I'll be your guide! Pick a module and let's build web pages together, one step at a time.</p>
+                </div>
+            </section>
+
+            <section id="modules" class="modules" aria-label="Modules"></section>
+        </main>
     </body>
 </html>
