@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SheLovesToCode — Web</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+        <link rel="stylesheet" href="/css/exercise.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/fold/xml-fold.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closetag.min.js"></script>
+        <script type="module" src="/js/exercise/main.js"></script>
+    </head>
+    <body>
+
+        <!-- top bar -->
+        <header class="topbar">
+            <a class="brand" href="/index.html">SheLovesToCode</a>
+            <span id="module-title" class="module-title"></span>
+            <nav id="steps" class="steps"></nav>
+            <a id="next-btn" class="btn btn-primary" aria-disabled="true">Next →</a>
+        </header>
+
+        <main class="workspace">
+
+            <!-- left: mission & inventory -->
+            <section class="panel panel-left">
+                <div class="tabs" role="tablist">
+                    <button class="tab active" data-tab="mission">Mission</button>
+                    <button class="tab" data-tab="tags">Tags</button>
+                    <button class="tab" data-tab="images">Images</button>
+                </div>
+
+                <div class="panel-body" data-pane="mission">
+                    <div class="guide">
+                        <img src="/images/archi.jpg" alt="Archimede">
+                        <p id="guide-text" class="bubble"></p>
+                    </div>
+                    <h1 id="ex-title"></h1>
+                    <div id="mission"></div>
+
+                    <h2>Objectives</h2>
+                    <ul id="checks" class="checks"></ul>
+
+                    <div id="success" class="success" hidden>
+                        <h2>🎉 Level finished!</h2>
+                        <div id="lesson"></div>
+                    </div>
+
+                    <div class="hints">
+                        <div id="hints"></div>
+                        <button id="hint-btn" class="btn btn-ghost">💡 Need a hint?</button>
+                    </div>
+                </div>
+
+                <div class="panel-body" data-pane="tags" hidden>
+                    <p class="muted">Click a tag to add it to your code, or drag it in blocks mode.</p>
+                    <ul id="tag-list" class="tag-list"></ul>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">And there are more…</a>
+                </div>
+
+                <div class="panel-body" data-pane="images" hidden>
+                    <p class="muted">Click an image to add it to your code.</p>
+                    <div id="image-list" class="image-list"></div>
+                </div>
+            </section>
+
+            <!-- center: code -->
+            <section class="panel panel-center">
+                <div class="panel-head">
+                    <div class="segmented" id="mode-switch">
+                        <button data-mode="code" class="active">⌨️ Code</button>
+                        <button data-mode="blocks">🧩 Blocks</button>
+                    </div>
+                    <span class="spacer"></span>
+                    <button id="reset-btn" class="btn btn-ghost" title="Start again from the beginning">↺ Reset</button>
+                </div>
+
+                <div id="code-view" class="code-view"></div>
+
+                <div id="blocks-view" class="blocks-view" hidden>
+                    <div id="palette" class="palette"></div>
+                    <div class="skeleton">
+                        <div class="sk-tag">&lt;html&gt;</div>
+                        <div class="sk-indent">
+                            <div class="sk-tag">&lt;head&gt;&lt;/head&gt;</div>
+                            <div class="sk-tag">&lt;body&gt;</div>
+                            <div id="drop-zone" class="drop-zone zone"></div>
+                            <div class="sk-tag">&lt;/body&gt;</div>
+                        </div>
+                        <div class="sk-tag">&lt;/html&gt;</div>
+                    </div>
+                </div>
+
+                <div id="repair" class="repair" hidden>
+                    <div class="repair-card">
+                        <h2>🔧 Your code has a little problem</h2>
+                        <p>The browser can still show it, but it had to guess what you meant:</p>
+                        <ul id="repair-list"></ul>
+                        <div class="repair-actions">
+                            <button id="repair-myself" class="btn btn-primary">I'll fix it myself</button>
+                            <button id="repair-browser" class="btn">Let the browser fix it</button>
+                        </div>
+                        <p class="muted">You can always undo the browser's fix with Ctrl + Z.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- right: result -->
+            <section class="panel panel-right">
+                <div class="panel-head">
+                    <div class="segmented" id="view-switch">
+                        <button data-view="mine" class="active">My result</button>
+                        <button data-view="goal">Goal</button>
+                    </div>
+                    <span class="spacer"></span>
+                    <label class="live"><input type="checkbox" id="live-toggle" checked> Live</label>
+                    <button id="run-btn" class="btn btn-primary" title="Ctrl + Enter">▶ Run</button>
+                </div>
+                <div class="preview-frame">
+                    <iframe id="preview" sandbox="allow-scripts" title="Result"></iframe>
+                </div>
+            </section>
+
+        </main>
+    </body>
+</html>
