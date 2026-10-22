@@ -6,16 +6,28 @@ import { startNewDrag, endNewDrag } from "../blocks/drag-drop.js";
 import { tagChip, propertyChip } from "../blocks/chips.js";
 import { TAGS, IMAGES, CSS_PROPERTIES } from "../../exercises/inventory.js";
 
+// The chip, its description, and optionally an example of use.
+function item(chip, description, onClick, example = null) {
+    return h("li", { class: "inventory-item", onClick },
+        chip,
+        h("div", { class: "inventory-item-desc" }, description),
+        example);
+}
+
+// "color: purple;" colored like in the editor
+const declarationExample = (property, value) => h("code", { class: "inventory-example" },
+    h("span", { class: "example-property" }, property), ": ",
+    h("span", { class: "example-value" }, value), ";");
+
 function renderTags(onInsert) {
     $("tag-list").replaceChildren(...Object.entries(TAGS).map(([tag, description]) =>
-        h("li", { onClick: () => onInsert({ kind: "tag", value: tag }) }, tagChip(tag), h("span", {}, description))));
+        item(tagChip(tag), description, () => onInsert({ kind: "tag", value: tag }))));
 }
 
 function renderProperties(onInsert) {
     $("property-list").replaceChildren(...Object.entries(CSS_PROPERTIES).map(([property, { description, example }]) =>
-        h("li", { onClick: () => onInsert({ kind: "property", value: property }) },
-            propertyChip(property),
-            h("span", {}, description, h("span", { class: "muted" }, ` — e.g. ${example}`)))));
+        item(propertyChip(property), description, () => onInsert({ kind: "property", value: property }),
+            declarationExample(property, example))));
 }
 
 function renderImages(onInsert) {

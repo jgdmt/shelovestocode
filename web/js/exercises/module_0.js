@@ -5,7 +5,8 @@ import { snippet } from "./helpers.js";
 const norm = (s) => (s || "").replace(/\s+/g, " ").trim().toLowerCase();
 
 export default {
-    title: "Module 0 — HTML basics",
+    title: "HTML basics",
+    description: "Tags, structure and your very first web page.",
     length: 8,
     exercises: [
         {

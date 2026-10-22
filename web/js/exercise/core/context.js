@@ -8,10 +8,10 @@ export const ctx = {
     ex: parseInt(params.get("ex") || "0", 10)
 };
 
-// Exercises not yet ported to the new format still use the old pages.
-export function exerciseUrl(module, index) {
-    const query = `branch=${ctx.branch}&mod=${ctx.mod}&ex=${index}`;
+// Link to an exercise. Exercises not yet ported to the new format still use the old pages.
+export function exerciseUrl(module, index, { mod = ctx.mod, branch = ctx.branch } = {}) {
+    const query = `branch=${branch}&mod=${mod}&ex=${index}`;
     return module.exercises[index]
-        ? `exercise.html?${query}`
-        : `module_${ctx.mod}/${index}.html?${query}`;
+        ? `/html/exercise.html?${query}`
+        : `/html/module_${mod}/${index}.html?${query}`;
 }
