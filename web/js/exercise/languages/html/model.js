@@ -65,6 +65,9 @@ function readChildren(parent) {
         if (child.nodeType === Node.COMMENT_NODE) {
             nodes.push({ type: "raw", html: `<!--${child.data}-->` });
         } else if (child.nodeType === Node.TEXT_NODE) {
+            // whitespace with a line break is just indentation
+            if (!child.textContent.trim() && child.textContent.includes("\n"))
+                return;
             let value = child.textContent.replace(/\s+/g, " ");
             if (i === 0)
                 value = value.trimStart();

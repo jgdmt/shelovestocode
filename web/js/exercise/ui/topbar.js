@@ -1,8 +1,8 @@
 // Top bar: module title, exercise steps and the Next button.
 
 import { $, h } from "./dom.js";
-import { ctx, exerciseUrl } from "./context.js";
-import { Status, statusOf } from "./progress.js";
+import { ctx, exerciseUrl } from "../core/context.js";
+import { Status, statusOf } from "../core/progress.js";
 
 const STEP_CLASS = {
     [Status.STARTED]: "started",

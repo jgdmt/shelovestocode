@@ -1,0 +1,54 @@
+/* Result column: live toggle, previews, goal, hidden checker frame */
+
+.live {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.live input { accent-color: var(--brand); width: 16px; height: 16px; }
+
+.preview-frame { flex: 1; min-height: 0; background: white; }
+.preview-frame iframe { width: 100%; height: 100%; border: none; display: block; }
+
+.result-stack {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.result-stack > .panel:first-child { flex: 0 0 var(--result-size, 60%); }
+/* the goal is what students aim for: it gets the brand look */
+.panel-goal {
+    flex: 1 1 0;
+    border: 2px solid var(--brand);
+    box-shadow: 0 8px 22px rgba(104, 71, 199, 0.22);
+}
+
+.panel-goal .panel-head { background: var(--brand); border-bottom: none; }
+
+.panel-goal .panel-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: 1.15em;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: white;
+}
+
+.panel-goal .panel-title .icon { color: var(--lavender); width: 20px; height: 20px; }
+.panel-goal .panel-head .muted { color: var(--lavender); }
+
+/* hidden iframe rendering the page for the checks */
+.checker-frame {
+    position: fixed;
+    left: -10000px;
+    top: 0;
+    width: 1024px;
+    height: 768px;
+    border: 0;
+    visibility: hidden;
+}
