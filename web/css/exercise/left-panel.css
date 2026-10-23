@@ -53,7 +53,7 @@ pre.snippet {
     margin: 8px 0;
     padding: 12px 84px 12px 14px;
     border-radius: 8px;
-    background: var(--ink);
+    background: var(--snippet-bg);
     color: white;
     font-family: var(--font-code);
     font-size: 0.85em;
@@ -164,8 +164,8 @@ pre.snippet {
     font-size: 0.85em;
 }
 
-.example-property { color: var(--tag-img); font-weight: 700; }
-.example-value { color: var(--tag-p); }
+.example-property { color: var(--syn-attr); font-weight: 700; }
+.example-value { color: var(--syn-string); }
 
 .image-list {
     display: grid;

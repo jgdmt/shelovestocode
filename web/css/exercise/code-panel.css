@@ -15,11 +15,25 @@
 .code-view .CodeMirror-linenumber { color: var(--lavender-mid); }
 .code-view .CodeMirror-cursor { border-left: 2px solid var(--brand); }
 .code-view .CodeMirror-selected { background: var(--lavender-soft) !important; }
-.cm-s-default .cm-tag { color: var(--brand); font-weight: 700; }
-.cm-s-default .cm-bracket { color: var(--lavender-mid); }
-.cm-s-default .cm-attribute { color: var(--tag-img); }
-.cm-s-default .cm-string { color: var(--tag-p); }
-.cm-s-default .cm-comment { color: var(--muted); font-style: italic; }
+.code-view .CodeMirror-matchingbracket { color: var(--ink) !important; background: var(--lavender-soft); }
+
+/* syntax colors (HTML and CSS modes) */
+.cm-s-default .cm-tag,
+.cm-s-default .cm-qualifier,
+.cm-s-default .cm-builtin { color: var(--syn-tag); font-weight: 700; }
+.cm-s-default .cm-bracket { color: var(--syn-bracket); }
+.cm-s-default .cm-attribute,
+.cm-s-default .cm-property { color: var(--syn-attr); }
+.cm-s-default .cm-string,
+.cm-s-default .cm-atom,
+.cm-s-default .cm-number,
+.cm-s-default .cm-keyword,
+.cm-s-default .cm-variable-2,
+.cm-s-default .cm-variable-3 { color: var(--syn-string); }
+.cm-s-default .cm-def,
+.cm-s-default .cm-meta { color: var(--syn-attr); }
+.cm-s-default .cm-comment { color: var(--syn-comment); font-style: italic; }
+.cm-s-default .cm-error { color: var(--danger); }
 
 /* diagnostics: gutter dot + tinted line, problems list under the editor */
 .code-view .diagnostics { width: 14px; }
@@ -90,7 +104,7 @@
     padding: 8px 14px;
     background: var(--lavender-soft);
     border-bottom: 1px solid var(--border);
-    color: var(--brand-strong);
+    color: var(--brand-ink);
     font-size: 0.9em;
 }
 

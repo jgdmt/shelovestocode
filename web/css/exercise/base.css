@@ -1,8 +1,17 @@
-/* Design tokens (SheLovesToCode branding), reset, icons, buttons */
+/* Design tokens (SheLovesToCode branding, light and dark), reset, icons, buttons.
+   The previews of the student's page are not themed: they stay plain white. */
 
 :root {
+    color-scheme: light;
+
     --brand: #6847c7;
-    --brand-strong: #4f32a8;
+    --brand-strong: #4f32a8;   /* hover of brand backgrounds */
+    --brand-ink: #4f32a8;      /* brand colored text on light surfaces */
+    --topbar-bg: #6847c7;
+    --topbar-btn-bg: #ffffff;   /* Next button, on the top bar */
+    --topbar-btn-ink: #6847c7;
+    --topbar-btn-hover: #efeafd;
+    --on-lavender: #2b1d57;    /* text on lavender, same in both themes */
     --lavender: #b9a5f2;
     --lavender-mid: #9a83e8;
     --lavender-soft: #efeafd;
@@ -16,6 +25,16 @@
     --danger-soft: #fde8ef;
     --warning: #e8983a;
     --warning-soft: #fff4e5;
+    --warning-ink: #a3600f;
+    --pill-bg: rgba(255, 255, 255, 0.92); /* attribute / selector pills inside colored tags */
+    --snippet-bg: #2b1d57;
+
+    /* code colors, shared by the editor, the blocks and the inventory */
+    --syn-tag: #6847c7;
+    --syn-bracket: #9a83e8;
+    --syn-attr: #3f6ad8;
+    --syn-string: #c2459b;
+    --syn-comment: #776c9a;
 
     --tag-h: #6847c7;
     --tag-p: #c2459b;
@@ -31,6 +50,80 @@
     --font-code: "JetBrains Mono", Menlo, Consolas, monospace;
 }
 
+/* Dark theme: follows the system unless the toggle chose a theme (data-theme on <html>).
+   Same values twice, for the system preference and for the explicit choice. */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --brand: #8466ea;
+        --brand-strong: #6d50d6;
+        --brand-ink: #c9b8ff;
+        --topbar-bg: #3a2878;
+        --topbar-btn-bg: rgba(255, 255, 255, 0.14);
+        --topbar-btn-ink: #ffffff;
+        --topbar-btn-hover: rgba(255, 255, 255, 0.22);
+        --lavender-mid: #9d88ee;
+        --lavender-soft: #2a2245;
+        --ink: #ece8f8;
+        --muted: #a39bc0;
+        --bg: #120e1c;
+        --panel: #1c1729;
+        --border: #332a4c;
+        --code-bg: #171224;
+        --danger: #f0709a;
+        --danger-soft: #3d1c2b;
+        --warning: #f0a54e;
+        --warning-soft: #3a2a14;
+        --warning-ink: #f5c27e;
+        --pill-bg: rgba(18, 14, 28, 0.78);
+        --snippet-bg: #0d0a15;
+        --tag-h: #7d5ee6;
+        --tag-p: #c94b96;
+        --tag-img: #4d74dc;
+        --tag-other: #5c5575;
+        --syn-tag: #b29cff;
+        --syn-bracket: #8a78c8;
+        --syn-attr: #7fa4ff;
+        --syn-string: #f08bcf;
+        --syn-comment: #8b84a6;
+    }
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --brand: #8466ea;
+    --brand-strong: #6d50d6;
+    --brand-ink: #c9b8ff;
+    --topbar-bg: #3a2878;
+    --topbar-btn-bg: rgba(255, 255, 255, 0.14);
+    --topbar-btn-ink: #ffffff;
+    --topbar-btn-hover: rgba(255, 255, 255, 0.22);
+    --lavender-mid: #9d88ee;
+    --lavender-soft: #2a2245;
+    --ink: #ece8f8;
+    --muted: #a39bc0;
+    --bg: #120e1c;
+    --panel: #1c1729;
+    --border: #332a4c;
+    --code-bg: #171224;
+    --danger: #f0709a;
+    --danger-soft: #3d1c2b;
+    --warning: #f0a54e;
+    --warning-soft: #3a2a14;
+    --warning-ink: #f5c27e;
+    --pill-bg: rgba(18, 14, 28, 0.78);
+    --snippet-bg: #0d0a15;
+    --tag-h: #7d5ee6;
+    --tag-p: #c94b96;
+    --tag-img: #4d74dc;
+    --tag-other: #5c5575;
+    --syn-tag: #b29cff;
+    --syn-bracket: #8a78c8;
+    --syn-attr: #7fa4ff;
+    --syn-string: #f08bcf;
+    --syn-comment: #8b84a6;
+}
+
 * { box-sizing: border-box; }
 
 html, body {
@@ -44,7 +137,7 @@ html, body {
 
 [hidden] { display: none !important; }
 
-a { color: var(--brand); }
+a { color: var(--brand-ink); }
 
 /* no ligatures: beginners must see "<!--" and "=>" exactly as they type them */
 code, .CodeMirror, .chip, .block-tag, .tag-open, .block-text, .raw-code, .skeleton {
@@ -54,7 +147,7 @@ code, .CodeMirror, .chip, .block-tag, .tag-open, .block-text, .raw-code, .skelet
 code {
     font-family: var(--font-code);
     background: var(--lavender-soft);
-    color: var(--brand-strong);
+    color: var(--brand-ink);
     padding: 1px 5px;
     border-radius: 4px;
     font-size: 0.88em;
@@ -119,8 +212,8 @@ code {
 .btn:hover { border-color: var(--lavender-mid); }
 .btn-primary { background: var(--brand); border-color: var(--brand); color: white; }
 .btn-primary:hover { background: var(--brand-strong); border-color: var(--brand-strong); }
-.btn-light { background: white; border-color: white; color: var(--brand); }
-.btn-light:hover { background: var(--lavender-soft); }
+.btn-light { background: var(--topbar-btn-bg); border-color: transparent; color: var(--topbar-btn-ink); }
+.btn-light:hover { background: var(--topbar-btn-hover); border-color: transparent; }
 .btn-ghost { background: transparent; border-color: transparent; color: var(--brand); }
 .btn-ghost:hover { background: var(--lavender-soft); border-color: transparent; }
 .btn[aria-disabled="true"] { opacity: 0.45; pointer-events: none; }

@@ -189,15 +189,15 @@
 .attr {
     display: inline-flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.92);
+    background: var(--pill-bg);
     color: var(--ink);
     border-radius: 4px;
     padding: 1px 6px;
     font-weight: 400;
 }
 
-.attr-name { color: var(--tag-img); font-weight: 700; outline: none; }
-.attr-value { color: var(--tag-p); outline: none; }
+.attr-name { color: var(--syn-attr); font-weight: 700; outline: none; }
+.attr-value { color: var(--syn-string); outline: none; }
 .attr-name:empty, .attr-value:empty { display: inline-block; min-width: 2ch; }
 .attr-name:focus, .attr-value:focus { background: var(--lavender-soft); border-radius: 3px; }
 
@@ -250,8 +250,8 @@
     min-width: 3ch;
     padding: 1px 6px;
     border-radius: 4px;
-    background: rgba(255, 255, 255, 0.92);
-    color: var(--brand-strong);
+    background: var(--pill-bg);
+    color: var(--brand-ink);
     outline: none;
 }
 
@@ -266,8 +266,8 @@
     outline: none;
 }
 
-.decl-property { color: var(--tag-img); font-weight: 700; }
-.decl-value { color: var(--tag-p); }
+.decl-property { color: var(--syn-attr); font-weight: 700; }
+.decl-value { color: var(--syn-string); }
 .decl-property:focus, .decl-value:focus { border-color: var(--lavender-mid); background: var(--lavender-soft); }
 .decl-property:empty::before, .decl-value:empty::before { content: "…"; color: var(--muted); }
 .decl-punct { color: var(--muted); font-family: var(--font-code); margin: 0 -4px; }
@@ -283,5 +283,5 @@
 }
 
 .declaration.invalid { border-color: var(--warning); background: var(--warning-soft); }
-.decl-error { width: 100%; padding-left: 24px; font-size: 0.82em; color: #a3600f; }
+.decl-error { width: 100%; padding-left: 24px; font-size: 0.82em; color: var(--warning-ink); }
 .decl-error:empty { display: none; }
