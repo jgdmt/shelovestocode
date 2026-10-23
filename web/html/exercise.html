@@ -5,6 +5,8 @@
         <meta charset=utf-8>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SheLovesToCode — Web</title>
+        <!-- apply the saved theme before the first paint (see js/exercise/ui/theme.js) -->
+        <script>try { const t = localStorage.getItem("slc-theme"); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=JetBrains+Mono:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
@@ -36,6 +38,7 @@
             <span id="module-title" class="module-title"></span>
             <nav id="steps" class="steps"></nav>
             <a id="next-btn" class="btn btn-light" aria-disabled="true">Next <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            <button id="theme-toggle" class="theme-toggle" type="button"></button>
         </header>
 
         <main class="workspace">

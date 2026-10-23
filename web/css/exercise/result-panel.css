@@ -11,8 +11,9 @@
 
 .live input { accent-color: var(--brand); width: 16px; height: 16px; }
 
+/* the student's page is not themed: it renders as in a plain browser, on white */
 .preview-frame { flex: 1; min-height: 0; background: white; }
-.preview-frame iframe { width: 100%; height: 100%; border: none; display: block; }
+.preview-frame iframe { width: 100%; height: 100%; border: none; display: block; color-scheme: light; }
 
 .result-stack {
     display: flex;

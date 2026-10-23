@@ -14,6 +14,7 @@ import { exerciseFiles } from "./core/files.js";
 import { markStarted, markFinished } from "./core/progress.js";
 import { createTopbar } from "./ui/topbar.js";
 import { setupLayout } from "./ui/layout.js";
+import { setupThemeToggle } from "./ui/theme.js";
 import { confetti } from "./ui/confetti.js";
 import { createLeftPanel } from "./left-panel/index.js";
 import { createCodePanel } from "./code-panel/index.js";
@@ -39,6 +40,7 @@ function start({ module, ex }) {
         showProperties: files.some((file) => file.language.id === "css")
     });
     setupLayout();
+    setupThemeToggle();
 
     async function run() {
         const results = await result.show(code.currentCode());

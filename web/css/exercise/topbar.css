@@ -6,7 +6,7 @@
     align-items: center;
     gap: 24px;
     padding: 0 20px;
-    background: var(--brand);
+    background: var(--topbar-bg);
     color: white;
 }
 
@@ -56,5 +56,21 @@
 
 .step:hover { border-color: var(--lavender); }
 .step.started { border-style: dashed; border-color: var(--lavender); }
-.step.done { background: var(--lavender); border-color: var(--lavender); color: var(--ink); }
+.step.done { background: var(--lavender); border-color: var(--lavender); color: var(--on-lavender); }
 .step.current { background: white; border-color: white; color: var(--brand); box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3); }
+
+/* light / dark switch */
+.theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.theme-toggle:hover { background: rgba(255, 255, 255, 0.15); }
+.theme-toggle .icon { width: 18px; height: 18px; }
