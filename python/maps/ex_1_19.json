@@ -38,6 +38,12 @@
         "notes": {
             "en": [
                 "Time to mix everything you've learned so far!"
+            ],
+            "fr": [
+                "Il est temps de mixer tout ce que tu as appris jusqu'ici !"
+            ],
+            "nl": [
+                "Tijd om alles te combineren wat je tot nu toe hebt geleerd!"
             ]
         },
         "repeat": 4

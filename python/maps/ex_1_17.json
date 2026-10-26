@@ -18,11 +18,25 @@
         "max_lines": 13,
         "notes": {
             "en": [
-                "Hoho! You only have 13 lines to solve this level!",
+                "Hoot-hoot! You only have 13 lines to solve this level!",
                 "",
                 "It would be nice if you could move more than one step when you use the walk function... Maybe you could try writing a customized walk function?",
                 "",
                 "Also, I left something in your work file. It works for two but it also works for more than two..."
+            ],
+            "fr": [
+                "Hoot-hoot ! Tu n'as que 13 lignes pour résoudre cet exercice !",
+                "",
+                "Ça serait bien si tu pouvais te déplacer plus qu'une fois quand tu utilises la fonction walk... Peut-être est-il temps d'essayer d'écrire une fonction walk customisée ?",
+                "",
+                "Aussi, j'ai rajouté un petit truc dans ton fichier de travail. Ça fonctionne pour deux mais aussi pour plus que deux..."
+            ],
+            "nl": [
+                "Oehoe-Oehoe! Je hebt maar 13 regels om deze oefening op te lossen!",
+                "",
+                "Het zou handig zijn als je meer dan één stap kon zetten wanneer je de functie walk gebruikt... Misschien kun je eens proberen je eigen walk-functie te schrijven?",
+                "",
+                "O ja, ik heb ook iets in je werkbestand gelegd. Het werkt voor twee, maar ook voor meer dan twee..."
             ]
         }
     }],

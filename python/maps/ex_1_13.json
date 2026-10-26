@@ -11,6 +11,16 @@
                 "Let's combine functions and variables... By learning about functions arguments!",
                 "",
                 "Spend some time to try things and get a better understanding on how functions work! You can also check on internet or ask your neighbours."
+            ],
+            "fr": [
+                "Combinons fonctions et variables... En apprenant les arguments de fonctions !",
+                "",
+                "Prends le temps dont tu as besoin pour essayer des choses et mieux comprendre comment les fonctions fonctionnent. Tu peux aussi checker sur Internet ou demander à tes voisines."
+            ],
+            "nl": [
+                "Laten we functies en variabelen combineren... door te leren over functieargumenten!",
+                "",
+                "Neem de tijd die je nodig hebt om dingen uit te proberen en beter te begrijpen hoe functies werken. Je kunt ook op internet zoeken of het aan je buren vragen."
             ]
         }
     }],

@@ -1,5 +1,6 @@
 from .game import player, LEFT, RIGHT, UP, DOWN
 
+# This variable serves as a counter
 iterator = 1
 
 while (iterator <= 4): # While the condition is true, the code will be repeated

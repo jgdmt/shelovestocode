@@ -2,9 +2,7 @@
     "level": [{
         "map": [
             "22222222222",
-            "211111611t2",
-            "26222122212",
-            "21611161112",
+            "216111611t2",
             "25222122212",
             "23516161112",
             "22222222222"
@@ -17,16 +15,30 @@
                 "",
                 "Mmh? Did you lose your notebook? What a cat-astrophe! Why are you looking at me like that? I didn't do anything... Meow :3",
                 "Listen you shouldn't need it anymore, right? If you can't remember something, maybe someone else will. And if it's too hard, I don't know, maybe you can help each other out?"
+            ],
+            "fr": [
+                "Pour une fois, je n'ai pas volé ta carte et je n'ai pas non plus volé ta lampe torche. Même moi j'ai besoin de vacances, n'est-ce pas ?",
+                "",
+                "",
+                "Mmh ? Tu as perdu ton carnet ? C'est une véritable chat-atstrophe ! Pourquoi me regardes-tu comme ça ? Je n'ai rien fait... Meow :3",
+                "Écoute, tu ne devrais plus en avoir besoin, pas vrai ? Si tu ne te souviens pas de quelque chose, peut-être que quelqu'un d'autre oui. Et si c'est trop difficile, je ne sais pas, peut-être pourrais-tu te reposer sur l'entraide ?"
+            ],
+            "nl": [
+                "Voor één keer heb ik je kaart niet gestolen en je zaklamp ook niet! Zelfs ik heb vakantie nodig, toch?",
+                "",
+                "",
+                "Mmh? Ben je je notitieboekje kwijt? Wat een kat-astrofe! Waarom kijk je me zo aan? Ik heb niks gedaan... Miauw :3",
+                "Luister, je zou het toch niet meer nodig moeten hebben? Als jij je iets niet meer herinnert, weet iemand anders het misschien nog wel. En als het te moeilijk is, tja, misschien kunnen jullie elkaar helpen?"
             ]
         },
         "repeat": 2,
         "random_doors": {
             "a": {
-                "doors": [[1, 2], [2, 3], [4, 5]],
+                "doors": [[2, 1], [4, 3]],
                 "fg_color": "22B14C"
             },
             "b": {
-                "doors": [[6, 1], [6, 3], [6, 5]],
+                "doors": [[6, 1], [6, 3]],
                 "fg_color": "911196"
             }
         }

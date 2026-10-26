@@ -16,6 +16,12 @@
         "notes": {
             "en": [
                 "It seems there is a pattern in here. If only we could repeat the same pattern without having to write it multiple times..."
+            ],
+            "fr": [
+                "Il semblerait qu'il y a un pattern ici. Si seulement nous pouvions répéter le même pattern sans avoir à l'écrire plusieurs fois..."
+            ],
+            "nl": [
+                "Het lijkt erop dat hier een patroon in zit. Konden we datzelfde patroon maar herhalen zonder het meerdere keren te moeten schrijven..."
             ]
         }
     }],

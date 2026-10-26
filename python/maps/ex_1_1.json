@@ -7,11 +7,25 @@
         ],
         "notes": {
             "en": [
-                "Hoho, it seems there's a limit of lines... Your file can't have more than 7 lines!",
+                "Hoot-hoot, it seems there's a limit of lines... Your file can't have more than 7 lines!",
                 "",
                 "I might have found something that will be very useful... A loop! I put one in your work.py file. The code inside a loop will be repeated until the condition becomes false.",
                 "",
                 "Don't forget to use the help if you don't remember something. You can also go back to check the exercises from the module 0."
+            ],
+            "fr": [
+                "Hoot-hoot, il semblerait qu'il y a une limite de lignes... Ton fichier ne peut pas dépasser les 7 lignes !",
+                "",
+                "Je pense avoir trouvé quelque chose qui pourrait s'avérer utile... Une boucle ! Je l'ai ajoutée dans ton fichier work.py. Le code dans la boucle sera répété jusqu'à ce que la condition devienne fausse.",
+                "",
+                "N'oublie pas d'utiliser l'aide s'il y a quelque chose que tu as oublié. Tu peux aussi retourner voir les exercices du module 0."
+            ],
+            "nl": [
+                "Oehoe-oehoe, het lijkt erop dat er een limiet is op het aantal regels... Je bestand mag niet meer dan 7 regels hebben!",
+                "",
+                "Ik denk dat ik iets heb gevonden dat handig kan zijn... Een lus! Ik heb er een in je work.py-bestand gezet. De code in een lus wordt herhaald totdat de voorwaarde onwaar wordt.",
+                "",
+                "Vergeet niet de hulp optie te gebruiken als je iets niet meer weet. Je kan ook terugkijken naar de oefeningen van module 0 die je de vorige keer hebt gemaakt."
             ]
         },
         "max_lines": 7

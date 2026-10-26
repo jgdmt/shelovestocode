@@ -7,9 +7,19 @@
         ],
         "notes": {
             "en": [
-                "I have a gift! As usual, I left it in your work file, hoho.",
+                "I have a gift! As usual, I left it in your work file, hoot-hoot.",
                 "",
                 "It's another kind of loop, the for loop. It does the same thing as the while loop but the syntax is different. Use the one you prefer!"
+            ],
+            "fr": [
+                "J'ai un cadeau ! Comme d'habitude, je l'ai laissé dans ton fichier de travail, hoot-hoot.",
+                "",
+                "C'est un autre type de boucle, la boucle for. Elle fait la même chose que la boucle while mais leur syntaxe est différente. Utilise celle que tu préfères."
+            ],
+            "nl": [
+                "Ik heb een cadeautje! Zoals gewoonlijk heb ik het in je werkbestand gelegd, hoe-hoe.",
+                "",
+                "Het is een ander soort lus, de for-lus. Die doet hetzelfde als de while-lus, maar de syntax is anders. Gebruik degene die je het liefst hebt!"
             ]
         }
     }],

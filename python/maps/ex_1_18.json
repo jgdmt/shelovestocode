@@ -28,6 +28,28 @@
                 "Then myVar will have the type string (str) in python because it stores a list of characters. There are different types and they depend on the language you are learning.",
                 "",
                 "The password is a type, in python, that represents a numeric value. Don't hesitate to look it up on internet!"
+            ],
+            "fr": [
+                "Ce niveau est tellement grand ! C'est une bonne chose que tu aies désormais ta propre fonction walk. Ça va rendre les choses plus simples !",
+                "",
+                "N'hésite pas à écrire autant de fonctions que nécessaire !",
+                "",
+                "Oh, on a besoin d'un mot de passe ici. Savais-tu que les variables ont un type ? Par exemple, si tu écris :",
+                "myVar = 'hello'",
+                "Alors myVar aura le type string (str) en python parce qu'elle stocke une chaîne de caractères. Il y a différents types qui existent et certains dépendent du langage que tu es en train d'apprendre.",
+                "",
+                "Le mot de passe est un type, en python, qui représente une valeur numérique. N'hésite pas à chercher sur internet !"
+            ],
+            "nl": [
+                "Dit level is zo groot! Gelukkig heb je nu je eigen walk-functie. Daarmee wordt het een stuk makkelijker!",
+                "",
+                "Schrijf gerust zoveel functies als je nodig hebt!",
+                "",
+                "Oh, hier hebben we een wachtwoord nodig. Wist je dat variabelen een type hebben? Als je bijvoorbeeld schrijft:",
+                "myVar = 'hello'",
+                "Dan heeft myVar in Python het type string (str), omdat de variabele een reeks tekens bevat. Er bestaan verschillende types en sommige hangen af van de taal die je aan het leren bent.",
+                "",
+                "Het wachtwoord is een type in Python dat een numerieke waarde voorstelt. Zoek het gerust op internet op!"
             ]
         },
         "print": [

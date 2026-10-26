@@ -12,6 +12,20 @@
                 "When you call a function, it will execute all the code inside of it.",
                 "",
                 "Does it look a little bit familiar? You have been using them from the beginning!"
+            ],
+            "fr": [
+                "Hey, j'ai trouvé quelque chose de très sympa. Ça s'appelle une fonction et c'est super pratique !",
+                "",
+                "Quand tu appelles une fonction, ça va exécuter tout le code à l'intérieur.",
+                "",
+                "Ça te semble un peu familier ? Tu en utilises depuis le début !"
+            ],
+            "nl": [
+                "Hé, ik heb iets heel leuks gevonden. Het heet een functie en het is superhandig!",
+                "",
+                "Als je een functie oproept, wordt alle code erin uitgevoerd.",
+                "",
+                "Komt het je een beetje bekend voor? Je gebruikt ze al vanaf het begin!"
             ]
         }
     }],

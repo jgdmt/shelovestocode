@@ -12,6 +12,12 @@
         "notes": {
             "en": [
                 "You can define different functions! Useful if there are different patterns."
+            ],
+            "fr": [
+                "Tu peux définir différentes fonctions ! Utile s'il y a différents patterns."
+            ],
+            "nl": [
+                "Je kunt verschillende functies definiëren! Handig als er verschillende patronen zijn."
             ]
         }
     }],

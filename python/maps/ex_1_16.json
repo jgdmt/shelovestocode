@@ -19,7 +19,13 @@
         ],
         "notes": {
             "en": [
-                "There are no line limits this time, but there's clearly a faster way to solve the level than write instruction one by one... What about using functions...?"
+                "There are no line limits this time, but there's clearly a faster way to solve the level than writing instructions one by one... What about using functions...?"
+            ],
+            "fr": [
+                "Il n'y a pas de limites de lignes cette fois mais il y a clairement un moyen plus rapide de résoudre cet exercice qu'en écrivant une instruction à la fois... Pourquoi ne pas utiliser les fonctions ?"
+            ],
+            "nl": [
+                "Er is deze keer geen limiet op het aantal regels, maar er is duidelijk een snellere manier om deze oefening op te lossen dan elke instructie een voor een te schrijven... Wat als je functies gebruikt...?"
             ]
         }
     }],

@@ -15,7 +15,49 @@
         ],
         "notes": {
             "en": [
-                "Lines limit is 14... It seems that a single while will not be enough this time..."
+                "Lines limit is 14... It seems that a single while will not be enough this time...",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Don't forget to reset your iterator..."
+            ],
+            "fr": [
+                "La limite de lignes est 14... Il semblerait qu'une seule boucle ne sera pas suffisante cette fois...",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "N'oublie pas de réinitialiser ton itérateur..."
+            ],
+            "nl": [
+                "De limiet is 14 regels... Het lijkt erop dat één while-lus deze keer niet genoeg zal zijn...",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "Vergeet niet je iterator te resetten..."
             ]
         },
         "max_lines": 0

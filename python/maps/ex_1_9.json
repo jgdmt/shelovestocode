@@ -19,6 +19,12 @@
         "notes": {
             "en": [
                 "Well, hello again! I didn't think we would meet again! Did you decide to do a jump in the past?"
+            ],
+            "fr": [
+                "Re bonjour ! Je ne pensais pas que nous nous reverrions ! As-tu décidé de faire un saut dans le passé ?"
+            ],
+            "nl": [
+                "Kijk eens wie we daar hebben! Ik had niet gedacht dat we elkaar nog zouden zien! Heb je besloten een sprong terug in de tijd te maken?"
             ]
         },
         "character": "time_traveler.txt"

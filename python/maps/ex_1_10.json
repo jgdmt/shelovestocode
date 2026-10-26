@@ -30,6 +30,20 @@
                 "Can you do it using a single loop?",
                 "",
                 "(Maximum lines count: 20)"
+            ],
+            "fr": [
+                "Tu peux mettre des conditions dans des boucles et des boucles dans des conditions. Il y a tellement de façons de résoudre cet exercice !",
+                "",
+                "Peux-tu le faire en utilisant une seule boucle ?",
+                "",
+                "(Nombre de lignes maximum : 20)"
+            ],
+            "nl": [
+                "Je kan voorwaarden in lussen zetten en lussen in voorwaarden. Er zijn zoveel manieren om deze oefening op te lossen!",
+                "",
+                "Lukt het je met maar één lus?",
+                "",
+                "(Maximaal aantal regels: 20)"
             ]
         },
         "repeat": 2,

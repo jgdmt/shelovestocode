@@ -21,6 +21,12 @@
         "notes": {
             "en": [
                 "Another line limit... Your file can't have more than 5 lines!"
+            ],
+            "fr": [
+                "Encore une limite de lignes... Ton fichier ne peut pas contenir plus de 5 lignes !"
+            ],
+            "nl": [
+                "Weer een limiet op het aantal regels... Je bestand mag niet meer dan 5 regels bevatten!"
             ]
         },
         "max_lines": 5

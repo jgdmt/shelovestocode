@@ -29,6 +29,28 @@
                 "",
                 "",
                 "(Maximum number of lines: 12)"
+            ],
+            "fr": [
+                "Te souviens-tu de comment ouvrir une porte ?",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "(Nombre maximum de lignes : 12)"
+            ],
+            "nl": [
+                "Weet je nog hoe je deuren opent?",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "(Maximaal aantal regels: 12)"
             ]
         },
         "max_lines": 12

@@ -1,22 +1,10 @@
 {
     "level": [{
         "map": [
-            "222222222",
-            "212111212",
-            "212131212",
-            "212111212",
-            "212252212",
-            "211111112",
-            "211222112",
-            "2116c6112",
-            "222222222"
+            "222222222222",
+            "2311115111c2",
+            "222222222222"
         ],
-        "random_doors": {
-            "a": {
-                "doors": [[3, 7], [5, 7]],
-                "fg_color": "22B14C"
-            }
-        },
         "character": "thief.txt",
         "notes": {
             "en": [
@@ -28,6 +16,26 @@
                 "",
                 "",
                 "I almost forgot but tell your neighbour that the password is one of the instructions that lets you do a loop."
+            ],
+            "fr": [
+                "Meoww... Je t'ai manqué ? Tu te souviens de moi, n'est-ce pas ?",
+                "",
+                "Je pense que tu devrais retourner aux bases donc je t'ai ramené d'anciennes mécaniques que tu pourrais avoir oubliées. De rien ! :3",
+                "",
+                "",
+                "",
+                "",
+                "J'allais presque oublier mais dis à ta voisine que le mot de passe est une des instructions qui te permet de faire une boucle."
+            ],
+            "nl": [
+                "Miauww... Heb je me gemist? Je herinnert je mij toch nog, of niet?",
+                "",
+                "Ik denk dat je terug moet naar de basis, dus ik heb oude mechanismen teruggebracht die je misschien vergeten bent. Graag gedaan! :3",
+                "",
+                "",
+                "",
+                "",
+                "Ik was het bijna vergeten, maar zeg tegen je buurvrouw dat het wachtwoord een van de instructies is waarmee je een lus kunt maken."
             ]
         },
         "hidden": true,
@@ -38,22 +46,10 @@
     },
     {
         "map": [
-            "222222222",
-            "211212112",
-            "211612112",
-            "211212112",
-            "2312151c2",
-            "211212112",
-            "211612112",
-            "211212112",
-            "222222222"
+            "222222222222",
+            "2311115111c2",
+            "222222222222"
         ],
-        "random_doors": {
-            "a": {
-                "doors": [[3, 2], [3, 6]],
-                "fg_color": "22B14C"
-            }
-        },
         "character": "thief.txt",
         "notes": {
             "en": [
@@ -65,6 +61,26 @@
                 "",
                 "",
                 "I almost forgot but tell your neighbour that the password is one of the instructions about conditions."
+            ],
+            "fr": [
+                "Meoww... Je t'ai manqué ? Tu te souviens de moi, n'est-ce pas ?",
+                "",
+                "Je pense que tu devrais retourner aux bases donc je t'ai ramené d'anciennes mécaniques que tu pourrais avoir oubliées. De rien ! :3",
+                "",
+                "",
+                "",
+                "",
+                "J'allais presque oublier mais dis à ta voisine que le mot de passe est une des instructions liées aux conditions."
+            ],
+            "nl": [
+                "Miauww... Heb je me gemist? Je herinnert je mij toch nog, of niet?",
+                "",
+                "Ik denk dat je terug moet naar de basis, dus ik heb oude mechanismen teruggebracht die je misschien vergeten bent. Graag gedaan! :3",
+                "",
+                "",
+                "",
+                "",
+                "Ik was het bijna vergeten, maar zeg tegen je buurvrouw dat het wachtwoord een van de instructies over voorwaarden is."
             ]
         },
         "hidden": true,
