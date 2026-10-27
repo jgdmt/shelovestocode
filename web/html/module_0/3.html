@@ -27,12 +27,6 @@
              <div style="background-color:white; width: fit-content;">
 <pre style="margin: 10px;">
 
-<select>
-    <option selected disabled hidden></option>
-    <option value="correct">&lt;!DOCTYPE html&gt;</option>
-    <option>&lt;!DOCTYPE&gt;</option>
-    <option>&lt;DOCTYPE html&gt;</option>
-</select>
 &lt;html&gt;
     &lt;head&gt;
         &lt;link href="mycss.css"&gt;
@@ -43,19 +37,19 @@
             <select>
                 <option selected disabled hidden></option>
                 <option>&lt;h2&gt;</option>
-                <option value="correct">&lt;h3&gt;</option>
+                <option value="correct">&lt;h6&gt;</option>
                 <option>&lt;h1&gt;</option>
+                <option>&lt;h5&gt;</option>
                 <option>&lt;h4&gt;</option>
-                <option>&lt;title&gt;</option>
-            </select>A story with a random title&lt;/h3&gt;
-            &lt;p&gt;This is the story of a random character.&lt;/p&gt;
+            </select>A story with a random title&lt;/h6&gt;
+            &lt;b&gt;This is the story of a random character.&lt;/b&gt;
             &lt;div&gt;
                 &lt;<select>
                     <option selected disabled hidden></option>
                     <option value="correct">img</option>
                     <option>div</option>
                     <option>p</option>
-                    <option>a</option>
+                    <option>i</option>
                 </select> src="storybook.png"&gt;
             &lt;/div&gt;
         <select>
@@ -66,19 +60,25 @@
             <option value="correct">&lt;/div&gt;</option>
         </select>
     &lt;/body&gt;
-<select>
-    <option selected disabled hidden></option>
-    <option>&lt;&gt;</option>
-    <option>&lt;html&gt;</option>
-    <option value="correct">&lt;/html&gt;</option>
-    <option>&lt;/&gt;</option>
-</select>
+&lt;/html&gt;
 <button onclick="checkQuizExercise()" id="finish-btn">Finish</button>
 
 </pre>
+
+<!-- result -->
+<div>
+    <h6>A story with random title</h6>
+    <b>This is the story of a random character.</b>
+    <div>
+        <img src="../../images/storybook.png">
+    </div>
+</div>
+
+
             </div>
 
 
+            <div name="hidden-result" hidden>There are some tags that don't go in pairs, like &lt;img&gt;. &lt;img&gt; represents an image.</div>
             <div id="next-btn" hidden>
                 <p>Congratulations! Level finished!</p>
                 <a id="next-btn-link">Next</a>

@@ -43,7 +43,7 @@ function sideMenu() {
         let link = document.createElement('a');
 
         if (i != ex)
-            link.href = `${i}.html?branch=${branch}&mod=${mod}&ex=${i}`;
+            link.href = `html/module_${mod}/${i}.html?branch=${branch}&mod=${mod}&ex=${i}`;
         link.textContent = "Exercise " + i;
 
         if (i == ex)

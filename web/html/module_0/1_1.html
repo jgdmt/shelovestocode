@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset=utf-8>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="stylesheet" href="../../css/fillin.css">
+        <script src="../../js/utils.js" defer></script>
+        <script src="../../js/level.js" defer></script>
+    </head>
+    <body>
+
+        <!-- Side menu -->
+        <div id="side-menu" class="side-menu" style="width: 300px;">
+            <div>
+                <h3><b>SheLovesToCode</b></h3>
+            </div>
+            <a href="../../index.html">Home</a>
+            <nav id="ex-list"></nav>
+        </div>
+
+        <!-- exercise -->
+        <div style="margin-left: 340px;">
+            <h1>Hello and welcome</h1>
+
+            <!-- html code -->
+             <div style="background-color:white; width: fit-content;">
+<pre style="margin: 10px;">
+
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h3&gt;A story with a random title<select>
+            <option selected disabled hidden></option>
+            <option>&lt;/h2&gt;</option>
+            <option>&lt;h3&gt;</option>
+            <option>&lt;/h1&gt;</option>
+            <option>&lt;h4&gt;</option>
+            <option value="correct">&lt;/h3&gt;</option>
+            <option>&lt;title&gt;</option>
+        </select>
+        &lt;strong&gt;This is the story of a random character.&lt;/strong&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+<button onclick="checkQuizExercise()" id="finish-btn">Finish</button>
+
+</pre>
+
+<!-- result -->
+<div>
+    <h3>A story with a random title</h3>
+    <strong>This is the story of a random character.</strong>
+</div>
+
+            </div>
+
+            <div name="hidden-result" hidden></div>
+            <div id="next-btn" hidden>
+                <p>Congratulations! Level finished!</p>
+                <a id="next-btn-link">Next</a>
+            </div>
+
+    </div>
+    </body>
+</html>

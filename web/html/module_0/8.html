@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset=utf-8>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="stylesheet" href="../../css/fillin.css">
+        <script src="../../js/utils.js" defer></script>
+        <script src="../../js/level.js" defer></script>
+    </head>
+    <body>
+
+        <!-- Side menu -->
+        <div id="side-menu" class="side-menu" style="width: 300px;">
+            <div>
+                <h3><b>SheLovesToCode</b></h3>
+            </div>
+            <a href="../../index.html">Home</a>
+            <nav id="ex-list"></nav>
+        </div>
+
+        <!-- exercise -->
+        <div style="margin-left: 340px;">
+            <h1>Hello and welcome</h1>
+
+            <!-- html code -->
+             <div style="background-color:white; width: fit-content;">
+<pre style="margin: 10px;">
+
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;link href="mycss.css"&gt;
+        &lt;script src="myjs.js&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div&gt;
+            <select>
+                <option selected disabled hidden></option>
+                <option>&lt;h2&gt;A story with a random title&lt;/h2&gt;</option>
+                <option value="correct">&lt;h3&gt;A story with a random title&lt;/h3&gt;</option>
+                <option>&lt;h1&gt;A story with a random title&lt;/h1&gt;</option>
+                <option>&lt;h4&gt;A story with a random title&lt;/h4&gt;</option>
+                <option>&lt;h5&gt;A story with a random title&lt;/h5&gt;</option>
+            </select>
+            &lt;p&gt;This is the story of a <select>
+                <option selected disabled hidden></option>
+                <option>&lt;b&gt;random&lt;/b&gt;</option>
+                <option>&lt;h3&gt;random&lt;/h3&gt;</option>
+                <option>&lt;p&gt;random&lt;/p&gt;</option>
+                <option>&lt;a&gt;random&lt;/a&gt;</option>
+                <option value="correct">&lt;i&gt;random&lt;/i&gt;</option>
+            </select>character.&lt;/p&gt;
+            &lt;div&gt;
+                &lt;img src="storybook.png"&gt;
+                &lt;a href="https://www.youtube.com/watch?v=KLI46yMdtmU"&gt;Click me!&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+<button onclick="checkQuizExercise()" id="finish-btn">Finish</button>
+
+</pre>
+
+<!-- result -->
+<div>
+    <h3>A story with random title</h3>
+    <p>This is the story of a <i>random</i> character.</p>
+    <div>
+        <img src="../../images/storybook.png">
+        <a href="https://www.youtube.com/watch?v=KLI46yMdtmU">Click me!</a>
+    </div>
+</div>
+
+
+            </div>
+
+
+            <div id="next-btn" hidden>
+                <p>Congratulations! Level finished!</p>
+                <a id="next-btn-link">Next</a>
+            </div>
+
+    </div>
+    </body>
+</html>

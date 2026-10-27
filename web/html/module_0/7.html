@@ -4,7 +4,7 @@
     <head>
         <meta charset=utf-8>
         <link rel="stylesheet" href="../../css/main.css">
-        <link rel="stylesheet" href="../../css/fillin.css">
+        <link rel="stylesheet" href="../../css/quiz.css">
         <script src="../../js/utils.js" defer></script>
         <script src="../../js/level.js" defer></script>
     </head>
@@ -27,55 +27,43 @@
              <div style="background-color:white; width: fit-content;">
 <pre style="margin: 10px;">
 
-<select>
-    <option selected disabled hidden></option>
-    <option value="correct">&lt;!DOCTYPE html&gt;</option>
-    <option>&lt;!DOCTYPE&gt;</option>
-    <option>&lt;DOCTYPE html&gt;</option>
-</select>
 &lt;html&gt;
     &lt;head&gt;
-        &lt;link href="mycss.css"&gt;
-        &lt;script src="myjs.js&gt;&lt;/script&gt;
     &lt;/head&gt;
     &lt;body&gt;
         &lt;div&gt;
-            <select>
-                <option selected disabled hidden></option>
-                <option>&lt;h2&gt;</option>
-                <option value="correct">&lt;h3&gt;</option>
-                <option>&lt;h1&gt;</option>
-                <option>&lt;h4&gt;</option>
-                <option>&lt;title&gt;</option>
-            </select>A story with a random title&lt;/h3&gt;
+            &lt;h4&gt;A story with a random title&lt;/h4&gt;
             &lt;p&gt;This is the story of a random character.&lt;/p&gt;
             &lt;div&gt;
-                &lt;<select>
+                &lt;img src="storybook.png"&gt;
+                <select>
                     <option selected disabled hidden></option>
-                    <option value="correct">img</option>
-                    <option>div</option>
-                    <option>p</option>
-                    <option>a</option>
-                </select> src="storybook.png"&gt;
+                    <option value="correct">&lt;a href="https://www.youtube.com/watch?v=KLI46yMdtmU"&gt;Click me!&lt;/a&gt;</option>
+                    <option>&lt;p&gt;Click me!&lt;/p&gt;</option>
+                    <option>&lt;h2&gt;Click me!&lt;/h2&gt;</option>
+                    <option>&lt;li&gt;Click me!&lt;/li&gt;</option>
+                    <option>&lt;strong&gt;Click me!&lt;/strong&gt;</option>
+                </select>
             &lt;/div&gt;
-        <select>
-            <option selected disabled hidden></option>
-            <option>&lt;/p&gt;</option>
-            <option>&lt;/li&gt;</option>
-            <option>&lt;/title&gt;</option>
-            <option value="correct">&lt;/div&gt;</option>
-        </select>
+        &lt;/div&gt;
     &lt;/body&gt;
-<select>
-    <option selected disabled hidden></option>
-    <option>&lt;&gt;</option>
-    <option>&lt;html&gt;</option>
-    <option value="correct">&lt;/html&gt;</option>
-    <option>&lt;/&gt;</option>
-</select>
+&lt;/html&gt;
 <button onclick="checkQuizExercise()" id="finish-btn">Finish</button>
 
+
 </pre>
+
+<!-- result -->
+<div>
+    <h4>A story with random title</h4>
+    <b>This is the story of a random character.</b>
+    <div>
+        <img src="../../images/storybook.png">
+        <a href="https://www.youtube.com/watch?v=KLI46yMdtmU">Click me!</a>
+    </div>
+</div>
+
+
             </div>
 
 

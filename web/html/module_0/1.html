@@ -3,16 +3,17 @@
 <html>
     <head>
         <meta charset=utf-8>
-        <link rel="stylesheet" href="../../css/main.css">
-        <link rel="stylesheet" href="../../css/fillin.css">
-        <script src="../../js/utils.js" defer></script>
-        <script src="../../js/level.js" defer></script>
+        <base href="../..">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/fillin.css">
+        <script src="/js/utils.js" defer></script>
+        <script src="/js/level.js" defer></script>
     </head>
     <body>
 
         <!-- inventory -->
-        <button class="diary-btn" onclick="openInventory()"  style="right: 0; top: 0; position: absolute;">Inventory</button>
-        <div id="diary" class="diary">
+        <button class="inventory-btn" onclick="openInventory()"  style="right: 0; top: 0; position: absolute;">Inventory</button>
+        <div id="inventory" class="inventory">
             <div>
                 <button onclick="manageInventory('inventory-items')">Items</button>
                 <button onclick="manageInventory('inventory-list')">List</button>
@@ -22,19 +23,19 @@
 
             <div id="inventory-items" style="display: grid; grid-template-columns: 25% 25% 25% 25%; grid-template-rows: 30% 30% 30%; overflow-y: scroll; padding: 10px;">
                 <div style="display: grid; grid-template-rows: 80% 20%; border: 1px solid black;">
-                    <img src="../../images/storybook.png" style="max-height: 100%; width: 100%; object-fit: cover;">
+                    <img src="/images/storybook.png" style="max-height: 100%; width: 100%; object-fit: cover;">
                     <p style="text-align: center;">storybook.png</p>
                 </div>
                 <div style="display: grid; grid-template-rows: 80% 20%; border: 1px solid black;">
-                    <img src="../../images/archi.jpg" style="max-height: 100%; width: 100%; object-fit: cover;">
+                    <img src="/images/archi.jpg" style="max-height: 100%; width: 100%; object-fit: cover;">
                     <p style="text-align: center;">archi.jpg</p>
                 </div>
                 <div style="display: grid; grid-template-rows: 80% 20%; border: 1px solid black;">
-                    <img src="../../images/haku.png" style="max-height: 100%; width: 100%; object-fit: cover;">
+                    <img src="/images/haku.png" style="max-height: 100%; width: 100%; object-fit: cover;">
                     <p style="text-align: center;">haku.png</p>
                 </div>
                 <div style="display: grid; grid-template-rows: 80% 20%; border: 1px solid black;">
-                    <img src="../../images/home.png" style="max-height: 100%; width: 100%; object-fit: cover;">
+                    <img src="/images/home.png" style="max-height: 100%; width: 100%; object-fit: cover;">
                     <p style="text-align: center;">home.png</p>
                 </div>
             </div>
@@ -286,7 +287,7 @@
                     <h3><b>SheLovesToCode</b></h3>
                 </div>
                 <nav id="ex-list" class="ex-list">
-                    <a href="../../index.html">Home</a>
+                    <a href="/index.html">Home</a>
                 </nav>
             </div>
 
@@ -360,7 +361,7 @@
                             Most tags go in pairs, the opening one (e.g. &lt;html&gt;) and the closing one (e.g. &lt;/html&gt;).<br><br>
                             There are 3 fundamental tags:<br>
                                 <b>&lt;html&gt;&lt;/html&gt;</b>: we always start with the tag &lt;html&gt; (it announces that the rest will be html code)<br>and we close everything at the end with &lt;/html&gt;.<br>
-                                <b>&lt;head&gt;&lt;/head&gt;</b> :contains metadata (i.e. data not readable on the web page but important for the web browser).<br>
+                                <b>&lt;head&gt;&lt;/head&gt;</b>: contains metadata (i.e. data not readable on the web page but important for the web browser).<br>
                                 <b>&lt;body&gt;&lt;/body&gt;</b>: contains everything visible on the web page.<br><br>
                             There are a lot of different tags that do different things.<br> 
                             Don't hesitate to look them up on internet!<br>

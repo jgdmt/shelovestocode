@@ -81,12 +81,12 @@ function translate(lan, mod, ex) {
 
 function openInventory() {
     console.log("Clicked")
-    document.getElementById("diary").style.width = "50%";
+    document.getElementById("inventory").style.width = "50%";
 }
 
 function closeInventory() {
     console.log("Closed")
-    document.getElementById("diary").style.width = "0";
+    document.getElementById("inventory").style.width = "0";
 }
 
 function manageInventory(id) {
@@ -108,5 +108,31 @@ function manageInventory(id) {
     }
 }
 
+function Test_2() {
+    let user = document.getElementById("userHTML");
+    let result = document.getElementById("resultHTML");
+    const base = new URL('../../user_files/', location.href).href;
+
+    // result.srcdoc = `<!DOCTYPE html><html><head><base href=${base}></head><body>${user.value}</body></html>`;
+    // console.log("yay")
+    result.innerHTML = user.value;
+    if (user.value.search("<img") != -1 && user.value.search("haku.png") != -1) {
+        let console = document.getElementById('console-logs');
+        const node = document.createElement('p');
+        const textNode = document.createTextNode('You hear a roar');
+        node.appendChild(textNode);
+        console.appendChild(node);
+    }
+    if (user.value.search("<img") != -1 && user.value.search("ring.png") != -1) {
+        let console = document.getElementById('console-logs');
+        const node = document.createElement('p');
+        const textNode = document.createTextNode('There is a shining ring in front of you');
+        node.appendChild(textNode);
+        console.appendChild(node);
+    }
+    
+}
+
 nextButtonSetup()
 translate()
+Test_2()

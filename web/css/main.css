@@ -10,7 +10,7 @@ html, body {
     display: none !important;
 }
 
-.diary {
+.inventory {
     width: 0;
     height: 100%;
     position: fixed;
@@ -21,6 +21,13 @@ html, body {
     overflow-x: hidden;
     display: grid;
     grid-template-rows: 10% 90%;
+}
+
+.inv-open-btn {
+    right: 0;
+    top: 0;
+    position: absolute;
+    cursor: pointer;
 }
 
 .ex-list {

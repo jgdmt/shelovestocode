@@ -3,87 +3,243 @@
 <html>
     <head>
         <meta charset=utf-8>
-        <link rel="stylesheet" href="../../css/main.css">
-        <link rel="stylesheet" href="../../css/fillin.css">
-        <script src="../../js/utils.js" defer></script>
-        <script src="../../js/level.js" defer></script>
+        <base href="../../user_files/">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/fillin.css">
+        <script src="../js/utils.js" defer></script>
+        <script src="../js/level.js" defer></script>
     </head>
     <body>
 
-        <!-- Side menu -->
-        <div id="side-menu" class="side-menu" style="width: 300px;">
-            <div>
-                <h3><b>SheLovesToCode</b></h3>
+        <!-- inventory -->
+        
+        <!-- <button class="inventory-btn" type="button" onclick="openInventory()"  style="right: 0; top: 0; position: absolute; padding: 0; border: none; background: none;">
+            <img src="../images/backpack.png">
+        </button> -->
+        <img class="inv-open-btn" onclick="openInventory()" src="../images/backpack.png" title="Inventory">
+        <div id="inventory" class="inventory">
+            <div style="display: flex; justify-content: space-around;">
+                <img onclick="manageInventory('inventory-items')" src="../images/coin_pouch.png" style="cursor: pointer;">
+                <img onclick="manageInventory('inventory-list')" src="../images/map_rolled.png" style="cursor: pointer;">
+                <img onclick="closeInventory()" src="../images/cancel_button.png" style="cursor: pointer;">
             </div>
-            <a href="../../index.html">Home</a>
-            <nav id="ex-list"></nav>
+
+            <div id="inventory-items" style="display: grid; grid-template-columns: 25% 25% 25% 25%; grid-template-rows: 30% 30% 30%; overflow-y: scroll; padding: 10px;">
+                <div style="display: grid; grid-template-rows: 80% 20%; border: 1px solid black;">
+                    <img src="../images/storybook.png" style="max-height: 100%; width: 100%; object-fit: cover;">
+                    <p style="text-align: center;">storybook.png</p>
+                </div>
+                <div style="display: grid; grid-template-rows: 80% 20%; border: 1px solid black;">
+                    <img src="../images/archi.jpg" style="max-height: 100%; width: 100%; object-fit: cover;">
+                    <p style="text-align: center;">archi.jpg</p>
+                </div>
+                <div style="display: grid; grid-template-rows: 80% 20%; border: 1px solid black;">
+                    <img src="../images/haku.png" style="max-height: 100%; width: 100%; object-fit: cover;">
+                    <p style="text-align: center;">haku.png</p>
+                </div>
+                <div style="display: grid; grid-template-rows: 80% 20%; border: 1px solid black;">
+                    <img src="../images/home.png" style="max-height: 100%; width: 100%; object-fit: cover;">
+                    <p style="text-align: center;">home.png</p>
+                </div>
+            </div>
+
+            <div id="inventory-list" hidden style="display: flex; flex-direction: column; padding: 10px;">
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;a&gt;</p>
+                    <p style="margin-left: 10px;">Defines a hyperlink</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;audio&gt;</p>
+                    <p style="margin-left: 10px;">Defines embedded sound content</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;b&gt;</p>
+                    <p style="margin-left: 10px;">Defines bold text</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;body&gt;</p>
+                    <p style="margin-left: 10px;">Defines the document's body</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;br&gt;</p>
+                    <p style="margin-left: 10px;">Defines a single line break</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;button&gt;</p>
+                    <p style="margin-left: 10px;">Defines a clickable button</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;div&gt;</p>
+                    <p style="margin-left: 10px;">Defines a section in a document</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;h1&gt; to &lt;h6&gt;</p>
+                    <p style="margin-left: 10px;">Defines HTML headings</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;head&gt;</p>
+                    <p style="margin-left: 10px;">Contains metadata/information for the document</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;html&gt;</p>
+                    <p style="margin-left: 10px;">Defines the root of an HTML document</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;i&gt;</p>
+                    <p style="margin-left: 10px;">Defines a part of text in an alternate voice or mood</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;img&gt;</p>
+                    <p style="margin-left: 10px;">Defines an image</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;input&gt;</p>
+                    <p style="margin-left: 10px;">Defines an input control</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;label&gt;</p>
+                    <p style="margin-left: 10px;">Defines a label for an &lt;input&gt; element</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;option&gt;</p>
+                    <p style="margin-left: 10px;">Defines an option in a drop-down list</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;p&gt;</p>
+                    <p style="margin-left: 10px;">Defines a paragraph</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;script&gt;</p>
+                    <p style="margin-left: 10px;">Defines a client-side script</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;select&gt;</p>
+                    <p style="margin-left: 10px;">Defines a drop-down list</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;span&gt;</p>
+                    <p style="margin-left: 10px;">Defines a section in a document</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;strong&gt;</p>
+                    <p style="margin-left: 10px;">Defines important text</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black; border-bottom: 0px;">&lt;style&gt;</p>
+                    <p style="margin-left: 10px;">Defines style information for a document</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 15% 85%;  border: 1px solid black; grid-template-rows: 100%;">
+                    <p style="margin: 0; align-content: center; text-align: center; border-right: dashed 1px black;">&lt;video&gt;</p>
+                    <p style="margin-left: 10px;">Defines embedded video content</p>
+                </div>
+                <a href="https://www.w3schools.com/tags/default.asp" target="_blank">
+                    And there are more...
+                </a>
+            </div>
         </div>
 
-        <!-- exercise -->
-        <div style="margin-left: 340px;">
-            <h1>Hello and welcome</h1>
+        <div style="display: grid; grid-template-columns: 20% 60% 20%; height: 100%;">
+            <div></div>
+            <!-- side menu -->
+            <!-- <div id="side-menu">
+                <div>
+                    <h3><b>SheLovesToCode</b></h3>
+                </div>
+                <nav id="ex-list" class="ex-list">
+                    <a href="index.html">Home</a>
+                </nav>
+            </div> -->
 
-            <!-- html code -->
-             <div style="background-color:white; width: fit-content;">
+            <!-- user interface -->
+            <div>
+
+                <!-- instructions -->
+                <!-- <div>
+                    <h1>Hello and welcome</h1>
+                    <p>Welcome to the first web exercise! You will learn about HTML, a markup language that defines the content and structure of a web page.</p>
+                    <p>Let's start with a simple exercise. On the left side there is some HTML and on the right there is the result. Can you see some pattern?</p>
+                </div> -->
+
+
+                <!-- html code -->
+                <div class="user-panels">
+                    
+                    <!-- code panel -->
+                    <div>
+                        <h2 style="text-align: center;">
+                            HTML
+                        </h2>
+                        <div class="code-panel" style="text-align: left;">
 <pre style="margin: 10px;">
 
-<select>
-    <option selected disabled hidden></option>
-    <option value="correct">&lt;!DOCTYPE html&gt;</option>
-    <option>&lt;!DOCTYPE&gt;</option>
-    <option>&lt;DOCTYPE html&gt;</option>
-</select>
 &lt;html&gt;
     &lt;head&gt;
-        &lt;link href="mycss.css"&gt;
-        &lt;script src="myjs.js&gt;&lt;/script&gt;
     &lt;/head&gt;
     &lt;body&gt;
-        &lt;div&gt;
-            <select>
-                <option selected disabled hidden></option>
-                <option>&lt;h2&gt;</option>
-                <option value="correct">&lt;h3&gt;</option>
-                <option>&lt;h1&gt;</option>
-                <option>&lt;h4&gt;</option>
-                <option>&lt;title&gt;</option>
-            </select>A story with a random title&lt;/h3&gt;
-            &lt;p&gt;This is the story of a random character.&lt;/p&gt;
-            &lt;div&gt;
-                &lt;<select>
-                    <option selected disabled hidden></option>
-                    <option value="correct">img</option>
-                    <option>div</option>
-                    <option>p</option>
-                    <option>a</option>
-                </select> src="storybook.png"&gt;
-            &lt;/div&gt;
-        <select>
-            <option selected disabled hidden></option>
-            <option>&lt;/p&gt;</option>
-            <option>&lt;/li&gt;</option>
-            <option>&lt;/title&gt;</option>
-            <option value="correct">&lt;/div&gt;</option>
-        </select>
+        <textarea id="userHTML" style="height: 35vh; width: 35vh;" onchange="Test_2()">
+<h1>A story with a random title</h1>
+<p>This is the story of a random character</p>
+<h6>It seems there is something hidden in here... Can you find it?</h6>
+<img hidden src="signpost.png">
+        </textarea>
     &lt;/body&gt;
-<select>
-    <option selected disabled hidden></option>
-    <option>&lt;&gt;</option>
-    <option>&lt;html&gt;</option>
-    <option value="correct">&lt;/html&gt;</option>
-    <option>&lt;/&gt;</option>
-</select>
-<button onclick="checkQuizExercise()" id="finish-btn">Finish</button>
-
+&lt;/html&gt;
 </pre>
+                        </div>
+                        <!-- <button onclick="checkQuizExercise()" id="finish-btn" style="margin-top: 5px;">Finish</button> -->
+                    </div>
+                    
+                    <!-- result -->
+                    <!-- <iframe id="resultHTML" class="result-panel">
+                    </iframe> -->
+                    <div>
+                        <h2 style="text-align: center;">
+                            Game
+                        </h2>
+                        <div id="resultHTML">
+                            <h1>A story with a random title</h1>
+                            <p>This is the story of a random character</p>
+                            <img hidden src="signpost.png" class="result-panel">
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- logs -->
+                <div id="console-logs" style="background-color: white;">
+                    You made it!
+                </div>
+
+                <!-- success informations -->
+                <div>
+                    
+                    <h1 name="hidden-result" hidden>Congratulations! Level finished!</h1>
+
+                    <!-- tips -->
+                    <div name="hidden-result" hidden>
+                        <p style="background-color: white; border: solid 1px #26d59be1; padding: 10px">
+                            &lt;html&gt;, &lt;head&gt;, &lt;body&gt;, &lt;p&gt; and &lt;h1&gt; are called tags.<br>
+                            Most tags go in pairs, the opening one (e.g. &lt;html&gt;) and the closing one (e.g. &lt;/html&gt;).<br><br>
+                            There are 3 fundamental tags:<br>
+                                <b>&lt;html&gt;&lt;/html&gt;</b>: we always start with the tag &lt;html&gt; (it announces that the rest will be html code)<br>and we close everything at the end with &lt;/html&gt;.<br>
+                                <b>&lt;head&gt;&lt;/head&gt;</b>: contains metadata (i.e. data not readable on the web page but important for the web browser).<br>
+                                <b>&lt;body&gt;&lt;/body&gt;</b>: contains everything visible on the web page.<br><br>
+                            There are a lot of different tags that do different things.<br> 
+                            Don't hesitate to look them up on internet!<br>
+                            For now we will focus on the body tag and leave the head one empty.
+                        </p>
+                    </div>
+
+                    <!-- next button -->
+                    <!-- <div id="next-btn" hidden>
+                        <a id="next-btn-link">Next</a>
+                    </div> -->
+
+                </div>
+
             </div>
+        </div>
 
-
-            <div id="next-btn" hidden>
-                <p>Congratulations! Level finished!</p>
-                <a id="next-btn-link">Next</a>
-            </div>
-
-    </div>
     </body>
 </html>
