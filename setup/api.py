@@ -8,6 +8,7 @@ from pydantic import BaseModel
 from menu import menu, Status, Order
 
 app = FastAPI()
+branches = {"web": Order.WEB.value, "shell": Order.SHELL.value}
 
 app.add_middleware(
     CORSMiddleware,
@@ -20,14 +21,14 @@ app.add_middleware(
 @app.get("/info")
 def get_branch(branch: str):
     branch_int = menu.curr_branch
-    if branch == "web":
-        branch_int = Order.WEB.value
-    elif branch == "shell":
-        branch_int = Order.SHELL.value
+    if branches.get(branch) is not None:
+        branch_int = branches[branch]
     mod = menu.curr_mod
-    status = []
     if len(menu.branches[branch_int].mod) > mod:
-        status = menu.branches[branch_int].mod[mod].ex
+        mod = 0
+    status = []
+    for i in range(len(menu.branches[branch_int].mod)):
+        status.append(menu.branches[branch_int].mod[i].ex)
     return {
         "branch": branch_int,
         "module": mod,
@@ -38,13 +39,15 @@ def get_branch(branch: str):
 
 
 @app.post("/start")
-def update_exercise(branch: int, mod: int, ex: int):
-    menu.update_ex(branch, mod, ex, Status.STARTED)
+def update_exercise(branch: str, mod: int, ex: int):
+    if branches.get(branch) is not None:
+        menu.update_ex(branches[branch], mod, ex, Status.STARTED)
 
 
 @app.post("/finish")
-def finish_exercise(branch: int, mod: int, ex: int):
-    menu.update_ex(branch, mod, ex, Status.FINISHED)
+def finish_exercise(branch: str, mod: int, ex: int):
+    if branches.get(branch) is not None:
+        menu.update_ex(branches[branch], mod, ex, Status.FINISHED)
 
 
 # Web related endpoints

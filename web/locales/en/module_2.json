@@ -1,0 +1,49 @@
+{
+    "module": {
+        "title": "CSS basics",
+        "description": "Colors, sizes and fonts: give your page some style."
+    },
+    "ex0": {
+        "title": "Paint it purple",
+        "guide": "HTML gives a page its content, CSS gives it its looks! Here the HTML is ready: we only change the style.",
+        "mission": [
+            "A CSS <b>rule</b> picks elements with a <b>selector</b> (<code>h1</code>) and changes their look with <b>declarations</b> (<code>color: purple;</code>).",
+            "In <code>style.css</code>, make the title <b>purple</b>, then make the paragraph text <b>20px</b> big."
+        ],
+        "dialogue0": [
+            "Hello, we are your new clients. We would like to have a nice website. We are not sure what we want yet, though."
+        ],
+        "dialogue1": [
+            "I know! I want a big header where my name is written! 'Haku' in very big, it sounds nice."
+        ],
+        "hint0": [
+            "Do you need help? I'm here for you!"
+        ],
+        "check0": "The title is purple",
+        "check1": "The paragraph text is 20px",
+        "lesson": "<p>A CSS rule has two parts:</p>\n<ul>\n  <li>the <b>selector</b> (<code>h1</code>, <code>p</code>...) says which elements are styled;</li>\n  <li>the <b>declarations</b> between <code>{ }</code> say how: <code>property: value;</code></li>\n</ul>\n<p>The HTML loads the CSS file with this line in its <code>&lt;head&gt;</code>:</p>\n<pre class=\"snippet\">&lt;link rel=\"stylesheet\" href=\"style.css\"&gt;</pre>"
+    },
+    "ex1": {
+        "title": "Link your style",
+        "guide": "This time the CSS is ready, but the page doesn't use it yet. Let's connect them!",
+        "mission": [
+            "1. In <code>index.html</code>, load the stylesheet: add this line inside <code>&lt;head&gt;</code>.<pre class=\"snippet\">&lt;link rel=\"stylesheet\" href=\"style.css\"&gt;</pre>",
+            "2. The CSS styles elements with the class <code>story</code>: give the <code>&lt;div&gt;</code> this attribute.<pre class=\"snippet\">class=\"story\"</pre>",
+            "3. In <code>style.css</code>, give the title the color you like."
+        ],
+        "hint0": [
+            "The <code>&lt;head&gt;</code> can't be edited in blocks mode: switch to <b>Code</b> for step 1."
+        ],
+        "hint1": [
+            "In blocks mode, hover the <code>&lt;div&gt;</code> and click <b>+</b> to add an attribute: name <code>class</code>, value <code>story</code>."
+        ],
+        "hint2": [
+            "Click a selector chip in the CSS blocks (like <code>h1</code>) to create a rule, then add a <code>color</code> property to it."
+        ],
+        "check0": "index.html loads style.css",
+        "check1": "The <div> has the class \"story\"",
+        "check2": "The story box is lavender",
+        "check3": "The title has a color",
+        "lesson": "<p>HTML and CSS are two files that work together:</p>\n<ul>\n  <li><code>&lt;link rel=\"stylesheet\" href=\"style.css\"&gt;</code> tells the browser to load the CSS;</li>\n  <li>a <b>class</b> (<code>class=\"story\"</code>) names elements, and the selector <code>.story</code> styles them all.</li>\n</ul>"
+    }
+}

@@ -2,6 +2,7 @@
 // read-only files and a badge counting the problems found in each file.
 
 import { $, h, icon, setupSegmented } from "../ui/dom.js";
+import { ui } from "../core/i18n.js";
 
 export function createFileTabs(files, onSelect) {
     const container = $("file-tabs");
@@ -13,7 +14,7 @@ export function createFileTabs(files, onSelect) {
         return h("button", {
             class: `file-tab file-${file.language.id}`,
             "data-file": file.name,
-            title: file.readOnly ? "Read only" : undefined
+            title: file.readOnly ? ui("code.readOnly") : undefined
         }, h("span", { class: "file-dot" }), file.name, file.readOnly ? icon("lock", "icon icon-sm file-lock") : null, badge);
     }));
 

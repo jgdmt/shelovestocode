@@ -8,6 +8,7 @@
 //      difference between the source and the regenerated code
 
 import { VOID_TAGS } from "./model.js";
+import { ui } from "../../core/i18n.js";
 
 // Tags the browser adds on its own: never reported, never compared.
 const IMPLIED_TAGS = new Set(["html", "head", "body"]);
@@ -92,13 +93,13 @@ function lint(tokens) {
     for (const token of tokens) {
         const { kind, name, line } = token;
         if (kind === "broken") {
-            issues.push({ line, message: `The tag <${name}> on line ${line} is missing its closing ">".` });
+            issues.push({ line, message: ui("html.missingBracket", { name, line }) });
         } else if (kind === "open") {
             if (!IMPLIED_TAGS.has(name) && !VOID_TAGS.has(name))
                 stack.push(token);
         } else if (kind === "close" && !IMPLIED_TAGS.has(name)) {
             if (VOID_TAGS.has(name)) {
-                issues.push({ line, message: `<${name}> never needs a closing tag: remove </${name}> on line ${line}.` });
+                issues.push({ line, message: ui("html.voidClosed", { name, line }) });
                 continue;
             }
             const index = stack.map((t) => t.name).lastIndexOf(name);
@@ -108,11 +109,11 @@ function lint(tokens) {
                     forcedClosed.splice(forced, 1);
                     continue;
                 }
-                issues.push({ line, message: `</${name}> on line ${line} closes a tag that was never opened.` });
+                issues.push({ line, message: ui("html.neverOpened", { name, line }) });
                 continue;
             }
             for (const open of stack.slice(index + 1)) {
-                issues.push({ line: open.line, message: `<${open.name}> (line ${open.line}) must be closed before </${name}> (line ${line}).` });
+                issues.push({ line: open.line, message: ui("html.closeBefore", { name: open.name, line: open.line, close: name, closeLine: line }) });
                 forcedClosed.push(open.name);
             }
             stack.length = index;
@@ -120,7 +121,7 @@ function lint(tokens) {
     }
 
     for (const open of stack)
-        issues.push({ line: open.line, message: `<${open.name}> (line ${open.line}) is never closed.` });
+        issues.push({ line: open.line, message: ui("html.neverClosed", { name: open.name, line: open.line }) });
 
     return issues.sort((a, b) => a.line - b.line);
 }
@@ -158,5 +159,5 @@ export function findIssues(source, regenerated) {
     const line = firstDifference(source, regenerated);
     if (line === null)
         return [];
-    return [{ line, message: `The browser had to rearrange your code around line ${line}. Check that every tag is in the right place.` }];
+    return [{ line, message: ui("html.rearranged", { line }) }];
 }

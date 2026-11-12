@@ -7,6 +7,7 @@ import { ctx } from "./context.js";
 const API = "http://127.0.0.1:8000";
 const STATES_KEY = "ex-state";
 const MODULE_KEY = "ex-state-module";
+const LANGUAGE_KEY = "lan"
 
 export const Status = {
     DEFAULT: 0,
@@ -14,14 +15,27 @@ export const Status = {
     FINISHED: 2
 };
 
+export const languages = {
+    EN: 0,
+    FR: 1,
+    NL: 2
+};
+
 // States of the exercises of module mod, or [] when unknown.
-export function readStates(mod = ctx.mod) {
+export function readStates() {
     try {
-        if (sessionStorage.getItem(MODULE_KEY) !== String(mod))
-            return [];
-        return JSON.parse(sessionStorage.getItem(STATES_KEY)) || [];
+        const states = JSON.parse(sessionStorage.getItem(STATES_KEY));
+        return states;
     } catch {
         return [];
+    }
+}
+
+export function readLanguage() {
+    try {
+        return JSON.parse(sessionStorage.getItem(LANGUAGE_KEY)) || languages.EN;
+    } catch {
+        return languages.EN;
     }
 }
 
@@ -34,12 +48,21 @@ function writeStates(mod, states) {
     }
 }
 
+function writeLanguage(lan = languages.EN) {
+    try {
+        sessionStorage.setItem(LANGUAGE_KEY, String(lan));
+    } catch {
+
+    }
+}
+
 /** Asks the backend where the student is: { module, states }, or null without backend. */
 export async function fetchProgress(branch = ctx.branch) {
     try {
         const response = await fetch(`${API}/info?branch=${branch}`);
         const info = await response.json();
         writeStates(info.module, info.branch_status);
+        writeLanguage(info.language);
         return { module: String(info.module), states: info.branch_status };
     } catch {
         console.warn("Backend not reachable: progress is not tracked");
@@ -58,12 +81,12 @@ async function post(path) {
 }
 
 export function statusOf(index) {
-    return readStates()[index]?.status ?? Status.DEFAULT;
+    return readStates()[parseInt(ctx.mod)][index]?.status ?? Status.DEFAULT;
 }
 
 function advance(endpoint, from, to) {
     const states = readStates();
-    const state = states[ctx.ex];
+    const state = states[parseInt(ctx.mod)][ctx.ex];
     if (!state || !from.includes(state.status))
         return;
     state.status = to;

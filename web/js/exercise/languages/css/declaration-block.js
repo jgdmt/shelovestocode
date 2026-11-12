@@ -5,6 +5,7 @@ import { h } from "../../ui/dom.js";
 import { toHex } from "../../core/colors.js";
 import { editable, deleteButton } from "../../blocks/parts.js";
 import { checkDeclaration } from "./lint.js";
+import { ui } from "../../core/i18n.js";
 
 const isColorProperty = (property) => /(^|-)color$/.test(property) || property === "background";
 
@@ -27,7 +28,7 @@ export function renderDeclaration(block, grip, decl, { onEdit, onRemove }) {
     const picker = h("input", {
         type: "color",
         class: "decl-color",
-        title: "Pick a color",
+        title: ui("blocks.pickColor"),
         onInput: () => {
             decl.value = picker.value;
             value.textContent = picker.value;

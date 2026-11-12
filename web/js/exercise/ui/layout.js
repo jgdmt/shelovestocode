@@ -24,6 +24,7 @@ export function setupLayout() {
             : workspace.style.setProperty("--right-width", `${width}px`)
     });
 
+    if (!$("row-splitter").hidden) {
     setupSplitter($("row-splitter"), {
         key: "slc-result-size",
         sizeAt(e) {
@@ -34,5 +35,6 @@ export function setupLayout() {
         apply: (percent) => percent === null
             ? stack.style.removeProperty("--result-size")
             : stack.style.setProperty("--result-size", `${percent}%`)
-    });
+        });
+    }
 }

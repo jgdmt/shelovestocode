@@ -6,6 +6,8 @@
 //   { type: "text", value }
 //   { type: "raw", html }     anything blocks can't show (comments, scripts...)
 
+import { ui } from "../../core/i18n.js";
+
 export const VOID_TAGS = new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"]);
 
 // Tags that flow inside text and can share a line with it.
@@ -24,17 +26,17 @@ const element = (tag, attrs = [], children = []) => ({ type: "element", tag, att
 // tag "#text" creates a text node.
 export function createNode(tag, attrs) {
     if (tag === "#text")
-        return text("Some text");
+        return text(ui("blocks.someText"));
     if (tag === "img")
         return element("img", attrs || [{ name: "src", value: "/images/archi.jpg" }]);
     if (tag === "a")
-        return element("a", attrs || [{ name: "href", value: "https://" }], [text("A link")]);
+        return element("a", attrs || [{ name: "href", value: "https://" }], [text(ui("blocks.aLink"))]);
     if (VOID_TAGS.has(tag))
         return element(tag, attrs);
     if (/^h[1-6]$/.test(tag))
-        return element(tag, attrs, [text("My title")]);
+        return element(tag, attrs, [text(ui("blocks.myTitle"))]);
     if (tag === "p")
-        return element(tag, attrs, [text("Some text")]);
+        return element(tag, attrs, [text(ui("blocks.someText"))]);
     return element(tag, attrs);
 }
 

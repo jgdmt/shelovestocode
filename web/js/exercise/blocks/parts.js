@@ -2,6 +2,7 @@
 
 import { h, icon } from "../ui/dom.js";
 import { startNewDrag, endNewDrag } from "./drag-drop.js";
+import { ui } from "../core/i18n.js";
 
 // contentEditable span; Enter validates instead of inserting a line break.
 export function editable(value, className, onInput) {
@@ -22,7 +23,7 @@ export function editable(value, className, onInput) {
 }
 
 export const deleteButton = (onClick) =>
-    h("button", { class: "block-del", title: "Remove", onClick }, icon("x"));
+    h("button", { class: "block-del", title: ui("blocks.remove"), onClick }, icon("x"));
 
 // Gray block for code a view can't represent: edited as plain text.
 export function rawBlock(block, grip, value, onInput, onRemove) {
@@ -40,7 +41,7 @@ export function rawBlock(block, grip, value, onInput, onRemove) {
     block.append(
         h("div", { class: "block-row" },
             grip,
-            h("span", { class: "block-label", title: "Blocks can't show this yet: edit it as code" }, "code"),
+            h("span", { class: "block-label", title: ui("blocks.rawTitle") }, ui("blocks.raw")),
             deleteButton(onRemove)),
         area);
 }

@@ -25,4 +25,3 @@ def validate_exercise(login: str, project_id: int, score: int):
     return
     thread = threading.Thread(target=update_project, args=(login, project_id, score))
     thread.start()
-

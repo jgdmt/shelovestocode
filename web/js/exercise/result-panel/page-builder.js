@@ -1,6 +1,9 @@
 // Builds the page shown in the previews from the exercise files, the way a
 // browser loads them: <link href="style.css"> and <script src="script.js">
-// are replaced by the content of those files.
+// are replaced by the content of those files, and the images the student
+// imported (my-images/...) by the images themselves.
+
+import { resolveUserImages } from "../core/user-images.js";
 
 const fileName = (href) => href.trim().replace(/^\.?\//, "");
 
@@ -55,5 +58,5 @@ export function buildPage(files, { autoLink = false } = {}) {
 
     // keep the student's doctype choice: without it the browser uses quirks mode
     const doctype = /^\s*<!doctype/i.test(html) ? "<!DOCTYPE html>\n" : "";
-    return doctype + doc.documentElement.outerHTML;
+    return resolveUserImages(doctype + doc.documentElement.outerHTML);
 }

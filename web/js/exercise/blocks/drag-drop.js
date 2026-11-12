@@ -11,6 +11,7 @@
 //   onDrop()               the lists changed
 
 import { h, icon } from "../ui/dom.js";
+import { ui } from "../core/i18n.js";
 
 // Payload of the palette/inventory chip being dragged, readable during dragover
 // (dataTransfer content is only readable on drop).
@@ -146,7 +147,7 @@ export function createDragDrop(root, { create, accepts, dropInto = () => null, c
             });
             return h("span", {
                 class: "grip",
-                title: "Drag to move",
+                title: ui("blocks.drag"),
                 onMousedown: () => { element.draggable = true; },
                 onMouseup: () => { element.draggable = false; }
             }, icon("grip"));

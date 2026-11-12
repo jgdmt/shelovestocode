@@ -4,7 +4,7 @@
     <head>
         <meta charset=utf-8>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>SheLovesToCode — Web</title>
+        <title data-i18n="page.exerciseTitle">SheLovesToCode — Web</title>
         <!-- apply the saved theme before the first paint (see js/exercise/ui/theme.js) -->
         <script>try { const t = localStorage.getItem("slc-theme"); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +18,8 @@
         <link rel="stylesheet" href="/css/exercise/code-panel.css">
         <link rel="stylesheet" href="/css/exercise/blocks.css">
         <link rel="stylesheet" href="/css/exercise/result-panel.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.css" />
+        <script src="https://cdn.jsdelivr.net/npm/driver.js@1.3.1/dist/driver.js.iife.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
@@ -32,13 +34,16 @@
 
         <!-- top bar -->
         <header class="topbar">
-            <a class="logo" href="/index.html" aria-label="She Loves To Code — home">
+            <a class="logo" href="/index.html" aria-label="She Loves To Code — home" data-i18n-aria-label="page.logo">
                 <span class="logo-mark">&lt;</span>SHE<svg class="logo-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></svg>CODE<span class="logo-mark">/&gt;</span>
             </a>
             <span id="module-title" class="module-title"></span>
             <nav id="steps" class="steps"></nav>
-            <a id="next-btn" class="btn btn-light" aria-disabled="true">Next <svg class="icon"><use href="#i-arrow-right"/></svg></a>
-            <button id="theme-toggle" class="theme-toggle" type="button"></button>
+            <a id="next-btn" class="btn btn-light" aria-disabled="true"><span data-i18n="topbar.next">Next</span> <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+            <div class="theme-guide">
+                <button id="guide-tour" class="theme-toggle" type="button" data-i18n-title="topbar.tour"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M272 112C272 85.5 293.5 64 320 64C346.5 64 368 85.5 368 112C368 138.5 346.5 160 320 160C293.5 160 272 138.5 272 112zM224 256C224 238.3 238.3 224 256 224L320 224C337.7 224 352 238.3 352 256L352 512L384 512C401.7 512 416 526.3 416 544C416 561.7 401.7 576 384 576L256 576C238.3 576 224 561.7 224 544C224 526.3 238.3 512 256 512L288 512L288 288L256 288C238.3 288 224 273.7 224 256z"/></svg></button>
+                <button id="theme-toggle" class="theme-toggle" type="button"></button>
+            </div>
         </header>
 
         <main class="workspace">
@@ -46,48 +51,53 @@
             <!-- left: mission & inventory -->
             <section class="panel panel-left">
                 <div class="panel-head tabs" role="tablist">
-                    <button class="tab active" data-tab="mission">Mission</button>
-                    <button class="tab" data-tab="tags">Tags</button>
-                    <button class="tab" data-tab="properties" hidden>Properties</button>
-                    <button class="tab" data-tab="images">Images</button>
+                    <button id="guide-missions" class="tab active" data-tab="mission" data-i18n="tabs.mission">Mission</button>
+                    <button id="guide-tags" class="tab" data-tab="tags" data-i18n="tabs.tags">Tags</button>
+                    <button id="guide-properties" class="tab" data-tab="properties" hidden data-i18n="tabs.properties">Properties</button>
+                    <button id="guide-images" class="tab" data-tab="images" data-i18n="tabs.images">Images</button>
                 </div>
 
                 <div class="panel-body" data-pane="mission">
-                    <div class="guide">
+                    <div class="guide" id="guide">
+                    </div>
+                    <!-- <div class="guide">
                         <img src="/images/archi.jpg" alt="Archimede">
                         <p id="guide-text" class="bubble"></p>
-                    </div>
+                    </div> -->
                     <h1 id="ex-title" class="display"></h1>
                     <div id="mission"></div>
 
-                    <h2 class="section-title">Objectives</h2>
-                    <ul id="checks" class="checks"></ul>
+                    <details id="guide-objectives">
+                        <summary class="section-title" data-i18n="mission.objectives">Objectives</summary>
+                        <ul id="checks" class="checks"></ul>
+                    </details>
 
                     <div id="success" class="success" hidden>
-                        <h2 class="section-title"><svg class="icon"><use href="#i-check-circle"/></svg> Level finished!</h2>
+                        <h2 class="section-title"><svg class="icon"><use href="#i-check-circle"/></svg> <span data-i18n="mission.finished">Level finished!</span></h2>
                         <div id="lesson"></div>
                     </div>
 
-                    <div class="hints">
-                        <div id="hints"></div>
-                        <button id="hint-btn" class="btn btn-ghost"><svg class="icon"><use href="#i-bulb"/></svg> Need a hint?</button>
+                    <div class="hints" id="guide-hints">
+                        <div id="hints" class="guide"></div>
+                        <button id="hint-btn" class="btn btn-ghost"><svg class="icon"><use href="#i-bulb"/></svg> <span data-i18n="mission.hint">Need a hint?</span></button>
                     </div>
                 </div>
 
                 <div class="panel-body" data-pane="tags" hidden>
-                    <p class="muted">Click a tag to add it to your code, or drag it in blocks mode. In a CSS file, a tag becomes a rule.</p>
+                    <p class="muted" data-i18n="inventory.tagsHelp">Click a tag to add it to your code, or drag it in blocks mode. In a CSS file, a tag becomes a rule.</p>
                     <ul id="tag-list" class="tag-list"></ul>
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">And there are more…</a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank" data-i18n="inventory.more" data-i18n-href="inventory.mdnHtml">And there are more…</a>
                 </div>
 
                 <div class="panel-body" data-pane="properties" hidden>
-                    <p class="muted">Click a property to add it to your CSS, or drag it into a rule in blocks mode.</p>
+                    <p class="muted" data-i18n="inventory.propertiesHelp">Click a property to add it to your CSS, or drag it into a rule in blocks mode.</p>
                     <ul id="property-list" class="tag-list property-list"></ul>
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank">And there are more…</a>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank" data-i18n="inventory.more" data-i18n-href="inventory.mdnCss">And there are more…</a>
                 </div>
 
                 <div class="panel-body" data-pane="images" hidden>
-                    <p class="muted">Click an image to add it to your code.</p>
+                    <p class="muted" data-i18n="inventory.imagesHelp">Click an image to add it to your code, or import your own.</p>
+                    <p id="image-error" class="image-error" hidden></p>
                     <div id="image-list" class="image-list"></div>
                 </div>
             </section>
@@ -97,15 +107,15 @@
                 <div class="panel-head">
                     <div id="file-tabs" class="file-tabs"></div>
                     <div class="segmented" id="mode-switch">
-                        <button data-mode="code" class="active"><svg class="icon"><use href="#i-code"/></svg> Code</button>
-                        <button data-mode="blocks"><svg class="icon"><use href="#i-blocks"/></svg> Blocks</button>
+                        <button data-mode="code" class="active"><svg class="icon"><use href="#i-code"/></svg> <span data-i18n="code.code">Code</span></button>
+                        <button data-mode="blocks"><svg class="icon"><use href="#i-blocks"/></svg> <span data-i18n="code.blocks">Blocks</span></button>
                     </div>
-                    <button id="reset-btn" class="btn btn-ghost push-right" title="Start again from the beginning"><svg class="icon"><use href="#i-reset"/></svg> Reset</button>
+                    <button id="reset-btn" class="btn btn-ghost push-right" title="Start again from the beginning" data-i18n-title="code.resetTitle"><svg class="icon"><use href="#i-reset"/></svg> <span data-i18n="code.reset">Reset</span></button>
                 </div>
 
                 <div id="readonly-banner" class="readonly-banner" hidden>
                     <svg class="icon"><use href="#i-lock"/></svg>
-                    <span><b>Read only</b> — this file is given for the exercise, you don't need to change it.</span>
+                    <span><b data-i18n="code.readOnly">Read only</b> — <span data-i18n="code.readOnlyBanner">this file is given for the exercise, you don't need to change it.</span></span>
                 </div>
                 <div id="code-view" class="code-view"></div>
                 <div id="problems" class="problems" hidden></div>
@@ -113,44 +123,45 @@
 
                 <div id="repair" class="repair" hidden>
                     <div class="repair-card">
-                        <h2 class="section-title"><svg class="icon icon-alert"><use href="#i-alert"/></svg> Your code has a little problem</h2>
-                        <p>The browser can still show it, but it had to guess what you meant:</p>
+                        <h2 class="section-title"><svg class="icon icon-alert"><use href="#i-alert"/></svg> <span data-i18n="repair.title">Your code has a little problem</span></h2>
+                        <p data-i18n="repair.text">The browser can still show it, but it had to guess what you meant:</p>
                         <ul id="repair-list"></ul>
                         <div class="repair-actions">
-                            <button id="repair-myself" class="btn btn-primary">I'll fix it myself</button>
-                            <button id="repair-browser" class="btn">Let the browser fix it</button>
+                            <button id="repair-myself" class="btn btn-primary" data-i18n="repair.myself">I'll fix it myself</button>
+                            <button id="repair-browser" class="btn" data-i18n="repair.browser">Let the browser fix it</button>
                         </div>
-                        <p class="muted">You can always undo the browser's fix with Ctrl + Z.</p>
+                        <p class="muted" data-i18n="repair.undo">You can always undo the browser's fix with Ctrl + Z.</p>
                     </div>
                 </div>
             </section>
 
-            <div id="col-splitter" class="splitter" role="separator" aria-orientation="vertical" title="Drag to resize, double-click to reset"></div>
+            <div id="col-splitter" class="splitter" role="separator" aria-orientation="vertical" title="Drag to resize, double-click to reset" data-i18n-title="result.resize"></div>
 
             <!-- right: result above, goal below -->
             <div id="result-stack" class="result-stack">
                 <section class="panel">
                     <div class="panel-head">
-                        <h2 class="panel-title"><svg class="icon"><use href="#i-eye"/></svg> My result</h2>
-                        <label class="live push-right"><input type="checkbox" id="live-toggle" checked> Live</label>
-                        <button id="run-btn" class="btn btn-primary" title="Ctrl + Enter"><svg class="icon"><use href="#i-play"/></svg> Run</button>
+                        <h2 class="panel-title"><svg class="icon"><use href="#i-eye"/></svg> <span data-i18n="result.myResult">My result</span></h2>
+                        <label class="live push-right" id="guide-live"><input type="checkbox" id="live-toggle" checked> <span data-i18n="result.live">Live</span></label>
+                        <button id="run-btn" class="btn btn-primary" title="Ctrl + Enter"><svg class="icon"><use href="#i-play"/></svg> <span data-i18n="result.run">Run</span></button>
                     </div>
-                    <div class="preview-frame">
-                        <iframe id="preview" sandbox="allow-scripts" title="My result"></iframe>
+                    <div class="preview-frame" id="guide-preview">
+                        <iframe id="preview" sandbox="allow-scripts" title="My result" data-i18n-title="result.myResult"></iframe>
                     </div>
                 </section>
 
-                <div id="row-splitter" class="splitter" role="separator" aria-orientation="horizontal" title="Drag to resize, double-click to reset"></div>
+                <div id="row-splitter" class="splitter" hidden role="separator" aria-orientation="horizontal" title="Drag to resize, double-click to reset" data-i18n-title="result.resize"></div>
 
-                <section class="panel panel-goal">
+                <section class="panel panel-goal" id="panel-goal" hidden>
                     <div class="panel-head">
-                        <h2 class="panel-title"><svg class="icon"><use href="#i-target"/></svg> Goal</h2>
-                        <span class="muted">what your page should look like</span>
+                        <h2 class="panel-title"><svg class="icon"><use href="#i-target"/></svg> <span data-i18n="result.example">Example</span></h2>
+                        <!-- <span class="muted">what your page should look like</span> -->
                     </div>
                     <div class="preview-frame">
-                        <iframe id="goal-preview" sandbox="allow-scripts" title="Goal"></iframe>
+                        <iframe id="goal-preview" sandbox="allow-scripts" title="Goal" data-i18n-title="result.goal"></iframe>
                     </div>
                 </section>
+
             </div>
 
         </main>

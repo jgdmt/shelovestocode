@@ -4,7 +4,7 @@
     <head>
         <meta charset=utf-8>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>SheLovesToCode — Web workshop</title>
+        <title data-i18n="page.homeTitle">SheLovesToCode — Web workshop</title>
         <!-- apply the saved theme before the first paint (see js/exercise/ui/theme.js) -->
         <script>try { const t = localStorage.getItem("slc-theme"); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,10 +18,10 @@
     <body class="home">
 
         <header class="topbar">
-            <a class="logo" href="/index.html" aria-label="She Loves To Code — home">
+            <a class="logo" href="/index.html" aria-label="She Loves To Code — home" data-i18n-aria-label="page.logo">
                 <span class="logo-mark">&lt;</span>SHE<svg class="logo-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></svg>CODE<span class="logo-mark">/&gt;</span>
             </a>
-            <span class="module-title">Web workshop</span>
+            <span class="module-title" data-i18n="home.workshop">Web workshop</span>
             <button id="theme-toggle" class="theme-toggle push-right" type="button"></button>
         </header>
 
@@ -29,12 +29,12 @@
             <section class="hero">
                 <img class="hero-avatar" src="/images/archi.jpg" alt="Archimede">
                 <div>
-                    <h1 class="display hero-title">Learn the web</h1>
-                    <p class="bubble">Hi, I'm Archimede and I'll be your guide! Pick a module and let's build web pages together, one step at a time.</p>
+                    <h1 class="display hero-title" data-i18n="home.heroTitle">Learn the web</h1>
+                    <p class="bubble" data-i18n="home.heroText">Hi, I'm Archimede and I'll be your guide! Pick a module and let's build web pages together, one step at a time.</p>
                 </div>
             </section>
 
-            <section id="modules" class="modules" aria-label="Modules"></section>
+            <section id="modules" class="modules" aria-label="Modules" data-i18n-aria-label="home.modules"></section>
         </main>
     </body>
 </html>

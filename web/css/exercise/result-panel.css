@@ -21,7 +21,7 @@
     min-height: 0;
 }
 
-.result-stack > .panel:first-child { flex: 0 0 var(--result-size, 60%); }
+.result-stack > .panel:first-child { flex: 0 0 var(--result-size, 100%); }
 /* the goal is what students aim for: it gets the brand look */
 .panel-goal {
     flex: 1 1 0;

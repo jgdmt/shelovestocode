@@ -3,6 +3,8 @@
 import { $, h } from "./dom.js";
 import { ctx, exerciseUrl } from "../core/context.js";
 import { Status, statusOf } from "../core/progress.js";
+import { readStates } from "../core/progress.js"
+import { ui } from "../core/i18n.js";
 
 const STEP_CLASS = {
     [Status.STARTED]: "started",
@@ -10,9 +12,10 @@ const STEP_CLASS = {
 };
 
 export function createTopbar(module) {
-    $("module-title").textContent = `Module ${ctx.mod} — ${module.title}`;
+    $("module-title").textContent = ui("topbar.moduleTitle", { mod: ctx.mod, title: module.title });
+    const len = readStates()[parseInt(ctx.mod)].length;
 
-    const steps = Array.from({ length: module.length }, (_, i) => {
+    const steps = Array.from({ length: len }, (_, i) => {
         const step = h("a", { class: "step", href: exerciseUrl(module, i) }, String(i));
         const state = i === ctx.ex ? "current" : STEP_CLASS[statusOf(i)];
         if (state)
@@ -22,9 +25,8 @@ export function createTopbar(module) {
     $("steps").replaceChildren(...steps);
 
     const next = ctx.ex + 1;
-    if (next < module.length)
+    if (next < len)
         $("next-btn").href = exerciseUrl(module, next);
-
     return {
         markDone() {
             steps[ctx.ex].classList.add("done");

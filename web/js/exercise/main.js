@@ -19,9 +19,12 @@ import { confetti } from "./ui/confetti.js";
 import { createLeftPanel } from "./left-panel/index.js";
 import { createCodePanel } from "./code-panel/index.js";
 import { createResultPanel } from "./result-panel/index.js";
+import { startTour, setupGuideTour } from "./ui/guide.js";
+import { loadUi, ui } from "./core/i18n.js";
+import { loadUserImages } from "./core/user-images.js";
 
 function start({ module, ex }) {
-    const files = exerciseFiles(ex);
+    const files = exerciseFiles(ex, module);
     let finished = false;
     let celebrate = false; // no confetti for a level already done when the page opens
 
@@ -41,6 +44,7 @@ function start({ module, ex }) {
     });
     setupLayout();
     setupThemeToggle();
+    setupGuideTour();
 
     async function run() {
         const results = await result.show(code.currentCode());
@@ -64,8 +68,16 @@ function start({ module, ex }) {
     markStarted();
 }
 
+await loadUi();
+await loadUserImages();
 const loaded = await loadExercise();
-if (loaded)
+if (loaded) {
     start(loaded);
-else
-    document.body.textContent = `Exercise ${ctx.ex} of module ${ctx.mod} not found.`;
+    try {
+        if (!localStorage.getItem('slc-guide-tour-seen')) {
+            localStorage.setItem('slc-guide-tour-seen', "true");
+            startTour(true);
+        }
+    } catch {}
+} else
+    document.body.textContent = ui("page.notFound", { ex: ctx.ex, mod: ctx.mod });

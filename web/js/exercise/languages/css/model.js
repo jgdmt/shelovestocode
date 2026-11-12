@@ -11,6 +11,8 @@
 // parse() never fails: like a browser it recovers from missing "}", ";" or
 // ":", and reports in `errors` what it had to guess.
 
+import { ui } from "../../core/i18n.js";
+
 const short = (text) => {
     const flat = text.replace(/\s+/g, " ").trim();
     return flat.length > 30 ? `${flat.slice(0, 30)}…` : flat;
@@ -85,7 +87,7 @@ function parseDeclarations(code, from, to, lineAt, errors) {
 
         const colon = text.indexOf(":");
         if (colon === -1) {
-            errors.push({ line, message: `"${short(text)}" (line ${line}) is missing a ":" between the property and its value.` });
+            errors.push({ line, message: ui("css.missingColon", { text: short(text), line }) });
             i = next;
             continue;
         }
@@ -94,7 +96,7 @@ function parseDeclarations(code, from, to, lineAt, errors) {
         const glued = /\n\s*-?[a-zA-Z][\w-]*\s*:/.exec(text.slice(colon + 1));
         if (glued) {
             const cut = colon + 1 + glued.index;
-            errors.push({ line, message: `Missing ";" at the end of line ${line}.` });
+            errors.push({ line, message: ui("css.missingSemicolon", { line }) });
             text = text.slice(0, cut);
             next = i + cut;
         }
@@ -102,7 +104,7 @@ function parseDeclarations(code, from, to, lineAt, errors) {
         const property = text.slice(0, colon).trim().toLowerCase();
         const value = text.slice(colon + 1).replace(/\s+/g, " ").trim();
         if (!property)
-            errors.push({ line, message: `The value "${short(value)}" (line ${line}) has no property name before its ":".` });
+            errors.push({ line, message: ui("css.valueWithoutProperty", { value: short(value), line }) });
         else
             items.push({ type: "declaration", property, value, line });
         i = next;
@@ -124,7 +126,7 @@ function atRuleEnd(code, from, lineAt, errors) {
         else if (code[i] === "}" && --depth === 0)
             return i + 1;
     }
-    errors.push({ line: lineAt(from), message: `The block starting line ${lineAt(from)} is never closed: add a "}".` });
+    errors.push({ line: lineAt(from), message: ui("css.blockNotClosed", { line: lineAt(from) }) });
     return code.length;
 }
 
@@ -144,7 +146,7 @@ export function parse(code) {
         if (code.startsWith("/*", i)) {
             const close = code.indexOf("*/", i + 2);
             if (close === -1)
-                errors.push({ line, message: `The comment starting line ${line} is never closed: add "*/".` });
+                errors.push({ line, message: ui("css.commentNotClosed", { line }) });
             const end = close === -1 ? code.length : close + 2;
             const css = close === -1 ? `${code.slice(i).trimEnd()} */` : code.slice(i, end);
             rules.push({ type: "raw", css, line });
@@ -167,8 +169,8 @@ export function parse(code) {
             errors.push({
                 line,
                 message: text === "}"
-                    ? `"}" on line ${line} closes a rule that was never opened.`
-                    : `"${short(text)}" (line ${line}) is not inside a rule: it needs a selector and { }.`
+                    ? ui("css.strayBrace", { line })
+                    : ui("css.outsideRule", { text: short(text), line })
             });
             i = end;
             continue;
@@ -181,7 +183,7 @@ export function parse(code) {
         let resume = close + 1;
 
         if (close === -1 || (nextOpen !== -1 && nextOpen < close)) {
-            errors.push({ line, message: `The rule "${short(selector)}" (line ${line}) is never closed: add a "}".` });
+            errors.push({ line, message: ui("css.ruleNotClosed", { selector: short(selector), line }) });
             if (nextOpen === -1) {
                 bodyEnd = resume = code.length;
             } else {

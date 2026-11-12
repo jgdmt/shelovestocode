@@ -7,7 +7,11 @@ import { createChecker } from "./checker.js";
 
 export function createResultPanel(files, { autoLink, checks, onRun }) {
     const solutions = new Map(files.map((file) => [file.name, file.solution]));
-    $("goal-preview").srcdoc = buildPage(solutions, { autoLink });
+    if (solutions.get("index.html")) {
+        $("row-splitter").removeAttribute("hidden");
+        $("panel-goal").removeAttribute("hidden");
+        $("goal-preview").srcdoc = buildPage(solutions, { autoLink });
+    }
 
     const checker = createChecker();
     $("run-btn").addEventListener("click", onRun);

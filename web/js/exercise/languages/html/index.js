@@ -22,5 +22,5 @@ export default {
     parse,
     serialize,
     snippet,
-    createBlocksView: (host, options) => createHtmlBlocksView(host, { ...options, palette: Object.keys(TAGS) })
+    createBlocksView: (host, options) => createHtmlBlocksView(host, { ...options, palette: TAGS })
 };

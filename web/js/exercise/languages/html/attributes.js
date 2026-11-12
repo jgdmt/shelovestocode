@@ -5,6 +5,7 @@
 
 import { h, icon } from "../../ui/dom.js";
 import { editable as editableText } from "../../blocks/parts.js";
+import { ui } from "../../core/i18n.js";
 
 // onEdit: an attribute changed (no re-render), onCommit: the list changed (re-render).
 export function createAttributes({ editable, onEdit, onCommit }) {
@@ -28,7 +29,7 @@ export function createAttributes({ editable, onEdit, onCommit }) {
             "\"",
             h("button", {
                 class: "attr-del",
-                title: "Remove this attribute",
+                title: ui("blocks.removeAttribute"),
                 onClick: () => {
                     node.attrs.splice(node.attrs.indexOf(attr), 1);
                     onCommit();
@@ -39,7 +40,7 @@ export function createAttributes({ editable, onEdit, onCommit }) {
     function addButton(node) {
         return h("button", {
             class: "attr-add",
-            title: "Add an attribute",
+            title: ui("blocks.addAttribute"),
             onClick: () => {
                 focusNext = { name: "", value: "" };
                 node.attrs.push(focusNext);

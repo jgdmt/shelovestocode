@@ -3,6 +3,7 @@
 // Validation relies on the browser itself through CSS.supports().
 
 import { parse } from "./model.js";
+import { ui } from "../../core/i18n.js";
 
 // Shorthands are not listed by getComputedStyle, which only gives longhands.
 const SHORTHANDS = ["animation", "background", "border", "border-bottom", "border-color", "border-left", "border-radius",
@@ -47,18 +48,18 @@ function suggest(property) {
 /** Message explaining why a declaration is ignored by the browser, or null. */
 export function checkDeclaration(property, value) {
     if (!property)
-        return "This declaration has no property name.";
+        return ui("css.noProperty");
     if (property.startsWith("--"))
         return null; // custom property: anything goes
     if (!CSS.supports(property, "initial")) {
         const hint = suggest(property);
-        return `"${property}" is not a CSS property.${hint ? ` Did you mean "${hint}"?` : ""}`;
+        return ui("css.notProperty", { property }) + (hint ? ` ${ui("css.didYouMean", { hint })}` : "");
     }
     const bare = value.replace(/\s*!important\s*$/i, "");
     if (!bare)
-        return `"${property}" has no value.`;
+        return ui("css.noValue", { property });
     if (!CSS.supports(property, bare))
-        return `"${bare}" is not a valid value for "${property}".`;
+        return ui("css.badValue", { value: bare, property });
     return null;
 }
 
@@ -80,11 +81,11 @@ export function diagnose(code) {
         if (rule.type !== "rule")
             continue;
         if (!isValidSelector(rule.selector))
-            issues.push({ line: rule.line, severity: "warning", message: `"${rule.selector}" (line ${rule.line}) is not a valid selector.` });
+            issues.push({ line: rule.line, severity: "warning", message: ui("css.badSelector", { selector: rule.selector, line: rule.line }) });
         for (const item of rule.declarations) {
             const problem = item.type === "declaration" && checkDeclaration(item.property, item.value);
             if (problem)
-                issues.push({ line: item.line, severity: "warning", message: `Line ${item.line}: ${problem}` });
+                issues.push({ line: item.line, severity: "warning", message: ui("css.atLine", { line: item.line, problem }) });
         }
     }
     return issues.sort((a, b) => a.line - b.line);

@@ -2,6 +2,7 @@
 // with snippet() in js/exercises/helpers.js).
 
 import { h, icon } from "./dom.js";
+import { ui } from "../core/i18n.js";
 
 async function copy(text) {
     try {
@@ -19,14 +20,14 @@ async function copy(text) {
 export function enhanceSnippets(container) {
     for (const pre of container.querySelectorAll("pre.snippet:not(.ready)")) {
         pre.classList.add("ready");
-        const label = h("span", {}, "Copy");
+        const label = h("span", {}, ui("code.copy"));
         const button = h("button", {
             class: "snippet-copy",
-            title: "Copy to the clipboard",
+            title: ui("code.copyTitle"),
             onClick: async () => {
                 await copy(pre.firstChild.textContent);
                 button.classList.add("copied");
-                button.replaceChildren(icon("check"), h("span", {}, "Copied!"));
+                button.replaceChildren(icon("check"), h("span", {}, ui("code.copied")));
                 setTimeout(() => {
                     button.classList.remove("copied");
                     button.replaceChildren(icon("copy"), label);

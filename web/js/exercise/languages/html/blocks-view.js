@@ -13,6 +13,7 @@ import { editable, deleteButton, rawBlock } from "../../blocks/parts.js";
 import { tagChip, textChip, tagColor } from "../../blocks/chips.js";
 import { VOID_TAGS, createNode, isCompact, canHaveChildren } from "./model.js";
 import { createAttributes } from "./attributes.js";
+import { ui } from "../../core/i18n.js";
 
 // Node for a palette / inventory payload.
 function nodeFor(payload) {
@@ -28,9 +29,9 @@ function nodeFor(payload) {
 export function createHtmlBlocksView(host, { config = {}, palette: defaultPalette, onChange }) {
     let doc = null;
 
-    const palette = h("div", { class: "palette", "data-hint": "Drag a tag into <body>" });
+    const palette = h("div", { class: "palette", "data-hint": ui("blocks.dragTag") });
     const head = h("div", { class: "sk-head" });
-    const root = h("div", { class: "drop-zone zone", "data-empty": "Drop tags here" });
+    const root = h("div", { class: "drop-zone zone", "data-empty": ui("blocks.dropTags") });
     host.append(palette, h("div", { class: "skeleton" },
         h("div", { class: "sk-tag" }, "<html>"),
         h("div", { class: "sk-indent" }, head, h("div", { class: "sk-tag" }, "<body>"), root, h("div", { class: "sk-tag" }, "</body>")),
@@ -86,7 +87,7 @@ export function createHtmlBlocksView(host, { config = {}, palette: defaultPalett
 
     function renderContainer(block, grip, node, list) {
         block.classList.add("container");
-        const zone = h("div", { class: "zone", "data-empty": "Drop tags here" });
+        const zone = h("div", { class: "zone", "data-empty": ui("blocks.dropTags") });
         renderList(node.children, zone);
         block.append(
             h("div", { class: "block-row" }, grip, openTag(node), removeButton(node, list)),

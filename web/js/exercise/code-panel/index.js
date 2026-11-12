@@ -9,6 +9,7 @@ import { createFileTabs } from "./file-tabs.js";
 import { createProblems } from "./problems.js";
 import { createDiagnostics } from "./diagnostics.js";
 import { createBlocksMode } from "./blocks-mode.js";
+import { ui } from "../core/i18n.js";
 
 export function createCodePanel(files, { onChange, onRun }) {
     const byName = new Map(files.map((file) => [file.name, file]));
@@ -57,7 +58,7 @@ export function createCodePanel(files, { onChange, onRun }) {
     }
 
     function reset() {
-        if (!confirm("Start this exercise again? Your code will be erased in every file."))
+        if (!confirm(ui("code.resetConfirm")))
             return;
         files.forEach((file) => editor.setValue(file.name, file.starter));
         blocks.refresh();

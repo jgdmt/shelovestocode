@@ -4,6 +4,7 @@ screen_min_height = 40
 screen_min_width = 80
 languages = ['en', 'fr', 'nl']
 
+
 def check_resize(win: curses.window):
     h, w = win.getmaxyx()
     if h < screen_min_height or w < screen_min_width:

@@ -4,6 +4,7 @@
 
 import { $, icon } from "./dom.js";
 import { load, save } from "../core/storage.js";
+import { ui } from "../core/i18n.js";
 
 const KEY = "slc-theme";
 const systemDark = matchMedia("(prefers-color-scheme: dark)");
@@ -13,7 +14,7 @@ const current = () => document.documentElement.dataset.theme || (systemDark.matc
 function render(button) {
     const dark = current() === "dark";
     button.replaceChildren(icon(dark ? "sun" : "moon"));
-    button.title = dark ? "Switch to light mode" : "Switch to dark mode";
+    button.title = ui(dark ? "theme.toLight" : "theme.toDark");
 }
 
 export function setupThemeToggle() {

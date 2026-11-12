@@ -1,0 +1,391 @@
+{
+    "module": {
+        "title": "HTML basics",
+        "description": "Tags, structure and your very first web page."
+    },
+    "ex0": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "Hello, we are your new clients. We would like to have a nice website for our future shop. The name of our shop is “Lost and Found”."
+        ],
+        "dialogue1": [
+            "It would be so nice to have a really big heading with the name on it!"
+        ],
+        "dialogue2": [
+            "We need a description too. How about, right under the title, a small text? What should it says?"
+        ],
+        "dialogue3": [
+            "“Welcome to Lost and Found, where you can find what you've lost and lose what you've found!”"
+        ],
+        "hint0": [
+            "Do you need help? I'm here for you! For this first exercise, why not just try using tags and see what they do?"
+        ],
+        "check0": "There is an <h1> title",
+        "check1": "The title says “Lost and Found”",
+        "check2": "The paragraph is still there and says “Welcome to Lost and Found, where you can find what you've lost and lose what you've found!”",
+        "check3": "The title comes before the paragraph",
+        "lesson": "<p><code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;p&gt;</code> and <code>&lt;h1&gt;</code> are called <b>tags</b>. Most tags go in pairs: the opening one (<code>&lt;html&gt;</code>) and the closing one (<code>&lt;/html&gt;</code>).</p>\n<p>There are 3 fundamental tags:</p>\n<ul>\n  <li><b>&lt;html&gt;</b> wraps the whole page and announces that the rest is HTML.</li>\n  <li><b>&lt;head&gt;</b> contains metadata: information for the browser, not visible on the page.</li>\n  <li><b>&lt;body&gt;</b> contains everything visible on the page.</li>\n</ul>\n<p>For now we focus on the body and leave the head empty.</p>"
+    },
+    "ex1": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "That's a good start. Now the customers should be able to see what kind of products we actually sell, right?"
+        ],
+        "dialogue1": [
+            "Our site should have different sections, one for the items we sell, another one for ordering..."
+        ],
+        "dialogue2": [
+            "Let's start slowly with only one."
+        ],
+        "dialogue3": [
+            "We need a section and inside, there should be another heading. The heading should be smaller than the title but bigger than the paragraph."
+        ],
+        "dialogue4": [
+            "The heading should say “Our items”. Then we will be able to list what we sell!"
+        ],
+        "hint0": [
+            "A section is defined with the tag <div>!"
+        ],
+        "hint1": [
+            "Headings go from h1 to h6. h1 defines the most important, h6 defines the least important"
+        ],
+        "check0": "There is a heading inside a section",
+        "check1": "The heading says “Our items”",
+        "check2": "The new section is after the title and the paragraph",
+        "lesson": " "
+    },
+    "ex2": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "Amazing! Time to add the other sections!"
+        ],
+        "dialogue1": [
+            "Just like the “Our items” section, we want one that says “FAQ”. In case our customers have questions!"
+        ],
+        "dialogue2": [
+            "Right after, it should be the “Order” section. After all, it's pointless if our customers can't even order anything..."
+        ],
+        "dialogue3": [
+            "The sections should follow each other in the right order, be careful!"
+        ],
+        "hint0": [
+            "You just need to do what you've already done"
+        ],
+        "check0": "There are three sections with the right heading inside",
+        "check1": "A section says “FAQ”",
+        "check2": "A section says “Order”",
+        "check3": "The sections are in the right order",
+        "lesson": " "
+    },
+    "ex3": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "Now it's time to actually make a list of what we are selling. Why don't you do that for us?"
+        ],
+        "dialogue1": [
+            "You should start with another section that you will put inside the “Our items” section. This new section should have a heading and a paragraph."
+        ],
+        "dialogue2": [
+            "Hey, it would be better if the new heading is smaller than the previous one!"
+        ],
+        "dialogue3": [
+            "Now the heading should be the item sold. For example it could say “Toothpaste”"
+        ],
+        "dialogue4": [
+            "The paragraph should contain the description of the item. You could write “Some ancient toothpaste with a weird scent. Its yellow color might not be the original one. Who knows how long it has been here?”"
+        ],
+        "dialogue5": [
+            "It's time to get creative! Just imagine items and their description and have fun with them! Try to have at least two items. Feel free to add more though!"
+        ],
+        "hint0": [
+            "Try to use the heading <h3> this time!"
+        ],
+        "check0": "There are at least two sections composed of a heading and a paragraph",
+        "check1": "The sections are inside the “Our items” section and under the heading",
+        "check2": "The new headings are not empty and have another text than the default one",
+        "check3": "The new paragraphs are not empty and have another text than the default one",
+        "lesson": " "
+    },
+    "ex4": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "You know what? I think it's missing something... But I can't think of anything."
+        ],
+        "dialogue1": [
+            "I know! There should be at least one image! It would be better if our customers could have a visual on the product they want to buy"
+        ],
+        "dialogue2": [
+            "That's an excellent idea. We should put it between the title of the item and the description"
+        ],
+        "dialogue3": [
+            "There are some images ready to be used in the images tab, on the left panel, but feel free to import yours"
+        ],
+        "hint0": [
+            "Change the src inside the image tag to choose another image"
+        ],
+        "check0": "There is an image",
+        "check1": "The image is placed between the <h3> heading and the paragraph tag",
+        "lesson": " "
+    },
+    "ex5": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "Oh no! We've got an emergency! Someone asked for my profile card but it's not done yet!"
+        ],
+        "dialogue1": [
+            "I fail to see how it is an emergency?"
+        ],
+        "dialogue2": [
+            "We could lose a potential customer! I need my card done. It's way too ugly"
+        ],
+        "dialogue3": [
+            "Your card is not done yet because it's empty!"
+        ],
+        "dialogue4": [
+            "Time to do some css! Please center the heading and all paragraphs"
+        ],
+        "hint0": [
+            "If HTML is the structure of the page, CSS is the style!"
+        ],
+        "hint1": [
+            "Select the tag you want to stylize then add properties"
+        ],
+        "check0": "The title is centered",
+        "check1": "Every paragraph is centered",
+        "lesson": "HTML structures the page, while CSS takes care of the style. You link a css file to a html file with the tag &lt;link&gt;, that should be put inside the &lt;head&gt;."
+    },
+    "ex6": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "Hum, I wanted to add an image... but I might have made a mistake"
+        ],
+        "dialogue1": [
+            "Why is your image so big?! We need to resize it!"
+        ],
+        "dialogue2": [
+            "It should be smaller so it fits in your card... How about making it 100px x 100px?"
+        ],
+        "dialogue3": [
+            "It should also be centered, like the heading and the paragraphs"
+        ],
+        "dialogue4": [
+            "It would be really nice if there was a way to make it round too..."
+        ],
+        "hint0": [
+            "When it comes to css, sometimes searching on internet is the best way... after asking your neighbors!"
+        ],
+        "check0": "The image is centered",
+        "check1": "The image is 100px wide and 100px high",
+        "lesson": " "
+    },
+    "ex7": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "Gabbro, your card is starting to look like an actual card. I think your job should be written in bold though. And in blue. And bigger too but not too big"
+        ],
+        "dialogue1": [
+            "I think my image should have a colored border"
+        ],
+        "dialogue2": [
+            "What about the description?"
+        ],
+        "dialogue3": [
+            "The description would look great if it stayed the same but in italic"
+        ],
+        "hint0": [
+            "You have learned that you can select an element by their tag, but you can do the same with classes!"
+        ],
+        "check0": "The image has a border",
+        "check1": "The first paragraph is in blue, bold and has a size between 20px and 25px",
+        "check2": "The second paragraph is simply in italic",
+        "lesson": " "
+    },
+    "ex8": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "To finish this card so we can go back to our website, we should actually make it look like a card, right?"
+        ],
+        "dialogue1": [
+            "It's time to put everything inside a rectangle. Let's add borders to the div"
+        ],
+        "dialogue2": [
+            "A background color would be nice"
+        ],
+        "dialogue3": [
+            "Of course the elements inside the div should be centered inside the div"
+        ],
+        "dialogue4": [
+            "They should not be too close to the borders though. Let's add some space betweem the elements inside the div and the borders of the div"
+        ],
+        "dialogue5": [
+            "The div itself should be centered"
+        ],
+        "hint0": [
+            "Margin is the space between the element and everything around it, padding is the space between the element and everything inside the element"
+        ],
+        "check0": "Add a background color to the section",
+        "check1": "Add a border to the div",
+        "check2": "Add a space between the borders of the div and the elements inside the div",
+        "check3": "Center the div",
+        "check4": "The elements inside the div are centered",
+        "lesson": " "
+    },
+    "ex9": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "Thank you for the help with my card! I was able to give it to a potential customer"
+        ],
+        "dialogue1": [
+            "You know, now that we had to make your card look better, I'm starting to think it would be nice to add more style to our website too..."
+        ],
+        "dialogue2": [
+            "First, it's necessary to connect the html file with the css file. Add <link rel='stylesheet' href='style.css'> inside the head tag"
+        ],
+        "dialogue3": [
+            "How about centering the main heading and the first paragraph, the one that describes our shop?"
+        ],
+        "dialogue4": [
+            "I think we should have a background color too. Or an image?"
+        ],
+        "hint0": [
+            ""
+        ],
+        "check0": "Link your css file with your html file",
+        "check1": "Center the title",
+        "check2": "Center the first paragraph",
+        "check3": "Add a background color or image",
+        "lesson": " "
+    },
+    "ex10": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "Mmmh... I think it would be better if the title had another color. How about putting both the title and the description of our shop inside a section and change the section color?"
+        ],
+        "dialogue1": [
+            "Oh and the borders of the new section should be rounded. And how about having the description in italic instead of normal style?"
+        ],
+        "dialogue2": [
+            "And we could have three links under the description that link to sections of the site!"
+        ],
+        "dialogue3": [
+            "Aren't you asking for a lot at once?"
+        ],
+        "dialogue4": [
+            "I wasn't done yet... I think it would be even better if there is space between the text and the borders"
+        ],
+        "dialogue5": [
+            "And the heading and paragraph should have their own text color! White? Something that would look great with the new section background color!"
+        ],
+        "hint0": [
+            ""
+        ],
+        "check0": "The main heading and the shop description are inside a section",
+        "check1": "The color of the title section is different from the rest of the page",
+        "check2": "The text color of the title and the description is different from the rest of the page",
+        "check3": "The section borders are round",
+        "check4": "The description is in italic",
+        "check5": "There is space between the text and the borders of the section",
+        "check6": "The heading and the description are centered inside the section",
+        "lesson": " "
+    },
+    "ex11": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "The title looks nice now. Time to take care of the items section!"
+        ],
+        "dialogue1": [
+            "Each item section should have the same background color or image. And it should be different from the general background, of course"
+        ],
+        "dialogue2": [
+            "And they must have visible borders too, of a different color than the both the general background and the section background"
+        ],
+        "dialogue3": [
+            "The image, if there is one, should of course be resized to fit inside the section if it's too big"
+        ],
+        "dialogue4": [
+            "And the description of the items should be in italic!"
+        ],
+        "dialogue5": [
+            "I feel like your requests keep getting worst... So I added an example of what a item section could look like"
+        ],
+        "hint0": [
+            ""
+        ],
+        "check0": "Every item sub section inside the “Our items” section has visible borders",
+        "check1": "They all have the same background color, different from the rest of the page background and different from the title section background",
+        "check2": "The item description is in italic",
+        "check3": "Images fit inside their item section",
+        "check4": "There is space between the item sections and inside them",
+        "lesson": " "
+    },
+    "ex12": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "It's not perfect but it gets better at least"
+        ],
+        "dialogue1": [
+            "We can move on to the next section, the FAQ. Ideally it would be multiple questions and you could click on each to show or hide the answer. I wonder if it's possible..."
+        ],
+        "dialogue2": [
+            "The questions should be in bold and there should be a background color too... oh and the answer should be a paragraph!"
+        ],
+        "dialogue3": [
+            "I've once more added an example..."
+        ],
+        "dialogue4": [
+            "It would be so great if the pointer of the mouse changed when hover a question, to show it's clickable..."
+        ],
+        "hint0": [
+            "Perhaps you should consider the tags <details> and <summary>"
+        ],
+        "check0": "There is at least one question and answer",
+        "check1": "The questions have a background color",
+        "check2": "The questions are in bold",
+        "check3": "The answers are paragraphs",
+        "lesson": " "
+    },
+    "ex13": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "It's time to take care of the last section, the order one!"
+        ],
+        "dialogue1": [
+            "We need multiple fields: two text fields, a date field and a check box"
+        ],
+        "dialogue2": [
+            "The text fields should ask for the customer name and email. The date field is for the delivery date and the check box for them to agree to our conditions"
+        ],
+        "dialogue3": [
+            "There should also be a button to confirm..."
+        ],
+        "hint0": [
+            "Use the <form> tag for this exercise!"
+        ],
+        "hint1": [
+            "For fields, perhaps the <input> tag, paired with the <label> tag, could be interesting..."
+        ],
+        "check0": "There is a text field for the name",
+        "check1": "There is a text field for the email",
+        "check2": "There is a date field for the delivery date",
+        "check3": "There is a check box",
+        "check4": "There is a confirm button",
+        "lesson": " "
+    },
+    "ex14": {
+        "title": "Hello and welcome",
+        "dialogue0": [
+            "Perfect! I love it!"
+        ],
+        "dialogue1": [
+            "Thank you for the help!"
+        ],
+        "dialogue2": [
+            "Why don't you do whatever you want now? Have fun!"
+        ],
+        "hint0": [
+            ""
+        ],
+        "check0": "Have fun!",
+        "lesson": " "
+    }
+}

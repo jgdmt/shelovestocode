@@ -64,7 +64,6 @@ def reset_intra(branch: int, module: int):
         print(f"{r.status_code}: {r.text}")
     else:
         print(f'{r.status_code}')
-        
 
 
 def reset_save(branch: int, module: int):

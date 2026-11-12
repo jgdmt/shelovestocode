@@ -2,19 +2,137 @@
 
 import { snippet } from "./helpers.js";
 
+const PAGE = (head, body) =>
+`<!DOCTYPE html>
+<html>
+  <head>${head}
+  </head>
+  <body>
+${body}
+  </body>
+</html>
+`;
+
+const LINK = `\n    <link rel="stylesheet" href="style.css">`;
+
+
+// Computed text-align of a centered element ("-webkit-center" can come from inherited UA styles).
+const isCentered = (value) => value === "center" || value === "-webkit-center";
+
+// --- Layout and style helpers for the CSS checks ---------------------------
+
+const px = (value) => parseFloat(value) || 0;
+
+// Box of what is actually drawn: the text of a text-only element (a <p> is as
+// wide as its parent, only its text moves when centered), otherwise the element itself.
+function drawnBox(el) {
+    if (el.tagName === "IMG" || el.children.length > 0)
+        return el.getBoundingClientRect();
+    const range = el.ownerDocument.createRange();
+    range.selectNodeContents(el);
+    return range.getBoundingClientRect();
+}
+
+// True when the drawn box of `el` is horizontally centered in the content box of `parent`.
+function centeredIn(el, parent = el.parentElement, tolerance = 2) {
+    if (!el || !parent)
+        return false;
+    const box = drawnBox(el);
+    const outer = parent.getBoundingClientRect();
+    const cs = parent.ownerDocument.defaultView.getComputedStyle(parent);
+    const left = outer.left + px(cs.borderLeftWidth) + px(cs.paddingLeft);
+    const right = outer.right - px(cs.borderRightWidth) - px(cs.paddingRight);
+    return box.width > 0 && Math.abs((box.left + box.right) / 2 - (left + right) / 2) <= tolerance;
+}
+
+const SIDES = ["top", "right", "bottom", "left"];
+
+// A visible border on all four sides.
+const hasBorder = (style, el) =>
+    !!el && SIDES.every((side) => style(el, `border-${side}-style`) !== "none" && px(style(el, `border-${side}-width`)) > 0);
+
+const hasPadding = (style, el) => !!el && SIDES.every((side) => px(style(el, `padding-${side}`)) > 0);
+
+// Computed colors are "rgb(r, g, b)" or "rgba(r, g, b, a)".
+const rgba = (value) => {
+    const [r, g, b, a = 1] = (value || "").match(/[\d.]+/g)?.map(Number) ?? [];
+    return { r, g, b, a };
+};
+
+const hasBackground = (style, el) =>
+    !!el && (rgba(style(el, "background-color")).a > 0 || style(el, "background-image") !== "none");
+
+// Any shade of blue: blue clearly dominates red, and is at least as strong as green.
+const isBlue = (value) => {
+    const { r, g, b, a } = rgba(value);
+    return a > 0 && b > r + 30 && b >= g;
+};
+
+// Full background of an element (color + image), to compare two backgrounds.
+const backgroundOf = (style, el) => el ? `${style(el, "background-color")} ${style(el, "background-image")}` : "";
+
+// Background of the page: the body's, or the html element's when the body has none.
+const pageBackground = (style, doc) =>
+    backgroundOf(style, hasBackground(style, doc.body) ? doc.body : doc.documentElement);
+
+// The section (parent element) of the <h2> that says `title`, e.g. "our items".
+function sectionTitled(doc, title) {
+    const h2 = [...doc.querySelectorAll("h2")].find((h) => norm(h.textContent) === title);
+    const section = h2?.parentElement;
+    return section && section !== doc.body ? section : null;
+}
+
+// The section around the main heading and the shop description (ex10).
+function titleSection(doc) {
+    const h1 = doc.querySelector("h1");
+    const section = h1?.parentElement;
+    if (!section || section === doc.body)
+        return null;
+    const p = [...section.children].find((child) => child.tagName === "P");
+    return p ? { section, h1, p } : null;
+}
+
+// The item sub sections of "Our items" (ex11).
+const itemSections = (doc) => [...(sectionTitled(doc, "our items")?.children ?? [])].filter((el) => el.tagName === "DIV");
+
+// Text-like input: type text (the default) or email.
+const isTextField = (input) => input.type === "text" || input.type === "email";
+
 const norm = (s) => (s || "").replace(/\s+/g, " ").trim().toLowerCase();
 
 export default {
-    title: "HTML basics",
-    description: "Tags, structure and your very first web page.",
-    length: 8,
+    title: "module.title",
+    description: "module.description",
     exercises: [
         {
-            title: "Hello and welcome",
-            guide: "Hi, I'm Archimede! Welcome to your first web exercise. Together we'll learn HTML, the language that describes the content and structure of a web page.",
-            mission: [
-                "On the right you can see the result of the code in the middle. Every change you make shows up live.",
-                "Our story has no title yet! Add a main title <code>&lt;h1&gt;</code> with the text <b>A story with a random title</b>, just above the paragraph."
+            title: "ex0.title",
+            dialogues: [
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex0.dialogue0"
+                },
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex0.dialogue1"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex0.dialogue2"
+                },
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex0.dialogue3"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex0.hint0"
+                }
             ],
             blocks: { palette: ["h1", "h2", "h3", "p"] },
             starter:
@@ -22,33 +140,24 @@ export default {
   <head>
   </head>
   <body>
-    <p>This is the story of a random character.</p>
-  </body>
-</html>`,
-            solution:
-`<html>
-  <head>
-  </head>
-  <body>
-    <h1>A story with a random title</h1>
-    <p>This is the story of a random character.</p>
+    <p>This is some text.</p>
   </body>
 </html>`,
             checks: [
                 {
-                    label: "There is an <h1> title",
+                    label: "ex0.check0",
                     test: (doc) => doc.querySelector("body h1") !== null
                 },
                 {
-                    label: "The title says “A story with a random title”",
-                    test: (doc) => norm(doc.querySelector("h1")?.textContent) === "a story with a random title"
+                    label: "ex0.check1",
+                    test: (doc) => norm(doc.querySelector("h1")?.textContent) === "lost and found"
                 },
                 {
-                    label: "The paragraph is still there",
-                    test: (doc) => norm(doc.querySelector("p")?.textContent) === "this is the story of a random character."
+                    label: "ex0.check2",
+                    test: (doc) => norm(doc.querySelector("p")?.textContent) === "welcome to lost and found, where you can find what you've lost and lose what you've found!"
                 },
                 {
-                    label: "The title comes before the paragraph",
+                    label: "ex0.check3",
                     test: (doc) => {
                         const h1 = doc.querySelector("h1");
                         const p = doc.querySelector("p");
@@ -56,20 +165,994 @@ export default {
                     }
                 }
             ],
+            lesson: "ex0.lesson"
+        },
+        {
+            title: "ex1.title",
+            keep_code: 0,
+            dialogues: [
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex1.dialogue0"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex1.dialogue1"
+                },
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex1.dialogue2"
+                },
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex1.dialogue3"
+                },
+                {
+                    text: "ex1.dialogue4"
+                }
+            ],
             hints: [
-                "Titles are written with tags that start with <code>h</code> followed by a number. The smaller the number, the bigger the title.",
-                "Most tags go in pairs: an opening tag <code>&lt;h1&gt;</code> and a closing tag <code>&lt;/h1&gt;</code>. The text goes between them.",
-                `Write this on the line just before <code>&lt;p&gt;</code>:${snippet("<h1>A story with a random title</h1>")}`
+                {
+                    character: "archi.jpg",
+                    text: "ex1.hint0"
+                },
+                {
+                    character: "archi.jpg",
+                    text: "ex1.hint1"
+                }
+            ],
+            blocks: { palette: ["h1", "h2", "h3", "p", "div"] },
+            checks: [
+                {
+                    label: "ex1.check0",
+                    test: (doc) => doc.querySelector("div h2") !== null
+                },
+                {
+                    label: "ex1.check1",
+                    test: (doc) => {
+                        const h2 = doc.querySelector("h2");
+                        return h2 && norm(h2.textContent) === "our items";
+                    }
+                },
+                {
+                    label: "ex1.check2",
+                    test: (doc) => doc.querySelector("h1 + p + div") !== null
+                }
+            ],
+            lesson: "ex1.lesson"
+        },
+        {
+            title: "ex2.title",
+            keep_code: 1,
+            dialogues: [
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex2.dialogue0"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex2.dialogue1"
+                },
+                {
+                    text: "ex2.dialogue2"
+                },
+                {
+                    text: "ex2.dialogue3"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex2.hint0"
+                }
+            ],
+            blocks: { palette: ["h1", "h2", "h3", "p", "div"] },
+            checks: [
+                {
+                    label: "ex2.check0",
+                    test: (doc) => doc.querySelectorAll("div h2").length === 3
+                },
+                {
+                    label: "ex2.check1",
+                    test: (doc) => {
+                        const h2 = doc.querySelectorAll("div h2");
+                        for (let i = 0; i < h2.length; i++) {
+                            if (norm(h2[i].textContent) === "faq") return true;
+                        }
+                        return false;
+                    }
+                },
+                {
+                    label: "ex2.check2",
+                    test: (doc) => {
+                        const h2 = doc.querySelectorAll("div h2");
+                        for (let i = 0; i < h2.length; i++) {
+                            if (norm(h2[i].textContent) === "order") return true;
+                        }
+                        return false;
+                    }
+                },
+                {
+                    label: "ex2.check3",
+                    test: (doc) => {
+                        const h2 = doc.querySelectorAll("div h2");
+                        return h2 && h2.length === 3 && norm(h2[0].textContent) === "our items" && norm(h2[1].textContent) === "faq" && norm(h2[2].textContent) === "order";
+                    }
+                }
+            ],
+            lesson: "ex2.lesson"
+        },
+        {
+            title: "ex3.title",
+            keep_code: 2,
+            mission: "ex3.mission",
+            dialogues: [
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex3.dialogue0"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex3.dialogue1"
+                },
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex3.dialogue2"
+                },
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex3.dialogue3"
+                },
+                {
+                    text: "ex3.dialogue4"
+                },
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex3.dialogue5"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex3.hint0"
+                }
+            ],
+            blocks: { palette: ["h1", "h2", "h3", "p", "div"] },
+            checks: [
+                {
+                    label: "ex3.check0",
+                    test: (doc) => {
+                        const sections = doc.querySelectorAll("div > h3 + p");
+                        console.log(sections)
+                        if (sections.length < 2)
+                            return false;
+                        return true;
+                    }
+                },
+                {
+                    label: "ex3.check1",
+                    test: (doc) => {
+                        const div = doc.querySelectorAll("div");
+                        let isOk = false;
+
+                        div.forEach(element => {
+                            const children = element.children;
+
+                            if (children.length === 3 && children[0].tagName === 'H2' && norm(children[0].textContent) === "our items" && children[1].tagName === 'DIV') {
+                                const newSectionChildren = children[1].children
+                                const newSectionChildren2 = children[2].children
+                                if ((newSectionChildren.length === 2 && newSectionChildren[0].tagName === 'H3' && newSectionChildren[1].tagName === 'P') &&
+                                    (newSectionChildren2.length === 2 && newSectionChildren2[0].tagName === 'H3' && newSectionChildren2[1].tagName === 'P')) {
+                                    isOk = true;
+                                    return;
+                                }
+                            }
+                        });
+                        return isOk;
+                    }
+                },
+                {
+                    label: "ex3.check2",
+                    test: (doc) => {
+                        const texts = doc.querySelectorAll("div h3");
+
+                        if (texts.length == 0)
+                            return false;
+
+                        for (let i = 0; i < texts.length; i++) {
+                            if (norm(texts[i].textContent).length < 3 || norm(texts[i].textContent) === "my title")
+                                return false;
+                        }
+                        return true;
+                    }
+                },
+                {
+                    label: "ex3.check3",
+                    test: (doc) => {
+                        const p = doc.querySelectorAll("div p");
+
+                        if (p.length == 0)
+                            return false;
+
+                        for (let i = 0; i < p.length; i++) {
+                            if (norm(p[i].textContent).length < 5 || norm(p[i].textContent) === "some text")
+                                return false;
+                        }
+                        return true;
+                    }
+                }
             ],
             lesson:
-`<p><code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;p&gt;</code> and <code>&lt;h1&gt;</code> are called <b>tags</b>. Most tags go in pairs: the opening one (<code>&lt;html&gt;</code>) and the closing one (<code>&lt;/html&gt;</code>).</p>
-<p>There are 3 fundamental tags:</p>
-<ul>
-  <li><b>&lt;html&gt;</b> wraps the whole page and announces that the rest is HTML.</li>
-  <li><b>&lt;head&gt;</b> contains metadata: information for the browser, not visible on the page.</li>
-  <li><b>&lt;body&gt;</b> contains everything visible on the page.</li>
-</ul>
-<p>For now we focus on the body and leave the head empty.</p>`
+"ex3.lesson"
+        },
+        {
+            title: "ex4.title",
+            keep_code: 3,
+            mission: "ex4.mission",
+            dialogues: [
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex4.dialogue0"
+                },
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex4.dialogue1"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex4.dialogue2"
+                },
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex4.dialogue3"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex4.hint0"
+                }
+            ],
+            blocks: { palette: ["h1", "h2", "h3", "p", "div", "img"] },
+            checks: [
+                {
+                    label: "ex4.check0",
+                    test: (doc) => doc.querySelector("img") !== null
+                },
+                {
+                    label: "ex4.check1",
+                    test: (doc) => doc.querySelector("div > h3 ~ img ~ p") !== null
+                }
+            ],
+            lesson:
+"ex4.lesson"
+        },
+        {
+            title: "ex5.title",
+            keep_code: 4,
+            mission: "ex5.mission",
+            dialogues: [
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex5.dialogue0"
+                },
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex5.dialogue1"
+                },
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex5.dialogue2"
+                },
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex5.dialogue3"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex5.dialogue4"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex5.hint0"
+                },
+                {
+                    character: "archi.jpg",
+                    text: "ex5.hint1"
+                }
+            ],
+            files: {
+                "index.html": {
+                    readOnly: true,
+                    starter: PAGE(LINK, "    <h1>Gabbro</h1>\n    <p>Chill musician</p>\n    <p>I play the flute.</p>")
+                },
+                "style.css": {
+                    blocks: { properties: ["color", "font-size", "background-color", "text-align"]}
+                }
+            },
+            checks: [
+                {
+                    label: "ex5.check0",
+                    test: (doc, { style }) => isCentered(style("h1", "text-align"))
+                },
+                {
+                    label: "ex5.check1",
+                    test: (doc, { $$, style }) => {
+                        const paragraphs = $$("p");
+                        return paragraphs.length > 0 && paragraphs.every((p) => isCentered(style(p, "text-align")));
+                    }
+                }
+            ],
+            lesson: "ex5.lesson"
+        },
+        {
+            title: "ex6.title",
+            keep_code: 5,
+            mission: "ex6.mission",
+            dialogues: [
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex6.dialogue0"
+                },
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex6.dialogue1"
+                },
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex6.dialogue2"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex6.dialogue3"
+                },
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex6.dialogue4"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex6.hint0"
+                }
+            ],
+            files: {
+                "index.html": {
+                    readOnly: true,
+                    starter: PAGE(LINK, "<img src='/images/gabbro.webp'>\n    <h1>Gabbro</h1>\n    <p>Chill musician</p>\n    <p>I play the flute.</p>")
+                },
+                "style.css": {
+                    blocks: { properties: ["text-align", "width", "height", "display", "margin", "border-radius"] }
+                }
+            },
+            checks: [
+                {
+                    label: "ex6.check0",
+                    test: (doc, { $ }) => centeredIn($("img"))
+                },
+                {
+                    label: "ex6.check1",
+                    test: (doc, { $, style }) => {
+                        const img = $("img");
+                        return !!img && Math.round(px(style(img, "width"))) === 100 && Math.round(px(style(img, "height"))) === 100;
+                    }
+                }
+            ],
+            lesson: "ex6.lesson"
+        },
+        {
+            title: "ex7.title",
+            keep_code: 6,
+            mission: "ex7.mission",
+            dialogues: [
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex7.dialogue0"
+                },
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex7.dialogue1"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex7.dialogue2"
+                },
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex7.dialogue3"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex7.hint0"
+                }
+            ],
+            files: {
+                "index.html": {
+                    readOnly: true,
+                    starter: PAGE(LINK, "    <img src='/images/gabbro.webp'>\n    <h1>Gabbro</h1>\n    <p class='job'>Chill musician</p>\n    <p class='description'>I play the flute.</p>")
+                },
+                "style.css": {
+                    blocks: { properties: ["color", "font-size", "border", "text-align", "font-weight", "font-style"]}
+                }
+            },
+            checks: [
+                {
+                    label: "ex7.check0",
+                    test: (doc, { $, style }) => hasBorder(style, $("img"))
+                },
+                {
+                    label: "ex7.check1",
+                    test: (doc, { $, style }) => {
+                        const job = $(".job");
+                        const size = px(style(job, "font-size"));
+                        return !!job && isBlue(style(job, "color")) && px(style(job, "font-weight")) >= 600 && size >= 20 && size <= 25 && style(job, "font-style") === "normal";
+                    }
+                },
+                {
+                    label: "ex7.check2",
+                    test: (doc, { style }) => style(".description", "font-style") === "italic" && sameColor(style(".description", "color"), 'black') && px(style(".description", "font-weight")) < 600
+                }
+            ],
+            lesson: "ex7.lesson"
+        },
+        {
+            title: "ex8.title",
+            keep_code: 7,
+            dialogues: [
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex8.dialogue0"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex8.dialogue1"
+                },
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex8.dialogue2"
+                },
+                {
+
+                    text: "ex8.dialogue3"
+                },
+                {
+                    text: "ex8.dialogue4"
+                },
+                {
+                    text: "ex8.dialogue5"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex8.hint0"
+                }
+            ],
+            files: {
+                "index.html": {
+                    readOnly: true,
+                    starter: PAGE(LINK, "    <div>\n        <img src='/images/gabbro.webp'>\n        <h1>Gabbro</h1>\n        <p class='job'>Chill musician</p>\n        <p class='description'>I play the flute.</p>\n    </div>")
+                },
+                "style.css": {
+                    blocks: { properties: ["background-color", "border", "padding", "text-align", "width", "margin"] }
+                }
+            },
+            checks: [
+                {
+                    label: "ex8.check0",
+                    test: (doc, { $, style }) => hasBackground(style, $("div"))
+                },
+                {
+                    label: "ex8.check1",
+                    test: (doc, { $, style }) => hasBorder(style, $("div"))
+                },
+                {
+                    label: "ex8.check2",
+                    test: (doc, { $, style }) => hasPadding(style, $("div"))
+                },
+                {
+                    label: "ex8.check3",
+                    test: (doc, { $ }) => {
+                        const div = $("div");
+                        // narrower than the page, otherwise it is "centered" without doing anything
+                        return !!div && div.getBoundingClientRect().width < doc.body.clientWidth - 4 && centeredIn(div);
+                    }
+                },
+                {
+                    label: "ex8.check4",
+                    test: (doc, { $ }) => {
+                        const div = $("div");
+                        return !!div && div.children.length > 0 && [...div.children].every((child) => centeredIn(child, div));
+                    }
+                }
+            ],
+            lesson: "ex8.lesson"
+        },
+        {
+            title: "ex9.title",
+            keep_code: 4,
+            dialogues: [
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex9.dialogue0"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex9.dialogue1"
+                },
+                {
+                    text: "ex9.dialogue2"
+                },
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex9.dialogue3"
+                },
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex9.dialogue4"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex9.hint0"
+                }
+            ],
+            files: {
+                "index.html": {
+                    blocks: { palette: ["div"], attributes: true }
+                },
+                "style.css": {
+                    blocks: { properties: ["text-align", "background-color", "background-image", "color"] }
+                }
+            },
+            checks: [
+                {
+                    label: "ex9.check0",
+                    test: (doc, { linked }) => linked("style.css")
+                },
+                {
+                    label: "ex9.check1",
+                    test: (doc, { style }) => isCentered(style("h1", "text-align"))
+                },
+                {
+                    label: "ex9.check2",
+                    test: (doc, { style }) => isCentered(style("p", "text-align"))
+                },
+                {
+                    label: "ex9.check3",
+                    test: (doc, { style }) => hasBackground(style, doc.body) || hasBackground(style, doc.documentElement)
+                }
+            ],
+            lesson: "ex9.lesson"
+        },
+        {
+            title: "ex10.title",
+            keep_code: 9,
+            dialogues: [
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex10.dialogue0"
+                },
+                {
+                    text: "ex10.dialogue1"
+                },
+                {
+                    text: "ex10.dialogue2"
+                },
+                {
+                    name: "Jhin",
+                    character: "jhin.jpg",
+                    text: "ex10.dialogue3"
+                },
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex10.dialogue4"
+                },
+                {
+                    text: "ex10.dialogue5"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex10.hint0"
+                }
+            ],
+            files: {
+                "index.html": { attributes: true },
+                "style.css": {}
+            },
+            checks: [
+                {
+                    label: "ex10.check0",
+                    test: (doc) => titleSection(doc) !== null
+                },
+                {
+                    label: "ex10.check1",
+                    test: (doc, { style }) => {
+                        const section = titleSection(doc)?.section;
+                        return !!section && hasBackground(style, section) && backgroundOf(style, section) !== pageBackground(style, doc);
+                    }
+                },
+                {
+                    label: "ex10.check2",
+                    test: (doc, { style }) => {
+                        const title = titleSection(doc);
+                        const pageColor = style(doc.body, "color");
+                        return !!title && style(title.h1, "color") !== pageColor && style(title.p, "color") !== pageColor;
+                    }
+                },
+                {
+                    label: "ex10.check3",
+                    test: (doc, { style }) => {
+                        const section = titleSection(doc)?.section;
+                        return !!section &&
+                            ["top-left", "top-right", "bottom-right", "bottom-left"].every((corner) => px(style(section, `border-${corner}-radius`)) > 0);
+                    }
+                },
+                {
+                    label: "ex10.check4",
+                    test: (doc, { style }) => {
+                        const title = titleSection(doc);
+                        return !!title && style(title.p, "font-style") === "italic";
+                    }
+                },
+                {
+                    label: "ex10.check5",
+                    test: (doc, { style }) => hasPadding(style, titleSection(doc)?.section)
+                },
+                {
+                    label: "ex10.check6",
+                    test: (doc) => {
+                        const title = titleSection(doc);
+                        return !!title && centeredIn(title.h1, title.section) && centeredIn(title.p, title.section);
+                    }
+                }
+            ],
+            lesson: "ex10.lesson"
+        },
+        {
+            title: "ex11.title",
+            keep_code: 10,
+            dialogues: [
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex11.dialogue0"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex11.dialogue1"
+                },
+                {
+                    text: "ex11.dialogue2"
+                },
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex11.dialogue3"
+                },
+                {
+                    text: "ex11.dialogue4"
+                },
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex11.dialogue5"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex11.hint0"
+                }
+            ],
+            files: {
+                "index.html": {
+                    attributes: true,
+                    solution: PAGE(LINK, "<h2>Our items</h2><div><h3>Bucket of toothpaste</h3><img src='/images/bucket.png'></img><p>Who knows how long it has been there?</p></div>")
+                },
+                "style.css": {
+                    solution: "div { background-color: lavender; border-radius: 8px; border: 1px solid #545487; padding: 5px; margin: 15px 0px } p { font-style: italic; } img { height: 50px; width: 50px; } "
+                }
+            },
+            checks: [
+                {
+                    label: "ex11.check0",
+                    test: (doc, { style }) => {
+                        const items = itemSections(doc);
+                        return items.length > 0 && items.every((item) =>
+                            hasBorder(style, item) && style(item, "border-top-color") !== style(item, "background-color"));
+                    }
+                },
+                {
+                    label: "ex11.check1",
+                    test: (doc, { style }) => {
+                        const items = itemSections(doc);
+                        if (items.length === 0 || !items.every((item) => hasBackground(style, item)))
+                            return false;
+                        const background = backgroundOf(style, items[0]);
+                        const title = titleSection(doc)?.section;
+                        return items.every((item) => backgroundOf(style, item) === background)
+                            && background !== pageBackground(style, doc)
+                            && (!title || background !== backgroundOf(style, title));
+                    }
+                },
+                {
+                    label: "ex11.check2",
+                    test: (doc, { style }) => {
+                        const descriptions = itemSections(doc).flatMap((item) => [...item.querySelectorAll("p")]);
+                        return descriptions.length > 0 && descriptions.every((p) => style(p, "font-style") === "italic");
+                    }
+                },
+                {
+                    label: "ex11.check3",
+                    test: (doc) => itemSections(doc).every((item) => {
+                        const box = item.getBoundingClientRect();
+                        return [...item.querySelectorAll("img")].every((img) => {
+                            const r = img.getBoundingClientRect();
+                            return r.width > 0 && r.left >= box.left - 0.5 && r.right <= box.right + 0.5;
+                        });
+                    })
+                },
+                {
+                    label: "ex11.check4",
+                    test: (doc, { style }) => {
+                        const items = itemSections(doc);
+                        if (items.length === 0 || !items.every((item) => hasPadding(style, item)))
+                            return false;
+                        // a gap between each item and the next one
+                        return items.slice(1).every((item, i) =>
+                            item.getBoundingClientRect().top - items[i].getBoundingClientRect().bottom > 0);
+                    }
+                }
+            ],
+            lesson: "ex11.lesson"
+        },
+        {
+            title: "ex12.title",
+            keep_code: 11,
+            dialogues: [
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex12.dialogue0"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex12.dialogue1"
+                },
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex12.dialogue2"
+                },
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex12.dialogue3"
+                },
+                {
+                    text: "ex12.dialogue4"
+                }
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex12.hint0"
+                }
+            ],
+            files: {
+                "index.html": {
+                    attributes: true,
+                    solution: PAGE(LINK, "<h2>FAQ</h2><details><summary>How many people have gotten lost in the shop?</summary><p>Yes.</p></details>")
+                },
+                "style.css": {
+                    solution: "details { background-color: lavender; border-radius: 8px; padding: 5px; margin: 15px 0px; } details:hover { cursor: pointer; } summary { font-weight: bold }"
+                }
+            },
+            checks: [
+                {
+                    label: "ex12.check0",
+                    test: (doc) => {
+                        const faq = sectionTitled(doc, "faq");
+                        return !!faq && [...faq.querySelectorAll("details")].some((details) => {
+                            const summary = details.querySelector("summary");
+                            const answer = norm(details.textContent).length - norm(summary?.textContent).length;
+                            return !!summary && norm(summary.textContent).length > 0 && answer > 0;
+                        });
+                    }
+                },
+                {
+                    label: "ex12.check1",
+                    test: (doc, { style }) => {
+                        const questions = [...(sectionTitled(doc, "faq")?.querySelectorAll("details") ?? [])];
+                        return questions.length > 0 && questions.every((details) =>
+                            hasBackground(style, details) || hasBackground(style, details.querySelector("summary")));
+                    }
+                },
+                {
+                    label: "ex12.check2",
+                    test: (doc, { style }) => {
+                        const summaries = [...(sectionTitled(doc, "faq")?.querySelectorAll("details > summary") ?? [])];
+                        return summaries.length > 0 && summaries.every((summary) => px(style(summary, "font-weight")) >= 600);
+                    }
+                },
+                {
+                    label: "ex12.check3",
+                    test: (doc) => {
+                        const questions = [...(sectionTitled(doc, "faq")?.querySelectorAll("details") ?? [])];
+                        return questions.length > 0 && questions.every((details) =>
+                            [...details.querySelectorAll("p")].some((p) => norm(p.textContent).length > 0));
+                    }
+                }
+            ],
+            lesson: "ex12.lesson"
+        },
+        {
+            title: "ex13.title",
+            keep_code: 12,
+            dialogues: [
+                {
+                    character: "gabbro.webp",
+                    name: "Gabbro",
+                    text: "ex13.dialogue0"
+                },
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex13.dialogue1"
+                },
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex13.dialogue2"
+                },
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex13.dialogue3"
+                },
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex13.hint0"
+                },
+                {
+                    character: "archi.jpg",
+                    text: "ex13.hint1"
+                }
+            ],
+            files: {
+                "index.html": {
+                    attributes: true,
+                    // solution: PAGE(LINK, "<h2>Order</h2><form><label for='name'>Name: </label><input id='name' placeholder='Jane Doe'><br><br><label for='mail'>Email: </label><input id='mail' placeholder='janedoe@mail.com'><br><br><label for='date'>Delivery date: </label><input id='date' type='date'><br><br><input type='checkbox' id='conditions'><label for='conditions'>I agree that Lost and Found is no way responsible if I get lost in the shop</label><br><br><button>Order</button></form>")
+                },
+                "style.css": {
+                    // solution: "details { background-color: lavender; border-radius: 8px; padding: 5px; margin: 15px 0px; } details:hover { cursor: pointer; } summary { font-weight: bold }"
+                }
+            },
+            checks: [
+                {
+                    label: "ex13.check0",
+                    test: (doc) => [...(sectionTitled(doc, "order")?.querySelectorAll("input") ?? [])].some(isTextField)
+                },
+                {
+                    label: "ex13.check1",
+                    test: (doc) => {
+                        const inputs = [...(sectionTitled(doc, "order")?.querySelectorAll("input") ?? [])];
+                        // an email field, or a second text field
+                        return inputs.some((input) => input.type === "email") || inputs.filter(isTextField).length >= 2;
+                    }
+                },
+                {
+                    label: "ex13.check2",
+                    test: (doc) => !!sectionTitled(doc, "order")?.querySelector("input[type='date' i]")
+                },
+                {
+                    label: "ex13.check3",
+                    test: (doc) => !!sectionTitled(doc, "order")?.querySelector("input[type='checkbox' i]")
+                },
+                {
+                    label: "ex13.check4",
+                    test: (doc) => !!sectionTitled(doc, "order")?.querySelector("button, input[type='submit' i], input[type='button' i]")
+                }
+            ],
+            lesson: "ex13.lesson"
+        },
+        {
+            title: "ex14.title",
+            keep_code: 13,
+            dialogues: [
+                {
+                    character: "iroh.jpg",
+                    name: "Iroh",
+                    text: "ex14.dialogue0"
+                },
+                {
+                    character: "jhin.jpg",
+                    name: "Jhin",
+                    text: "ex14.dialogue1"
+                },
+                {
+                    character: "haku2.jpg",
+                    name: "Haku",
+                    text: "ex14.dialogue2"
+                },
+            ],
+            hints: [
+                {
+                    character: "archi.jpg",
+                    text: "ex14.hint0"
+                },
+                {
+                    character: "archi.jpg",
+                    text: "ex14.hint1"
+                }
+            ],
+            files: {
+                "index.html": {
+                    attributes: true,
+                    // solution: PAGE(LINK, "<h2>Order</h2><form><label for='name'>Name: </label><input id='name' placeholder='Jane Doe'><br><br><label for='mail'>Email: </label><input id='mail' placeholder='janedoe@mail.com'><br><br><label for='date'>Delivery date: </label><input id='date' type='date'><br><br><input type='checkbox' id='conditions'><label for='conditions'>I agree that Lost and Found is no way responsible if I get lost in the shop</label><br><br><button>Order</button></form>")
+                },
+                "style.css": {
+                    // solution: "details { background-color: lavender; border-radius: 8px; padding: 5px; margin: 15px 0px; } details:hover { cursor: pointer; } summary { font-weight: bold }"
+                }
+            },
+            checks: [
+                {
+                    label: "ex14.check0",
+                    test: (doc) => { return true; }
+                }
+            ],
+            lesson: "ex14.lesson"
         }
     ]
 };

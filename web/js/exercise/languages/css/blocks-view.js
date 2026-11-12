@@ -16,6 +16,7 @@ import { createRule, createDeclaration } from "./model.js";
 import { isValidSelector } from "./lint.js";
 import { renderDeclaration } from "./declaration-block.js";
 import { CSS_PROPERTIES } from "../../../exercises/inventory.js";
+import { ui } from "../../core/i18n.js";
 
 const DEFAULT_PALETTE = ["color", "background-color", "font-size", "text-align", "margin", "padding", "border", "border-radius"];
 
@@ -36,11 +37,11 @@ export function createCssBlocksView(host, { config = {}, context, onChange }) {
 
     const selectorPalette = h("div", { class: "palette-row" });
     const propertyPalette = h("div", { class: "palette-row" });
-    const root = h("div", { class: "drop-zone zone css-rules", "data-empty": "Drop a selector here to create a rule" });
+    const root = h("div", { class: "drop-zone zone css-rules", "data-empty": ui("blocks.dropSelector") });
     host.append(
         h("div", { class: "palette" },
-            h("div", { class: "palette-label" }, "Selectors from your page"), selectorPalette,
-            h("div", { class: "palette-label" }, "Properties: drop them into a rule"), propertyPalette),
+            h("div", { class: "palette-label" }, ui("blocks.selectors")), selectorPalette,
+            h("div", { class: "palette-label" }, ui("blocks.propertiesLabel")), propertyPalette),
         root);
 
     const edited = () => onChange(sheet); // no re-render: it would lose the caret
@@ -66,7 +67,7 @@ export function createCssBlocksView(host, { config = {}, context, onChange }) {
         const selectors = context.htmlSelectors();
         selectorPalette.replaceChildren(...(selectors.length
             ? selectors.map((selector) => selectorChip(selector, () => insert({ kind: "selector", value: selector })))
-            : [h("span", { class: "muted" }, "Add tags to your HTML first")]));
+            : [h("span", { class: "muted" }, ui("blocks.noSelectors"))]));
     }
 
     // Rules are added at the end; declarations go in the rule last focused (or the last rule).
@@ -111,7 +112,7 @@ export function createCssBlocksView(host, { config = {}, context, onChange }) {
         });
         selector.classList.toggle("invalid", !isValidSelector(rule.selector));
 
-        const zone = h("div", { class: "zone", "data-empty": "Drop properties here" });
+        const zone = h("div", { class: "zone", "data-empty": ui("blocks.dropProperties") });
         renderList(rule.declarations, zone);
 
         block.append(
