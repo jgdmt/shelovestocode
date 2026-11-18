@@ -1,7 +1,7 @@
 // Resources shown in the inventory tabs of every exercise.
 // Their descriptions are in locales/<lang>/ui.json (inventory.tags, inventory.properties).
 
-export const TAGS = ["a", "b", "br", "button", "div", "h1", "h2", "h3", "i", "img", "input", "li", "p", "span", "strong", "ul"];
+export const TAGS = ["a", "b", "br", "button", "div", "h1", "h2", "h3", "i", "img", "input", "li", "p", "span", "strong", "ul", "summary", "details"];
 
 // Files in /images
 export const IMAGES = ["archi.jpg", "home.png"];
@@ -14,6 +14,7 @@ export const CSS_PROPERTIES = {
     "font-size": { example: "24px" },
     "font-family": { example: "sans-serif" },
     "font-weight": { example: "bold" },
+    "font-style": { example: "italic" },
     "text-align": { example: "center" },
     "margin": { example: "16px" },
     "padding": { example: "16px" },

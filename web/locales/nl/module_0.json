@@ -1,98 +1,397 @@
 {
+    "module": {
+        "title": "HTML-basis",
+        "description": "Tags, structuur en je allereerste webpagina."
+    },
     "ex0": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "Hallo, wij zijn je nieuwe klanten. We willen graag een mooie website voor onze toekomstige winkel. Onze winkel heet “Lost and Found”."
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "Het zou zo leuk zijn om een heel grote titel met de naam erop te hebben!"
+        ],
+        "dialogue2": [
+            "We hebben ook een beschrijving nodig. Wat dacht je van een alinea, net onder de titel? Wat moet erin staan?"
+        ],
+        "dialogue3": [
+            "“Welcome to Lost and Found, where you can find what you've lost and lose what you've found!”"
+        ],
+        "hint0": [
+            "Heb je hulp nodig? Ik ben er voor je! Waarom probeer je voor deze eerste oefening niet gewoon wat tags uit om te zien wat ze doen?"
+        ],
+        "hint1": [
+            "Als je vastloopt, aarzel dan niet om het ook aan je buren te vragen!"
+        ],
+        "check0": "Er is een <h1>-titel",
+        "check1": "De titel is “Lost and Found”",
+        "check2": "De alinea staat er nog en zegt “Welcome to Lost and Found, where you can find what you've lost and lose what you've found!”",
+        "check3": "De titel staat vóór de alinea",
+        "lesson": "<p><code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;p&gt;</code> en <code>&lt;h1&gt;</code> noemen we <b>tags</b>. De meeste tags komen in paren: de openingstag (<code>&lt;html&gt;</code>) en de sluitingstag (<code>&lt;/html&gt;</code>).</p>\n<p>Er zijn 3 basistags:</p>\n<ul>\n  <li><b>&lt;html&gt;</b> omvat de hele pagina en geeft aan dat de rest HTML is.</li>\n  <li><b>&lt;head&gt;</b> bevat metadata: informatie voor de browser, niet zichtbaar op de pagina.</li>\n  <li><b>&lt;body&gt;</b> bevat alles wat zichtbaar is op de pagina.</li>\n</ul>\n<p>Voorlopig richten we ons op de body en laten we de head leeg.</p>"
     },
     "ex1": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "Dat is een goed begin. Nu moeten de klanten ook kunnen zien wat voor producten we eigenlijk verkopen, toch?"
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "Onze site zou verschillende secties moeten hebben: een voor de artikelen die we verkopen, een andere om te bestellen..."
+        ],
+        "dialogue2": [
+            "Laten we rustig beginnen met maar één"
+        ],
+        "dialogue3": [
+            "We hebben een sectie nodig met daarin nog een kop. Die kop moet kleiner zijn dan de titel, maar groter dan de alinea"
+        ],
+        "dialogue4": [
+            "De kop moet “Our items” zeggen. Dan kunnen we oplijsten wat we verkopen!"
+        ],
+        "hint0": [
+            "Een sectie maak je met de tag <div>!"
+        ],
+        "hint1": [
+            "Koppen gaan van h1 tot h6. h1 is de belangrijkste, h6 de minst belangrijke"
+        ],
+        "check0": "Er staat een kop in een sectie",
+        "check1": "De kop zegt “Our items”",
+        "check2": "De nieuwe sectie staat na de titel en de alinea",
+        "lesson": " "
     },
     "ex2": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "Geweldig! Tijd om de andere secties toe te voegen!"
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "Net als de sectie “Our items” willen we er een die “FAQ” zegt. Voor als onze klanten vragen hebben!"
+        ],
+        "dialogue2": [
+            "Meteen daarna moet de sectie “Order” komen. Het heeft tenslotte geen zin als onze klanten niets kunnen bestellen..."
+        ],
+        "dialogue3": [
+            "De secties moeten in de juiste volgorde op elkaar volgen, let goed op!"
+        ],
+        "hint0": [
+            "Je hoeft alleen maar te doen wat je al gedaan hebt"
+        ],
+        "check0": "Er zijn drie secties met de juiste kop erin",
+        "check1": "Een sectie zegt “FAQ”",
+        "check2": "Een sectie zegt “Order”",
+        "check3": "De secties staan in de juiste volgorde",
+        "lesson": " "
     },
     "ex3": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "Nu is het tijd om echt een lijst te maken van wat we verkopen. Wil jij dat voor ons doen?"
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "Begin met een nieuwe sectie die je in de sectie “Our items” plaatst. Die nieuwe sectie moet een kop en een alinea hebben."
+        ],
+        "dialogue2": [
+            "Hé, het zou beter zijn als de nieuwe kop kleiner is dan de vorige!"
+        ],
+        "dialogue3": [
+            "De kop moet nu het verkochte artikel zijn. Er kan bijvoorbeeld “Toothpaste” staan"
+        ],
+        "dialogue4": [
+            "De alinea moet de beschrijving van het artikel bevatten. Je zou kunnen schrijven: “Some ancient toothpaste with a weird scent. Its yellow color might not be the original one. Who knows how long it has been here?”"
+        ],
+        "dialogue5": [
+            "Tijd om creatief te zijn! Verzin artikelen en hun beschrijving en heb er plezier mee! Probeer minstens twee artikelen te maken. Je mag er gerust meer toevoegen!"
+        ],
+        "hint0": [
+            "Probeer deze keer de kop <h3> te gebruiken!"
+        ],
+        "check0": "Er zijn minstens twee secties met een kop en een alinea",
+        "check1": "De secties staan in de sectie “Our items”, onder de kop",
+        "check2": "De nieuwe koppen zijn niet leeg en hebben een andere tekst dan de standaardtekst",
+        "check3": "De nieuwe alinea's zijn niet leeg en hebben een andere tekst dan de standaardtekst",
+        "lesson": " "
     },
     "ex4": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "Weet je wat? Ik denk dat er iets ontbreekt... Maar ik weet niet wat"
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "Ik weet het! Er moet minstens één afbeelding komen! Het zou beter zijn als onze klanten kunnen zien welk product ze willen kopen"
+        ],
+        "dialogue2": [
+            "Uitstekend idee. We zetten ze best tussen de naam van het artikel en de beschrijving"
+        ],
+        "dialogue3": [
+            "Er staan een paar afbeeldingen klaar in het tabblad Afbeeldingen, in het linkerpaneel, maar je mag ook je eigen afbeeldingen importeren"
+        ],
+        "hint0": [
+            "Verander de src in de afbeeldingstag om een andere afbeelding te kiezen"
+        ],
+        "check0": "Er is een afbeelding",
+        "check1": "De afbeelding staat tussen de <h3>-kop en de alinea",
+        "lesson": " "
     },
     "ex5": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "O nee! Noodgeval! Iemand vroeg naar mijn profielkaart, maar die is nog niet klaar!"
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "Ik zie niet in waarom dat een noodgeval is?"
+        ],
+        "dialogue2": [
+            "We kunnen een mogelijke klant verliezen! Mijn kaart moet klaar zijn. Ze is veel te lelijk"
+        ],
+        "dialogue3": [
+            "Je kaart is nog niet klaar omdat ze leeg is!"
+        ],
+        "dialogue4": [
+            "Tijd voor wat CSS! Centreer de kop en alle alinea's"
+        ],
+        "hint0": [
+            "Als HTML de structuur van de pagina is, dan is CSS de stijl!"
+        ],
+        "hint1": [
+            "Selecteer de tag die je wilt opmaken en voeg er eigenschappen aan toe"
+        ],
+        "check0": "De titel is gecentreerd",
+        "check1": "Elke alinea is gecentreerd",
+        "lesson": "HTML structureert de pagina, CSS zorgt voor de stijl. Je koppelt een CSS-bestand aan een HTML-bestand met de tag &lt;link&gt;, die in de &lt;head&gt; moet staan."
     },
     "ex6": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "Hmm, ik wilde een afbeelding toevoegen... maar misschien heb ik een fout gemaakt"
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "Waarom is je afbeelding zo groot?! We moeten ze kleiner maken!"
+        ],
+        "dialogue2": [
+            "Ze moet kleiner zijn zodat ze in je kaart past... Wat dacht je van 100px op 100px?"
+        ],
+        "dialogue3": [
+            "Ze moet ook gecentreerd zijn, net als de kop en de alinea's"
+        ],
+        "dialogue4": [
+            "Het zou heel leuk zijn als we ze ook rond konden maken..."
+        ],
+        "hint0": [
+            "Bij CSS is zoeken op het internet soms de beste oplossing... nadat je het aan je buren hebt gevraagd!"
+        ],
+        "check0": "De afbeelding is gecentreerd",
+        "check1": "De afbeelding is 100px breed en 100px hoog",
+        "lesson": " "
     },
     "ex7": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "Gabbro, je kaart begint op een echte kaart te lijken. Ik vind wel dat je beroep in het vet moet staan. En in het blauw. En groter, maar niet té groot"
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "Ik vind dat mijn afbeelding een gekleurde rand moet hebben"
+        ],
+        "dialogue2": [
+            "En de beschrijving dan?"
+        ],
+        "dialogue3": [
+            "De beschrijving zou er geweldig uitzien als ze hetzelfde blijft, maar dan cursief"
+        ],
+        "hint0": [
+            "Je hebt geleerd dat je een element kunt selecteren via zijn tag, maar dat kan ook met klassen!"
+        ],
+        "check0": "De afbeelding heeft een rand",
+        "check1": "De eerste alinea is blauw, vet en heeft een grootte tussen 20px en 25px",
+        "check2": "De tweede alinea is gewoon cursief",
+        "lesson": " "
     },
     "ex8": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "Om deze kaart af te werken, zodat we terug aan onze website kunnen, moet ze er ook echt uitzien als een kaart, toch?"
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "Tijd om alles in een rechthoek te zetten. Laten we randen toevoegen aan de div"
+        ],
+        "dialogue2": [
+            "Een achtergrondkleur zou mooi zijn"
+        ],
+        "dialogue3": [
+            "Natuurlijk moeten de elementen in de div gecentreerd zijn in de div"
+        ],
+        "dialogue4": [
+            "Ze mogen wel niet te dicht bij de randen staan. Laten we wat ruimte toevoegen tussen de elementen in de div en de randen van de div"
+        ],
+        "dialogue5": [
+            "De div zelf moet ook gecentreerd zijn"
+        ],
+        "hint0": [
+            "Margin is de ruimte tussen het element en alles eromheen, padding is de ruimte tussen het element en alles erin"
+        ],
+        "check0": "Voeg een achtergrondkleur toe aan de div",
+        "check1": "Voeg een rand toe aan de div",
+        "check2": "Voeg ruimte toe tussen de randen van de div en de elementen erin",
+        "check3": "Centreer de div",
+        "check4": "De elementen in de div zijn gecentreerd",
+        "lesson": " "
     },
     "ex9": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "Bedankt voor je hulp met mijn kaart! Ik heb ze aan een mogelijke klant kunnen geven"
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "Weet je, nu we je kaart mooier moesten maken, begin ik te denken dat het leuk zou zijn om ook onze website wat meer stijl te geven..."
+        ],
+        "dialogue2": [
+            "Eerst moet je het HTML-bestand koppelen aan het CSS-bestand. Voeg <link rel='stylesheet' href='style.css'> toe in de head-tag. Gebruik de codemodus in plaats van de blokkenmodus om de head-tag te bewerken"
+        ],
+        "dialogue3": [
+            "Wat dacht je ervan om de hoofdtitel en de eerste alinea, die onze winkel beschrijft, te centreren?"
+        ],
+        "dialogue4": [
+            "Ik denk dat we ook een achtergrondkleur moeten hebben. Of een afbeelding?"
+        ],
+        "hint0": [
+            "Je head moet er nu zo uitzien: <head><link rel='stylesheet' href='style.css'></head>"
+        ],
+        "hint1": [
+            "Om een achtergrondkleur toe te voegen, zet je de eigenschap background-color best op de hoogste tag..."
+        ],
+        "check0": "Koppel je CSS-bestand aan je HTML-bestand",
+        "check1": "Centreer de titel",
+        "check2": "Centreer de eerste alinea",
+        "check3": "Voeg een achtergrondkleur of -afbeelding toe",
+        "lesson": " "
     },
     "ex10": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "Mmm... Ik denk dat het beter zou zijn als de titel een andere kleur had. Wat als we de titel en de beschrijving van onze winkel samen in een sectie zetten en de achtergrondkleur van die sectie veranderen?"
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "O, en de randen van de nieuwe sectie moeten afgerond zijn. En wat dacht je van de beschrijving cursief in plaats van normaal?"
+        ],
+        "dialogue2": [
+            "Vraag je niet een beetje veel tegelijk?"
+        ],
+        "dialogue3": [
+            "Ik was nog niet klaar... Ik denk dat het nog beter zou zijn als er ruimte was tussen de tekst en de randen"
+        ],
+        "dialogue4": [
+            "En de kop en de alinea moeten hun eigen tekstkleur hebben! Wit? Iets wat mooi past bij de nieuwe achtergrondkleur van de sectie!"
+        ],
+        "hint0": [
+            "Voeg gerust class-attributen toe!"
+        ],
+        "hint1": [
+            "Een klasse voeg je zo toe aan een tag: <div class='[naam van de klasse]'>"
+        ],
+        "check0": "De hoofdtitel en de beschrijving van de winkel staan in een sectie",
+        "check1": "De achtergrondkleur van de titelsectie verschilt van de rest van de pagina",
+        "check2": "De tekstkleur van de titel en de beschrijving verschilt van de rest van de pagina",
+        "check3": "De randen van de sectie zijn afgerond",
+        "check4": "De beschrijving is cursief",
+        "check5": "Er is ruimte tussen de tekst en de randen van de sectie",
+        "check6": "De kop en de beschrijving zijn gecentreerd in de sectie",
+        "lesson": " "
     },
     "ex11": {
+        "title": "Hallo en welkom",
         "dialogue0": [
-            "iwkahuew uehwa"
+            "De titel ziet er nu mooi uit. Tijd om de artikelsectie aan te pakken!"
         ],
         "dialogue1": [
-            "iwkahuew uehwa"
-        ]
+            "Elke artikelsectie moet dezelfde achtergrondkleur of -afbeelding hebben. En die moet natuurlijk verschillen van de algemene achtergrond"
+        ],
+        "dialogue2": [
+            "En ze moeten ook zichtbare randen hebben, in een andere kleur dan zowel de algemene achtergrond als de achtergrond van de sectie"
+        ],
+        "dialogue3": [
+            "De afbeelding, als er een is, moet natuurlijk kleiner gemaakt worden zodat ze in de sectie past als ze te groot is"
+        ],
+        "dialogue4": [
+            "En de beschrijving van de artikelen moet cursief!"
+        ],
+        "dialogue5": [
+            "Ik heb het gevoel dat jullie vragen steeds erger worden... Daarom heb ik een voorbeeld toegevoegd van hoe een artikelsectie eruit zou kunnen zien"
+        ],
+        "hint0": [
+            "Vergeet niet je buren om hulp te vragen als je vastzit!"
+        ],
+        "check0": "Elke artikelsubsectie in de sectie “Our items” heeft zichtbare randen",
+        "check1": "Ze hebben allemaal dezelfde achtergrondkleur, die verschilt van de achtergrond van de rest van de pagina en van de achtergrond van de titelsectie",
+        "check2": "De beschrijving van het artikel is cursief",
+        "check3": "De afbeeldingen passen in hun artikelsectie",
+        "check4": "Er is ruimte tussen de artikelsecties en ook tussen hun randen en hun inhoud",
+        "lesson": " "
+    },
+    "ex12": {
+        "title": "Hallo en welkom",
+        "dialogue0": [
+            "Het is niet perfect, maar het wordt toch beter"
+        ],
+        "dialogue1": [
+            "We kunnen verder met de volgende sectie, de FAQ. Ideaal zouden er meerdere vragen zijn waarop je kunt klikken om het antwoord te tonen of te verbergen. Ik vraag me af of dat kan..."
+        ],
+        "dialogue2": [
+            "De vragen moeten vet zijn en er moet ook een achtergrondkleur zijn... o, en het antwoord moet een alinea zijn!"
+        ],
+        "dialogue3": [
+            "Ik heb alweer een voorbeeld toegevoegd..."
+        ],
+        "dialogue4": [
+            "Het zou zo fijn zijn als de muisaanwijzer verandert wanneer je over een vraag beweegt, om te tonen dat je erop kunt klikken..."
+        ],
+        "hint0": [
+            "Misschien moet je eens kijken naar de tags <details> en <summary>"
+        ],
+        "check0": "Er is minstens één vraag met een antwoord",
+        "check1": "De vragen hebben een achtergrondkleur",
+        "check2": "De vragen zijn vet",
+        "check3": "De antwoorden zijn alinea's",
+        "lesson": " "
+    },
+    "ex13": {
+        "title": "Hallo en welkom",
+        "dialogue0": [
+            "Tijd voor de laatste sectie, die om te bestellen!"
+        ],
+        "dialogue1": [
+            "We hebben meerdere velden nodig: twee tekstvelden, een datumveld en een selectievakje"
+        ],
+        "dialogue2": [
+            "De tekstvelden vragen naar de naam en het e-mailadres van de klant. Het datumveld is voor de leveringsdatum en het selectievakje om akkoord te gaan met onze voorwaarden"
+        ],
+        "dialogue3": [
+            "Er moet ook een knop zijn om te bevestigen..."
+        ],
+        "hint0": [
+            "Gebruik de tag <form> voor deze oefening!"
+        ],
+        "hint1": [
+            "Voor de velden kan de tag <input>, samen met de tag <label>, misschien interessant zijn..."
+        ],
+        "check0": "Er is een tekstveld voor de naam",
+        "check1": "Er is een tekstveld voor het e-mailadres",
+        "check2": "Er is een datumveld voor de leveringsdatum",
+        "check3": "Er is een selectievakje",
+        "check4": "Er is een bevestigingsknop",
+        "lesson": " "
+    },
+    "ex14": {
+        "title": "Hallo en welkom",
+        "dialogue0": [
+            "Perfect! Ik vind het geweldig!"
+        ],
+        "dialogue1": [
+            "Bedankt voor je hulp!"
+        ],
+        "dialogue2": [
+            "Waarom doe je nu niet gewoon wat je wilt? Veel plezier! Je kunt een menu toevoegen, meer artikelen, wat je maar wilt!"
+        ],
+        "hint0": [
+            "Doe wat je wilt!"
+        ],
+        "check0": "Veel plezier!",
+        "lesson": " "
     }
 }

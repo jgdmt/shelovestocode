@@ -25,16 +25,16 @@ export function setupLayout() {
     });
 
     if (!$("row-splitter").hidden) {
-    setupSplitter($("row-splitter"), {
-        key: "slc-result-size",
-        sizeAt(e) {
-            const rect = stack.getBoundingClientRect();
-            return (e.clientY - rect.top) / rect.height * 100;
-        },
-        clamp: (percent) => Math.max(15, Math.min(85, percent)),
-        apply: (percent) => percent === null
-            ? stack.style.removeProperty("--result-size")
-            : stack.style.setProperty("--result-size", `${percent}%`)
+        setupSplitter($("row-splitter"), {
+            key: "slc-result-size",
+            sizeAt(e) {
+                const rect = stack.getBoundingClientRect();
+                return (e.clientY - rect.top) / rect.height * 100;
+            },
+            clamp: (percent) => Math.max(15, Math.min(85, percent)),
+            apply: (percent) => percent === null
+                ? stack.style.removeProperty("--result-size")
+                : stack.style.setProperty("--result-size", `${percent}%`)
         });
     }
 }

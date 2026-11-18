@@ -69,7 +69,9 @@
             "p": "Defines a paragraph",
             "span": "Defines a section inside text",
             "strong": "Defines important text",
-            "ul": "Defines an unordered list"
+            "ul": "Defines an unordered list",
+            "details": "Defines additiona details that the user can view or hide",
+            "summary": "Defines a visible heading for a <details> element"
         },
         "properties": {
             "color": "Text color",
@@ -77,6 +79,7 @@
             "font-size": "Size of the text",
             "font-family": "Font of the text",
             "font-weight": "Thickness of the text",
+            "font-style": "The font style of the text",
             "text-align": "Alignment of the text",
             "margin": "Space outside the element",
             "padding": "Space inside the element",
@@ -129,6 +132,7 @@
         "dropProperties": "Drop properties here",
         "selectors": "Selectors from your page",
         "propertiesLabel": "Properties: drop them into a rule",
+        "addProperty": "Add another property",
         "noSelectors": "Add tags to your HTML first",
         "pickColor": "Pick a color",
         "addAttribute": "Add an attribute",

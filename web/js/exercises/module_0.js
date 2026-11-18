@@ -132,6 +132,10 @@ export default {
                 {
                     character: "archi.jpg",
                     text: "ex0.hint0"
+                },
+                {
+                    character: "archi.jpg",
+                    text: "ex0.hint1"
                 }
             ],
             blocks: { palette: ["h1", "h2", "h3", "p"] },
@@ -547,7 +551,7 @@ export default {
             files: {
                 "index.html": {
                     readOnly: true,
-                    starter: PAGE(LINK, "<img src='/images/gabbro.webp'>\n    <h1>Gabbro</h1>\n    <p>Chill musician</p>\n    <p>I play the flute.</p>")
+                    starter: PAGE(LINK, "    <img src='/images/gabbro.webp'>\n    <h1>Gabbro</h1>\n    <p>Chill musician</p>\n    <p>I play the flute.</p>")
                 },
                 "style.css": {
                     blocks: { properties: ["text-align", "width", "height", "display", "margin", "border-radius"] }
@@ -606,7 +610,7 @@ export default {
                     starter: PAGE(LINK, "    <img src='/images/gabbro.webp'>\n    <h1>Gabbro</h1>\n    <p class='job'>Chill musician</p>\n    <p class='description'>I play the flute.</p>")
                 },
                 "style.css": {
-                    blocks: { properties: ["color", "font-size", "border", "text-align", "font-weight", "font-style"]}
+                    blocks: { properties: ["text-align", "width", "height", "display", "margin", "border-radius", "color", "font-size", "border", "font-weight", "font-style"]}
                 }
             },
             checks: [
@@ -624,7 +628,7 @@ export default {
                 },
                 {
                     label: "ex7.check2",
-                    test: (doc, { style }) => style(".description", "font-style") === "italic" && sameColor(style(".description", "color"), 'black') && px(style(".description", "font-weight")) < 600
+                    test: (doc, { style, sameColor }) => style(".description", "font-style") === "italic" && sameColor(style(".description", "color"), 'black') && px(style(".description", "font-weight")) < 600
                 }
             ],
             lesson: "ex7.lesson"
@@ -671,7 +675,7 @@ export default {
                     starter: PAGE(LINK, "    <div>\n        <img src='/images/gabbro.webp'>\n        <h1>Gabbro</h1>\n        <p class='job'>Chill musician</p>\n        <p class='description'>I play the flute.</p>\n    </div>")
                 },
                 "style.css": {
-                    blocks: { properties: ["background-color", "border", "padding", "text-align", "width", "margin"] }
+                    blocks: { properties: ["text-align", "width", "height", "display", "margin", "border-radius", "color", "border", "background-color", "padding"] }
                 }
             },
             checks: [
@@ -737,11 +741,15 @@ export default {
                 {
                     character: "archi.jpg",
                     text: "ex9.hint0"
+                },
+                {
+                    character: "archi.jpg",
+                    text: "ex9.hint1"
                 }
             ],
             files: {
                 "index.html": {
-                    blocks: { palette: ["div"], attributes: true }
+                    blocks: { palette: ["h1", "h2", "h3", "p", "div", "img"], attributes: true }
                 },
                 "style.css": {
                     blocks: { properties: ["text-align", "background-color", "background-image", "color"] }
@@ -780,31 +788,36 @@ export default {
                     text: "ex10.dialogue1"
                 },
                 {
-                    text: "ex10.dialogue2"
-                },
-                {
                     name: "Jhin",
                     character: "jhin.jpg",
-                    text: "ex10.dialogue3"
+                    text: "ex10.dialogue2"
                 },
                 {
                     character: "gabbro.webp",
                     name: "Gabbro",
-                    text: "ex10.dialogue4"
+                    text: "ex10.dialogue3"
                 },
                 {
-                    text: "ex10.dialogue5"
+                    text: "ex10.dialogue4"
                 }
             ],
             hints: [
                 {
                     character: "archi.jpg",
                     text: "ex10.hint0"
+                },
+                {
+                    character: "archi.jpg",
+                    text: "ex10.hint1"
                 }
             ],
             files: {
-                "index.html": { attributes: true },
-                "style.css": {}
+                "index.html": { 
+                    blocks: { palette: ["h1", "h2", "h3", "p", "div", "img"], attributes: true }
+                },
+                "style.css": {
+                    blocks: { properties: ["text-align", "background-color", "background-image", "color", "border", "padding", "margin", "border-radius", "font-style", "font-weight"] }
+                }
             },
             checks: [
                 {
@@ -894,11 +907,12 @@ export default {
             ],
             files: {
                 "index.html": {
-                    attributes: true,
+                    blocks: { palette: ["h1", "h2", "h3", "p", "div", "img"], attributes: true },
                     solution: PAGE(LINK, "<h2>Our items</h2><div><h3>Bucket of toothpaste</h3><img src='/images/bucket.png'></img><p>Who knows how long it has been there?</p></div>")
                 },
                 "style.css": {
-                    solution: "div { background-color: lavender; border-radius: 8px; border: 1px solid #545487; padding: 5px; margin: 15px 0px } p { font-style: italic; } img { height: 50px; width: 50px; } "
+                    solution: "div { background-color: lavender; border-radius: 8px; border: 1px solid #545487; padding: 5px; margin: 15px 0px } p { font-style: italic; } img { height: 50px; width: 50px; } ",
+                    blocks: { properties: ["text-align", "background-color", "background-image", "color", "border", "padding", "margin", "border-radius", "font-style", "font-weight"] }
                 }
             },
             checks: [
@@ -990,11 +1004,12 @@ export default {
             ],
             files: {
                 "index.html": {
-                    attributes: true,
+                    blocks: { palette: ["h1", "h2", "h3", "p", "div", "img", "details", "summary"], attributes: true },
                     solution: PAGE(LINK, "<h2>FAQ</h2><details><summary>How many people have gotten lost in the shop?</summary><p>Yes.</p></details>")
                 },
                 "style.css": {
-                    solution: "details { background-color: lavender; border-radius: 8px; padding: 5px; margin: 15px 0px; } details:hover { cursor: pointer; } summary { font-weight: bold }"
+                    solution: "details { background-color: lavender; border-radius: 8px; padding: 5px; margin: 15px 0px; } details:hover { cursor: pointer; } summary { font-weight: bold }",
+                    blocks: { properties: ["text-align", "background-color", "background-image", "color", "border", "padding", "margin", "border-radius", "font-style", "font-weight"] }
                 }
             },
             checks: [
@@ -1072,10 +1087,11 @@ export default {
             ],
             files: {
                 "index.html": {
-                    attributes: true,
+                    blocks: { palette: ["h1", "h2", "h3", "p", "div", "img", "details", "summary", "input", "button", "label", "form"], attributes: true },
                     // solution: PAGE(LINK, "<h2>Order</h2><form><label for='name'>Name: </label><input id='name' placeholder='Jane Doe'><br><br><label for='mail'>Email: </label><input id='mail' placeholder='janedoe@mail.com'><br><br><label for='date'>Delivery date: </label><input id='date' type='date'><br><br><input type='checkbox' id='conditions'><label for='conditions'>I agree that Lost and Found is no way responsible if I get lost in the shop</label><br><br><button>Order</button></form>")
                 },
                 "style.css": {
+                    blocks: { properties: ["text-align", "background-color", "background-image", "color", "border", "padding", "margin", "border-radius", "font-style", "font-weight"] }
                     // solution: "details { background-color: lavender; border-radius: 8px; padding: 5px; margin: 15px 0px; } details:hover { cursor: pointer; } summary { font-weight: bold }"
                 }
             },

@@ -12,13 +12,16 @@
             "It would be so nice to have a really big heading with the name on it!"
         ],
         "dialogue2": [
-            "We need a description too. How about, right under the title, a small text? What should it says?"
+            "We need a description too. How about, right under the title, a paragraph? What should it say?"
         ],
         "dialogue3": [
             "“Welcome to Lost and Found, where you can find what you've lost and lose what you've found!”"
         ],
         "hint0": [
             "Do you need help? I'm here for you! For this first exercise, why not just try using tags and see what they do?"
+        ],
+        "hint1": [
+            "If you struggle, don't hesitate to also reach out to your neighbors!"
         ],
         "check0": "There is an <h1> title",
         "check1": "The title says “Lost and Found”",
@@ -35,10 +38,10 @@
             "Our site should have different sections, one for the items we sell, another one for ordering..."
         ],
         "dialogue2": [
-            "Let's start slowly with only one."
+            "Let's start slowly with only one"
         ],
         "dialogue3": [
-            "We need a section and inside, there should be another heading. The heading should be smaller than the title but bigger than the paragraph."
+            "We need a section and inside, there should be another heading. The heading should be smaller than the title but bigger than the paragraph"
         ],
         "dialogue4": [
             "The heading should say “Our items”. Then we will be able to list what we sell!"
@@ -95,7 +98,7 @@
             "The paragraph should contain the description of the item. You could write “Some ancient toothpaste with a weird scent. Its yellow color might not be the original one. Who knows how long it has been here?”"
         ],
         "dialogue5": [
-            "It's time to get creative! Just imagine items and their description and have fun with them! Try to have at least two items. Feel free to add more though!"
+            "It's time to get creative! Just imagine items and their description and have fun with them! We sell whatever you could imagine! Try to have at least two items. Feel free to add more though!"
         ],
         "hint0": [
             "Try to use the heading <h3> this time!"
@@ -109,13 +112,13 @@
     "ex4": {
         "title": "Hello and welcome",
         "dialogue0": [
-            "You know what? I think it's missing something... But I can't think of anything."
+            "You know what? I think it's missing something... But I can't think of anything"
         ],
         "dialogue1": [
             "I know! There should be at least one image! It would be better if our customers could have a visual on the product they want to buy"
         ],
         "dialogue2": [
-            "That's an excellent idea. We should put it between the title of the item and the description"
+            "That's an excellent idea. We should put it between the title of the item and its description"
         ],
         "dialogue3": [
             "There are some images ready to be used in the images tab, on the left panel, but feel free to import yours"
@@ -152,7 +155,7 @@
         ],
         "check0": "The title is centered",
         "check1": "Every paragraph is centered",
-        "lesson": "HTML structures the page, while CSS takes care of the style. You link a css file to a html file with the tag &lt;link&gt;, that should be put inside the &lt;head&gt;."
+        "lesson": "HTML structures the page, while CSS takes care of the style. You link a CSS file to a HTML file with the tag &lt;link&gt;, that should be put inside the &lt;head&gt;."
     },
     "ex6": {
         "title": "Hello and welcome",
@@ -172,7 +175,7 @@
             "It would be really nice if there was a way to make it round too..."
         ],
         "hint0": [
-            "When it comes to css, sometimes searching on internet is the best way... after asking your neighbors!"
+            "When it comes to CSS, sometimes searching the internet is the best way... after asking your neighbors!"
         ],
         "check0": "The image is centered",
         "check1": "The image is 100px wide and 100px high",
@@ -215,7 +218,7 @@
             "Of course the elements inside the div should be centered inside the div"
         ],
         "dialogue4": [
-            "They should not be too close to the borders though. Let's add some space betweem the elements inside the div and the borders of the div"
+            "They should not be too close to the borders though. Let's add some space between the elements inside the div and the borders of the div"
         ],
         "dialogue5": [
             "The div itself should be centered"
@@ -239,7 +242,7 @@
             "You know, now that we had to make your card look better, I'm starting to think it would be nice to add more style to our website too..."
         ],
         "dialogue2": [
-            "First, it's necessary to connect the html file with the css file. Add <link rel='stylesheet' href='style.css'> inside the head tag"
+            "First, it's necessary to connect the html file with the css file. Add <link rel='stylesheet' href='style.css'> inside the head tag. To edit the head tag, use the code mode instead of the blocks one"
         ],
         "dialogue3": [
             "How about centering the main heading and the first paragraph, the one that describes our shop?"
@@ -248,7 +251,10 @@
             "I think we should have a background color too. Or an image?"
         ],
         "hint0": [
-            ""
+            "Your head should look like this: <head><link rel='stylesheet' href='style.css'></head> now"
+        ],
+        "hint1": [
+            "To add a background color, you should put the background-color property on the highest tag..."
         ],
         "check0": "Link your css file with your html file",
         "check1": "Center the title",
@@ -259,28 +265,28 @@
     "ex10": {
         "title": "Hello and welcome",
         "dialogue0": [
-            "Mmmh... I think it would be better if the title had another color. How about putting both the title and the description of our shop inside a section and change the section color?"
+            "Mmmh... I think it would be better if the title had another color. How about putting both the title and the description of our shop inside a section and change the section background color?"
         ],
         "dialogue1": [
             "Oh and the borders of the new section should be rounded. And how about having the description in italic instead of normal style?"
         ],
         "dialogue2": [
-            "And we could have three links under the description that link to sections of the site!"
-        ],
-        "dialogue3": [
             "Aren't you asking for a lot at once?"
         ],
-        "dialogue4": [
-            "I wasn't done yet... I think it would be even better if there is space between the text and the borders"
+        "dialogue3": [
+            "I wasn't done yet... I think it would be even better if there were space between the text and the borders"
         ],
-        "dialogue5": [
+        "dialogue4": [
             "And the heading and paragraph should have their own text color! White? Something that would look great with the new section background color!"
         ],
         "hint0": [
-            ""
+            "Feel free to add the class attribute!"
+        ],
+        "hint1": [
+            "Class is added to a tag like this <div class='[name of class]'>"
         ],
         "check0": "The main heading and the shop description are inside a section",
-        "check1": "The color of the title section is different from the rest of the page",
+        "check1": "The background color of the title section is different from the rest of the page",
         "check2": "The text color of the title and the description is different from the rest of the page",
         "check3": "The section borders are round",
         "check4": "The description is in italic",
@@ -297,7 +303,7 @@
             "Each item section should have the same background color or image. And it should be different from the general background, of course"
         ],
         "dialogue2": [
-            "And they must have visible borders too, of a different color than the both the general background and the section background"
+            "And they must have visible borders too, of a different color than both the general background and the section background"
         ],
         "dialogue3": [
             "The image, if there is one, should of course be resized to fit inside the section if it's too big"
@@ -306,16 +312,16 @@
             "And the description of the items should be in italic!"
         ],
         "dialogue5": [
-            "I feel like your requests keep getting worst... So I added an example of what a item section could look like"
+            "I feel like your requests keep getting worse... So I added an example of what an item section could look like"
         ],
         "hint0": [
-            ""
+            "Don't forget to ask your neighbors if you feel stuck!"
         ],
-        "check0": "Every item sub section inside the “Our items” section has visible borders",
+        "check0": "Every item subsection inside the “Our items” section has visible borders",
         "check1": "They all have the same background color, different from the rest of the page background and different from the title section background",
         "check2": "The item description is in italic",
         "check3": "Images fit inside their item section",
-        "check4": "There is space between the item sections and inside them",
+        "check4": "There is space between the item sections and also between their borders and their content",
         "lesson": " "
     },
     "ex12": {
@@ -333,7 +339,7 @@
             "I've once more added an example..."
         ],
         "dialogue4": [
-            "It would be so great if the pointer of the mouse changed when hover a question, to show it's clickable..."
+            "It would be so great if the pointer of the mouse changed when hovering over a question, to show it's clickable..."
         ],
         "hint0": [
             "Perhaps you should consider the tags <details> and <summary>"
@@ -380,10 +386,10 @@
             "Thank you for the help!"
         ],
         "dialogue2": [
-            "Why don't you do whatever you want now? Have fun!"
+            "Why don't you do whatever you want now? Have fun! You can add a menu, more items, whatever you want!"
         ],
         "hint0": [
-            ""
+            "Do whatever you want!"
         ],
         "check0": "Have fun!",
         "lesson": " "

@@ -17,7 +17,7 @@ export function createBlocksMode({ editor, context }) {
     const views = new Map(); // file name -> { host, view }
     const repairDialog = createRepairDialog();
     const selectMode = setupSegmented($("mode-switch"), "mode", setMode);
-    let preferBlocks = load(MODE_KEY) === "blocks";
+    let preferBlocks = load(MODE_KEY) === "blocks" || load(MODE_KEY) === null;
     let active = null;
 
     function viewFor(file) {

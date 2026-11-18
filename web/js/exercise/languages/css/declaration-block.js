@@ -40,7 +40,8 @@ export function renderDeclaration(block, grip, decl, { onEdit, onRemove }) {
         picker.hidden = !isColorProperty(decl.property);
         if (document.activeElement !== picker)
             picker.value = toHex(decl.value) || "#000000";
-        const problem = checkDeclaration(decl.property, decl.value);
+        // a blank declaration just added with "+" is not an error yet
+        const problem = decl.property || decl.value ? checkDeclaration(decl.property, decl.value) : null;
         block.classList.toggle("invalid", Boolean(problem));
         error.textContent = problem || "";
     }

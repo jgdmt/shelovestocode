@@ -10,7 +10,7 @@
 
 import { h } from "../../ui/dom.js";
 import { createDragDrop } from "../../blocks/drag-drop.js";
-import { editable, deleteButton, rawBlock } from "../../blocks/parts.js";
+import { editable, deleteButton, rawBlock, chip } from "../../blocks/parts.js";
 import { propertyChip, selectorChip } from "../../blocks/chips.js";
 import { createRule, createDeclaration } from "./model.js";
 import { isValidSelector } from "./lint.js";
@@ -63,11 +63,21 @@ export function createCssBlocksView(host, { config = {}, context, onChange }) {
     (config.properties || DEFAULT_PALETTE).forEach((property) =>
         propertyPalette.appendChild(propertyChip(property, () => insert({ kind: "property", value: property }))));
 
+    // "+": a blank "… : …;" declaration for a property that is not in the palette
+    const blank = { kind: "property", value: "" };
+    propertyPalette.appendChild(chip("+", "chip-property chip-add", blank, {
+        title: ui("blocks.addProperty"),
+        onClick: () => {
+            insert(blank);
+            [...root.querySelectorAll(".decl-property:empty")].pop()?.focus();
+        }
+    }));
+
     function renderSelectorPalette() {
-        const selectors = context.htmlSelectors();
-        selectorPalette.replaceChildren(...(selectors.length
-            ? selectors.map((selector) => selectorChip(selector, () => insert({ kind: "selector", value: selector })))
-            : [h("span", { class: "muted" }, ui("blocks.noSelectors"))]));
+        // <body> is always there, even when the page has no tags yet
+        const selectors = ["body", ...context.htmlSelectors().filter((selector) => selector !== "body")];
+        selectorPalette.replaceChildren(...selectors.map((selector) =>
+            selectorChip(selector, () => insert({ kind: "selector", value: selector }))));
     }
 
     // Rules are added at the end; declarations go in the rule last focused (or the last rule).

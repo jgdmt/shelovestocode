@@ -1,98 +1,397 @@
 {
+    "module": {
+        "title": "bases du HTML",
+        "description": "Tags, structure et première page web."
+    },
     "ex0": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "Bonjour, nous sommes tes nouveaux clients. Nous aimerions avoir un joli site web pour notre futur magasin. Le nom de notre magasin est “Lost and Found”."
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Ça serait génial d'avoir un énorme titre qui indique le nom !"
+        ],
+        "dialogue2": [
+            "On a besoin d'une description aussi. Pourquoi pas juste en dessous du titre, un paragraphe ? Qu'est-ce qui pourrait être écrit ?"
+        ],
+        "dialogue3": [
+            "“Welcome to Lost and Found, where you can find what you've lost and lose what you've found!”"
+        ],
+        "hint0": [
+            "As-tu besoin d'aide ? Je suis là pour ça ! Pour ce premier exercice, pourquoi ne pas essayer d'utiliser les tags et voir ce qu'ils font ?"
+        ],
+        "hint1": [
+            "Si tu as des problèmes, n'hésite pas à demander à tes voisines !"
+        ],
+        "check0": "Il y a un titre de section <h1>",
+        "check1": "Le titre est “Lost and Found”",
+        "check2": "Le paragraphe est toujours présent et indique : “Welcome to Lost and Found, where you can find what you've lost and lose what you've found!”",
+        "check3": "Le titre vient avant le paragraphe",
+        "lesson": "<p><code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>, <code>&lt;p&gt;</code> et <code>&lt;h1&gt;</code> sont appelés des <b>tags</b>. La plupart des tags vont de pair : le tag ouvrant (<code>&lt;html&gt;</code>) et le tag fermant (<code>&lt;/html&gt;</code>).</p>\n<p>Il y a 3 tags fondamentaux : </p>\n<ul>\n  <li><b>&lt;html&gt;</b> enveloppe toute la page et annonce que le reste est du HTML.</li>\n  <li><b>&lt;head&gt;</b> contient des métadonnées : informations pour le navigateur, non visibles sur la page.</li>\n  <li><b>&lt;body&gt;</b> contient tout ce qui est visible sur la page.</li>\n</ul>\n<p>Pour l'instant nous allons nous concentrer sur le body et laisser le head vide.</p>"
     },
     "ex1": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "C'est un bon début. Maintenant, il faudrait que les clients puissent voir quel genre de produits nous vendons, non ?"
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Notre site devrait avoir différentes sections, une pour les articles que nous vendons, une pour passer commande,..."
+        ],
+        "dialogue2": [
+            "Commençons simplement avec une seule"
+        ],
+        "dialogue3": [
+            "Nous avons besoin d'une section avec à l'intérieur un autre gros titre. Le titre doit être plus petit que le titre principal mais plus gros que le paragraphe."
+        ],
+        "dialogue4": [
+            "Le nouveau titre doit dire : “Our items”. Ainsi, on pourra lister tout ce que nous vendons !"
+        ],
+        "hint0": [
+            "Une section est définie avec le tag <div>!"
+        ],
+        "hint1": [
+            "Les titres de section vont de h1 jusque h6. h1 définit le niveau de section le plus haut, h6 correspond au niveau le plus faible"
+        ],
+        "check0": "Il y a un titre dans une section",
+        "check1": "Le titre dit “Our items”",
+        "check2": "La nouvelle section vient après le titre principal et le paragraphe",
+        "lesson": " "
     },
     "ex2": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "Incroyable ! Il est temps d'ajouter les prochaines sections !"
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Tout comme la section “Our items”, on en veut une qui dit “FAQ”. Il faut bien répondre aux questions de nos clients !"
+        ],
+        "dialogue2": [
+            "Juste après, ça devrait être la section “Order”. Après tout, c'est inutile si nos clients ne peuvent même pas passer commande..."
+        ],
+        "dialogue3": [
+            "Les sections devraient se suivre dans le bon ordre, fais attention !"
+        ],
+        "hint0": [
+            "Tu dois juste refaire ce que tu as déjà fait !"
+        ],
+        "check0": "Il y a trois sections avec le bon titre de section à l'intérieur",
+        "check1": "Il y a une section “FAQ”",
+        "check2": "Il y a une section “Order”",
+        "check3": "Les sections sont dans le bon ordre",
+        "lesson": " "
     },
     "ex3": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "Maintenant, il faudrait lister les articles que nous vendons. Pourquoi ne le ferais-tu pas pour nous ?"
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Tu devrais commencer avec une autre section que tu insères dans la section “Our items”. La nouvelle section doit être composée d'un titre de section et d'un paragraphe"
+        ],
+        "dialogue2": [
+            "Hey, ce serait encore mieux si le nouveau titre de section était plus petit que le précédent !"
+        ],
+        "dialogue3": [
+            "Le titre doit être l'article vendu. Par exemple, il pourrait être écrit “Toothpaste”"
+        ],
+        "dialogue4": [
+            "Le paragraphe doit contenir la description de l'article. Tu pourrais écrire “Some ancient toothpaste with a weird scent. Its yellow color might not be the original one. Who knows how long it has been here?”"
+        ],
+        "dialogue5": [
+            "Il est temps d'être créative ! Imagine des articles et leur description et amuse-toi avec ! Nous possédons tout ce que tu pourrais imaginer. Essaie d'avoir au moins deux articles. Tu es évidemment libre d'en ajouter plus"
+        ],
+        "hint0": [
+            "Essaie d'utiliser le titre de section <h3> cette fois !"
+        ],
+        "check0": "Il y a au moins deux sections composées d'un titre de section et d'un paragraphe",
+        "check1": "Les nouvelles sections sont dans la section “Our items” et en-dessous du titre de section",
+        "check2": "Les nouveaux titres de section ne sont pas vides et possèdent un texte différent du texte par défaut",
+        "check3": "Les nouveaux paragraphes ne sont pas vides et possèdent un texte différent du texte par défaut",
+        "lesson": " "
     },
     "ex4": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "Tu sais quoi ? Je pense qu'il manque quelque chose... Mais je ne sais pas quoi"
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Je sais ! Il devrait y avoir au moins une image ! Ce serait mieux pour nos clients s'ils pouvaient voir l'article qu'ils sont sur le point d'acheter"
+        ],
+        "dialogue2": [
+            "C'est une excellente idée. Nous devrions la mettre entre le titre de l'article et sa description"
+        ],
+        "dialogue3": [
+            "Il y a quelques images prêtes à être utilisées dans l'onglet des images, dans le panneau de gauche, mais tu peux importer tes propres images"
+        ],
+        "hint0": [
+            "Change le src dans le tag image pour choisir une autre image"
+        ],
+        "check0": "Il y a une image",
+        "check1": "L'image est placée entre le titre <h3> et le paragraphe <p>",
+        "lesson": " "
     },
     "ex5": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "Oh non ! On a un problème urgent ! Quelqu'un m'a demandé une carte professionnelle mais elle n'est pas prête !"
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Je ne vois pas où est l'urgence ?"
+        ],
+        "dialogue2": [
+            "On pourrait perdre un client potentiel ! J'ai besoin que ma carte soit prête. Elle est bien trop moche !"
+        ],
+        "dialogue3": [
+            "Ta carte n'est pas prête parce qu'elle n'est pas commencée !"
+        ],
+        "dialogue4": [
+            "Il va falloir faire un peu de css... Pourrais-tu centrer le titre et tous les paragraphes ?"
+        ],
+        "hint0": [
+            "Si le HTML est la structure de la page, le CSS est le style !"
+        ],
+        "hint1": [
+            "Sélectionne le tag que tu veux styliser et ajoute-lui des propriétés"
+        ],
+        "check0": "Le titre est centré",
+        "check1": "Tous les paragraphes sont centrés",
+        "lesson": "HTML structure la page alors que le CSS s'occupe du style. Tu connectes un fichier CSS à un fichier HTML avec le tag &lt;link&gt;, qui doit se trouver dans le tag &lt;head&gt;."
     },
     "ex6": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "Hum, je voulais rajouter une image... Mais j'ai peut-être fait une erreur"
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Pourquoi est-ce que ton image est aussi énorme ?! On doit la rétrécir !"
+        ],
+        "dialogue2": [
+            "Elle doit être plus petite pour qu'elle puisse rentrer dans ta carte... Pourquoi ne pas lui donner les dimensions 100px sur 100px ?"
+        ],
+        "dialogue3": [
+            "Elle devrait également être centrée, comme le titre et les paragraphes"
+        ],
+        "dialogue4": [
+            "Ce serait bien si c'était possible de la rendre arrondie..."
+        ],
+        "hint0": [
+            "Quand il s'agit du CSS, il ne faut pas hésiter à aller chercher sur internet... après avoir demandé à tes voisines !"
+        ],
+        "check0": "L'image est centrée",
+        "check1": "L'image a les dimensions suivantes : 100px de hauteur et 100px de largeur",
+        "lesson": " "
     },
     "ex7": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "Gabbro, ta carte commence enfin à ressembler à une vraie carte. Je pense que ton travail devrait être en gras par contre. Et en bleu. Et être un peu plus gros mais pas trop gros"
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Je pense que ma photo devrait posséder des bordures de couleur"
+        ],
+        "dialogue2": [
+            "Et pour la description ?"
+        ],
+        "dialogue3": [
+            "La description serait jolie si elle restait comme ça mais en italique à la place"
+        ],
+        "hint0": [
+            "Tu as appris que tu peux sélectionner un élément par son tag mais tu peux faire la même chose avec les classes !"
+        ],
+        "check0": "L'image possède une bordure",
+        "check1": "Le premier paragraphe est bleu, en gras et a une taille entre 20px et 25px",
+        "check2": "Le second paragraphe est simplement en italique",
+        "lesson": " "
     },
     "ex8": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "Pour terminer cette carte afin de pouvoir retourner travailler sur notre site, on devrait la faire ressembler à un rectangle, non ?"
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Ajoutons des bordures à la div"
+        ],
+        "dialogue2": [
+            "Un fond en couleur serait bien"
+        ],
+        "dialogue3": [
+            "Évidemment les éléments dans la div doivent rester centrés dans la div"
+        ],
+        "dialogue4": [
+            "Ils ne devraient pas être trop près des bords de la section. Rajoutons un peu d'espace entre les éléments dans la section et ses bords"
+        ],
+        "dialogue5": [
+            "La section elle-même devrait être centrée"
+        ],
+        "hint0": [
+            "La propriété margin est l'espace entre l'élément et tout ce qui l'entoure, la propriété padding est l'espace entre l'élément et tout ce qui est à l'intérieur de cet élément"
+        ],
+        "check0": "Ajoute une couleur de fond à la section",
+        "check1": "Ajoute des bordures à la section",
+        "check2": "Ajoute un espace entre les bords de la section et les éléments à l'intérieur de la section",
+        "check3": "Centre la section",
+        "check4": "Les éléments dans la section sont centrés",
+        "lesson": " "
     },
     "ex9": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "Merci pour ton aide avec ma carte ! J'ai pu la donner à un client potentiel !"
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Tu sais, maintenant que la carte de Gabbro est plus jolie, je commence à me dire que ce serait bien si on ajoutait également du style à notre site..."
+        ],
+        "dialogue2": [
+            "Premièrement, il est important de connecter le fichier HTML avec le fichier CSS. Ajoute <link rel='stylesheet' href='style.css'> dans le tag head. Pour éditer le tag head, utilise le mode code plutôt que le mode blocks"
+        ],
+        "dialogue3": [
+            "Pourquoi ne pas commencer par centrer le titre principal et le premier paragraphe, celui qui décrit notre magasin ?"
+        ],
+        "dialogue4": [
+            "Je pense que nous devrions également avoir une couleur de fond. Ou une image ?"
+        ],
+        "hint0": [
+            "Ton tag head doit ressembler à ceci : <head><link rel='stylesheet' href='style.css'></head>"
+        ],
+        "hint1": [
+            "Pour ajouter une couleur dans le fond, tu devrais mettre la propriété background-color sur le tag le plus haut..."
+        ],
+        "check0": "Connecte ton fichier CSS avec ton fichier HTML",
+        "check1": "Centre le titre",
+        "check2": "Centre le premier paragraphe",
+        "check3": "Ajoute une couleur ou une image au fond",
+        "lesson": " "
     },
     "ex10": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "Mmmh... Je pense que ce serait mieux si le titre était dans une couleur différente. Pourquoi ne pas mettre le titre principal et la description de notre magasin dans une section et changer la couleur de fond de la section ?"
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Oh et les bords de la nouvelle section devraient être arrondis. Et pourquoi ne pas avoir la description en italique au lieu du style normal ?"
+        ],
+        "dialogue2": [
+            "Ne demandes-tu pas trop en une fois ?"
+        ],
+        "dialogue3": [
+            "Je n'avais même pas encore fini... Je pense que ce serait encore mieux s'il y avait de l'espace entre les textes et les bordures !"
+        ],
+        "dialogue4": [
+            "Et le titre et paragraphe devraient avoir une couleur de texte qui leur est propre ! Blanc ? Une couleur qui irait bien avec la nouvelle couleur de fond de la section !"
+        ],
+        "hint0": [
+            "Tu peux ajouter des classes à tes éléments !"
+        ],
+        "hint1": [
+            "Une classe est ajoutée à un tag de cette façon : <div class='[name of class]'>"
+        ],
+        "check0": "Le titre principal et la description du magasin sont dans une section",
+        "check1": "La couleur de fond de la section est différente du reste de la page",
+        "check2": "La couleur de texte du titre et de la description est différente du reste de la page",
+        "check3": "Les bordures de la section sont arrondies",
+        "check4": "La description est en italique",
+        "check5": "Il y a un espace entre les textes et les bordures de la section",
+        "check6": "Le titre et la description sont centrés dans la section",
+        "lesson": " "
     },
     "ex11": {
+        "title": "Bonjour et bienvenue",
         "dialogue0": [
-            "theerreee"
+            "Le titre a l'air cool maintenant. On peut passer à la section sur les articles !"
         ],
         "dialogue1": [
-            "theerrddddjiiiiieeieee"
-        ]
+            "Toutes les sections qui contiennent un article doivent avoir la même couleur ou image de fond. Le fond doit être différent du fond du site, bien sûr"
+        ],
+        "dialogue2": [
+            "Et ces sections doivent avoir des bordures visibles aussi, d'une couleur différente des fonds des sections et du fond général"
+        ],
+        "dialogue3": [
+            "L'image, s'il y en a une, devrait être rétrécie pour rentrer dans la section si elle est trop grande"
+        ],
+        "dialogue4": [
+            "Et la description des articles devrait être en italique"
+        ],
+        "dialogue5": [
+            "J'ai l'impression que vos requêtes ne cessent d'empirer... Donc j'ai ajouté un exemple"
+        ],
+        "hint0": [
+            "N'oublie pas de demander à tes voisines si tu te sens bloquée"
+        ],
+        "check0": "Chaque sous section qui contient un article dans la section “Our items” a des bordures visibles",
+        "check1": "Elles ont toutes la même couleur de fond, différente du fond du reste de la page et différente du fond de la section principale qui contient le titre",
+        "check2": "La description de l'article est en italique",
+        "check3": "Les images ne dépassent pas de leur section",
+        "check4": "Il y a de l'espace entre les sous sections et également entre leurs bordures et leur contenu",
+        "lesson": " "
+    },
+    "ex12": {
+        "title": "Bonjour et bienvenue",
+        "dialogue0": [
+            "Ce n'est pas parfait mais ça s'améliore !"
+        ],
+        "dialogue1": [
+            "On peut passer à la section suivante, celle de la FAQ. Idéalement, il devrait y avoir plusieurs questions que tu pourrais cliquer pour afficher ou cacher la réponse. Je me demande si c'est possible..."
+        ],
+        "dialogue2": [
+            "Les questions devraient être en gras et il devrait y avoir une couleur de fond aussi... Oh et la réponse devrait être un paragraphe !"
+        ],
+        "dialogue3": [
+            "J'ai de nouveau ajouté un exemple..."
+        ],
+        "dialogue4": [
+            "Ce serait incroyable si le curseur de la souris changeait lorsqu'elle passe sur une question, pour montrer que c'est cliquable..."
+        ],
+        "hint0": [
+            "Peut-être devrais-tu te pencher sur les tags <details> et <summary>"
+        ],
+        "check0": "Il y a au moins une question et une réponse",
+        "check1": "Les questions ont une couleur de fond",
+        "check2": "Les questions sont en gras",
+        "check3": "Les réponses sont des paragraphes",
+        "lesson": " "
+    },
+    "ex13": {
+        "title": "Bonjour et bienvenue",
+        "dialogue0": [
+            "On peut enfin passer à la dernière section, celle qui permet de passer commande !"
+        ],
+        "dialogue1": [
+            "On a besoin de plusieurs champs à remplir : deux champs de texte, une date et une case à cocher"
+        ],
+        "dialogue2": [
+            "Les textes sont pour le nom du client et son email. La date est pour la date de livraison et la case à cocher pour vérifier qu'ils sont d'accord avec nos termes"
+        ],
+        "dialogue3": [
+            "Il devrait également y avoir un bouton pour confirmer..."
+        ],
+        "hint0": [
+            "Utilise le tag <form> pour cet exercice !"
+        ],
+        "hint1": [
+            "Pour les champs, peut-être qu'un tag <input>, associé avec le tag <label>, pourrait t'intéresser..."
+        ],
+        "check0": "Il y a un champ texte pour le nom",
+        "check1": "Il y a un champ texte pour l'email",
+        "check2": "Il y a un champ date pour la date de livraison",
+        "check3": "Il y a une case à cocher",
+        "check4": "Il y a un bouton pour confirmer",
+        "lesson": " "
+    },
+    "ex14": {
+        "title": "Bonjour et bienvenue",
+        "dialogue0": [
+            "Parfait ! J'adore !"
+        ],
+        "dialogue1": [
+            "Merci pour ton aide !"
+        ],
+        "dialogue2": [
+            "Pourquoi ne pas faire ce que tu veux maintenant ? Amuse-toi ! Tu peux ajouter un menu, d'autres articles, ce que tu veux !"
+        ],
+        "hint0": [
+            "Fais ce que tu veux !"
+        ],
+        "check0": "Amuse-toi !",
+        "lesson": " "
     }
 }

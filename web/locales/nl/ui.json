@@ -129,6 +129,7 @@
         "dropProperties": "Zet eigenschappen hier neer",
         "selectors": "Selectors van je pagina",
         "propertiesLabel": "Eigenschappen: zet ze in een regel",
+        "addProperty": "Een andere eigenschap toevoegen",
         "noSelectors": "Voeg eerst tags toe aan je HTML",
         "pickColor": "Kies een kleur",
         "addAttribute": "Een attribuut toevoegen",

@@ -34,34 +34,48 @@ function setupHints(hints) {
     });
 }
 
-function createDialogues(ex) {
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function createDialogues(ex, delay = 800) {
+    const guide = $("guide");
     let lastImage = null;
-    (ex.dialogues || []).forEach((dialogue) => {
-        let charExists = true;
-        if (!dialogue.character) {
-            dialogue.character = "archi.jpg";
-            if (lastImage)
-                charExists = false;
-        }
-        if (!dialogue.name) {
-            dialogue.name = "Archimede";
-        }
-        const image = h("img", { src: `/images/${dialogue.character}`, style:"display: block;" });
-        const text = h("p", { id: "guide-text", class:"bubble" }, dialogue.text);
-        const name = h("h6", { style:"margin: 5px 0;" }, dialogue.name);
-        const div = h("div");
-        const character = h("div", { style: "display: inline-block; text-align: center;" });
-        if (lastImage == dialogue.character || !charExists) {
+    const dialogues = ex.dialogues || [];
+
+    // for...of (not forEach) so each `await` really pauses before the next bubble
+    for (const [i, dialogue] of dialogues.entries()) {
+        if (i > 0) await sleep(delay);
+
+        // no character given: continuation of the previous speaker (or Archimede by default)
+        const continuation = !dialogue.character && lastImage !== null;
+        const character = dialogue.character || "archi.jpg";
+        const speaker = dialogue.name || "Archimede";
+
+        const image = h("img", { src: `/images/${character}`, style: "display: block;" });
+        const text = h("p", { class: "bubble" }, dialogue.text);
+        const name = h("h6", { style: "margin: 5px 0;" }, speaker);
+        const avatar = h("div", { style: "display: inline-block; text-align: center;" });
+        if (continuation || lastImage === character) {
             image.style.visibility = "hidden";
             name.hidden = true;
         }
-        character.appendChild(image);
-        character.appendChild(name);
-        div.appendChild(character);
-        div.appendChild(text);
-        $("guide").appendChild(div)
-        lastImage = dialogue.character;
-    })
+        avatar.append(image, name);
+
+        const div = h("div");
+        div.append(avatar, text);
+        guide.appendChild(div);
+        enhanceSnippets(div);
+
+        // little "new message" pop-in
+        div.animate(
+            [{ opacity: 0, transform: "translateY(8px)" }, { opacity: 1, transform: "none" }],
+            { duration: 250, easing: "ease-out" }
+        );
+        // div.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+        if (!continuation) lastImage = character;
+    }
 }
 
 export function createMission(ex) {

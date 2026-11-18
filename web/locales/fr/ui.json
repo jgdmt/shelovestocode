@@ -129,6 +129,7 @@
         "dropProperties": "Dépose des propriétés ici",
         "selectors": "Sélecteurs de ta page",
         "propertiesLabel": "Propriétés : dépose-les dans une règle",
+        "addProperty": "Ajouter une autre propriété",
         "noSelectors": "Ajoute d'abord des balises à ton HTML",
         "pickColor": "Choisir une couleur",
         "addAttribute": "Ajouter un attribut",

@@ -48,6 +48,7 @@
 .tag-text { background: var(--panel); color: var(--ink); border: 1px dashed var(--lavender-mid); }
 .chip-selector { background: var(--brand); }
 .chip-property { background: var(--tag-img); }
+.chip-add { font-weight: 700; }
 
 .skeleton { font-family: var(--font-code); font-size: 15px; }
 .sk-tag { color: var(--lavender-mid); padding: 4px 0; }
