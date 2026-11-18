@@ -77,6 +77,13 @@ checks: [
 
 A check that throws counts as failed.
 
+Add `bonus: true` to make a check optional: it is shown as "BONUS: ..." in the objectives
+but is not needed to finish the level (default `false`).
+
+```js
+{ label: "ex6.check2", bonus: true, test: (doc, { style }) => style("img", "border-radius") === "50%" }
+```
+
 ## Translations
 
 Texts are translated with [i18next](https://www.i18next.com/)

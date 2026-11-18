@@ -261,6 +261,7 @@
         "check1": "Center the title",
         "check2": "Center the first paragraph",
         "check3": "Add a background color or image",
+        "check4": "Only the title and first paragraph are centered",
         "lesson": " "
     },
     "ex10": {
@@ -293,6 +294,7 @@
         "check4": "The description is in italic",
         "check5": "There is space between the text and the borders of the section",
         "check6": "The heading and the description are centered inside the section",
+        "check7": "Not all paragraphs are in italic, only the first one",
         "lesson": " "
     },
     "ex11": {
@@ -323,6 +325,7 @@
         "check2": "The item description is in italic",
         "check3": "Images fit inside their item section",
         "check4": "There is space between the item sections and also between their borders and their content",
+        "check5": "Only the description is in italic, not the item",
         "lesson": " "
     },
     "ex12": {

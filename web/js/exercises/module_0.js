@@ -187,7 +187,7 @@ export default {
             title: "ex0.title",
             dialogues: [
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex0.dialogue0"
                 },
@@ -255,7 +255,7 @@ export default {
             keep_code: 0,
             dialogues: [
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex1.dialogue0"
                 },
@@ -265,7 +265,7 @@ export default {
                     text: "ex1.dialogue1"
                 },
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex1.dialogue2"
                 },
@@ -400,7 +400,7 @@ export default {
                     text: "ex3.dialogue4"
                 },
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex3.dialogue5"
                 }
@@ -496,7 +496,7 @@ export default {
                     text: "ex4.dialogue2"
                 },
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex4.dialogue3"
                 }
@@ -532,7 +532,7 @@ export default {
                     text: "ex5.dialogue0"
                 },
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex5.dialogue1"
                 },
@@ -602,7 +602,7 @@ export default {
                     text: "ex6.dialogue1"
                 },
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex6.dialogue2"
                 },
@@ -812,7 +812,7 @@ export default {
                     text: "ex9.dialogue3"
                 },
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex9.dialogue4"
                 }
@@ -851,6 +851,17 @@ export default {
                 {
                     label: "ex9.check3",
                     test: (doc, { style }) => hasBackground(style, doc.body) || hasBackground(style, doc.documentElement)
+                },
+                {
+                    label: "ex9.check4",
+                    bonus: true,
+                    test: (doc, { $, $$, style }) => {
+                        // the h1 and the first paragraph are centered, no other paragraph or heading is
+                        const first = $("p");
+                        const others = $$("p, h2, h3, h4, h5, h6").filter((el) => el !== first);
+                        return !!first && isCentered(style("h1", "text-align")) && isCentered(style(first, "text-align"))
+                            && others.every((el) => !isCentered(style(el, "text-align")));
+                    }
                 }
             ],
             lesson: "ex9.lesson"
@@ -944,6 +955,16 @@ export default {
                         const title = titleSection(doc);
                         return !!title && centeredIn(title.h1, title.section) && centeredIn(title.p, title.section);
                     }
+                },
+                {
+                    label: "ex10.check7",
+                    bonus: true,
+                    test: (doc, { $$, style }) => {
+                        // the shop description is in italic, no other paragraph is
+                        const description = titleSection(doc)?.p;
+                        return !!description && style(description, "font-style") === "italic"
+                            && $$("p").every((p) => p === description || style(p, "font-style") !== "italic");
+                    }
                 }
             ],
             lesson: "ex10.lesson"
@@ -974,7 +995,7 @@ export default {
                     text: "ex11.dialogue4"
                 },
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex11.dialogue5"
                 }
@@ -1044,6 +1065,20 @@ export default {
                         return items.slice(1).every((item, i) =>
                             item.getBoundingClientRect().top - items[i].getBoundingClientRect().bottom > 0);
                     }
+                },
+                {
+                    label: "ex11.check5",
+                    bonus: true,
+                    test: (doc, { style }) => {
+                        // in every item: the description (<p>) is in italic, the item name (<h3>) is not
+                        const items = itemSections(doc);
+                        return items.length > 0 && items.every((item) => {
+                            const name = item.querySelector("h3");
+                            const descriptions = [...item.querySelectorAll("p")];
+                            return !!name && style(name, "font-style") !== "italic"
+                                && descriptions.length > 0 && descriptions.every((p) => style(p, "font-style") === "italic");
+                        });
+                    }
                 }
             ],
             lesson: "ex11.lesson"
@@ -1068,7 +1103,7 @@ export default {
                     text: "ex12.dialogue2"
                 },
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex12.dialogue3"
                 },
@@ -1158,7 +1193,7 @@ export default {
                     text: "ex13.dialogue2"
                 },
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex13.dialogue3"
                 },
@@ -1229,7 +1264,7 @@ export default {
                     text: "ex14.dialogue1"
                 },
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     name: "Haku",
                     text: "ex14.dialogue2"
                 },

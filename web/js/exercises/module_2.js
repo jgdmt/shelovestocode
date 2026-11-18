@@ -30,7 +30,7 @@ export default {
                     text: "ex0.dialogue0"
                 },
                 {
-                    character: "haku2.jpg",
+                    character: "haku.jpg",
                     text: "ex0.dialogue1"
                 }
             ],

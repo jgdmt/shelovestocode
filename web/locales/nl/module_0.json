@@ -261,6 +261,7 @@
         "check1": "Centreer de titel",
         "check2": "Centreer de eerste alinea",
         "check3": "Voeg een achtergrondkleur of -afbeelding toe",
+        "check4": "Alleen de titel en de eerste alinea zijn gecentreerd",
         "lesson": " "
     },
     "ex10": {
@@ -293,6 +294,7 @@
         "check4": "De beschrijving is cursief",
         "check5": "Er is ruimte tussen de tekst en de randen van de sectie",
         "check6": "De kop en de beschrijving zijn gecentreerd in de sectie",
+        "check7": "Alleen de eerste alinea is cursief, niet alle alinea's",
         "lesson": " "
     },
     "ex11": {
@@ -323,6 +325,7 @@
         "check2": "De beschrijving van het artikel is cursief",
         "check3": "De afbeeldingen passen in hun artikelsectie",
         "check4": "Er is ruimte tussen de artikelsecties en ook tussen hun randen en hun inhoud",
+        "check5": "Alleen de beschrijving is cursief, niet de naam van het artikel",
         "lesson": " "
     },
     "ex12": {

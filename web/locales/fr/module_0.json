@@ -261,6 +261,7 @@
         "check1": "Centre le titre",
         "check2": "Centre le premier paragraphe",
         "check3": "Ajoute une couleur ou une image au fond",
+        "check4": "Seuls le titre et le premier paragraphe sont centrés",
         "lesson": " "
     },
     "ex10": {
@@ -293,6 +294,7 @@
         "check4": "La description est en italique",
         "check5": "Il y a un espace entre les textes et les bordures de la section",
         "check6": "Le titre et la description sont centrés dans la section",
+        "check7": "Seul le premier paragraphe est en italique",
         "lesson": " "
     },
     "ex11": {
@@ -323,6 +325,7 @@
         "check2": "La description de l'article est en italique",
         "check3": "Les images ne dépassent pas de leur section",
         "check4": "Il y a de l'espace entre les sous sections et également entre leurs bordures et leur contenu",
+        "check5": "Seule la description est en italique, pas l'article",
         "lesson": " "
     },
     "ex12": {

@@ -1,10 +1,10 @@
 // Resources shown in the inventory tabs of every exercise.
 // Their descriptions are in locales/<lang>/ui.json (inventory.tags, inventory.properties).
 
-export const TAGS = ["a", "b", "br", "button", "div", "h1", "h2", "h3", "i", "img", "input", "li", "p", "span", "strong", "ul", "summary", "details", "form", "label"];
+export const TAGS = ["a", "b", "br", "button", "details", "div", "form", "h1", "h2", "h3", "i", "img", "input", "label", "li", "p", "span", "strong", "summary", "ul"];
 
 // Files in /images
-export const IMAGES = ["archi.jpg", "home.png"];
+export const IMAGES = ["backpack.png", "bucket.png", "coin_pouch.png", "map_rolled.png", "memo.png", "storybook.png", "chest_closed.png", "feather.png", "gemstone.png", "key.png", "ring.png", "torch.png"];
 
 // CSS properties of the inventory: example value used when the
 // student adds one (click or drag).
