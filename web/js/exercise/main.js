@@ -51,7 +51,8 @@ function start({ module, ex }) {
         if (!results)
             return; // a newer run is on its way
         left.updateChecks(results);
-        if (!finished && results.every(Boolean))
+        // bonus checks are optional
+        if (!finished && results.every((ok, i) => ok || ex.checks[i].bonus === true))
             finish();
     }
 

@@ -112,6 +112,9 @@ pre.snippet {
 }
 
 .checks li.ok { color: var(--ink); }
+.checks li.bonus::before { border-style: dashed; }
+.checks li.bonus.ok::before { border-style: solid; }
+.bonus-tag { color: var(--brand); letter-spacing: 0.03em; }
 .checks li.ok::before {
     border-color: var(--brand);
     background: var(--brand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center / 14px no-repeat;

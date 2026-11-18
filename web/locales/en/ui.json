@@ -36,7 +36,8 @@
     "mission": {
         "objectives": "Objectives",
         "finished": "Level finished!",
-        "hint": "Need a hint?"
+        "hint": "Need a hint?",
+        "bonus": "BONUS"
     },
     "inventory": {
         "tagsHelp": "Click a tag to add it to your code, or drag it in blocks mode. In a CSS file, a tag becomes a rule.",
@@ -70,8 +71,10 @@
             "span": "Defines a section inside text",
             "strong": "Defines important text",
             "ul": "Defines an unordered list",
-            "details": "Defines additiona details that the user can view or hide",
-            "summary": "Defines a visible heading for a <details> element"
+            "details": "Defines additional details that the user can view or hide",
+            "summary": "Defines a visible heading for a <details> element",
+            "form": "Represents a document section containing interactive controls for submitting information",
+            "label": "Represents a caption for an item in a user interface"
         },
         "properties": {
             "color": "Text color",
@@ -177,7 +180,7 @@
         "clientsTitle": "Clients",
         "clients": "Those are the requests from your clients. They will tell you what they want!",
         "missionTitle": "Mission tab",
-        "mission": "This tab contains informations about the level and hints on how to solve it",
+        "mission": "This tab contains information about the level and hints on how to solve it",
         "imagesTitle": "Images tab",
         "images": "In this tab you can add images to your code. There are already some images but you can import new ones",
         "tagsTitle": "Tags tab",

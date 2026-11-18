@@ -36,7 +36,8 @@
     "mission": {
         "objectives": "Doelen",
         "finished": "Level voltooid!",
-        "hint": "Een tip nodig?"
+        "hint": "Een tip nodig?",
+        "bonus": "BONUS"
     },
     "inventory": {
         "tagsHelp": "Klik op een tag om hem aan je code toe te voegen, of sleep hem in blokmodus. In een CSS-bestand wordt een tag een regel.",
@@ -69,7 +70,11 @@
             "p": "Maakt een paragraaf",
             "span": "Maakt een stukje binnen een tekst",
             "strong": "Markeert belangrijke tekst",
-            "ul": "Maakt een opsommingslijst"
+            "ul": "Maakt een opsommingslijst",
+            "details": "Maakt extra details die de gebruiker kan tonen of verbergen",
+            "summary": "Maakt een zichtbare titel voor een <details>-element",
+            "form": "Maakt een formulier met invoervelden om gegevens te verzenden",
+            "label": "Maakt een bijschrift (label) voor een invoerveld"
         },
         "properties": {
             "color": "Kleur van de tekst",
@@ -77,6 +82,7 @@
             "font-size": "Grootte van de tekst",
             "font-family": "Lettertype van de tekst",
             "font-weight": "Dikte van de tekst",
+            "font-style": "Stijl van het lettertype (bijvoorbeeld cursief)",
             "text-align": "Uitlijning van de tekst",
             "margin": "Ruimte rond het element",
             "padding": "Ruimte binnen het element",
@@ -173,6 +179,14 @@
         "progress": "{{current}} van {{total}}",
         "clientsTitle": "Klanten",
         "clients": "Dit zijn de vragen van je klanten. Zij vertellen je wat ze willen!",
+        "missionTitle": "Tabblad Missie",
+        "mission": "Dit tabblad bevat informatie over het level en tips om het op te lossen",
+        "imagesTitle": "Tabblad Afbeeldingen",
+        "images": "In dit tabblad kun je afbeeldingen aan je code toevoegen. Er staan er al een paar, maar je kunt ook je eigen afbeeldingen importeren",
+        "tagsTitle": "Tabblad Tags",
+        "tags": "Klik hier voor een langere lijst met tags, met meer uitleg over wat ze doen",
+        "propertiesTitle": "Tabblad Eigenschappen",
+        "properties": "Klik hier voor een langere lijst met eigenschappen, met wat uitleg over wat ze doen",
         "objectivesTitle": "Doelen",
         "objectives": "Klik hier om de doelen van dit level in detail te zien",
         "hintsTitle": "Tips",
@@ -188,6 +202,10 @@
         "exampleTitle": "Voorbeeld",
         "example": "Een voorbeeld van wat je zou kunnen maken",
         "funTitle": "Veel plezier!",
-        "fun": "Vraag gerust hulp als je vastzit. Ik hoop dat je veel plezier hebt met deze module!"
+        "fun": "Vraag gerust hulp als je vastzit. Ik hoop dat je veel plezier hebt met deze module!",
+        "darkmodeTitle": "Thema wisselen",
+        "darkmode": "Met deze knop wissel je tussen de donkere en de lichte modus",
+        "guideTitle": "Rondleiding",
+        "guide": "Met deze knop kun je de rondleiding opnieuw doen!"
     }
 }

@@ -98,6 +98,85 @@ const itemSections = (doc) => [...(sectionTitled(doc, "our items")?.children ?? 
 // Text-like input: type text (the default) or email.
 const isTextField = (input) => input.type === "text" || input.type === "email";
 
+// True when every corner is rounded to at least half the element's size (a circle for a square).
+function isRound(style, el) {
+    if (!el)
+        return false;
+    const { width, height } = el.getBoundingClientRect();
+    const half = Math.min(width, height) / 2;
+    return half > 0 && ["top-left", "top-right", "bottom-right", "bottom-left"].every((corner) => {
+        const value = style(el, `border-${corner}-radius`).split(" ")[0];
+        return value.endsWith("%") ? px(value) >= 50 : px(value) >= half - 0.5;
+    });
+}
+
+// Style rules of the page, including those nested in @media...
+function* styleRules(doc) {
+    function* walk(rules) {
+        for (const rule of rules) {
+            if (rule.selectorText)
+                yield rule;
+            if (rule.cssRules)
+                yield* walk(rule.cssRules);
+        }
+    }
+    for (const sheet of doc.styleSheets) {
+        try {
+            yield* walk(sheet.cssRules);
+        } catch {
+            // unreadable sheet
+        }
+    }
+}
+
+// True when the mouse pointer becomes a hand over `el`: "cursor: pointer" set on it (or
+// inherited), or in a ":hover" rule on it or one of its ancestors ("details:hover").
+function pointerOnHover(doc, style, el) {
+    if (!el)
+        return false;
+    if (style(el, "cursor") === "pointer")
+        return true;
+    for (const rule of styleRules(doc)) {
+        if (rule.style.cursor !== "pointer")
+            continue;
+        for (const part of rule.selectorText.split(",")) {
+            if (!part.includes(":hover"))
+                continue;
+            let selector = part.replace(/:hover/g, "").trim();
+            if (selector === "" || /[\s>+~]$/.test(selector))
+                selector += "*";
+            try {
+                if (el.closest(selector))
+                    return true;
+            } catch {
+                // selector the browser can't use with closest()
+            }
+        }
+    }
+    return false;
+}
+
+// Caption of a form field, without punctuation ("Name:" -> "name"): its <label> (for=... or
+// around the field), or else a free <label> next to it (before it, or after a check box).
+function captionOf(field) {
+    const labels = [...(field.labels ?? [])];
+    if (labels.length === 0) {
+        const before = field.previousElementSibling;
+        const after = field.nextElementSibling;
+        const near = /^(checkbox|radio)$/.test(field.type) ? [after, before] : [before, after];
+        const free = near.find((el) => el?.tagName === "LABEL" && !el.control);
+        if (free)
+            labels.push(free);
+    }
+    return norm(labels.map((label) => label.textContent).join(" ")).replace(/[^\p{L}\p{N}\s]/gu, "").replace(/\s+/g, " ").trim();
+}
+
+// Fields of the "Order" section (ex13).
+const orderFields = (doc, selector = "input") => [...(sectionTitled(doc, "order")?.querySelectorAll(selector) ?? [])];
+
+// Text of a button: <button>Confirm</button> or <input type="submit" value="Confirm">.
+const buttonText = (button) => norm(button.tagName === "INPUT" ? button.value : button.textContent).replace(/[^\p{L}\p{N}\s]/gu, "").trim();
+
 const norm = (s) => (s || "").replace(/\s+/g, " ").trim().toLowerCase();
 
 export default {
@@ -337,11 +416,7 @@ export default {
                 {
                     label: "ex3.check0",
                     test: (doc) => {
-                        const sections = doc.querySelectorAll("div > h3 + p");
-                        console.log(sections)
-                        if (sections.length < 2)
-                            return false;
-                        return true;
+                        return doc.querySelectorAll("div > h3 + p").length >= 2;
                     }
                 },
                 {
@@ -560,14 +635,19 @@ export default {
             checks: [
                 {
                     label: "ex6.check0",
-                    test: (doc, { $ }) => centeredIn($("img"))
-                },
-                {
-                    label: "ex6.check1",
                     test: (doc, { $, style }) => {
                         const img = $("img");
                         return !!img && Math.round(px(style(img, "width"))) === 100 && Math.round(px(style(img, "height"))) === 100;
                     }
+                },
+                {
+                    label: "ex6.check1",
+                    test: (doc, { $ }) => centeredIn($("img"))
+                },
+                {
+                    label: "ex6.check2",
+                    bonus: true,
+                    test: (doc, { $, style }) => isRound(style, $("img"))
                 }
             ],
             lesson: "ex6.lesson"
@@ -1046,6 +1126,14 @@ export default {
                         return questions.length > 0 && questions.every((details) =>
                             [...details.querySelectorAll("p")].some((p) => norm(p.textContent).length > 0));
                     }
+                },
+                {
+                    label: "ex12.check4",
+                    bonus: true,
+                    test: (doc, { style }) => {
+                        const questions = [...(sectionTitled(doc, "faq")?.querySelectorAll("details > summary") ?? [])];
+                        return questions.length > 0 && questions.every((summary) => pointerOnHover(doc, style, summary));
+                    }
                 }
             ],
             lesson: "ex12.lesson"
@@ -1098,27 +1186,30 @@ export default {
             checks: [
                 {
                     label: "ex13.check0",
-                    test: (doc) => [...(sectionTitled(doc, "order")?.querySelectorAll("input") ?? [])].some(isTextField)
+                    test: (doc) => orderFields(doc).some((input) => isTextField(input) && captionOf(input) === "name")
                 },
                 {
                     label: "ex13.check1",
-                    test: (doc) => {
-                        const inputs = [...(sectionTitled(doc, "order")?.querySelectorAll("input") ?? [])];
-                        // an email field, or a second text field
-                        return inputs.some((input) => input.type === "email") || inputs.filter(isTextField).length >= 2;
-                    }
+                    test: (doc) => orderFields(doc).some((input) => isTextField(input) && captionOf(input) === "email")
                 },
                 {
                     label: "ex13.check2",
-                    test: (doc) => !!sectionTitled(doc, "order")?.querySelector("input[type='date' i]")
+                    test: (doc) => orderFields(doc, "input[type='date' i]").some((input) => captionOf(input) === "delivery date")
                 },
                 {
                     label: "ex13.check3",
-                    test: (doc) => !!sectionTitled(doc, "order")?.querySelector("input[type='checkbox' i]")
+                    test: (doc) => orderFields(doc, "input[type='checkbox' i]").some((input) => captionOf(input) === "i agree to everything")
                 },
                 {
                     label: "ex13.check4",
-                    test: (doc) => !!sectionTitled(doc, "order")?.querySelector("button, input[type='submit' i], input[type='button' i]")
+                    test: (doc) => orderFields(doc, "button, input[type='submit' i], input[type='button' i]").some((button) => buttonText(button) === "confirm")
+                },
+                {
+                    label: "ex13.check5",
+                    test: (doc) => {
+                        const fields = orderFields(doc, "input, button, label");
+                        return fields.length > 0 && fields.every((field) => field.closest("form") !== null);
+                    }
                 }
             ],
             lesson: "ex13.lesson"

@@ -27,6 +27,7 @@ export function readStates() {
         const states = JSON.parse(sessionStorage.getItem(STATES_KEY));
         return states;
     } catch {
+        console.error("could not read states")
         return [];
     }
 }
@@ -44,6 +45,7 @@ function writeStates(mod, states) {
         sessionStorage.setItem(STATES_KEY, JSON.stringify(states));
         sessionStorage.setItem(MODULE_KEY, String(mod));
     } catch {
+        console.error("could not write states")
         // progress stays on the backend anyway
     }
 }
@@ -52,7 +54,6 @@ function writeLanguage(lan = languages.EN) {
     try {
         sessionStorage.setItem(LANGUAGE_KEY, String(lan));
     } catch {
-
     }
 }
 

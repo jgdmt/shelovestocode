@@ -98,7 +98,7 @@
             "De alinea moet de beschrijving van het artikel bevatten. Je zou kunnen schrijven: “Some ancient toothpaste with a weird scent. Its yellow color might not be the original one. Who knows how long it has been here?”"
         ],
         "dialogue5": [
-            "Tijd om creatief te zijn! Verzin artikelen en hun beschrijving en heb er plezier mee! Probeer minstens twee artikelen te maken. Je mag er gerust meer toevoegen!"
+            "Tijd om creatief te zijn! Verzin artikelen en hun beschrijving en heb er plezier mee! We verkopen alles wat je maar kunt bedenken! Probeer minstens twee artikelen te maken. Je mag er gerust meer toevoegen!"
         ],
         "hint0": [
             "Probeer deze keer de kop <h3> te gebruiken!"
@@ -155,7 +155,7 @@
         ],
         "check0": "De titel is gecentreerd",
         "check1": "Elke alinea is gecentreerd",
-        "lesson": "HTML structureert de pagina, CSS zorgt voor de stijl. Je koppelt een CSS-bestand aan een HTML-bestand met de tag &lt;link&gt;, die in de &lt;head&gt; moet staan."
+        "lesson": "<p>HTML structureert de pagina, CSS zorgt voor de stijl. Je koppelt een CSS-bestand aan een HTML-bestand met de tag &lt;link&gt;, die in de &lt;head&gt; moet staan.</p><p>Om CSS te gebruiken, kies je eerst een selector (bijvoorbeeld een tag) en pas je er daarna eigenschappen op toe.</p>"
     },
     "ex6": {
         "title": "Hallo en welkom",
@@ -175,10 +175,11 @@
             "Het zou heel leuk zijn als we ze ook rond konden maken..."
         ],
         "hint0": [
-            "Bij CSS is zoeken op het internet soms de beste oplossing... nadat je het aan je buren hebt gevraagd!"
+            "Bij CSS is op het internet zoeken soms de beste oplossing... nadat je het aan je buren hebt gevraagd!"
         ],
-        "check0": "De afbeelding is gecentreerd",
-        "check1": "De afbeelding is 100px breed en 100px hoog",
+        "check0": "De afbeelding is 100px breed en 100px hoog",
+        "check1": "De afbeelding is gecentreerd",
+        "check2": "De afbeelding is rond",
         "lesson": " "
     },
     "ex7": {
@@ -201,7 +202,7 @@
         "check0": "De afbeelding heeft een rand",
         "check1": "De eerste alinea is blauw, vet en heeft een grootte tussen 20px en 25px",
         "check2": "De tweede alinea is gewoon cursief",
-        "lesson": " "
+        "lesson": "<p>Je kunt tags als selectors gebruiken, maar het werkt ook met klassen!</p><p>Een klasse is een attribuut en voeg je zo toe aan een tag: <code>&lt;div class='[naam van de klasse]'&gt;</code>.</p><p>Een tag kan meerdere klassen hebben, gescheiden door spaties: <code>&lt;div class='[klasse1] [klasse2]'&gt;</code>.</p><p>Klassen zijn handig als je elementen met dezelfde tag een verschillende stijl wilt geven, of elementen met een verschillende tag dezelfde stijl.</p>"
     },
     "ex8": {
         "title": "Hallo en welkom",
@@ -280,7 +281,7 @@
             "En de kop en de alinea moeten hun eigen tekstkleur hebben! Wit? Iets wat mooi past bij de nieuwe achtergrondkleur van de sectie!"
         ],
         "hint0": [
-            "Voeg gerust class-attributen toe!"
+            "Voeg gerust het class-attribuut toe!"
         ],
         "hint1": [
             "Een klasse voeg je zo toe aan een tag: <div class='[naam van de klasse]'>"
@@ -348,6 +349,7 @@
         "check1": "De vragen hebben een achtergrondkleur",
         "check2": "De vragen zijn vet",
         "check3": "De antwoorden zijn alinea's",
+        "check4": "De muisaanwijzer verandert in een handje wanneer je over een vraag beweegt",
         "lesson": " "
     },
     "ex13": {
@@ -370,11 +372,12 @@
         "hint1": [
             "Voor de velden kan de tag <input>, samen met de tag <label>, misschien interessant zijn..."
         ],
-        "check0": "Er is een tekstveld voor de naam",
-        "check1": "Er is een tekstveld voor het e-mailadres",
-        "check2": "Er is een datumveld voor de leveringsdatum",
-        "check3": "Er is een selectievakje",
-        "check4": "Er is een bevestigingsknop",
+        "check0": "Er is een tekstveld voor de naam met het bijschrift “Name”",
+        "check1": "Er is een tekstveld voor het e-mailadres met het bijschrift “Email”",
+        "check2": "Er is een datumveld voor de leveringsdatum met het bijschrift “Delivery date”",
+        "check3": "Er is een selectievakje met het bijschrift “I agree to everything”",
+        "check4": "Er is een knop “confirm”",
+        "check5": "Alles staat in een formulier",
         "lesson": " "
     },
     "ex14": {

@@ -155,7 +155,7 @@
         ],
         "check0": "The title is centered",
         "check1": "Every paragraph is centered",
-        "lesson": "HTML structures the page, while CSS takes care of the style. You link a CSS file to a HTML file with the tag &lt;link&gt;, that should be put inside the &lt;head&gt;."
+        "lesson": "<p>HTML structures the page, while CSS takes care of the style. You link a CSS file to a HTML file with the tag &lt;link&gt;, that should be put inside the &lt;head&gt;.</p><p>To use CSS, you need to choose a selector first (like a tag) and apply properties on it.</p>"
     },
     "ex6": {
         "title": "Hello and welcome",
@@ -177,8 +177,9 @@
         "hint0": [
             "When it comes to CSS, sometimes searching the internet is the best way... after asking your neighbors!"
         ],
-        "check0": "The image is centered",
-        "check1": "The image is 100px wide and 100px high",
+        "check0": "The image is 100px wide and 100px high",
+        "check1": "The image is centered",
+        "check2": "The image is round",
         "lesson": " "
     },
     "ex7": {
@@ -201,7 +202,7 @@
         "check0": "The image has a border",
         "check1": "The first paragraph is in blue, bold and has a size between 20px and 25px",
         "check2": "The second paragraph is simply in italic",
-        "lesson": " "
+        "lesson": "<p>You can use tags as selectors but it also work with classes!</p><p>Class is an attribute and can be added to a tag like this: <code>&lt;div class='[class name]'&gt;</code>.</p><p>A tag can have multiple classes that are separated by spaces like this: <code>&lt;div class='[class1] [class2]'&gt;</code>.</p><p>Classes are useful if you want elements with the same tag to have different style or if you want elements with a different tag to have the same style.</p>"
     },
     "ex8": {
         "title": "Hello and welcome",
@@ -226,7 +227,7 @@
         "hint0": [
             "Margin is the space between the element and everything around it, padding is the space between the element and everything inside the element"
         ],
-        "check0": "Add a background color to the section",
+        "check0": "Add a background color to the div",
         "check1": "Add a border to the div",
         "check2": "Add a space between the borders of the div and the elements inside the div",
         "check3": "Center the div",
@@ -348,6 +349,7 @@
         "check1": "The questions have a background color",
         "check2": "The questions are in bold",
         "check3": "The answers are paragraphs",
+        "check4": "The cursor changes to a pointer when hovering over a question",
         "lesson": " "
     },
     "ex13": {
@@ -370,11 +372,12 @@
         "hint1": [
             "For fields, perhaps the <input> tag, paired with the <label> tag, could be interesting..."
         ],
-        "check0": "There is a text field for the name",
-        "check1": "There is a text field for the email",
-        "check2": "There is a date field for the delivery date",
-        "check3": "There is a check box",
-        "check4": "There is a confirm button",
+        "check0": "There is a text field for the name along with the caption “Name”",
+        "check1": "There is a text field for the email along with the caption “Email”",
+        "check2": "There is a date field for the delivery date along with the caption “Delivery date”",
+        "check3": "There is a check box along with the caption “I agree to everything”",
+        "check4": "There is a “confirm” button",
+        "check5": "Everything is inside a form",
         "lesson": " "
     },
     "ex14": {

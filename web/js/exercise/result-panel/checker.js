@@ -4,7 +4,7 @@
 // The page is rendered in a hidden iframe allowing same-origin access but no
 // scripts: we can read it, and the student's code can't run there.
 //
-// A check is { label, test(doc, helpers) }:
+// A check is { label, bonus?, test(doc, helpers) } (bonus: optional, not needed to finish):
 //   doc                     the rendered document
 //   $(selector), $$(selector)
 //   style(selectorOrElement, property)   computed value, e.g. "rgb(128, 0, 128)"

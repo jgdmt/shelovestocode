@@ -30,7 +30,11 @@ export function createTopbar(module) {
     return {
         markDone() {
             steps[ctx.ex].classList.add("done");
-            $("next-btn").setAttribute("aria-disabled", "false");
+            $("next-btn").removeAttribute("hidden");
+            $("run-btn").classList.remove('btn-primary');
+            $("run-btn").classList.add("btn-light")
+            $("run-btn").setAttribute("aria-disabled", "true");
+
         }
     };
 }

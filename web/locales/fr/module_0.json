@@ -155,7 +155,7 @@
         ],
         "check0": "Le titre est centré",
         "check1": "Tous les paragraphes sont centrés",
-        "lesson": "HTML structure la page alors que le CSS s'occupe du style. Tu connectes un fichier CSS à un fichier HTML avec le tag &lt;link&gt;, qui doit se trouver dans le tag &lt;head&gt;."
+        "lesson": "<p>HTML structure la page alors que le CSS s'occupe du style. Tu connectes un fichier CSS à un fichier HTML avec le tag &lt;link&gt;, qui doit se trouver dans le tag &lt;head&gt;.</p><p>Pour écrire du CSS, il faut d'abord choisir un sélecteur (par exemple un tag) et ensuite lui appliquer des propriétés.</p>"
     },
     "ex6": {
         "title": "Bonjour et bienvenue",
@@ -177,8 +177,9 @@
         "hint0": [
             "Quand il s'agit du CSS, il ne faut pas hésiter à aller chercher sur internet... après avoir demandé à tes voisines !"
         ],
-        "check0": "L'image est centrée",
-        "check1": "L'image a les dimensions suivantes : 100px de hauteur et 100px de largeur",
+        "check0": "L'image a les dimensions suivantes : 100px de hauteur et 100px de largeur",
+        "check1": "L'image est centrée",
+        "check2": "L'image est ronde",
         "lesson": " "
     },
     "ex7": {
@@ -201,7 +202,7 @@
         "check0": "L'image possède une bordure",
         "check1": "Le premier paragraphe est bleu, en gras et a une taille entre 20px et 25px",
         "check2": "Le second paragraphe est simplement en italique",
-        "lesson": " "
+        "lesson": "<p>Tu peux utiliser les tags comme sélecteurs mais tu peux également utiliser des classes !</p><p>Une classe est un attribut et peut être ajouté à un tag de cette façon : <code>&lt;div class='[nom de la classe]'&gt;.</code></p><p>Un tag peut avoir plusieurs classes, séparées par un espace : <code>&lt;div class='[classe 1] [classe 2]'&gt;</code>.</p><p>Les classes sont utiles si tu veux que des éléments qui ont le même tag aient un style différent ou si tu veux que des éléments avec un tag différent aient un style similaire.</p>"
     },
     "ex8": {
         "title": "Bonjour et bienvenue",
@@ -348,6 +349,7 @@
         "check1": "Les questions ont une couleur de fond",
         "check2": "Les questions sont en gras",
         "check3": "Les réponses sont des paragraphes",
+        "check4": "Le curseur devient un pointeur lorsqu'il survole une question",
         "lesson": " "
     },
     "ex13": {
@@ -370,11 +372,12 @@
         "hint1": [
             "Pour les champs, peut-être qu'un tag <input>, associé avec le tag <label>, pourrait t'intéresser..."
         ],
-        "check0": "Il y a un champ texte pour le nom",
-        "check1": "Il y a un champ texte pour l'email",
-        "check2": "Il y a un champ date pour la date de livraison",
-        "check3": "Il y a une case à cocher",
-        "check4": "Il y a un bouton pour confirmer",
+        "check0": "Il y a un champ texte pour le nom ainsi qu'une légende “Name”",
+        "check1": "Il y a un champ texte pour l'email ainsi qu'une légende “Email”",
+        "check2": "Il y a un champ date pour la date de livraison ainsi qu'une légende “Delivery date”",
+        "check3": "Il y a une case à cocher ainsi qu'une légende “I agree to everything”",
+        "check4": "Il y a un bouton “confirm”",
+        "check5": "Tout est placé dans un formulaire",
         "lesson": " "
     },
     "ex14": {

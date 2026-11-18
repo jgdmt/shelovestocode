@@ -82,7 +82,10 @@ export function createMission(ex) {
     renderTexts(ex);
     setupHints(ex.hints || []);
 
-    const checkItems = ex.checks.map((check) => h("li", {}, check.label));
+    // bonus checks show "BONUS: ..." and are not needed to finish the level
+    const checkItems = ex.checks.map((check) => (check.bonus
+        ? h("li", { class: "bonus" }, h("span", {}, h("b", { class: "bonus-tag" }, `${ui("mission.bonus")}: `), check.label))
+        : h("li", {}, check.label)));
     $("checks").replaceChildren(...checkItems);
 
     return {

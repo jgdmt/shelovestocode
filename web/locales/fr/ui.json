@@ -36,7 +36,8 @@
     "mission": {
         "objectives": "Objectifs",
         "finished": "Niveau terminé !",
-        "hint": "Besoin d'un indice ?"
+        "hint": "Besoin d'un indice ?",
+        "bonus": "BONUS"
     },
     "inventory": {
         "tagsHelp": "Clique sur une balise pour l'ajouter à ton code, ou glisse-la en mode blocs. Dans un fichier CSS, une balise devient une règle.",
@@ -69,7 +70,11 @@
             "p": "Crée un paragraphe",
             "span": "Crée une section dans un texte",
             "strong": "Marque un texte important",
-            "ul": "Crée une liste à puces"
+            "ul": "Crée une liste à puces",
+            "details": "Crée des détails supplémentaires que l'utilisateur peut afficher ou masquer",
+            "summary": "Crée un titre visible pour un élément <details>",
+            "form": "Représente une section du document contenant des contrôles interactifs permettant d'envoyer des informations",
+            "label": "Représente une légende pour un élément d'une interface utilisateur"
         },
         "properties": {
             "color": "Couleur du texte",
@@ -77,6 +82,7 @@
             "font-size": "Taille du texte",
             "font-family": "Police du texte",
             "font-weight": "Épaisseur du texte",
+            "font-style": "Style de la police (par exemple italique)",
             "text-align": "Alignement du texte",
             "margin": "Espace autour de l'élément",
             "padding": "Espace à l'intérieur de l'élément",
@@ -173,6 +179,14 @@
         "progress": "{{current}} sur {{total}}",
         "clientsTitle": "Clients",
         "clients": "Voici les demandes de tes clients. Ils te diront ce qu'ils veulent !",
+        "missionTitle": "Onglet Mission",
+        "mission": "Cet onglet contient des informations sur le niveau et des indices pour le réussir",
+        "imagesTitle": "Onglet Images",
+        "images": "Dans cet onglet, tu peux ajouter des images à ton code. Il y en a déjà quelques-unes, mais tu peux aussi importer les tiennes",
+        "tagsTitle": "Onglet Balises",
+        "tags": "Clique ici pour voir une liste plus longue de balises, avec plus de détails sur ce qu'elles font",
+        "propertiesTitle": "Onglet Propriétés",
+        "properties": "Clique ici pour voir une liste plus longue de propriétés, avec quelques détails sur ce qu'elles font",
         "objectivesTitle": "Objectifs",
         "objectives": "Clique ici pour voir les objectifs du niveau en détail",
         "hintsTitle": "Indices",
@@ -188,6 +202,10 @@
         "exampleTitle": "Exemple",
         "example": "Un exemple de ce que tu pourrais faire",
         "funTitle": "Amuse-toi bien !",
-        "fun": "N'hésite pas à demander de l'aide si tu bloques. J'espère que tu vas t'amuser avec ce module !"
+        "fun": "N'hésite pas à demander de l'aide si tu bloques. J'espère que tu vas t'amuser avec ce module !",
+        "darkmodeTitle": "Changer de thème",
+        "darkmode": "Ce bouton te permet de passer du mode sombre au mode clair",
+        "guideTitle": "Guide",
+        "guide": "Tu peux refaire le tutoriel avec ce bouton !"
     }
 }

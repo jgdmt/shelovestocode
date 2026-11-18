@@ -12,6 +12,7 @@ export function save(key, value) {
     try {
         localStorage.setItem(key, value);
     } catch {
+        console.log("could not save key", key, value)
         // nothing to do, the student just loses persistence
     }
 }
