@@ -13,7 +13,7 @@ branches = {"web": Order.WEB.value, "shell": Order.SHELL.value}
 app.add_middleware(
     CORSMiddleware,
     allow_origins=['null', "http://localhost:8001"],
-    allow_methods=['GET', 'POST'],
+    allow_methods=['GET', 'POST', 'PUT'],
     allow_headers=["*"]
 )
 
@@ -38,13 +38,13 @@ def get_branch(branch: str):
     }
 
 
-@app.post("/start")
+@app.put("/start")
 def update_exercise(branch: str, mod: int, ex: int):
     if branches.get(branch) is not None:
         menu.update_ex(branches[branch], mod, ex, Status.STARTED)
 
 
-@app.post("/finish")
+@app.put("/finish")
 def finish_exercise(branch: str, mod: int, ex: int):
     if branches.get(branch) is not None:
         menu.update_ex(branches[branch], mod, ex, Status.FINISHED)
@@ -58,7 +58,7 @@ class File(BaseModel):
 
 @app.post("/web/save")
 def save_file(file: File):
-    web_save_path = f"{os.environ['HOME']}/Desktop/web_save/"
+    web_save_path = f"{os.environ['HOME']}/Desktop/sltc_save/web_save/"
 
     if not Path(web_save_path).exists():
         subprocess.run(["mkdir", "-p", web_save_path])
@@ -71,7 +71,7 @@ def save_file(file: File):
 
 @app.get("/web/get")
 def get_file(name: str):
-    web_save_path = f"{os.environ['HOME']}/Desktop/web_save/"
+    web_save_path = f"{os.environ['HOME']}/Desktop/sltc_save/web_save/"
 
     if not Path(web_save_path).exists():
         return {}

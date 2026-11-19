@@ -11,7 +11,7 @@ async function startExercise(branch, mod, ex) {
         return;
     }
     const request = new Request(`http://127.0.0.1:8000/start?branch=${branch}&mod=${mod}&ex=${ex}`, {
-        method: "POST"
+        method: "PUT"
     });
     fetch(request)
     .then((response) => {

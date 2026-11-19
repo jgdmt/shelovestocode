@@ -81,6 +81,16 @@ async function post(path) {
     }
 }
 
+async function put(path) {
+    try {
+        const response = await fetch(`${API}${path}`, { method: "PUT" });
+        if (!response.ok)
+            console.warn("API error", response.status, path);
+    } catch {
+        console.warn("Backend not reachable", path);
+    }
+}
+
 export function statusOf(index) {
     return readStates()[parseInt(ctx.mod)][index]?.status ?? Status.DEFAULT;
 }
@@ -92,7 +102,7 @@ function advance(endpoint, from, to) {
         return;
     state.status = to;
     writeStates(ctx.mod, states);
-    post(`/${endpoint}?branch=${ctx.branch}&mod=${ctx.mod}&ex=${ctx.ex}`);
+    put(`/${endpoint}?branch=${ctx.branch}&mod=${ctx.mod}&ex=${ctx.ex}`);
 }
 
 export function markStarted() {

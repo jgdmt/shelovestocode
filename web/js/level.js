@@ -1,6 +1,6 @@
 async function finishExerciseAPI(branch, mod, ex) {
     const request = new Request(`http://127.0.0.1:8000/finish?branch=${branch}&mod=${mod}&ex=${ex}`, {
-        method: "POST"
+        method: "PUT"
     });
     fetch(request)
     .then((response) => {
