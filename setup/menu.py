@@ -165,7 +165,7 @@ class Menu:
                         validate_exercise(self.login, module.project_id, module.ex[ex].value + module.curr_score)
                     module.ex[ex].status = status
                     if status == Status.FINISHED:
-                        self.save_ex_status(clean=False)
+                        self.save_ex_status(cleanup=False)
                     self.update_mod_status(branch, mod)
 
     def update_mod_status(self, branch: int, mod: int) -> None:
@@ -211,7 +211,7 @@ class Menu:
                             self.branches[int(i)].mod[int(mod_idx)].ex[int(ex_idx)].status = ex_val
                     self.update_mod_status(int(i), int(mod_idx))
 
-    def save_ex_status(self, save_file: str = f"{os.environ['HOME']}/Desktop/.save.json", clean: bool = True) -> None:
+    def save_ex_status(self, save_file: str = f"{os.environ['HOME']}/Desktop/.save.json", cleanup: bool = True) -> None:
         """Save the status of the exercises (started, finished, default)
         and put it inside the save json file.
 
@@ -228,7 +228,7 @@ class Menu:
         with open(save_file, "w") as f:
             json.dump(dico, f)
 
-        if clean:
+        if cleanup:
             clean()
 
 
