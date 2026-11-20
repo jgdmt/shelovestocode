@@ -28,7 +28,7 @@ export function createNode(tag, attrs) {
     if (tag === "#text")
         return text(ui("blocks.someText"));
     if (tag === "img")
-        return element("img", attrs || [{ name: "src", value: "/images/archi.jpg" }]);
+        return element("img", attrs || [{ name: "src", value: "/images/bucket.png" }]);
     if (tag === "a")
         return element("a", attrs || [{ name: "href", value: "https://" }], [text(ui("blocks.aLink"))]);
     if (VOID_TAGS.has(tag))

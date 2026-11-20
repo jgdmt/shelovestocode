@@ -1,0 +1,55 @@
+body {
+  background-color: #aeadc2;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.title {
+  color: white;
+  background-color: #545487;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+}
+
+.description {
+  font-style: italic;
+}
+
+div div p {
+  font-style: italic;
+}
+
+.div div {
+  background-color: lavender;
+  border-radius: 8px;
+  border: 1px solid #545487;
+  padding: 5px;
+  margin: 15px 0px;
+}
+
+details:hover {
+  cursor: pointer;
+}
+
+details {
+  background-color: lavender;
+  border-radius: 8px;
+  padding: 5px;
+  margin: 15px 0px;
+}
+
+summary {
+  font-weight: bold;
+}
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="basic_template.css">
+  </head>
+  <body>
+    <div class="title">
+      <h1>Lost and Found</h1>
+      <p class="description">Welcome to Lost and Found, where you can find what you've lost and lose you've found!</p>
+    </div>
+    <div class="div" id="items">
+      <h2>Our items</h2>
+      <div>
+        <h3>bucket of ???</h3>
+        <img src="/images/bucket.png">
+        <p>who knows what's inside?</p>
+        <p>
+          price: 10
+        </p>
+      </div>
+      <div>
+        <h3>caramel</h3>
+        <p>there is hair stuck in it</p>
+      </div>
+    </div>
+    <div class="div" id="faq">
+      <h2>FAQ</h2>
+        <details>
+          <summary>Can I have a refund?</summary>
+          <p>
+            no.
+          </p>
+        </details>
+        <details>
+          <summary>How many people have gotten lost?</summary>
+          <p>
+            yes. 
+          </p>
+        </details>
+     
+        <details>
+          <summary>Do you deliver?</summary>
+          <p>
+            only in the following places: earth, moon, mars and hell.
+          </p>
+        </details>
+    </div>
+    <div id="order">
+      <h2>Order</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input id="name" type="text" placeholder="my name"><br><br>
+        
+        <label for="mail">Email:</label>
+        <input id="mail" type="text" placeholder="test@test.com"><br><br>
+        
+        <label for="date">Delivery date:</label>
+        <input type="date" id="date"><br><br>
+ 
+        <input type="checkbox" required id="conditions">
+        <label for="conditions">I agree to everything</label>
+        <br><br>
+        
+        <button>
+          Confirm
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

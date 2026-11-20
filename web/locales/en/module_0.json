@@ -230,8 +230,9 @@
         "check0": "Add a background color to the div",
         "check1": "Add a border to the div",
         "check2": "Add a space between the borders of the div and the elements inside the div",
-        "check3": "Center the div",
-        "check4": "The elements inside the div are centered",
+        "check3": "The width of the div is smaller than 250px but bigger than 150px",
+        "check4": "Center the div",
+        "check5": "The elements inside the div are centered",
         "lesson": " "
     },
     "ex9": {
@@ -398,6 +399,6 @@
             "Do whatever you want!"
         ],
         "check0": "Have fun!",
-        "lesson": " "
+        "lesson": "<a href='http://localhost:8001/html/showcase.html' target='_blank'>Here is a showcase of some sites!</a>"
     }
 }

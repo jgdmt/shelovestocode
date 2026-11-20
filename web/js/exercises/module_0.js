@@ -773,14 +773,17 @@ export default {
                 },
                 {
                     label: "ex8.check3",
-                    test: (doc, { $ }) => {
-                        const div = $("div");
-                        // narrower than the page, otherwise it is "centered" without doing anything
-                        return !!div && div.getBoundingClientRect().width < doc.body.clientWidth - 4 && centeredIn(div);
-                    }
+                    test: (doc, { $, style }) => Math.round(px(style($("div"), "width"))) <= 250 && Math.round(px(style($("div"), "width"))) >= 150
                 },
                 {
                     label: "ex8.check4",
+                    test: (doc, { $ }) => {
+                        const div = $("div");
+                        return !!div && centeredIn(div);
+                    }
+                },
+                {
+                    label: "ex8.check5",
                     test: (doc, { $ }) => {
                         const div = $("div");
                         return !!div && div.children.length > 0 && [...div.children].every((child) => centeredIn(child, div));
@@ -1267,7 +1270,7 @@ export default {
                     character: "haku.jpg",
                     name: "Haku",
                     text: "ex14.dialogue2"
-                },
+                }
             ],
             hints: [
                 {

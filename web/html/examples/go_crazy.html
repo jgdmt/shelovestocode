@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="Title">
+        <h1>Magic Shopnet</h1>
+        <p>
+            Welcome to Magic Shopnet,
+            where you’ll find every magical item imaginable on the internet!
+        </p>
+    </div>
+    <div id="subclass" class="ShopItem">
+        <h2>Our items</h2>
+        <p id="ShopInfo">
+            If you see an item in the list that you would like to buy,
+            please complete the form below
+        </p>
+        <div id="Item">
+            <h3>Toothpaste - 5₡</h3>
+            <!-- Mettre bonne image -->
+            <img src="/images/toothpaste.jpg"> 
+            <p>Grant you a boost: "Fresh breath" (+5% power)</p>
+        </div>
+        <div id="Item">
+            <h3>Notebook - 10₡</h3>
+            <!-- Mettre bonne image -->
+            <img src="/images/notebook.png">
+            <p>Perfect if you want to make a note of the new spells you’ve just learnt (+2% intel)</p>
+        </div>
+    </div>
+    <div id="subclass">
+        <h2>Q&A</h2>
+        <div class="QNA">
+            <details>
+                <summary>Is it possible to get a refund?</summary>
+                <p>Only if you are a true wizard.</p>
+            </details>
+            <details>
+                <summary>Are the items really magic?</summary>
+                <p>Don't ask question if you don't want the answer</p>
+            </details>
+        </div>
+    </div>
+    <div id="subclass" class="Order">
+        <h2>Order</h2>
+        <form>
+            <label>Name:</label>
+            <input id="textbox" placeholder="Enter you name">
+            <br>
+
+            <label>Email:</label>
+            <input id="textbox" placeholder="Enter your E-mail adress">
+            <br>
+
+            <label>Delivery date:</label>
+            <input type="date">
+            <br>
+
+            <label>Are you a real wizard:</label>
+            <input type="checkbox">Yes
+            <input type="checkbox">No
+            <br>
+
+            <label>I agree to everything:</label>
+            <input type="checkbox">
+            <br><br>
+
+            <button class="button">Confirm</button>
+        </form>
+    </div>
+  </body>
+</html>

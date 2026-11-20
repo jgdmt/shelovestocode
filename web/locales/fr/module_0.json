@@ -50,7 +50,7 @@
             "Une section est définie avec le tag <div>!"
         ],
         "hint1": [
-            "Les titres de section vont de h1 jusque h6. h1 définit le niveau de section le plus haut, h6 correspond au niveau le plus faible"
+            "Les titres de section (headings en anglais) vont de h1 jusque h6. h1 définit le niveau de section le plus haut, h6 correspond au niveau le plus faible"
         ],
         "check0": "Il y a un titre dans une section",
         "check1": "Le titre dit “Our items”",
@@ -105,7 +105,7 @@
         ],
         "check0": "Il y a au moins deux sections composées d'un titre de section et d'un paragraphe",
         "check1": "Les nouvelles sections sont dans la section “Our items” et en-dessous du titre de section",
-        "check2": "Les nouveaux titres de section ne sont pas vides et possèdent un texte différent du texte par défaut",
+        "check2": "Les nouveaux titres de section (headings) ne sont pas vides et possèdent un texte différent du texte par défaut",
         "check3": "Les nouveaux paragraphes ne sont pas vides et possèdent un texte différent du texte par défaut",
         "lesson": " "
     },
@@ -230,8 +230,9 @@
         "check0": "Ajoute une couleur de fond à la section",
         "check1": "Ajoute des bordures à la section",
         "check2": "Ajoute un espace entre les bords de la section et les éléments à l'intérieur de la section",
-        "check3": "Centre la section",
-        "check4": "Les éléments dans la section sont centrés",
+        "check3": "La section a une largeur entre 150px et 250px",
+        "check4": "Centre la section",
+        "check5": "Les éléments dans la section sont centrés",
         "lesson": " "
     },
     "ex9": {
@@ -398,6 +399,6 @@
             "Fais ce que tu veux !"
         ],
         "check0": "Amuse-toi !",
-        "lesson": " "
+        "lesson": "<a href='http://localhost:8001/html/showcase.html' target='_blank'>Tu peux trouver plusieurs exemples ici!</a>"
     }
 }

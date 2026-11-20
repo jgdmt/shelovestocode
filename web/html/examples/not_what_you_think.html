@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="not_what_you_think.css">
+  </head>
+  <body>
+    <div class="title">
+      <h1 class="real">Lost and Never Found</h1>
+      <h1 class="fake">Lost and Found</h1>
+      <p class="description fake">Welcome to Lost and Found, where you can find what you've lost and lose what you've found!</p>
+      <p class="description real">Welcome to Lost and Never Found, where you can find what you've lost but never get it back and lose what you've found!</p>
+    </div>
+    <div class="div" id="items">
+      <h2>Our items</h2>
+      <div>
+        <h3 class="fake">Bucket</h3>
+        <h3 class="real">Bucket of ???</h3>
+        <img src="/images/bucket.png">
+        <p class="fake">Just a bucket</p>
+        <p class="real">Who knows what's inside?</p>
+        <p class="fake">
+          price: 10
+        </p>
+        <p class="real">
+          price: your soul
+        </p>
+      </div>
+      <div>
+        <h3>Caramel</h3>
+        <img src="/images/coin_pouch.png">
+        <p class="fake">Who doesn't like caramel?</p>
+        <p class="real">There is hair stuck in it</p>
+      </div>
+      <div>
+        <h3 class="fake">Treasure map</h3>
+        <h3 class="real">Invocation scroll</h3>
+        <img src="/images/map_rolled.png">
+        <p class="fake">For treasure hunters and pirates!</p>
+        <p class="real">To invoke an eldritch horror and destroy reality</p>
+      </div>
+    </div>
+    <div class="div" id="faq">
+      <h2>FAQ</h2>
+        <details>
+          <summary>Can I have a refund?</summary>
+          <p>
+            <span class="fake">
+              As we care for our customers greatly, obviously!
+            </span>
+          	<span class="real">no.</span>
+          </p>
+        </details>
+        <details>
+          <summary>How many people have gotten lost?</summary>
+          <p>
+            <span class="fake">Obviously no one. And if it happened, we made sure to safely retrieve them.</span>
+            <span class="real">yes.</span>
+          </p>
+        </details>
+     
+        <details>
+          <summary>Do you deliver?</summary>
+          <p>
+            <span class="fake">Of course! We deliver everywhere!</span>
+            <span class="real">only in hell, at the cost of the eternal damnation of your soul.</span>
+          </p>
+        </details>
+    </div>
+    <div id="order">
+      <h2>Order</h2>
+      <form>
+        <label for="name">Name:</label>
+        <input id="name" type="text" placeholder="my name"><br><br>
+        
+        <label for="mail">Email:</label>
+        <input id="mail" type="text" placeholder="test@test.com"><br><br>
+        
+        <label for="date">Delivery date:</label>
+        <input type="date" id="date"><br><br>
+ 
+        <input type="checkbox" required id="conditions" onchange="if (this.checked) this.disabled = true">
+        <label for="conditions">I agree to everything <p class="conditions-real">
+          (in case of damage, accident, injury or eventual death, Lost and Never Found is no way responsible and becomes the new owner of your soul)
+          </p></label>
+        <br><br>
+        
+        <button id="confirm-btn">
+          Confirm
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- apply the saved theme before the first paint (see js/exercise/ui/theme.js) -->
+        <script>try { const t = localStorage.getItem("slc-theme"); if (t) document.documentElement.dataset.theme = t; } catch {}</script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=JetBrains+Mono:wght@400;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+        <link rel="stylesheet" href="/css/exercise/base.css">
+        <link rel="stylesheet" href="/css/exercise/topbar.css">
+        <link rel="stylesheet" href="/css/home.css">
+        <link rel="stylesheet" href="/css/showcase.css">
+        <script type="module" src="/js/showcase/main.js"></script>
+    </head>
+    <body class="home">
+
+        <header class="topbar">
+            <a class="logo" href="/index.html" aria-label="She Loves To Code — home" data-i18n-aria-label="page.logo">
+                <span class="logo-mark">&lt;</span>SHE<svg class="logo-heart" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></svg>CODE<span class="logo-mark">/&gt;</span>
+            </a>
+            <span class="module-title" data-i18n="home.workshop">Web workshop</span>
+            <button id="theme-toggle" class="theme-toggle push-right" type="button"></button>
+        </header>
+
+        <div class="showcase-layout">
+            <main class="showcase-main">
+                <h1 class="display showcase-title">Showcase</h1>
+                <section id="gallery" class="gallery" aria-label="Example pages"></section>
+            </main>
+
+            <!-- side panel: the selected page, full size -->
+            <aside id="viewer" class="viewer" aria-hidden="true" aria-label="Page preview">
+                <div class="viewer-head">
+                    <span id="viewer-title" class="viewer-title"></span>
+                    <!-- <a id="viewer-open" class="btn btn-ghost" target="_blank" rel="noopener">Open in a new tab</a> -->
+                    <button id="viewer-close" class="btn btn-ghost viewer-close" type="button" title="Close" aria-label="Close"></button>
+                </div>
+                <iframe id="viewer-frame" class="viewer-frame" title="Selected page"></iframe>
+            </aside>
+        </div>
+    </body>
+</html>

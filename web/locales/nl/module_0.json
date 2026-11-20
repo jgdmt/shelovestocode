@@ -230,8 +230,9 @@
         "check0": "Voeg een achtergrondkleur toe aan de div",
         "check1": "Voeg een rand toe aan de div",
         "check2": "Voeg ruimte toe tussen de randen van de div en de elementen erin",
-        "check3": "Centreer de div",
-        "check4": "De elementen in de div zijn gecentreerd",
+        "check3": "De div is smaller dan 250px maar breder dan 150px",
+        "check4": "Centreer de div",
+        "check5": "De elementen in de div zijn gecentreerd",
         "lesson": " "
     },
     "ex9": {
@@ -398,6 +399,6 @@
             "Doe wat je wilt!"
         ],
         "check0": "Veel plezier!",
-        "lesson": " "
+        "lesson": "<a href='http://localhost:8001/html/showcase.html' target='_blank'>Hier is een showcase van enkele sites!</a>"
     }
 }

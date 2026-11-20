@@ -13,7 +13,7 @@
     "home": {
         "workshop": "Atelier web",
         "heroTitle": "Apprends le web",
-        "heroText": "Salut, je suis Archimede et je serai ton guide ! Choisis un module et construisons des pages web ensemble, pas à pas.",
+        "heroText": "Salut, je suis Archimede et je vais te guider ! Choisis un module et construisons des pages web ensemble, pas à pas.",
         "modules": "Modules",
         "module": "Module {{mod}}",
         "exercisesOf": "Exercices du module {{mod}}",
