@@ -1,142 +1,146 @@
+/* --- BODY --- */
+
 body {
-  background-color: rgb(218, 218, 218);
-  /* Mettre bonne image */
-  background-image: url(background.jpg);
-  font-size: 19px;
+  background-image: url("/images/backpack.png");
+  background-color: #00fd22;
+  transition: linear 2s;
 }
 
 /* --- MAIN TITLE --- */
 
-.Title {
-    border: 2px solid rgb(34, 0, 146);
-    border-radius: 8px;
-    background-color: rgb(98, 122, 155);
-    font-size: 21px;
-    text-align: center;
-    width: 75%;
-    margin: 10px auto 0;
-    justify-content: center;
-    padding: 10px 10px;
+.pwet {
+  margin: 16px;
+  padding: 16px;
+  border: 2px solid purple;
+  border-radius: 8px;
+  color: purple;
+  background-color: lavender;
+  font-style: italic;
+  text-align: center;
+  transition: linear 1s;
 }
 
-.Title p {
-    font-style: italic;
-    font-size: 17px;
-    color: rgb(230, 210, 220);
-}
-
-h1 {
-    font-family: Cambria;
+.pwet:hover {
+	transform: rotate(-517deg);
+  transition: linear 0.2s;
 }
 
 /* --- SUB TITLE --- */
 
-h2 {
-    border: 2px solid rgb(75, 0, 100);
-    border-radius: 8px;
-    background-color: rgb(130, 8, 170);
-    text-align: center;
-    font-size: 25px;
-    margin: 10px auto 0;
-    justify-content: center;
-    width: 200px;
-}
-
-#subclass {
-    border: 2px solid rgba(35, 0, 145, 0.55);
-    border-radius: 8px;
-    background-color: rgba(100, 125, 155, 0.55);
-    margin: 10px auto 0;
-    padding: 10px;
+#titlebox {
+  border: 2px solid #6e1da3;
+  border-radius: 8px;
+  background-color: #9b1df0;
+  text-align: center;
+  padding: 16px;
+  width: 10%;
+  height: 10%;
+  transition: linear 1s;
 }
 
 /* --- ITEM LIST --- */
 
-h3 {
-    text-align: center;
-    text-decoration: underline;
+#img-archi {
+ border-radius: 16px; 
 }
 
-.ShopItem {
-    border: 2px solid rgb(80, 0, 100);
-    border-radius: 8px;
-    background-color: rgb(170, 70, 200);
-    font-size: 17px;
-    margin-left: 10px;
-    width: auto;
+.boop {
+  margin: 16px;
+  border: 2px solid purple;
+  border-radius: 8px;
+  background-color: #fd00db;
+  padding: 12px;
+  transition: linear 1s;
 }
 
-#Item {
-    border: 2px solid rgb(40, 25, 150);
-    border-radius: 8px;
-    background-color: rgb(25, 85, 155);
-    color: rgb(230, 210, 220);
-    margin: 10px 10px 5px 5px;
-    width: auto;
-    transition: 0.4s;
+.boop p {
+   font-style: italic;
 }
 
-#ShopInfo {
-    text-align: center;
+h1 {
+  text-align: center;
 }
 
-/* --- QNA --- */
+/* --- FAQ --- */
 
-.QNA details summary {
-    border: 2px solid rgb(69, 25, 150);
-    border-radius: 8px;
-    background-color: rgb(75, 25, 155);
-    font-weight: bold;
-    font-size: 20px;
-    color: rgb(230, 210, 220);
-    margin: 10px 10px 5px 5px;
-    padding: 4px;
-    transition: 0.4s;
+#ring-img {
+	width: 60px;
+  height: 60px;
 }
 
-.QNA details p {
-    color: rgb(23, 23, 23);
-    margin: 10px 10px 5px 5px;
-    padding: 4px;
+#question {
+	border: 2px solid purple;
+  border-radius: 8px;
+  background-color: darkred;
+  color: black;
+  width: 30%;
+  opacity: 65%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+#answer {
+	font-family: "Arial";
+  color: red;
+}
+
+#answer:hover {
+  font-family: "Papyrus";
+  color: #00fd22;
+  font-size: 50px;
+  font-weight: bold;
 }
 
 /* --- FORM --- */
 
-.Order form input {
-    border: 2px solid rgb(40, 25, 150);
-    border-radius: 8px;
-    background-color: rgba(230, 210, 220, 0.95);
-    margin: 5px;
-    padding: 4px;
-    transition: 0.4s;
+.orderbox {
+  border: 2px solid purple;
+  border-radius: 8px;
+  background-color: #fd00db;
+  margin: 16px;
+  padding: 16px;
 }
 
-.Order form input[type=checkbox] {
-    accent-color: rgb(170, 70, 200);
+#jesuisunchampdetexte, #jesuisunchampdedate {
+  border-radius:4px;
+  color: gray;
 }
 
-#textbox {
-    width: 300px;
+input[type="checkbox"] {
+  border-radius:4px;
+  accent-color: red;
+  border: 2px solid purple;
 }
 
-.Order button {
-    border: 2px solid rgb(40, 25, 150);
-    border-radius: 8px;
-    background-color: rgba(230, 210, 220, 0.95);
-    margin: 5px;
-    padding: 4px;
-    transition: 0.4s;
+#jesuisunchampdetexte:hover, #jesuisunchampdedate:hover {
+  border-radius:80px;
+  color: yellow;
 }
 
 /* --- ANIMATION --- */
 
-#Item:hover, .QNA details summary:hover {
-    border: 2px solid rgb(40, 25, 150);
-    background-color: rgb(17, 63, 115);
-    transition: 0.4s;
+body:hover {
+  background-image: url("/images/gemstone.png");
+  background-color: #fd00db;
+  transform: rotate(513deg);
+  transition: linear 2.4s;
 }
 
-.Order form input:hover, .Order button:hover {
-    background-color: rgba(205, 193, 199, 0.80);
-    transition: 0.4s;
+#titlebox:hover {
+  background-color: yellow;
+  transform: rotate(827deg);
+  transition: linear 1.7s;
+}
+
+.boop:hover {
+  background-image: url("/images/backpack.png");
+  background-color: #00fd22;
+  transform: rotate(412deg);
+  transition: linear 1.6s;
+}
+
+#question:hover  { 
+  transform: rotate(682deg);
+  transition: linear 0.7s;
 }
