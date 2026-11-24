@@ -779,14 +779,15 @@ export default {
                     label: "ex8.check4",
                     test: (doc, { $ }) => {
                         const div = $("div");
-                        return !!div && centeredIn(div);
+                        return !!div && div.children.length > 0 && [...div.children].every((child) => centeredIn(child, div));
                     }
                 },
                 {
                     label: "ex8.check5",
+                    bonus: true,
                     test: (doc, { $ }) => {
                         const div = $("div");
-                        return !!div && div.children.length > 0 && [...div.children].every((child) => centeredIn(child, div));
+                        return !!div && centeredIn(div, div.parentElement, 20);
                     }
                 }
             ],
@@ -1236,7 +1237,7 @@ export default {
                 },
                 {
                     label: "ex13.check3",
-                    test: (doc) => orderFields(doc, "input[type='checkbox' i]").some((input) => captionOf(input) === "i agree to everything")
+                    test: (doc) => orderFields(doc, "input[type='checkbox' i]").some((input) => captionOf(input) === "i agree with everything")
                 },
                 {
                     label: "ex13.check4",

@@ -231,8 +231,8 @@
         "check1": "Add a border to the div",
         "check2": "Add a space between the borders of the div and the elements inside the div",
         "check3": "The width of the div is smaller than 250px but bigger than 150px",
-        "check4": "Center the div",
-        "check5": "The elements inside the div are centered",
+        "check4": "The elements inside the div are centered",
+        "check5": "Center the div",
         "lesson": " "
     },
     "ex9": {
@@ -379,7 +379,7 @@
         "check0": "There is a text field for the name along with the caption “Name”",
         "check1": "There is a text field for the email along with the caption “Email”",
         "check2": "There is a date field for the delivery date along with the caption “Delivery date”",
-        "check3": "There is a check box along with the caption “I agree to everything”",
+        "check3": "There is a check box along with the caption “I agree with everything”",
         "check4": "There is a “confirm” button",
         "check5": "Everything is inside a form",
         "lesson": " "

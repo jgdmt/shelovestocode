@@ -231,8 +231,8 @@
         "check1": "Voeg een rand toe aan de div",
         "check2": "Voeg ruimte toe tussen de randen van de div en de elementen erin",
         "check3": "De div is smaller dan 250px maar breder dan 150px",
-        "check4": "Centreer de div",
-        "check5": "De elementen in de div zijn gecentreerd",
+        "check4": "De elementen in de div zijn gecentreerd",
+        "check5": "Centreer de div",
         "lesson": " "
     },
     "ex9": {
@@ -379,7 +379,7 @@
         "check0": "Er is een tekstveld voor de naam met het bijschrift “Name”",
         "check1": "Er is een tekstveld voor het e-mailadres met het bijschrift “Email”",
         "check2": "Er is een datumveld voor de leveringsdatum met het bijschrift “Delivery date”",
-        "check3": "Er is een selectievakje met het bijschrift “I agree to everything”",
+        "check3": "Er is een selectievakje met het bijschrift “I agree with everything”",
         "check4": "Er is een knop “confirm”",
         "check5": "Alles staat in een formulier",
         "lesson": " "

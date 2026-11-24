@@ -231,8 +231,8 @@
         "check1": "Ajoute des bordures à la section",
         "check2": "Ajoute un espace entre les bords de la section et les éléments à l'intérieur de la section",
         "check3": "La section a une largeur entre 150px et 250px",
-        "check4": "Centre la section",
-        "check5": "Les éléments dans la section sont centrés",
+        "check4": "Les éléments dans la section sont centrés",
+        "check5": "Centre la section",
         "lesson": " "
     },
     "ex9": {
@@ -379,7 +379,7 @@
         "check0": "Il y a un champ texte pour le nom ainsi qu'une légende “Name”",
         "check1": "Il y a un champ texte pour l'email ainsi qu'une légende “Email”",
         "check2": "Il y a un champ date pour la date de livraison ainsi qu'une légende “Delivery date”",
-        "check3": "Il y a une case à cocher ainsi qu'une légende “I agree to everything”",
+        "check3": "Il y a une case à cocher ainsi qu'une légende “I agree with everything”",
         "check4": "Il y a un bouton “confirm”",
         "check5": "Tout est placé dans un formulaire",
         "lesson": " "
