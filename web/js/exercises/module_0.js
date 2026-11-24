@@ -428,7 +428,7 @@ export default {
                         div.forEach(element => {
                             const children = element.children;
 
-                            if (children.length === 3 && children[0].tagName === 'H2' && norm(children[0].textContent) === "our items" && children[1].tagName === 'DIV') {
+                            if (children.length >= 3 && children[0].tagName === 'H2' && norm(children[0].textContent) === "our items" && children[1].tagName === 'DIV') {
                                 const newSectionChildren = children[1].children
                                 const newSectionChildren2 = children[2].children
                                 if ((newSectionChildren.length === 2 && newSectionChildren[0].tagName === 'H3' && newSectionChildren[1].tagName === 'P') &&
